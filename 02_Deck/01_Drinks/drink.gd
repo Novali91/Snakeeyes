@@ -1,4 +1,5 @@
 extends Node
+class_name Drink
 
 @export var poison: int
 @export var charm: int
