@@ -1,35 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://dc4hppxlacdo3"]
+[gd_scene format=3 uid="uid://dc4hppxlacdo3"]
 
-[ext_resource type="Script" path="res://root.gd" id="1_30twh"]
+[ext_resource type="Script" uid="uid://bdte5xmxk3nbi" path="res://root.gd" id="1_30twh"]
 
-[node name="Root" type="Node2D"]
+[node name="Root" type="Node2D" unique_id=1307668486]
 script = ExtResource("1_30twh")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1807803400]
 offset = Vector2(575, 325)
 
-[node name="Table" type="Node2D" parent="."]
+[node name="Table" type="Node2D" parent="." unique_id=1595218601]
 
-[node name="ColorRect" type="ColorRect" parent="Table"]
+[node name="ColorRect" type="ColorRect" parent="Table" unique_id=1408031698]
 offset_left = 429.0
 offset_top = 192.0
 offset_right = 752.0
 offset_bottom = 432.0
 
-[node name="Deck" type="Node2D" parent="."]
+[node name="Deck" type="Node2D" parent="." unique_id=1130535901]
 position = Vector2(-575, 0)
 
-[node name="ColorRect" type="ColorRect" parent="Deck"]
+[node name="ColorRect" type="ColorRect" parent="Deck" unique_id=49018719]
 offset_left = -154.0
 offset_top = 164.0
 offset_right = 169.0
 offset_bottom = 404.0
 color = Color(1, 0, 1, 1)
 
-[node name="Store" type="Node2D" parent="."]
+[node name="Store" type="Node2D" parent="." unique_id=1407647997]
 position = Vector2(575, 0)
 
-[node name="ColorRect" type="ColorRect" parent="Store"]
+[node name="ColorRect" type="ColorRect" parent="Store" unique_id=1614660993]
 offset_left = 935.0
 offset_top = 185.0
 offset_right = 1258.0
