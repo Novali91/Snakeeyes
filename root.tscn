@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc4hppxlacdo3"]
+
+[ext_resource type="Script" path="res://root.gd" id="1_30twh"]
+
+[node name="Root" type="Node2D"]
+script = ExtResource("1_30twh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(575, 325)
+
+[node name="Table" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Table"]
+offset_left = 429.0
+offset_top = 192.0
+offset_right = 752.0
+offset_bottom = 432.0
+
+[node name="Deck" type="Node2D" parent="."]
+position = Vector2(-575, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Deck"]
+offset_left = -154.0
+offset_top = 164.0
+offset_right = 169.0
+offset_bottom = 404.0
+color = Color(1, 0, 1, 1)
+
+[node name="Store" type="Node2D" parent="."]
+position = Vector2(575, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Store"]
+offset_left = 935.0
+offset_top = 185.0
+offset_right = 1258.0
+offset_bottom = 425.0
+color = Color(0, 0.718899, 0.6619, 1)
