@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dxlsg2la1r508"]
+
+[node name="TestCup" type="Node2D" unique_id=363452379]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1903742827]
+offset_right = 178.0
+offset_bottom = 313.0
+color = Color(0.52363074, 0.9865987, 7.70092e-07, 1)

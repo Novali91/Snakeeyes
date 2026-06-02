@@ -3,6 +3,7 @@ extends Node2D
 @onready var screens: Array[Node2D] = [$Deck,$Table,$Store]
 var screenId = 1
 @onready var camera = $Camera2D
+var SCREEN_SIZE #Make this global later
 
 var prevScreenId = 1
 var transitionTotalTime = 0.75
@@ -10,7 +11,8 @@ var transitionTime = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	SCREEN_SIZE = camera.get_viewport_rect().size
+	$Table.slide_cups([Drink.new(),Drink.new(),Drink.new(),Drink.new()] as Array[Drink])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
