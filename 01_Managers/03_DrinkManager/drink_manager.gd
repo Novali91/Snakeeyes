@@ -24,7 +24,7 @@ func draw(amt: int) -> Array[DrinkResource]:
 	# Maximum handsize logic
 	if amt > (MAX_HAND_SIZE - cur_hand_amt):
 		amt = MAX_HAND_SIZE - cur_hand_amt
-	# End of maximum handsize logic
+	
 	var new_array: Array[DrinkResource]
 	var temp_drink: DrinkResource
 	for i in range(amt):
