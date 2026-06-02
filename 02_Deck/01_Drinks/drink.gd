@@ -1,16 +1,13 @@
 extends Node
 class_name Drink
 
-@export var drink_name: String
-# Drink stats
-@export var poison: int
-@export var charm: int
-@export var strength: int
+## This drink script is probably what we instantiate a lot of
+# - It has an attached drink that holds the stats
+# - It will hold all special abilities so call special ability on the drink script when it is drank
 
-# For tooltip
-@export var description: String = ""
-@export var flavour_text: String
+var attached_drink: DrinkResource
 
-# Stub function: called when drinking
+# Each attached_drink will have its own number for a special ability and we will-
+# -use a switch statement maybe
 func special_effect() -> void:
 	pass

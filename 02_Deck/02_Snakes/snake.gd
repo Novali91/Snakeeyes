@@ -2,7 +2,7 @@ extends Node
 class_name Snake
 
 @export var snake_name: String
-@export var attached_drink: Drink
+@export var attached_drink: DrinkResource
 
 # Shop cost
 @export var cost: int

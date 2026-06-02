@@ -3,11 +3,12 @@ extends Node
 ## Right now, this script's responsibilities are managing the snake_deck and the drink_drawpile
 # How to use this code rn:
 # When you need to draw a certain amount, call draw(int)
+# Something must call empty_drink() when a drink is drank!
 # Something must call new_turn at the start of each turn/end of each turn
 # When adding or removing snakes, call add_snake/remove_snake
 
 @export var snake_deck: Array[Snake]
-@export var drink_drawpile: Array[Drink]
+@export var drink_drawpile: Array[DrinkResource]
 
 # Not sure if we're doing a maximum handsize, but if we are, this is the logic:
 const MAX_HAND_SIZE: int = 12
@@ -19,13 +20,13 @@ func _init() -> void:
 
 ## Draw function: Currently if drawing too much for drawpile, it will refill drawpile
 ## and finish drawing in the same step
-func draw(amt: int) -> Array[Drink]:
+func draw(amt: int) -> Array[DrinkResource]:
 	# Maximum handsize logic
 	if amt > (MAX_HAND_SIZE - cur_hand_amt):
 		amt = MAX_HAND_SIZE - cur_hand_amt
 	# End of maximum handsize logic
-	var new_array: Array[Drink]
-	var temp_drink: Drink
+	var new_array: Array[DrinkResource]
+	var temp_drink: DrinkResource
 	for i in range(amt):
 		temp_drink = drink_drawpile.pop_back()
 		# If the drawpile is empty:
@@ -51,7 +52,12 @@ func reshuffle_drawpile() -> void:
 	drink_drawpile.shuffle()
 	pass
 
-## Presumably called whenever you get a new playing turn/when you press end turn maybe
+## Presumably called whenever you a drink gets drank!
+func empty_drink() -> void:
+	cur_hand_amt -= 1
+	pass
+
+## Presumably called at the start of a new turn/at some upkeep
 func new_turn() -> void:
 	cur_hand_amt = 0
 	pass
