@@ -4,6 +4,7 @@ extends Node
 # How to use this code rn:
 # When you need to draw a certain amount, call draw(int)
 # Something must call new_turn at the start of each turn/end of each turn
+# When adding or removing snakes, call add_snake/remove_snake
 
 @export var snake_deck: Array[Snake]
 @export var drink_drawpile: Array[Drink]
@@ -30,7 +31,8 @@ func draw(amt: int) -> Array[Drink]:
 		# If the drawpile is empty:
 		if temp_drink == null:
 			reshuffle_drawpile()
-			# Easy fix, but potential issue is if after reshuffling, drawpile is still empty
+			# Easy fix, but potential issue is if even after reshuffling, drawpile is still empty
+			
 			# Also rn this just reshuffles and then gives it all at once, not like slay the spire-
 			# -where if draw pile has 3 and you draw 5, you get 3 cards, then reshuffle animation-
 			# -plays and then you draw the final 2. If we wanted that, maybe we call reshuffle-
