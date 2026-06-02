@@ -5,12 +5,14 @@ class_name Drink
 # - It has an attached drink that holds the stats
 # - It will hold all special abilities so call special ability on the drink script when it is drank
 
+## Each drink must have set_texture() called at some point before loaded in
+
 var attached_drink: DrinkResource
 
 @onready var drink_sprite: Sprite2D = $DrinkSprite
 
-# Each attached_drink will have its own number for a special ability and we will-
-# -use a switch statement maybe
+## Each attached_drink will have its own number for a special ability and we will-
+## -use a switch statement maybe
 func special_effect() -> void:
 	match attached_drink.special_ability:
 		# No ability
