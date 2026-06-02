@@ -5,7 +5,7 @@ class_name Drink
 # Drink stats
 @export var poison: int
 @export var charm: int
-@export var rep: int
+@export var strength: int
 
 # For tooltip
 @export var description: String = ""
