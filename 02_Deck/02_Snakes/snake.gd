@@ -1,12 +1,16 @@
-extends Node
+extends Node2D
 class_name Snake
 
-@export var snake_name: String
-@export var attached_drink: DrinkResource
+## How to use: attached_snake stores the snake stats
+# - attached_snake holds attached_drink which holds all of the drink effects
+# - Before snakes are visible, we need to run set_texture (idk if we want it in _ready() or not)
 
-# Shop cost
-@export var cost: int
+@export var attached_snake: SnakeResource
 
-# For tooltip:
-@export var description: String
-@export var flavour_text: String
+# Reference to our sprite so that we can set the texture
+@onready var snake_sprite: Sprite2D = $SnakeSprite
+
+
+func set_texture() -> void:
+	snake_sprite.texture = attached_snake.snake_sprite
+	pass

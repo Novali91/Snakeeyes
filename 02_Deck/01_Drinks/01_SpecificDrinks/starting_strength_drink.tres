@@ -6,6 +6,6 @@
 script = ExtResource("1_610f5")
 drink_name = "Red Viper Venom"
 poison = 1
-strength = 1
+strength = 2
 flavour_text = "The vicious Red Viper doesn't give its prey much time before it strikes."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

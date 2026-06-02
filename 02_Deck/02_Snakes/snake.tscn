@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bxhfwwxj38y6n"]
+
+[ext_resource type="Script" uid="uid://cxsjn4i6ih5d2" path="res://02_Deck/02_Snakes/snake.gd" id="1_eehjs"]
+
+[node name="Snake" type="Node" unique_id=1163196607]
+script = ExtResource("1_eehjs")
+metadata/_custom_type_script = "uid://cxsjn4i6ih5d2"
+
+[node name="SnakeSprite" type="Sprite2D" parent="." unique_id=1574212652]
