@@ -1,6 +1,7 @@
 extends Node
 class_name Drink
 
+@export var drink_name: String
 # Drink stats
 @export var poison: int
 @export var charm: int
