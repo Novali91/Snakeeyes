@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://yt1ucroojbxf"]
+
+[ext_resource type="Script" uid="uid://dx0ujiglfqi5e" path="res://03_Top/01_StateMachine/top_state_machine.gd" id="1_brpme"]
+[ext_resource type="Script" uid="uid://c2nf15vbmvxwo" path="res://03_Top/02_States/setup_turn_state.gd" id="2_n4aau"]
+[ext_resource type="Script" uid="uid://eas41130dh2s" path="res://03_Top/02_States/play_state.gd" id="3_j2eob"]
+[ext_resource type="Script" uid="uid://blkwfhfovyhap" path="res://03_Top/02_States/roll_dice_state.gd" id="4_r3ws3"]
+[ext_resource type="Script" uid="uid://buaegvoisv87c" path="res://03_Top/02_States/compare_strength_state.gd" id="5_utsaj"]
+[ext_resource type="Script" uid="uid://dtbmyb7ae6cj6" path="res://03_Top/02_States/shop_state.gd" id="6_0txsc"]
+[ext_resource type="Script" uid="uid://qamd3pd3uan8" path="res://03_Top/02_States/pass_out_state.gd" id="7_nvmhh"]
+
+[node name="TopStateMachine" type="Node" unique_id=1340658513]
+script = ExtResource("1_brpme")
+
+[node name="SetupTurnState" type="Node" parent="." unique_id=666253899]
+script = ExtResource("2_n4aau")
+
+[node name="PlayState" type="Node" parent="." unique_id=2000201399]
+script = ExtResource("3_j2eob")
+
+[node name="RollDiceState" type="Node" parent="." unique_id=235771181]
+script = ExtResource("4_r3ws3")
+
+[node name="CompareStrengthState" type="Node" parent="." unique_id=2032146248]
+script = ExtResource("5_utsaj")
+
+[node name="ShopState" type="Node" parent="." unique_id=424455940]
+script = ExtResource("6_0txsc")
+
+[node name="PassOutState" type="Node" parent="." unique_id=377134343]
+script = ExtResource("7_nvmhh")
