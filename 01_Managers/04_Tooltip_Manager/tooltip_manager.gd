@@ -12,15 +12,12 @@ class_name TooltipManager
 
 ## Does this call physics_tick in all of its children?
 
-var deck_items: Array[DeckItem]
-
-var cur_tooltip_visible: DeckItem = null
+var cur_hovered: DeckItem = null
 
 ## Note: When ported to each diff screen, diff logic?
 
 ## Idea: Whoever adds items to this john's children needs to call add_item
 func add_item(new_item: DeckItem) -> void:
-	deck_items.push_back(new_item)
 	add_child(new_item)
 	
 	new_item.hovered.connect(child_hovered)
@@ -29,9 +26,7 @@ func add_item(new_item: DeckItem) -> void:
 	pass
 
 func remove_item(item: DeckItem) -> void:
-	for i in range(deck_items.size()):
-		#if deck_items[i].smth = item.smth How to do this? UID?
-		pass
+	# Probably going to kill the child?
 	pass
 
 ## How are ties broken? Can I see who is higher up in child tree?
