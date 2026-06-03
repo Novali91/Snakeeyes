@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cn4krwxb4nnm4" path="res://01_Managers/04_HandManager/hand_manager.gd" id="1_qdqya"]
 [ext_resource type="Script" uid="uid://s2kykbe77lg" path="res://01_Managers/04_HandManager/slide_manager.gd" id="2_kvpf8"]
-[ext_resource type="Script" uid="uid://6hd2b0wx5v7f" path="res://01_Managers/04_Tooltip_Manager/tooltip_manager.gd" id="3_kdvs2"]
+[ext_resource type="Script" uid="uid://6hd2b0wx5v7f" path="res://01_Managers/05_Tooltip_Manager/tooltip_manager.gd" id="3_kdvs2"]
 
 [node name="HandManager" type="Node2D" unique_id=1877513829]
 script = ExtResource("1_qdqya")

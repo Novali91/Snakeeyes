@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://eg5ukadcklbv"]
+
+[ext_resource type="Script" uid="uid://40gxy6hwhljv" path="res://01_Managers/05_Tooltip_Manager/tooltip.gd" id="1_vrqg4"]
+
+[sub_resource type="Gradient" id="Gradient_vrqg4"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o8cfu"]
+gradient = SubResource("Gradient_vrqg4")
+height = 128
+
+[node name="Tooltip" type="Node2D" unique_id=1158809468]
+script = ExtResource("1_vrqg4")
+metadata/_custom_type_script = "uid://40gxy6hwhljv"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=236172529]
+position = Vector2(32, 64)
+texture = SubResource("GradientTexture2D_o8cfu")
+
+[node name="Name" type="Label" parent="." unique_id=116263010]
+offset_right = 64.0
+offset_bottom = 23.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="." unique_id=1310774327]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="FlavourText" type="Label" parent="." unique_id=1793526735]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Poison" type="Label" parent="." unique_id=666007147]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Strength" type="Label" parent="." unique_id=2072668975]
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 43.0
+
+[node name="Charm" type="Label" parent="." unique_id=1096266287]
+offset_left = 4.0
+offset_top = 67.0
+offset_right = 44.0
+offset_bottom = 90.0

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://du02chqm6gmue"]
 
 [ext_resource type="Script" uid="uid://bhe1nkq85a3o4" path="res://09_Test/joeytest.gd" id="1_vk4i5"]
-[ext_resource type="Script" uid="uid://6hd2b0wx5v7f" path="res://01_Managers/04_Tooltip_Manager/tooltip_manager.gd" id="2_f87y4"]
+[ext_resource type="Script" uid="uid://6hd2b0wx5v7f" path="res://01_Managers/05_Tooltip_Manager/tooltip_manager.gd" id="2_f87y4"]
 
 [node name="Joeytest" type="Node2D" unique_id=350037442]
 script = ExtResource("1_vk4i5")

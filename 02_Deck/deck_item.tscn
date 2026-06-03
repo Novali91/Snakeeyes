@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://wn3o741u2kjl"]
 
 [ext_resource type="Script" uid="uid://4lo1g706tbqt" path="res://02_Deck/deck_item.gd" id="1_nwthn"]
-[ext_resource type="Script" uid="uid://40gxy6hwhljv" path="res://01_Managers/04_Tooltip_Manager/tooltip.gd" id="2_1bulv"]
+[ext_resource type="Script" uid="uid://40gxy6hwhljv" path="res://01_Managers/05_Tooltip_Manager/tooltip.gd" id="2_1bulv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bulv"]
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bxhfwwxj38y6n"]
 
 [ext_resource type="Script" uid="uid://cxsjn4i6ih5d2" path="res://02_Deck/02_Snakes/snake.gd" id="1_eehjs"]
-[ext_resource type="Script" uid="uid://40gxy6hwhljv" path="res://01_Managers/04_Tooltip_Manager/tooltip.gd" id="2_su81r"]
+[ext_resource type="Script" uid="uid://40gxy6hwhljv" path="res://01_Managers/05_Tooltip_Manager/tooltip.gd" id="2_su81r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m33or"]
 
