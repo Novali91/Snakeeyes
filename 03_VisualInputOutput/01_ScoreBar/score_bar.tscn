@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://co3yvks1wvd03"]
+
+[ext_resource type="Script" uid="uid://dhidk03elcsg1" path="res://03_VisualInputOutput/01_ScoreBar/score_bar.gd" id="1_frerc"]
+
+[node name="HealthBar" type="Node2D" unique_id=958898566]
+script = ExtResource("1_frerc")
+metadata/_custom_type_script = "uid://dhidk03elcsg1"
+
+[node name="Label" type="Label" parent="." unique_id=1081740439]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Health: "
+
+[node name="Input" type="Label" parent="." unique_id=1917417763]
+offset_left = 64.0
+offset_right = 125.0
+offset_bottom = 23.0
+text = "0"

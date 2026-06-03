@@ -1,6 +1,9 @@
 class_name RollDiceState
 extends TopState
 
+func setup() -> void:
+	pass
+
 func enter() -> void:
 	pass
 

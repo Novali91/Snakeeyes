@@ -3,31 +3,115 @@
 [ext_resource type="Script" uid="uid://dx0ujiglfqi5e" path="res://01_Managers/01_StateManager/top_state_machine.gd" id="1_brpme"]
 [ext_resource type="Script" uid="uid://c2nf15vbmvxwo" path="res://01_Managers/01_StateManager/01_States/01_SetupTurn/setup_turn_state.gd" id="2_n4aau"]
 [ext_resource type="Script" uid="uid://eas41130dh2s" path="res://01_Managers/01_StateManager/01_States/02_Play/play_state.gd" id="3_j2eob"]
+[ext_resource type="Script" uid="uid://cnqf2nskskbax" path="res://01_Managers/01_StateManager/01_States/02_Play/ability_helper.gd" id="4_mg5ld"]
 [ext_resource type="Script" uid="uid://blkwfhfovyhap" path="res://01_Managers/01_StateManager/01_States/03_RollDice/roll_dice_state.gd" id="4_r3ws3"]
 [ext_resource type="Script" uid="uid://buaegvoisv87c" path="res://01_Managers/01_StateManager/01_States/04_CompareStrength/compare_strength_state.gd" id="5_utsaj"]
 [ext_resource type="Script" uid="uid://dtbmyb7ae6cj6" path="res://01_Managers/01_StateManager/01_States/05_Shop/shop_state.gd" id="6_0txsc"]
 [ext_resource type="Script" uid="uid://qamd3pd3uan8" path="res://01_Managers/01_StateManager/01_States/07_PassOut/pass_out_state.gd" id="7_nvmhh"]
+[ext_resource type="PackedScene" uid="uid://co3yvks1wvd03" path="res://03_VisualInputOutput/01_ScoreBar/score_bar.tscn" id="8_1tnha"]
+[ext_resource type="Script" uid="uid://8n6gglpdm607" path="res://01_Managers/01_StateManager/01_States/06_EndTurn/end_turn_state.gd" id="8_8sj7b"]
+[ext_resource type="PackedScene" uid="uid://5odvimgwfuy1" path="res://03_VisualInputOutput/02_CharmOverlay/charm_overlay.tscn" id="9_tn0ij"]
+[ext_resource type="Script" uid="uid://b48nujih7nbem" path="res://01_Managers/01_StateManager/02_GameStats/game_stats.gd" id="10_8sj7b"]
+[ext_resource type="PackedScene" uid="uid://xs65s7uu2k0r" path="res://03_VisualInputOutput/04_PoisonBar/poison_bar.tscn" id="10_v5tm5"]
+[ext_resource type="PackedScene" uid="uid://b4th8xwlf86ht" path="res://03_VisualInputOutput/05_PlayerStrength'/player_strength.tscn" id="11_4aa5t"]
+[ext_resource type="PackedScene" uid="uid://cemkqlju26qyg" path="res://03_VisualInputOutput/06_AntidoteCount/antidote_count.tscn" id="12_mg5ld"]
+[ext_resource type="PackedScene" uid="uid://d35o5u7su4r12" path="res://03_VisualInputOutput/07_EndTurnButton/end_turn_button.tscn" id="13_8sj7b"]
+[ext_resource type="PackedScene" uid="uid://2twxyn8p5xxf" path="res://03_VisualInputOutput/08_ExitShopButton/exit_shop_button.tscn" id="14_sa73t"]
+[ext_resource type="PackedScene" uid="uid://cbygupp4jpnp6" path="res://01_Managers/06_CameraManager/camera_manager.tscn" id="15_v5tm5"]
 
-[node name="TopStateMachine" type="Node" unique_id=1340658513]
+[node name="TopStateMachine" type="Node" unique_id=741613550]
 script = ExtResource("1_brpme")
+metadata/_custom_type_script = "uid://dx0ujiglfqi5e"
 
-[node name="SetupTurnState" type="Node" parent="." unique_id=666253899]
+[node name="States" type="Node" parent="." unique_id=868300327]
+
+[node name="SetupTurnState" type="Node" parent="States" unique_id=314075310]
 script = ExtResource("2_n4aau")
+metadata/_custom_type_script = "uid://c2nf15vbmvxwo"
 
-[node name="PlayState" type="Node" parent="." unique_id=2000201399]
+[node name="PlayState" type="Node" parent="States" unique_id=109602798]
 script = ExtResource("3_j2eob")
+metadata/_custom_type_script = "uid://eas41130dh2s"
 
-[node name="RollDiceState" type="Node" parent="." unique_id=235771181]
+[node name="AbilityHelper" type="Node" parent="States/PlayState" unique_id=626357996]
+script = ExtResource("4_mg5ld")
+metadata/_custom_type_script = "uid://cnqf2nskskbax"
+
+[node name="RollDiceState" type="Node" parent="States" unique_id=1250067155]
 script = ExtResource("4_r3ws3")
+metadata/_custom_type_script = "uid://blkwfhfovyhap"
 
-[node name="CompareStrengthState" type="Node" parent="." unique_id=2032146248]
+[node name="CompareStrengthState" type="Node" parent="States" unique_id=1513698554]
 script = ExtResource("5_utsaj")
+metadata/_custom_type_script = "uid://buaegvoisv87c"
 
-[node name="ShopState" type="Node" parent="." unique_id=424455940]
+[node name="ShopState" type="Node" parent="States" unique_id=1364195686]
 script = ExtResource("6_0txsc")
+metadata/_custom_type_script = "uid://dtbmyb7ae6cj6"
 
-[node name="EndTurnState" type="Node" parent="." unique_id=1228898673]
-script = ExtResource("6_0txsc")
+[node name="EndTurnState" type="Node" parent="States" unique_id=1885763960]
+script = ExtResource("8_8sj7b")
+metadata/_custom_type_script = "uid://8n6gglpdm607"
 
-[node name="PassOutState" type="Node" parent="." unique_id=377134343]
+[node name="PassOutState" type="Node" parent="States" unique_id=1618980514]
 script = ExtResource("7_nvmhh")
+metadata/_custom_type_script = "uid://qamd3pd3uan8"
+
+[node name="GameStats" type="Node" parent="." unique_id=539309303]
+script = ExtResource("10_8sj7b")
+metadata/_custom_type_script = "uid://b48nujih7nbem"
+
+[node name="Background" type="Node2D" parent="." unique_id=707012221]
+
+[node name="LeftScreen" type="ColorRect" parent="Background" unique_id=1833579260]
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.65999997, 0.6713333, 1, 1)
+
+[node name="MidScreen" type="ColorRect" parent="Background" unique_id=1359726243]
+custom_minimum_size = Vector2(1280, 720)
+offset_left = 1280.0
+offset_right = 2560.0
+offset_bottom = 720.0
+color = Color(1, 0.654902, 1, 1)
+
+[node name="RightScreen" type="ColorRect" parent="Background" unique_id=2070989509]
+custom_minimum_size = Vector2(1280, 720)
+offset_left = 2560.0
+offset_right = 3840.0
+offset_bottom = 720.0
+color = Color(1, 0.65, 0.65, 1)
+
+[node name="VisualInputOutput" type="Node2D" parent="." unique_id=881169245]
+
+[node name="ScoreBar" parent="VisualInputOutput" unique_id=292557974 instance=ExtResource("8_1tnha")]
+unique_name_in_owner = true
+position = Vector2(2477, 353)
+
+[node name="CharmOverlay" parent="VisualInputOutput" unique_id=1000792462 instance=ExtResource("9_tn0ij")]
+unique_name_in_owner = true
+position = Vector2(1398, 300)
+
+[node name="PoisonBar" parent="VisualInputOutput" unique_id=674401828 instance=ExtResource("10_v5tm5")]
+unique_name_in_owner = true
+position = Vector2(2349, 352)
+
+[node name="PlayerStrength" parent="VisualInputOutput" unique_id=940870006 instance=ExtResource("11_4aa5t")]
+unique_name_in_owner = true
+position = Vector2(1389, 368)
+
+[node name="AntidoteCount" parent="VisualInputOutput" unique_id=818012555 instance=ExtResource("12_mg5ld")]
+unique_name_in_owner = true
+position = Vector2(2322, 267)
+
+[node name="EndTurnButton" parent="VisualInputOutput" unique_id=462742653 instance=ExtResource("13_8sj7b")]
+unique_name_in_owner = true
+position = Vector2(2436, 497)
+
+[node name="ExitShopButton" parent="VisualInputOutput" unique_id=964548035 instance=ExtResource("14_sa73t")]
+unique_name_in_owner = true
+position = Vector2(3638, 543)
+
+[node name="CameraManager" parent="." unique_id=634864132 instance=ExtResource("15_v5tm5")]
+unique_name_in_owner = true

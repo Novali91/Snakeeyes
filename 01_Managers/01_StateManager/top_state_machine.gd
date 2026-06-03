@@ -12,23 +12,40 @@ enum States {
 
 var current_state: int = States.SETUP_TURN
 
+var camera_locked: bool
+
 @onready var _state_logic_dict: Dictionary[int, TopState] = {
-	States.SETUP_TURN: $SetupTurnState,
-	States.PLAY: $PlayState,
-	States.ROLL_DICE: $RollDiceState,
-	States.COMPARE_STRENGTH: $CompareStrengthState,
-	States.SHOP: $ShopState,
-	States.PASS_OUT: $PassOutState
+	States.SETUP_TURN: $States/SetupTurnState,
+	States.PLAY: $States/PlayState,
+	States.ROLL_DICE: $States/RollDiceState,
+	States.COMPARE_STRENGTH: $States/CompareStrengthState,
+	States.SHOP: $States/ShopState,
+	States.PASS_OUT: $States/PassOutState
 }
 
 @onready var _current_state_logic: TopState = _state_logic_dict[current_state]
 
+@onready var score_bar: ScoreBar = %ScoreBar
+@onready var charm_overlay: CharmOverlay = %CharmOverlay
+@onready var poison_bar: PoisonBar = %PoisonBar
+@onready var player_strength: PlayerStrength = %PlayerStrength
+@onready var antidote_count: AntidoteCount = %AntidoteCount
+@onready var end_turn_button: EndTurnButton = %EndTurnButton
+@onready var exit_shop_button: ExitShopButton = %ExitShopButton
+
+@onready var camera_manager: CameraManager = %CameraManager
+
+
 func _ready() -> void:
 	for state: TopState in _state_logic_dict.values():
-		state.state_machine = self
+		state.sm = self
+		state.setup()
 
 func _process(delta: float) -> void:
 	_current_state_logic.process_tick(delta)
+	
+	if not camera_locked:
+		_check_camera_input()
 
 func _physics_process(delta: float) -> void:
 	_current_state_logic.physics_tick(delta)
@@ -38,3 +55,10 @@ func switch_state(new_state: int) -> void:
 	current_state = new_state
 	_current_state_logic = _state_logic_dict[current_state]
 	_current_state_logic.enter()
+
+func _check_camera_input() -> void:
+	if Input.is_action_just_pressed("left"):
+		camera_manager.swipe_left()
+	
+	elif Input.is_action_just_pressed("right"):
+		camera_manager.swipe_right()

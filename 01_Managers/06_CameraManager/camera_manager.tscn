@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cbygupp4jpnp6"]
+
+[ext_resource type="Script" uid="uid://d30y0q47xsgt0" path="res://01_Managers/06_CameraManager/camera_manager.gd" id="1_5qfpc"]
+
+[node name="CameraManager" type="Node2D" unique_id=1135895677]
+script = ExtResource("1_5qfpc")
+metadata/_custom_type_script = "uid://d30y0q47xsgt0"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=97266164]
+position = Vector2(640, 360)

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cemkqlju26qyg"]
+
+[ext_resource type="Script" uid="uid://dk0r4o7wi2pac" path="res://03_VisualInputOutput/06_AntidoteCount/antidote_count.gd" id="1_70ru4"]
+
+[node name="AntidoteCount" type="Node2D" unique_id=1943998165]
+script = ExtResource("1_70ru4")
+metadata/_custom_type_script = "uid://dk0r4o7wi2pac"
+
+[node name="Label" type="Label" parent="." unique_id=529236534]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Antidotes: "
+
+[node name="Input" type="Label" parent="." unique_id=783952880]
+offset_left = 88.0
+offset_right = 149.0
+offset_bottom = 23.0
+text = "1"

@@ -1,7 +1,10 @@
 class_name TopState
 extends Node
 
-var state_machine: TopStateMachine
+var sm: TopStateMachine
+
+func setup() -> void:
+	pass
 
 func enter() -> void:
 	pass

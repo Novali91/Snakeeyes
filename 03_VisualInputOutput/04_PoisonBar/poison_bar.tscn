@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://xs65s7uu2k0r"]
+
+[ext_resource type="Script" uid="uid://c6wawj3dlldt1" path="res://03_VisualInputOutput/04_PoisonBar/poison_bar.gd" id="1_mq5yv"]
+
+[node name="PoisonBar" type="Node2D" unique_id=1869495971]
+script = ExtResource("1_mq5yv")
+metadata/_custom_type_script = "uid://c6wawj3dlldt1"
+
+[node name="Label" type="Label" parent="." unique_id=73514371]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Poison: "
+
+[node name="Input" type="Label" parent="." unique_id=2011245053]
+offset_left = 64.0
+offset_right = 125.0
+offset_bottom = 23.0
+text = "1"

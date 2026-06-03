@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b4th8xwlf86ht"]
+
+[ext_resource type="Script" uid="uid://blafpy8fea7fb" path="res://03_VisualInputOutput/05_PlayerStrength'/player_strength.gd" id="1_wxbxo"]
+
+[node name="PlayerStrength" type="Node2D" unique_id=1002047189]
+script = ExtResource("1_wxbxo")
+metadata/_custom_type_script = "uid://blafpy8fea7fb"
+
+[node name="Label" type="Label" parent="." unique_id=1620170818]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Player Strength: "
+
+[node name="Input" type="Label" parent="." unique_id=1917306564]
+offset_left = 131.0
+offset_right = 192.0
+offset_bottom = 23.0
+text = "0"

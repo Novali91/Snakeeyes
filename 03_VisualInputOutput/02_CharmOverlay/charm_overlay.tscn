@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://5odvimgwfuy1"]
+
+[ext_resource type="Script" uid="uid://dkn3vaawwn56" path="res://03_VisualInputOutput/02_CharmOverlay/charm_overlay.gd" id="1_sy3cc"]
+
+[node name="CharmOverlay" type="Node2D" unique_id=213505803]
+script = ExtResource("1_sy3cc")
+metadata/_custom_type_script = "uid://dkn3vaawwn56"
+
+[node name="Label" type="Label" parent="." unique_id=1103381657]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Charm:"
+
+[node name="Input" type="Label" parent="." unique_id=443741357]
+offset_left = 64.0
+offset_right = 125.0
+offset_bottom = 23.0
+text = "0"

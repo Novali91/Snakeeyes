@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://d35o5u7su4r12"]
+
+[ext_resource type="Script" uid="uid://dtrgbb83biosd" path="res://03_VisualInputOutput/07_EndTurnButton/end_turn_button.gd" id="1_k3mef"]
+
+[node name="EndTurnButton" type="Node2D" unique_id=1874088731]
+script = ExtResource("1_k3mef")
+metadata/_custom_type_script = "uid://dtrgbb83biosd"
+
+[node name="Button" type="Button" parent="." unique_id=260880145]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "End Turn"

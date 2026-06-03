@@ -1,6 +1,9 @@
 class_name SetupTurnState
 extends TopState
 
+func setup() -> void:
+	pass
+
 func enter() -> void:
 	pass
 
