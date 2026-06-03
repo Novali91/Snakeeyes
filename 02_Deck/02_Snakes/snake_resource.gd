@@ -8,3 +8,4 @@ class_name SnakeResource
 
 # Shop cost
 @export var cost: int
+@export var rarity: String

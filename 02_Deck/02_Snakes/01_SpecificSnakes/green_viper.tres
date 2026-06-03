@@ -7,4 +7,5 @@
 script = ExtResource("1_3o2gv")
 name = "Green Viper"
 attached_drink = ExtResource("1_7eleh")
+rarity = "Starter"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

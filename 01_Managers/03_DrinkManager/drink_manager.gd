@@ -7,7 +7,9 @@ extends Node
 # Something must call new_turn at the start of each turn/end of each turn
 # When adding or removing snakes, call add_snake/remove_snake
 
-@export var snake_deck: Array[Snake]
+## Todo: Add more stuff in init (like creating our first snakedeck/etc)
+
+@export var snake_deck: Array[SnakeResource]
 @export var drink_drawpile: Array[DrinkResource]
 
 # Not sure if we're doing a maximum handsize, but if we are, this is the logic:
@@ -71,6 +73,6 @@ func remove_snake(name: String) -> void:
 	pass
 
 ## Idk where we want the animation to be placed (if we have one?)
-func add_snake(new_snake: Snake) -> void:
+func add_snake(new_snake: SnakeResource) -> void:
 	snake_deck.push_back(new_snake)
 	pass
