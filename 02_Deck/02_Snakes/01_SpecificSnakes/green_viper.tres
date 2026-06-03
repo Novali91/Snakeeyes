@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SnakeResource" format=3 uid="uid://dl4w56do5t3nn"]
+
+[ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_3o2gv"]
+[ext_resource type="Resource" uid="uid://daf5iu2vifaq6" path="res://02_Deck/01_Drinks/01_SpecificDrinks/starting_charm_drink.tres" id="1_7eleh"]
+
+[resource]
+script = ExtResource("1_3o2gv")
+name = "Green Viper"
+attached_drink = ExtResource("1_7eleh")
+rarity = "Starter"
+metadata/_custom_type_script = "uid://6sj3dk6frj4"

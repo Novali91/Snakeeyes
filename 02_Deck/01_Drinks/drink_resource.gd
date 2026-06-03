@@ -12,6 +12,7 @@ extends Resource
 @export var charm: int
 @export var strength: int
 @export var special_ability: int
+@export var cost: int
 
 # For tooltip
 @export var description: String = ""

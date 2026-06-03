@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dc4hppxlacdo3"]
 
 [ext_resource type="Script" uid="uid://bdte5xmxk3nbi" path="res://root.gd" id="1_30twh"]
-[ext_resource type="Script" uid="uid://cn4krwxb4nnm4" path="res://table.gd" id="2_pyidc"]
+[ext_resource type="Script" uid="uid://cn4krwxb4nnm4" path="res://01_Managers/04_HandManager/hand_manager.gd" id="2_pyidc"]
 
 [node name="Root" type="Node2D" unique_id=1307668486]
 script = ExtResource("1_30twh")

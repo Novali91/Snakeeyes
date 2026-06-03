@@ -1,11 +1,21 @@
 [gd_scene format=3 uid="uid://cagc2qc6xk32s"]
 
 [ext_resource type="Script" uid="uid://d0vxlqxubniex" path="res://02_Deck/01_Drinks/drink.gd" id="1_3sv11"]
-[ext_resource type="Texture2D" uid="uid://iydiawq3074m" path="res://icon.svg" id="2_kbsba"]
+[ext_resource type="Script" uid="uid://40gxy6hwhljv" path="res://01_Managers/04_Tooltip_Manager/tooltip.gd" id="2_kbsba"]
 
-[node name="Drink" type="Node2D" unique_id=934598238]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbsba"]
+
+[node name="Drink" type="Area2D" unique_id=66274034]
 script = ExtResource("1_3sv11")
-metadata/_custom_type_script = "uid://d0vxlqxubniex"
+metadata/_custom_type_script = "uid://4lo1g706tbqt"
 
-[node name="DrinkSprite" type="Sprite2D" parent="." unique_id=1980161837]
-texture = ExtResource("2_kbsba")
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1306363368]
+shape = SubResource("RectangleShape2D_kbsba")
+
+[node name="DrinkSprite" type="Sprite2D" parent="." unique_id=555956909]
+
+[node name="Tooltip" type="Node2D" parent="." unique_id=1331643692]
+script = ExtResource("2_kbsba")
+metadata/_custom_type_script = "uid://40gxy6hwhljv"
+
+[node name="TooltipSprite" type="Sprite2D" parent="Tooltip" unique_id=1894668111]

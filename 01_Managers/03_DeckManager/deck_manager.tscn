@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dhqysni4gdtju"]
+
+[ext_resource type="Script" uid="uid://5wr27sck76qa" path="res://01_Managers/03_DeckManager/deck_manager.gd" id="1_y12bu"]
+[ext_resource type="Script" uid="uid://6hd2b0wx5v7f" path="res://01_Managers/04_Tooltip_Manager/tooltip_manager.gd" id="2_quqkg"]
+
+[node name="DeckManager" type="Node" unique_id=927673112]
+script = ExtResource("1_y12bu")
+metadata/_custom_type_script = "uid://5wr27sck76qa"
+
+[node name="TooltipManager" type="Node" parent="." unique_id=1299055361]
+script = ExtResource("2_quqkg")
+metadata/_custom_type_script = "uid://6hd2b0wx5v7f"

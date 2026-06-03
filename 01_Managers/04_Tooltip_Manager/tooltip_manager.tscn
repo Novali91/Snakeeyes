@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bpa1anm1xlbuc"]
+
+[ext_resource type="Script" uid="uid://6hd2b0wx5v7f" path="res://01_Managers/04_Tooltip_Manager/tooltip_manager.gd" id="1_e4qul"]
+
+[node name="TooltipManager" type="Node" unique_id=2036249689]
+script = ExtResource("1_e4qul")

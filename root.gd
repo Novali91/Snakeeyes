@@ -12,7 +12,8 @@ var transitionTime = -1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SCREEN_SIZE = camera.get_viewport_rect().size
-	$Table.begin_slide_cups([Drink.new(),Drink.new(),Drink.new(),Drink.new(),Drink.new()] as Array[Drink])
+	#Just give the player a hand of blank, example drinks
+	$Table.begin_slide_cups([DrinkResource.new(),DrinkResource.new(),DrinkResource.new(),DrinkResource.new(),DrinkResource.new()] as Array[DrinkResource])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
