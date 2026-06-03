@@ -1,9 +1,21 @@
 [gd_scene format=3 uid="uid://bxhfwwxj38y6n"]
 
 [ext_resource type="Script" uid="uid://cxsjn4i6ih5d2" path="res://02_Deck/02_Snakes/snake.gd" id="1_eehjs"]
+[ext_resource type="Script" uid="uid://40gxy6hwhljv" path="res://01_Managers/04_Tooltip_Manager/tooltip.gd" id="2_su81r"]
 
-[node name="Snake" type="Node" unique_id=1163196607]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m33or"]
+
+[node name="Snake" type="Area2D" unique_id=642352785]
 script = ExtResource("1_eehjs")
-metadata/_custom_type_script = "uid://cxsjn4i6ih5d2"
+metadata/_custom_type_script = "uid://4lo1g706tbqt"
 
-[node name="SnakeSprite" type="Sprite2D" parent="." unique_id=1574212652]
+[node name="SnakeSprite" type="Sprite2D" parent="." unique_id=2038083064]
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=2142880755]
+shape = SubResource("RectangleShape2D_m33or")
+
+[node name="Tooltip" type="Node2D" parent="." unique_id=501440041]
+script = ExtResource("2_su81r")
+metadata/_custom_type_script = "uid://40gxy6hwhljv"
+
+[node name="TooltipSprite" type="Sprite2D" parent="Tooltip" unique_id=1437501481]

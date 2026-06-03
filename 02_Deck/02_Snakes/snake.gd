@@ -1,4 +1,4 @@
-extends Node2D
+extends DeckItem
 class_name Snake
 
 ## How to use: attached_snake stores the snake stats

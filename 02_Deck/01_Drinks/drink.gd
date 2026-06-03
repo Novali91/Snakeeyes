@@ -1,4 +1,4 @@
-extends Node2D
+extends DeckItem
 class_name Drink
 
 ## This drink script is probably what we instantiate a lot of
@@ -12,7 +12,7 @@ var attached_drink: DrinkResource
 @onready var drink_sprite: Sprite2D = $DrinkSprite
 
 ## Each attached_drink will have its own number for a special ability and we will-
-## -use a switch statement maybe
+## -use a switch statement depending on the number
 func special_effect() -> void:
 	match attached_drink.special_ability:
 		# No ability
