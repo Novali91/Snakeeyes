@@ -37,9 +37,13 @@ func get_cup_spacing(i: int, num_cups: int) -> float:
 
 func slide_cups() -> void:
 	for i in cups.size():
-		var amount_through_slide = clamp((Time.get_ticks_msec() - slide_start_times[i] - slide_start_offset_pos)/float(slide_time),-slide_start_offset_pos,1)
+		var amount_through_slide_linear = (Time.get_ticks_msec() - slide_start_times[i] - slide_start_offset_pos)/float(slide_time)
+		var amount_through_slide = clamp(ease_out_0_1(amount_through_slide_linear),-slide_start_offset_pos,1)
 		cups[i].global_position = Vector2(global_position.x + amount_through_slide * cup_location_goals[i],global_position.y + get_parent().SCREEN_SIZE.y - temp_cup_height) #Will change this get_parent call later, screen size will prob be made global somehow
 
 func finish_slide_cups() -> void:
 	for i in cups.size():
 		cups[i].global_position = Vector2(global_position.x + cup_location_goals[i],global_position.y + get_parent().SCREEN_SIZE.y - temp_cup_height)
+
+func ease_out_0_1(x: float) -> float:
+	return sin(clamp(x,0,1) * PI / 2)
