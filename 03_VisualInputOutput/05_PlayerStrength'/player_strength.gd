@@ -3,5 +3,5 @@ extends Node2D
 
 @onready var input: Label = $Input
 
-func set_health(val: int) -> void:
+func set_value(val: int) -> void:
 	input.text = str(val)

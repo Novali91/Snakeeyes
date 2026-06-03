@@ -17,7 +17,7 @@ func physics_tick(_delta: float) -> void:
 	pass
 
 func _draw_cards(num: int) -> void:
-	sm.camera_locked = true
+	pass
 	# get cards from deck manager
 	# check if we need to reshuffle
 	# give them to hand manager
