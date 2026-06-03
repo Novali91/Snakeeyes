@@ -43,4 +43,6 @@ func child_unhovered(child: DeckItem) -> void:
 	pass
 
 func child_clicked(child: DeckItem) -> void:
+	print("Ho")
+	print(child)
 	pass

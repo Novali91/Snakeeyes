@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SnakeResource" format=3 uid="uid://bhytfcubxy8vt"]
+
+[ext_resource type="Resource" uid="uid://cco6u2vffel1w" path="res://02_Deck/01_Drinks/01_SpecificDrinks/blue_viper_venom.tres" id="1_16v11"]
+[ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_avnb1"]
+
+[resource]
+script = ExtResource("1_avnb1")
+name = "Blue Viper"
+attached_drink = ExtResource("1_16v11")
+rarity = "Starter"
+metadata/_custom_type_script = "uid://6sj3dk6frj4"

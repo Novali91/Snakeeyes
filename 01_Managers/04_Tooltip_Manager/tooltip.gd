@@ -5,6 +5,7 @@ class_name Tooltip
 ## When that drink/snake is hovered, it will tell tooltip_manager
 ## If no other tooltips with higher priority are hovered, then this tooltip shows up
 ## activate() makes it visible and turns it on, deactivate() deactivates it
+## Drink/Snake needs to instantiate(resource) this with info
 
 ## Tooltip positions:
 const TOP_RIGHT: int = 0
@@ -20,8 +21,8 @@ var is_active: bool = false
 ## Question: Does tooltip appearing over sprite seem bad? Should buffer always push it off?
 var buffer: Vector2 = Vector2(40, 40)
 
-## Set this when we get actual sprite size for the tooltip
-var sprite_size: Vector2
+## Set this when we get actual sprite size for the tooltip (currently placeholder)
+var sprite_size: Vector2 = Vector2(64, 128)
 
 ## Assuming viewport size does NOT change midgame (idk if it can or not)
 @onready var viewport_size: Vector2 = get_viewport_rect().size
@@ -89,5 +90,6 @@ func deactivate() -> void:
 	pass
 
 ## Used to instantiate the values in the tooltip descriptions using the drink/snake resource
-func instantiate_values() -> void:
+func instantiate_values(info: DrinkResource) -> void:
+	
 	pass

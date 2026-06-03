@@ -1,24 +1,19 @@
 extends DeckItem
 class_name Drink
 
+
 ## This drink script is probably what we instantiate a lot of
 # - It has an attached drink that holds the stats
-# - It will hold all special abilities so call special ability on the drink script when it is drank
+# - It has an attached_drink_resource that holds the original resource
 
 ## Each drink must have set_texture() called at some point before loaded in
 
+## Each attached_drink will have its own number for special ability, play state does the abilities
+
+var attached_drink_resource: DrinkResource
 var attached_drink: DrinkResource
 
 @onready var drink_sprite: Sprite2D = $DrinkSprite
-
-## Each attached_drink will have its own number for a special ability and we will-
-## -use a switch statement depending on the number
-func special_effect() -> void:
-	match attached_drink.special_ability:
-		# No ability
-		0:
-			pass
-	pass
 
 func set_texture() -> void:
 	drink_sprite.texture = attached_drink.drink_sprite
