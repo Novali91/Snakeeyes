@@ -15,6 +15,11 @@ var attached_drink: DrinkResource
 
 @onready var drink_sprite: Sprite2D = $DrinkSprite
 
+func _ready() -> void:
+	super._ready()
+	tooltip.instantiate_drink_values(attached_drink)
+	pass
+
 func set_texture() -> void:
 	drink_sprite.texture = attached_drink.drink_sprite
 	pass

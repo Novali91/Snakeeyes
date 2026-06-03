@@ -24,6 +24,14 @@ var buffer: Vector2 = Vector2(40, 40)
 ## Set this when we get actual sprite size for the tooltip (currently placeholder)
 var sprite_size: Vector2 = Vector2(64, 128)
 
+## References for instantiating values:
+@onready var name_label: Label = $Name
+@onready var desc_label: Label = $Description
+@onready var flavour_label: Label = $FlavourText
+@onready var poison_label: Label = $Poison
+@onready var strength_label: Label = $Strength
+@onready var charm_label: Label = $Charm
+
 ## Assuming viewport size does NOT change midgame (idk if it can or not)
 @onready var viewport_size: Vector2 = get_viewport_rect().size
 
@@ -90,6 +98,22 @@ func deactivate() -> void:
 	pass
 
 ## Used to instantiate the values in the tooltip descriptions using the drink/snake resource
-func instantiate_values(info: DrinkResource) -> void:
+func instantiate_drink_values(info: DrinkResource) -> void:
+	name_label.text = info.drink_name
+	desc_label.text = info.description
+	flavour_label.text = info.flavour_text
+	poison_label.text = "Poison: " + str(info.poison)
+	strength_label.text = "Strength: " + str(info.strength)
+	charm_label.text = "Charm: " + str(info.charm)
+	
+	pass
+
+func instantiate_snake_values(info: SnakeResource) -> void:
+	name_label.text = info.snake_name
+	desc_label.text = info.description
+	flavour_label.text = info.flavour_text
+	poison_label.text = "Poison: " + str(info.attached_drink_resource.poison)
+	strength_label.text = "Strength: " + str(info.attached_drink_resource.strength)
+	charm_label.text = "Charm: " + str(info.attached_drink_resource.charm)
 	
 	pass
