@@ -1,3 +1,4 @@
+class_name DeckManager
 extends Node
 
 ## Right now, this script's responsibilities are managing the snake_deck and the drink_drawpile

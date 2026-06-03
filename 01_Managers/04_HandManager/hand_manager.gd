@@ -1,3 +1,4 @@
+class_name HandManager
 extends Node2D
 
 var test_cup = preload('res://02_Deck/01_Drinks/drink.tscn')
