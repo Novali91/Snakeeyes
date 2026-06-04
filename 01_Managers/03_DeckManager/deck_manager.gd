@@ -37,6 +37,7 @@ func draw(amt: int) -> Array[Drink]:
 		if temp_drink == null:
 			return new_array
 		new_array.push_back(temp_drink)
+		tooltip_manager.remove_item(temp_drink, false)
 	
 	return new_array
 	
@@ -46,6 +47,7 @@ func reshuffle_drawpile() -> void:
 	for snake: Snake in snake_deck:
 		var new_drink: Drink = create_drink(snake.current_drink, snake.attached_snake.drink_resource)
 		drink_drawpile.push_back(new_drink)
+		tooltip_manager.add_item(new_drink)
 	
 	shuffle_drawpile()
 	pass

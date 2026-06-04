@@ -38,7 +38,7 @@ var sprite_size: Vector2 = Vector2(250, 350)
 func _physics_process(delta: float) -> void:
 	# Not visible means it doesn't do stuff!
 	if !is_active:
-		pass
+		return
 	
 	global_position = calculate_position()
 	pass

@@ -5,7 +5,7 @@ extends TopState
 
 func setup() -> void:
 	sm.end_turn_button.pressed.connect(_end_turn)
-	
+	sm.hand_manager.drink_clicked.connect(_play_card)
 	_ability_helper.sm = sm
 
 func enter() -> void:
@@ -33,6 +33,7 @@ func _draw_cards(num: int) -> void:
 		draw_remaining -= drinks.size()
 		
 		# hand manager slides drinks
+		sm.hand_manager.draw_drinks(drinks)
 		
 		if draw_remaining > 0:
 			_reshuffle_draw_pile()
