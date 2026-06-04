@@ -23,10 +23,22 @@ func physics_tick(_delta: float) -> void:
 	pass
 
 func _draw_cards(num: int) -> void:
-	pass
-	# get cards from deck manager
-	# check if we need to reshuffle
-	# give them to hand manager
+	var num_drinks = sm.hand_manager.get_num_drinks()
+	var drinks_remaining = sm.game_stats.HAND_SIZE - num_drinks
+	var real_draw = min(num, drinks_remaining)
+	
+	var draw_remaining = real_draw
+	while draw_remaining:
+		var drinks = sm.deck_manager.draw(draw_remaining)
+		draw_remaining -= drinks.size()
+		
+		# hand manager slides drinks
+		
+		if draw_remaining > 0:
+			_reshuffle_draw_pile()
+
+func _reshuffle_draw_pile() -> void:
+	sm.deck_manager.reshuffle_drawpile()
 
 func _play_card(drink: DrinkResource) -> void:
 	var new_poison = sm.game_stats.poison + drink.poison

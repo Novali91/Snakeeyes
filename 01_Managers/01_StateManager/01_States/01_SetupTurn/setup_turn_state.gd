@@ -8,6 +8,10 @@ func enter() -> void:
 	sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE)
 	sm.camera_manager.lock_camera()
 	_reset_stats()
+	
+	sm.shop_manager.empty_shop()
+	sm.shop_manager.fill_shop()
+	
 	sm.attack_manager.next_attack()
 	sm.switch_state(sm.States.PLAY)
 

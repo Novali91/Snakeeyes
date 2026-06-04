@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bnjofbbb7q1gy"]
+
+[ext_resource type="Script" uid="uid://b2okqtt318nbo" path="res://01_Managers/02_ShopManager/shop_manager.gd" id="1_oeh5l"]
+[ext_resource type="Script" uid="uid://6hd2b0wx5v7f" path="res://01_Managers/05_Tooltip_Manager/tooltip_manager.gd" id="2_8kjcj"]
+
+[node name="ShopManager" type="Node2D" unique_id=690115681]
+script = ExtResource("1_oeh5l")
+metadata/_custom_type_script = "uid://b2okqtt318nbo"
+
+[node name="TooltipManager" type="Node2D" parent="." unique_id=653139634]
+script = ExtResource("2_8kjcj")
+metadata/_custom_type_script = "uid://6hd2b0wx5v7f"

@@ -37,6 +37,9 @@ var current_state: int
 @onready var camera_manager: CameraManager = %CameraManager
 @onready var dice_manager: DiceManager = %DiceManager
 @onready var attack_manager: AttackManager = %AttackManager
+@onready var hand_manager: HandManager = %HandManager
+@onready var deck_manager: DeckManager = %DeckManager
+@onready var shop_manager: ShopManager = %ShopManager
 
 func _ready() -> void:
 	for state: TopState in _state_logic_dict.values():

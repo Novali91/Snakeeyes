@@ -8,6 +8,7 @@ func enter() -> void:
 	sm.camera_manager.switch_screen(sm.camera_manager.RIGHT)
 	sm.camera_manager.unlock_camera()
 	sm.exit_shop_button.make_pressable()
+	
 
 func exit() -> void:
 	sm.exit_shop_button.stop_pressable()
