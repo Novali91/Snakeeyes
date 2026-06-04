@@ -66,62 +66,62 @@ metadata/_custom_type_script = "uid://b48nujih7nbem"
 [node name="Background" type="Node2D" parent="." unique_id=707012221]
 
 [node name="LeftScreen" type="ColorRect" parent="Background" unique_id=1833579260]
-custom_minimum_size = Vector2(1280, 720)
+custom_minimum_size = Vector2(1920, 1080)
 offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0.65999997, 0.6713333, 1, 1)
 
 [node name="MidScreen" type="ColorRect" parent="Background" unique_id=1359726243]
-custom_minimum_size = Vector2(1280, 720)
-offset_left = 1280.0
-offset_right = 2560.0
-offset_bottom = 720.0
+custom_minimum_size = Vector2(1920, 1080)
+offset_left = 1920.0
+offset_right = 3840.0
+offset_bottom = 1080.0
 color = Color(1, 0.654902, 1, 1)
 
 [node name="RightScreen" type="ColorRect" parent="Background" unique_id=2070989509]
-custom_minimum_size = Vector2(1280, 720)
-offset_left = 2560.0
-offset_right = 3840.0
-offset_bottom = 720.0
+custom_minimum_size = Vector2(1920, 1080)
+offset_left = 3840.0
+offset_right = 5760.0
+offset_bottom = 1080.0
 color = Color(1, 0.65, 0.65, 1)
 
 [node name="VisualInputOutput" type="Node2D" parent="." unique_id=881169245]
 
 [node name="ScoreBar" parent="VisualInputOutput" unique_id=292557974 instance=ExtResource("8_1tnha")]
 unique_name_in_owner = true
-position = Vector2(2477, 353)
+position = Vector2(3654, 406)
 
 [node name="CharmOverlay" parent="VisualInputOutput" unique_id=1000792462 instance=ExtResource("9_tn0ij")]
 unique_name_in_owner = true
-position = Vector2(1398, 300)
+position = Vector2(2032, 448)
 
 [node name="PoisonBar" parent="VisualInputOutput" unique_id=674401828 instance=ExtResource("10_v5tm5")]
 unique_name_in_owner = true
-position = Vector2(2349, 352)
+position = Vector2(3519, 398)
 
 [node name="PlayerStrength" parent="VisualInputOutput" unique_id=940870006 instance=ExtResource("11_4aa5t")]
 unique_name_in_owner = true
-position = Vector2(1389, 368)
+position = Vector2(2031, 404)
 
 [node name="AntidoteCount" parent="VisualInputOutput" unique_id=818012555 instance=ExtResource("12_mg5ld")]
 unique_name_in_owner = true
-position = Vector2(2322, 267)
+position = Vector2(3583, 308)
 
 [node name="EndTurnButton" parent="VisualInputOutput" unique_id=462742653 instance=ExtResource("13_8sj7b")]
 unique_name_in_owner = true
-position = Vector2(2436, 497)
+position = Vector2(3521, 906)
 
 [node name="ExitShopButton" parent="VisualInputOutput" unique_id=964548035 instance=ExtResource("14_sa73t")]
 unique_name_in_owner = true
-position = Vector2(3638, 543)
+position = Vector2(5557, 928)
 
 [node name="CameraManager" parent="." unique_id=634864132 instance=ExtResource("15_v5tm5")]
 unique_name_in_owner = true
 
 [node name="DiceManager" parent="." unique_id=1005432025 instance=ExtResource("19_sa73t")]
 unique_name_in_owner = true
-position = Vector2(1280, 0)
+position = Vector2(1920, 0)
 
 [node name="AttackManager" parent="." unique_id=1488456757 instance=ExtResource("20_n6io1")]
 unique_name_in_owner = true
-position = Vector2(1280, 0)
+position = Vector2(1920, 0)

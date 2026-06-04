@@ -15,7 +15,7 @@ var _current_ind: int = 1
 var _camera_locked: bool
 
 func _ready() -> void:
-	camera.global_position = Vector2(1280 * 1.5, 720 / 2.)
+	camera.global_position = Vector2(1920 * 1.5, 1080 / 2.)
 
 func _process(_delta: float) -> void:
 	if _camera_locked: return
@@ -32,7 +32,7 @@ func switch_screen(screen_ind: int) -> void:
 		return
 	
 	_current_ind = screen_ind
-	camera.global_position.x = (_current_ind + 0.5) * 1280
+	camera.global_position.x = (_current_ind + 0.5) * 1920
 	done_moving.emit()
 
 func lock_camera() -> void:
