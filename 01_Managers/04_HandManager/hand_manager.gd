@@ -2,12 +2,14 @@ class_name HandManager
 extends Node2D
 
 ## When cards drawn, put them on screen
-##
+## 
 
 var test_cup = preload('res://02_Deck/01_Drinks/drink.tscn')
 var cups: Array[Node2D] = []
 var cup_location_goals = []
 var slide_start_times = [0]
+
+var cur_num_drinks: int = 0
 
 func _ready() -> void:
 	pass
@@ -23,6 +25,9 @@ var temp_cup_height = 150 #temporary placement variable
 var slide_time = 1200
 var slide_intro_spacing = 100
 var slide_start_offset_pos = 30
+
+func get_num_drinks() -> int:
+	return cur_num_drinks
 
 func begin_slide_cups(drinks: Array[DrinkResource]) -> void:
 	slide_start_times = []
