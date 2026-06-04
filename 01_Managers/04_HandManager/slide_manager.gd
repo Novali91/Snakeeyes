@@ -44,6 +44,7 @@ func slide_cups() -> void:
 
 func finish_slide_cups() -> void:
 	for i in cups.size():
+		pass
 		#cups[i].global_position = Vector2(global_position.x + cup_location_goals[i],global_position.y + get_parent().SCREEN_SIZE.y - temp_cup_height)
 
 func ease_out_0_1(x: float) -> float:

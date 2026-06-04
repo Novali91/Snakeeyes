@@ -22,3 +22,11 @@ shop is 50% off
 buy effects
 snake makes multiple drinks (?)
 gain value next turn
+
+
+
+
+
+other stuff:
+dice should have access to stat block
+maybe shop should too

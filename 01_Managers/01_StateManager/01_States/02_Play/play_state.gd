@@ -9,7 +9,7 @@ func setup() -> void:
 	_ability_helper.sm = sm
 
 func enter() -> void:
-	_draw_cards(5)
+	#_draw_cards(5)
 	sm.end_turn_button.make_pressable()
 	sm.camera_manager.unlock_camera()
 

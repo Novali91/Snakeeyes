@@ -36,4 +36,4 @@ func draw_drinks(new_drinks: Array[Drink]) -> void:
 	pass
 
 func _click_drink(drink: Drink) -> void:
-	
+	pass

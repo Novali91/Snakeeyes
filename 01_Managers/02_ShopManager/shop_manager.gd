@@ -11,6 +11,10 @@ var can_buy: bool = false
 
 @onready var _snake_scene: PackedScene = preload("res://02_Deck/02_Snakes/snake.tscn")
 
+var _starting_snakes: Array[SnakeResource] = [
+	
+]
+
 var _common_snakes: Array[SnakeResource] = [
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres")
 ]
@@ -49,6 +53,9 @@ func _get_snakes(num: int) -> Array[Snake]:
 		arr.push_back(new_snake)
 	
 	return arr
+
+func _get_starting_snakes() -> Array[Snake]:
+	return []
 
 func _snake_clicked(snake: DeckItem) -> void:
 	if not can_buy: return
