@@ -24,6 +24,14 @@ func end_hover() -> void:
 	unhovered.emit(self)
 	pass
 
+func activate_tooltip() -> void:
+	tooltip.activate()
+	pass
+
+func deactivate_tooltip() -> void:
+	tooltip.deactivate()
+	pass
+
 ## Handles drink being clicked -- Look in notes app for idea
 func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
