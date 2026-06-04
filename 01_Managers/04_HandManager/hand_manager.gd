@@ -1,6 +1,9 @@
 class_name HandManager
 extends Node2D
 
+## When cards drawn, put them on screen
+##
+
 var test_cup = preload('res://02_Deck/01_Drinks/drink.tscn')
 var cups: Array[Node2D] = []
 var cup_location_goals = []
