@@ -38,9 +38,8 @@ func draw(amt: int) -> Array[Drink]:
 	for i in range(amt):
 		temp_drink = drink_drawpile.pop_back()
 		# If the drawpile is empty:
-		#if temp_drink == null:
-			#reshuffle_drawpile()
-			#temp_drink = drink_drawpile.pop_back()
+		if temp_drink == null:
+			return new_array
 		new_array.push_back(temp_drink)
 	
 	return new_array
