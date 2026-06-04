@@ -18,6 +18,7 @@ var attached_drink: DrinkResource
 func _ready() -> void:
 	super._ready()
 	tooltip.instantiate_drink_values(attached_drink)
+	set_texture()
 	pass
 
 func set_texture() -> void:

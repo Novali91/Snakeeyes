@@ -14,6 +14,7 @@ class_name Snake
 func _ready() -> void:
 	super._ready()
 	tooltip.instantiate_snake_values(attached_snake)
+	set_texture()
 	pass
 
 func set_texture() -> void:

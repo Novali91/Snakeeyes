@@ -46,6 +46,7 @@ func child_hovered(child: DeckItem) -> void:
 	## Check if it's higher in scene tree than cur_hovered (or if nothing hovered)
 	if cur_hovered == null: # Need a bit more
 		cur_hovered = child
+		## Activate_hover
 		child.activate_tooltip()
 	pass
 
