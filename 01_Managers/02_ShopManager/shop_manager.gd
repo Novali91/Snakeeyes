@@ -12,7 +12,11 @@ var can_buy: bool = false
 @onready var _snake_scene: PackedScene = preload("res://02_Deck/02_Snakes/snake.tscn")
 
 var _starting_snakes: Array[SnakeResource] = [
-	
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
 ]
 
 var _common_snakes: Array[SnakeResource] = [
@@ -45,6 +49,15 @@ func fill_shop() -> void:
 		_cur_snakes[i].position = _shop_positions[i]
 		_tooltip_manager.add_item(_cur_snakes[i])
 
+func get_starting_snakes() -> Array[Snake]:
+	var snake_arr: Array[Snake] = []
+	
+	for s: SnakeResource in _starting_snakes:
+		var new_snake = _create_snake(s)
+		snake_arr.push_back(new_snake)
+	
+	return snake_arr
+
 func _get_snakes(num: int) -> Array[Snake]:
 	var arr: Array[Snake] = []
 	
@@ -53,9 +66,6 @@ func _get_snakes(num: int) -> Array[Snake]:
 		arr.push_back(new_snake)
 	
 	return arr
-
-func _get_starting_snakes() -> Array[Snake]:
-	return []
 
 func _snake_clicked(snake: DeckItem) -> void:
 	if not can_buy: return
@@ -68,6 +78,6 @@ func _purchase_snake(snake: Snake) -> void:
 
 func _create_snake(resource: SnakeResource) -> Snake:
 	var new_snake: Snake = _snake_scene.instantiate()
-	new_snake.attached_snake_resource = resource
-	new_snake.attached_snake = resource.duplicate_deep()
+	new_snake.attached_snake = resource
+	new_snake.current_drink = resource.drink_resource.duplicate()
 	return new_snake

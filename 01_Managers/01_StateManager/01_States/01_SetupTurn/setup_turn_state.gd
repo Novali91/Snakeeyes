@@ -13,6 +13,9 @@ func enter() -> void:
 	sm.shop_manager.fill_shop()
 	
 	sm.attack_manager.next_attack()
+	
+	await get_tree().create_timer(0.5).timeout
+	
 	sm.switch_state(sm.States.PLAY)
 
 func exit() -> void:

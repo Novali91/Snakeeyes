@@ -67,3 +67,8 @@ func switch_state(new_state: int) -> void:
 func _set_start_values() -> void:
 	game_stats.antidote_num = 1
 	antidote_count.set_value(game_stats.antidote_num)
+	
+	var starting_snakes = shop_manager.get_starting_snakes()
+	
+	for s: Snake in starting_snakes:
+		deck_manager.add_snake(s)

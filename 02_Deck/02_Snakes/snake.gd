@@ -5,8 +5,8 @@ class_name Snake
 # - attached_snake holds attached_drink which holds all of the drink effects
 # - Before snakes are visible, we need to run set_texture (idk if we want it in _ready() or not)
 
-@export var attached_snake_resource: SnakeResource
 @export var attached_snake: SnakeResource
+var current_drink: DrinkResource
 
 # Reference to our sprite so that we can set the texture
 @onready var snake_sprite: Sprite2D = $SnakeSprite

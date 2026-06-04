@@ -126,8 +126,8 @@ func instantiate_snake_values(info: SnakeResource) -> void:
 	name_label.text = info.snake_name
 	desc_label.text = info.description
 	flavour_label.text = info.flavour_text
-	poison_label.text = "Poison: " + str(info.attached_drink_resource.poison)
-	strength_label.text = "Strength: " + str(info.attached_drink_resource.strength)
-	charm_label.text = "Charm: " + str(info.attached_drink_resource.charm)
+	poison_label.text = "Poison: " + str(info.drink_resource.poison)
+	strength_label.text = "Strength: " + str(info.drink_resource.strength)
+	charm_label.text = "Charm: " + str(info.drink_resource.charm)
 	
 	pass

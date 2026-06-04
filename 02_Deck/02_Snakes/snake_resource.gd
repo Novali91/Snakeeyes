@@ -3,8 +3,7 @@ class_name SnakeResource
 
 @export var snake_name: String
 
-@export var attached_drink_resource: DrinkResource
-var attached_drink: DrinkResource
+@export var drink_resource: DrinkResource
 
 @export var snake_sprite: Texture
 

@@ -9,7 +9,7 @@ func setup() -> void:
 	_ability_helper.sm = sm
 
 func enter() -> void:
-	#_draw_cards(5)
+	_draw_cards(5)
 	sm.end_turn_button.make_pressable()
 	sm.camera_manager.unlock_camera()
 
@@ -36,6 +36,8 @@ func _draw_cards(num: int) -> void:
 		
 		if draw_remaining > 0:
 			_reshuffle_draw_pile()
+		
+		await get_tree().create_timer(0.1).timeout
 
 func _reshuffle_draw_pile() -> void:
 	sm.deck_manager.reshuffle_drawpile()
