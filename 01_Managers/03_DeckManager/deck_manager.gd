@@ -19,6 +19,8 @@ var cur_hand_amt: int
 
 const DRINK_FILEPATH: String = "res://02_Deck/01_Drinks/drink.tscn"
 
+@onready var tooltip_manager: TooltipManager = $TooltipManager
+
 func _init() -> void:
 	reshuffle_drawpile()
 	pass
@@ -28,8 +30,8 @@ func _init() -> void:
 
 func draw(amt: int) -> Array[Drink]:
 	# Maximum handsize logic
-	if amt > (MAX_HAND_SIZE - cur_hand_amt):
-		amt = MAX_HAND_SIZE - cur_hand_amt
+	#if amt > (MAX_HAND_SIZE - cur_hand_amt):
+		#amt = MAX_HAND_SIZE - cur_hand_amt
 	
 	var new_array: Array[Drink]
 	var temp_drink: Drink
