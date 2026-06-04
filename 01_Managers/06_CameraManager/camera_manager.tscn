@@ -7,4 +7,3 @@ script = ExtResource("1_5qfpc")
 metadata/_custom_type_script = "uid://d30y0q47xsgt0"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=97266164]
-position = Vector2(640, 360)

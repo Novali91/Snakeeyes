@@ -7,10 +7,10 @@ script = ExtResource("1_nxvxw")
 metadata/_custom_type_script = "uid://bmad707hcx53o"
 
 [node name="Label" type="Label" parent="." unique_id=1180277551]
-offset_left = 244.0
-offset_top = 219.0
-offset_right = 367.0
-offset_bottom = 242.0
+offset_left = 472.0
+offset_top = 339.0
+offset_right = 595.0
+offset_bottom = 362.0
 text = "Current Attack: "
 
 [node name="InputCur" type="Label" parent="Label" unique_id=87513330]
@@ -20,10 +20,10 @@ offset_right = 169.0
 offset_bottom = 23.0
 
 [node name="Label2" type="Label" parent="." unique_id=278131056]
-offset_left = 244.0
-offset_top = 257.0
-offset_right = 367.0
-offset_bottom = 280.0
+offset_left = 472.0
+offset_top = 377.0
+offset_right = 595.0
+offset_bottom = 400.0
 text = "Next Attack: "
 
 [node name="InputNext" type="Label" parent="Label2" unique_id=1275084121]
