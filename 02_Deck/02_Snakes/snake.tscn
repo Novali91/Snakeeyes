@@ -4,14 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://eg5ukadcklbv" path="res://01_Managers/05_Tooltip_Manager/tooltip.tscn" id="2_su81r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m33or"]
+size = Vector2(50, 50)
 
 [node name="Snake" type="Area2D" unique_id=642352785]
 script = ExtResource("1_eehjs")
 metadata/_custom_type_script = "uid://4lo1g706tbqt"
 
-[node name="SnakeSprite" type="Sprite2D" parent="." unique_id=2038083064]
-
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=2142880755]
 shape = SubResource("RectangleShape2D_m33or")
+
+[node name="SnakeSprite" type="Sprite2D" parent="." unique_id=2038083064]
 
 [node name="Tooltip" parent="." unique_id=1158809468 instance=ExtResource("2_su81r")]

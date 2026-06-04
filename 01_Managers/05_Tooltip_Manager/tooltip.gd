@@ -50,24 +50,25 @@ func calculate_position() -> Vector2:
 	# Top-left corner of the screen - global position
 	var viewport_position: Vector2 = get_viewport().get_visible_rect().position
 	# Mouse position - relative position to viewport
-	var mouse_position: Vector2 = get_viewport().get_mouse_position()
+	var global_mouse_position: Vector2 = get_global_mouse_position()
+	var screen_mouse_position: Vector2 = get_viewport().get_mouse_position()
 	
 	# Finds where tooltip appears proportional to cursor
-	var position_spot: int = get_spot(mouse_position)
+	var position_spot: int = get_spot(screen_mouse_position)
 	
 	match position_spot:
 		TOP_RIGHT:
-			return Vector2(viewport_position.x+mouse_position.x+buffer.x,\
-			viewport_position.y + mouse_position.y - buffer.y - sprite_size.y)
+			return Vector2(viewport_position.x+global_mouse_position.x+buffer.x,\
+			viewport_position.y + global_mouse_position.y - buffer.y - sprite_size.y)
 		TOP_LEFT:
-			return Vector2(viewport_position.x+mouse_position.x-buffer.x-sprite_size.x,\
-			viewport_position.y + mouse_position.y - buffer.y - sprite_size.y)
+			return Vector2(viewport_position.x+global_mouse_position.x-buffer.x-sprite_size.x,\
+			viewport_position.y + global_mouse_position.y - buffer.y - sprite_size.y)
 		BOTTOM_RIGHT:
-			return Vector2(viewport_position.x+mouse_position.x+buffer.x,\
-			viewport_position.y + mouse_position.y + buffer.y)
+			return Vector2(viewport_position.x+global_mouse_position.x+buffer.x,\
+			viewport_position.y + global_mouse_position.y + buffer.y)
 		BOTTOM_LEFT:
-			return Vector2(viewport_position.x+mouse_position.x-buffer.x-sprite_size.x,\
-			viewport_position.y + mouse_position.y + buffer.y)
+			return Vector2(viewport_position.x+global_mouse_position.x-buffer.x-sprite_size.x,\
+			viewport_position.y + global_mouse_position.y + buffer.y)
 	
 	return Vector2.ZERO
 
@@ -76,7 +77,7 @@ func calculate_position() -> Vector2:
 # Priority order: top right > top left > bottom right > bottom left
 func get_spot(mouse_position: Vector2) -> int:
 	if (mouse_position.x + (2*buffer.x) + sprite_size.x) <= viewport_size.x && \
-	(mouse_position.y - (buffer.y) + sprite_size.y) >= viewport_size.y:
+	(mouse_position.y - (buffer.y) - sprite_size.y) >= 0:
 		return TOP_RIGHT
 	elif (mouse_position.x - (2*buffer.x) - sprite_size.x) >= 0 && \
 	(mouse_position.y - (buffer.y) + sprite_size.y) >= viewport_size.y:

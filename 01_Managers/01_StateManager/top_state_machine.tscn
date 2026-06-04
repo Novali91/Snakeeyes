@@ -72,6 +72,7 @@ metadata/_custom_type_script = "uid://b48nujih7nbem"
 custom_minimum_size = Vector2(1920, 1080)
 offset_right = 1280.0
 offset_bottom = 720.0
+mouse_filter = 2
 color = Color(0.65999997, 0.6713333, 1, 1)
 
 [node name="MidScreen" type="ColorRect" parent="Background" unique_id=1359726243]
@@ -79,6 +80,7 @@ custom_minimum_size = Vector2(1920, 1080)
 offset_left = 1920.0
 offset_right = 3840.0
 offset_bottom = 1080.0
+mouse_filter = 2
 color = Color(1, 0.654902, 1, 1)
 
 [node name="RightScreen" type="ColorRect" parent="Background" unique_id=2070989509]
@@ -86,6 +88,7 @@ custom_minimum_size = Vector2(1920, 1080)
 offset_left = 3840.0
 offset_right = 5760.0
 offset_bottom = 1080.0
+mouse_filter = 2
 color = Color(1, 0.65, 0.65, 1)
 
 [node name="VisualInputOutput" type="Node2D" parent="." unique_id=881169245]
