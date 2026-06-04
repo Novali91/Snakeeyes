@@ -1,11 +1,6 @@
 class_name HandManager
 extends Node2D
 
-## When cards drawn, put them on screen
-## When cards clicked, emit signal
-## - Also have remove functionality (talking to tooltip manager)
-## Bool on if cards can be clicked/played
-
 const Y_POSITION_DRINKS: int = 800
 
 var cur_num_drinks: int = 0
@@ -13,6 +8,9 @@ var cur_num_drinks: int = 0
 # Placeholder for now
 var drink_slots: Array[Drink]
 @onready var tooltip_manager: TooltipManager = $TooltipManager
+
+var drinks_drinkable: bool = true
+signal drink_clicked(resourc: DrinkResource)
 
 func _ready() -> void:
 	drink_slots.resize(10)
@@ -36,4 +34,24 @@ func draw_drinks(new_drinks: Array[Drink]) -> void:
 	pass
 
 func _click_drink(drink: Drink) -> void:
+	if !drinks_drinkable:
+		pass
+	drink_clicked.emit(drink.attached_drink)
+	pass
+
+func remove_drink(drink: Drink) -> void:
+	for i: int in range(drink_slots.size()):
+		i-=1
+		if drink_slots[i] == drink:
+			drink_slots.remove_at(i)
+			drink_slots.insert(i, null)
+	
+	tooltip_manager.remove_item(drink, true)
+	pass
+
+func end_turn_discard() -> void:
+	for i: int in range(drink_slots.size()):
+		i-=1
+		if drink_slots[i] is Drink:
+			remove_drink(drink_slots[i])
 	pass

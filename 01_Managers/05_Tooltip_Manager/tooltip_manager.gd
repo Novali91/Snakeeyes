@@ -34,6 +34,8 @@ func remove_item(item: DeckItem, kill: bool) -> void:
 		if all_hovered[i] == item:
 			all_hovered.remove_at(i)
 	remove_child(item)
+	if cur_hovered == item:
+		find_new_hover()
 	if kill:
 		item.queue_free()
 	pass
@@ -48,6 +50,10 @@ func child_hovered(child: DeckItem) -> void:
 		cur_hovered = child
 		## Activate_hover
 		child.activate_tooltip()
+	pass
+
+## TO be added
+func find_new_hover() -> void:
 	pass
 
 ## Need to create functionality for if hovering 2 and unhover currently selected, hover new one
