@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://ct4847ie8iod"]
+
+[ext_resource type="Script" uid="uid://bmad707hcx53o" path="res://01_Managers/08_AttackManager/attack_manager.gd" id="1_nxvxw"]
+
+[node name="AttackManager" type="Node2D" unique_id=1488456757]
+script = ExtResource("1_nxvxw")
+metadata/_custom_type_script = "uid://bmad707hcx53o"
+
+[node name="Label" type="Label" parent="." unique_id=1180277551]
+offset_left = 244.0
+offset_top = 219.0
+offset_right = 367.0
+offset_bottom = 242.0
+text = "Current Attack: "
+
+[node name="InputCur" type="Label" parent="Label" unique_id=87513330]
+layout_mode = 0
+offset_left = 129.0
+offset_right = 169.0
+offset_bottom = 23.0
+
+[node name="Label2" type="Label" parent="." unique_id=278131056]
+offset_left = 244.0
+offset_top = 257.0
+offset_right = 367.0
+offset_bottom = 280.0
+text = "Next Attack: "
+
+[node name="InputNext" type="Label" parent="Label2" unique_id=1275084121]
+layout_mode = 0
+offset_left = 105.0
+offset_right = 145.0
+offset_bottom = 23.0

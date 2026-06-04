@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bmyg1l3eqrxql"]
+
+[ext_resource type="Script" uid="uid://bm0r4ar0bjg1l" path="res://01_Managers/07_DiceManager/dice_manager.gd" id="1_2k3sa"]
+
+[node name="DiceManager" type="Node2D" unique_id=1005432025]
+script = ExtResource("1_2k3sa")
+metadata/_custom_type_script = "uid://bm0r4ar0bjg1l"
+
+[node name="Label" type="Label" parent="." unique_id=1512454025]
+offset_left = 513.0
+offset_top = 377.0
+offset_right = 635.0
+offset_bottom = 400.0
+text = "Number rolled: "
+
+[node name="Input" type="Label" parent="Label" unique_id=383974154]
+layout_mode = 0
+offset_left = 122.0
+offset_right = 162.0
+offset_bottom = 23.0
+
+[node name="UseAntidoteButton" type="Button" parent="." unique_id=1561089080]
+offset_left = 470.0
+offset_top = 493.0
+offset_right = 578.0
+offset_bottom = 524.0
+text = "Use Antidote"
+
+[node name="ContinueButton" type="Button" parent="." unique_id=1599502528]
+offset_left = 680.0
+offset_top = 500.0
+offset_right = 759.0
+offset_bottom = 531.0
+text = "Continue"

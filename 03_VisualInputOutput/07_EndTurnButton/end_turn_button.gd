@@ -3,10 +3,19 @@ extends Node2D
 
 signal pressed()
 
-@onready var button: Button = $Button
+var _pressable: bool = false
+
+@onready var _button: Button = $Button
 
 func _ready() -> void:
-	button.pressed.connect(_button_pressed)
+	_button.pressed.connect(_button_pressed)
 
 func _button_pressed() -> void:
-	pressed.emit()
+	if _pressable:
+		pressed.emit()
+
+func make_pressable() -> void:
+	_pressable = true
+
+func stop_pressable() -> void:
+	_pressable = false

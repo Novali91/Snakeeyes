@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c2nf15vbmvxwo" path="res://01_Managers/01_StateManager/01_States/01_SetupTurn/setup_turn_state.gd" id="2_n4aau"]
 [ext_resource type="Script" uid="uid://eas41130dh2s" path="res://01_Managers/01_StateManager/01_States/02_Play/play_state.gd" id="3_j2eob"]
 [ext_resource type="Script" uid="uid://cnqf2nskskbax" path="res://01_Managers/01_StateManager/01_States/02_Play/ability_helper.gd" id="4_mg5ld"]
-[ext_resource type="Script" uid="uid://blkwfhfovyhap" path="res://01_Managers/01_StateManager/01_States/03_RollDice/roll_dice_state.gd" id="4_r3ws3"]
+[ext_resource type="Script" uid="uid://blkwfhfovyhap" path="res://01_Managers/01_StateManager/01_States/03_RollDice/poison_roll_state.gd" id="4_r3ws3"]
 [ext_resource type="Script" uid="uid://buaegvoisv87c" path="res://01_Managers/01_StateManager/01_States/04_CompareStrength/compare_strength_state.gd" id="5_utsaj"]
 [ext_resource type="Script" uid="uid://dtbmyb7ae6cj6" path="res://01_Managers/01_StateManager/01_States/05_Shop/shop_state.gd" id="6_0txsc"]
 [ext_resource type="Script" uid="uid://qamd3pd3uan8" path="res://01_Managers/01_StateManager/01_States/07_PassOut/pass_out_state.gd" id="7_nvmhh"]
@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://d35o5u7su4r12" path="res://03_VisualInputOutput/07_EndTurnButton/end_turn_button.tscn" id="13_8sj7b"]
 [ext_resource type="PackedScene" uid="uid://2twxyn8p5xxf" path="res://03_VisualInputOutput/08_ExitShopButton/exit_shop_button.tscn" id="14_sa73t"]
 [ext_resource type="PackedScene" uid="uid://cbygupp4jpnp6" path="res://01_Managers/06_CameraManager/camera_manager.tscn" id="15_v5tm5"]
+[ext_resource type="PackedScene" uid="uid://bmyg1l3eqrxql" path="res://01_Managers/07_DiceManager/dice_manager.tscn" id="19_sa73t"]
+[ext_resource type="PackedScene" uid="uid://ct4847ie8iod" path="res://01_Managers/08_AttackManager/attack_manager.tscn" id="20_n6io1"]
 
 [node name="TopStateMachine" type="Node" unique_id=741613550]
 script = ExtResource("1_brpme")
@@ -37,7 +39,7 @@ metadata/_custom_type_script = "uid://eas41130dh2s"
 script = ExtResource("4_mg5ld")
 metadata/_custom_type_script = "uid://cnqf2nskskbax"
 
-[node name="RollDiceState" type="Node" parent="States" unique_id=1250067155]
+[node name="PoisonRollState" type="Node" parent="States" unique_id=1250067155]
 script = ExtResource("4_r3ws3")
 metadata/_custom_type_script = "uid://blkwfhfovyhap"
 
@@ -115,3 +117,11 @@ position = Vector2(3638, 543)
 
 [node name="CameraManager" parent="." unique_id=634864132 instance=ExtResource("15_v5tm5")]
 unique_name_in_owner = true
+
+[node name="DiceManager" parent="." unique_id=1005432025 instance=ExtResource("19_sa73t")]
+unique_name_in_owner = true
+position = Vector2(1280, 0)
+
+[node name="AttackManager" parent="." unique_id=1488456757 instance=ExtResource("20_n6io1")]
+unique_name_in_owner = true
+position = Vector2(1280, 0)

@@ -1,7 +1,7 @@
 class_name AntidoteCount
 extends Node2D
 
-@onready var input: Label = $Input
+@onready var _input: Label = $Input
 
-func set_health(val: int) -> void:
-	input.text = str(val)
+func set_value(val: int) -> void:
+	_input.text = str(val)

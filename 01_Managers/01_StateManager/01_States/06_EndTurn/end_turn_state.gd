@@ -5,7 +5,7 @@ func setup() -> void:
 	pass
 
 func enter() -> void:
-	pass
+	sm.switch_state(sm.States.SETUP_TURN)
 
 func exit() -> void:
 	pass

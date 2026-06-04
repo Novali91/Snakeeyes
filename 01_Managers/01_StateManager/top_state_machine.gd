@@ -4,9 +4,10 @@ extends Node
 enum States {
 	SETUP_TURN,
 	PLAY,
-	ROLL_DICE,
+	POISON_ROLL,
 	COMPARE_STRENGTH,
 	SHOP,
+	END_TURN,
 	PASS_OUT,
 }
 
@@ -15,9 +16,10 @@ var current_state: int
 @onready var _state_logic_dict: Dictionary[int, TopState] = {
 	States.SETUP_TURN: $States/SetupTurnState,
 	States.PLAY: $States/PlayState,
-	States.ROLL_DICE: $States/RollDiceState,
+	States.POISON_ROLL: $States/PoisonRollState,
 	States.COMPARE_STRENGTH: $States/CompareStrengthState,
 	States.SHOP: $States/ShopState,
+	States.END_TURN: $States/EndTurnState,
 	States.PASS_OUT: $States/PassOutState
 }
 
@@ -33,6 +35,8 @@ var current_state: int
 
 @onready var game_stats: GameStats = $GameStats
 @onready var camera_manager: CameraManager = %CameraManager
+@onready var dice_manager: DiceManager = %DiceManager
+@onready var attack_manager: AttackManager = %AttackManager
 
 func _ready() -> void:
 	for state: TopState in _state_logic_dict.values():
@@ -40,6 +44,8 @@ func _ready() -> void:
 		state.setup()
 	
 	switch_state(States.SETUP_TURN)
+	
+	_set_start_values()
 
 func _process(delta: float) -> void:
 	_current_state_logic.process_tick(delta)
@@ -54,3 +60,7 @@ func switch_state(new_state: int) -> void:
 	current_state = new_state
 	_current_state_logic = _state_logic_dict[current_state]
 	_current_state_logic.enter()
+
+func _set_start_values() -> void:
+	game_stats.antidote_num = 1
+	antidote_count.set_value(game_stats.antidote_num)

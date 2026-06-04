@@ -5,8 +5,10 @@ func setup() -> void:
 	pass
 
 func enter() -> void:
-	sm.camera_manager.camera_locked = true
+	sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE)
+	sm.camera_manager.lock_camera()
 	_reset_stats()
+	sm.attack_manager.next_attack()
 	sm.switch_state(sm.States.PLAY)
 
 func exit() -> void:
