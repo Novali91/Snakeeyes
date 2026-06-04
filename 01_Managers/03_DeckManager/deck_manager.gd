@@ -1,5 +1,5 @@
-class_name DeckManager
 extends Node2D
+class_name DeckManager
 
 ## Right now, this script's responsibilities are managing the snake_deck and the drink_drawpile
 # How to use this code rn:

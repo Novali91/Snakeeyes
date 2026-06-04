@@ -12,6 +12,6 @@ metadata/_custom_type_script = "uid://cn4krwxb4nnm4"
 script = ExtResource("2_kvpf8")
 metadata/_custom_type_script = "uid://s2kykbe77lg"
 
-[node name="TooltipManager" type="Node" parent="." unique_id=133040830]
+[node name="TooltipManager" type="Node2D" parent="." unique_id=655508588]
 script = ExtResource("3_kdvs2")
 metadata/_custom_type_script = "uid://6hd2b0wx5v7f"
