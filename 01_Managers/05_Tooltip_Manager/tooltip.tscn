@@ -8,41 +8,81 @@ colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_o8cfu"]
 gradient = SubResource("Gradient_vrqg4")
-height = 128
+width = 250
+height = 350
+
+[sub_resource type="LabelSettings" id="LabelSettings_8dqle"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mnr5o"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ptalj"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5gy0h"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7m7g2"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wv1ln"]
+font_color = Color(0, 0, 0, 1)
 
 [node name="Tooltip" type="Node2D" unique_id=1158809468]
 script = ExtResource("1_vrqg4")
 metadata/_custom_type_script = "uid://40gxy6hwhljv"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=236172529]
-position = Vector2(32, 64)
+[node name="TooltipSprite" type="Sprite2D" parent="." unique_id=236172529]
+visible = false
+position = Vector2(125, 175)
 texture = SubResource("GradientTexture2D_o8cfu")
 
 [node name="Name" type="Label" parent="." unique_id=116263010]
-offset_right = 64.0
-offset_bottom = 23.0
+visible = false
+offset_right = 250.0
+offset_bottom = 80.0
+label_settings = SubResource("LabelSettings_8dqle")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Description" type="Label" parent="." unique_id=1310774327]
-offset_right = 40.0
-offset_bottom = 23.0
+visible = false
+offset_top = 110.0
+offset_right = 250.0
+offset_bottom = 225.0
+label_settings = SubResource("LabelSettings_mnr5o")
+autowrap_mode = 3
 
 [node name="FlavourText" type="Label" parent="." unique_id=1793526735]
-offset_right = 40.0
-offset_bottom = 23.0
+visible = false
+offset_top = 235.0
+offset_right = 250.0
+offset_bottom = 350.0
+label_settings = SubResource("LabelSettings_ptalj")
+autowrap_mode = 3
 
 [node name="Poison" type="Label" parent="." unique_id=666007147]
-offset_right = 40.0
-offset_bottom = 23.0
+visible = false
+offset_top = 80.0
+offset_right = 83.0
+offset_bottom = 110.0
+label_settings = SubResource("LabelSettings_5gy0h")
 
 [node name="Strength" type="Label" parent="." unique_id=2072668975]
-offset_top = 20.0
-offset_right = 40.0
-offset_bottom = 43.0
+visible = false
+offset_left = 83.0
+offset_top = 80.0
+offset_right = 166.0
+offset_bottom = 110.0
+label_settings = SubResource("LabelSettings_7m7g2")
 
 [node name="Charm" type="Label" parent="." unique_id=1096266287]
-offset_left = 4.0
-offset_top = 67.0
-offset_right = 44.0
-offset_bottom = 90.0
+visible = false
+offset_left = 166.0
+offset_top = 80.0
+offset_right = 249.0
+offset_bottom = 110.0
+label_settings = SubResource("LabelSettings_wv1ln")

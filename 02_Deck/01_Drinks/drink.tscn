@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cagc2qc6xk32s"]
 
 [ext_resource type="Script" uid="uid://d0vxlqxubniex" path="res://02_Deck/01_Drinks/drink.gd" id="1_3sv11"]
-[ext_resource type="Script" uid="uid://40gxy6hwhljv" path="res://01_Managers/05_Tooltip_Manager/tooltip.gd" id="2_kbsba"]
+[ext_resource type="PackedScene" uid="uid://eg5ukadcklbv" path="res://01_Managers/05_Tooltip_Manager/tooltip.tscn" id="2_kbsba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbsba"]
 
@@ -14,8 +14,4 @@ shape = SubResource("RectangleShape2D_kbsba")
 
 [node name="DrinkSprite" type="Sprite2D" parent="." unique_id=555956909]
 
-[node name="Tooltip" type="Node2D" parent="." unique_id=1331643692]
-script = ExtResource("2_kbsba")
-metadata/_custom_type_script = "uid://40gxy6hwhljv"
-
-[node name="TooltipSprite" type="Sprite2D" parent="Tooltip" unique_id=1894668111]
+[node name="Tooltip" parent="." unique_id=1158809468 instance=ExtResource("2_kbsba")]

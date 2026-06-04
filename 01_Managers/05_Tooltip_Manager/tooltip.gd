@@ -19,15 +19,23 @@ var is_active: bool = false
 
 # Math stuff
 ## Question: Does tooltip appearing over sprite seem bad? Should buffer always push it off?
-var buffer: Vector2 = Vector2(40, 40)
+var buffer: Vector2 = Vector2(40, 0)
 
 ## Set this when we get actual sprite size for the tooltip (currently placeholder)
-var sprite_size: Vector2 = Vector2(64, 128)
+var sprite_size: Vector2 = Vector2(250, 350)
+
+## References for instantiating values:
+@onready var name_label: Label = $Name
+@onready var desc_label: Label = $Description
+@onready var flavour_label: Label = $FlavourText
+@onready var poison_label: Label = $Poison
+@onready var strength_label: Label = $Strength
+@onready var charm_label: Label = $Charm
 
 ## Assuming viewport size does NOT change midgame (idk if it can or not)
 @onready var viewport_size: Vector2 = get_viewport_rect().size
 
-func _physics_tick() -> void:
+func _physics_process(delta: float) -> void:
 	# Not visible means it doesn't do stuff!
 	if !is_active:
 		pass
@@ -50,16 +58,16 @@ func calculate_position() -> Vector2:
 	match position_spot:
 		TOP_RIGHT:
 			return Vector2(viewport_position.x+mouse_position.x+buffer.x,\
-			viewport_position.y - mouse_position.y - buffer.y - sprite_size.y)
+			viewport_position.y + mouse_position.y - buffer.y - sprite_size.y)
 		TOP_LEFT:
 			return Vector2(viewport_position.x+mouse_position.x-buffer.x-sprite_size.x,\
-			viewport_position.y - mouse_position.y - buffer.y - sprite_size.y)
+			viewport_position.y + mouse_position.y - buffer.y - sprite_size.y)
 		BOTTOM_RIGHT:
 			return Vector2(viewport_position.x+mouse_position.x+buffer.x,\
-			viewport_position.y - mouse_position.y + buffer.y)
+			viewport_position.y + mouse_position.y + buffer.y)
 		BOTTOM_LEFT:
 			return Vector2(viewport_position.x+mouse_position.x-buffer.x-sprite_size.x,\
-			viewport_position.y - mouse_position.y + buffer.y)
+			viewport_position.y + mouse_position.y + buffer.y)
 	
 	return Vector2.ZERO
 
@@ -68,13 +76,13 @@ func calculate_position() -> Vector2:
 # Priority order: top right > top left > bottom right > bottom left
 func get_spot(mouse_position: Vector2) -> int:
 	if (mouse_position.x + (2*buffer.x) + sprite_size.x) <= viewport_size.x && \
-	(mouse_position.y - (2*buffer.y) - sprite_size.y) >= viewport_size.y:
+	(mouse_position.y - (buffer.y) + sprite_size.y) >= viewport_size.y:
 		return TOP_RIGHT
-	elif (mouse_position.x - (2*buffer.x) - sprite_size.x) >= viewport_size.x && \
-	(mouse_position.y - (2*buffer.y) - sprite_size.y) >= viewport_size.y:
+	elif (mouse_position.x - (2*buffer.x) - sprite_size.x) >= 0 && \
+	(mouse_position.y - (buffer.y) + sprite_size.y) >= viewport_size.y:
 		return TOP_LEFT
 	elif (mouse_position.x + (2*buffer.x) + sprite_size.x) <= viewport_size.x && \
-	(mouse_position.y + (2*buffer.y) + sprite_size.y) <= viewport_size.y:
+	(mouse_position.y + (buffer.y) - sprite_size.y) <= viewport_size.y:
 		return BOTTOM_RIGHT
 	else:
 		return BOTTOM_LEFT
@@ -82,14 +90,43 @@ func get_spot(mouse_position: Vector2) -> int:
 func activate() -> void:
 	is_active = true
 	tooltip_sprite.visible = true
+	name_label.visible = true
+	desc_label.visible = true
+	flavour_label.visible = true
+	poison_label.visible=true
+	strength_label.visible = true
+	charm_label.visible = true
 	pass
 
 func deactivate() -> void:
 	is_active = false
 	tooltip_sprite.visible = false
+	tooltip_sprite.visible = false
+	name_label.visible = false
+	desc_label.visible = false
+	flavour_label.visible = false
+	poison_label.visible=false
+	strength_label.visible = false
+	charm_label.visible = false
 	pass
 
 ## Used to instantiate the values in the tooltip descriptions using the drink/snake resource
-func instantiate_values(info: DrinkResource) -> void:
+func instantiate_drink_values(info: DrinkResource) -> void:
+	name_label.text = info.drink_name
+	desc_label.text = info.description
+	flavour_label.text = info.flavour_text
+	poison_label.text = "Poison: " + str(info.poison)
+	strength_label.text = "Strength: " + str(info.strength)
+	charm_label.text = "Charm: " + str(info.charm)
+	
+	pass
+
+func instantiate_snake_values(info: SnakeResource) -> void:
+	name_label.text = info.snake_name
+	desc_label.text = info.description
+	flavour_label.text = info.flavour_text
+	poison_label.text = "Poison: " + str(info.attached_drink_resource.poison)
+	strength_label.text = "Strength: " + str(info.attached_drink_resource.strength)
+	charm_label.text = "Charm: " + str(info.attached_drink_resource.charm)
 	
 	pass

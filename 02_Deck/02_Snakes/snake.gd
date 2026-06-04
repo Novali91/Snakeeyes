@@ -11,6 +11,10 @@ class_name Snake
 # Reference to our sprite so that we can set the texture
 @onready var snake_sprite: Sprite2D = $SnakeSprite
 
+func _ready() -> void:
+	super._ready()
+	tooltip.instantiate_snake_values(attached_snake)
+	pass
 
 func set_texture() -> void:
 	snake_sprite.texture = attached_snake.snake_sprite

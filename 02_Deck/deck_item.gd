@@ -7,7 +7,8 @@ signal hovered(item: DeckItem)
 signal unhovered(item: DeckItem)
 signal clicked(item: DeckItem)
 
-## Should we instead propagate ready calls down so this guy instead has like ready()
+@onready var tooltip: Tooltip = $Tooltip
+
 func _ready() -> void:
 	mouse_entered.connect(start_hover)
 	mouse_exited.connect(end_hover)
@@ -21,6 +22,14 @@ func start_hover() -> void:
 func end_hover() -> void:
 	# For tooltip_manager
 	unhovered.emit(self)
+	pass
+
+func activate_tooltip() -> void:
+	tooltip.activate()
+	pass
+
+func deactivate_tooltip() -> void:
+	tooltip.deactivate()
 	pass
 
 ## Handles drink being clicked -- Look in notes app for idea

@@ -13,7 +13,9 @@ class_name TooltipManager
 ## Does this call physics_tick in all of its children?
 
 var cur_hovered: DeckItem = null
+var all_hovered: Array[DeckItem]
 
+var can_hover: bool = true
 ## Note: When ported to each diff screen, diff logic?
 
 ## Idea: Whoever adds items to this john's children needs to call add_item
@@ -31,13 +33,25 @@ func remove_item(item: DeckItem) -> void:
 
 ## How are ties broken? Can I see who is higher up in child tree?
 func child_hovered(child: DeckItem) -> void:
+	all_hovered.push_back(child)
+	## Check if it's higher in scene tree than cur_hovered (or if nothing hovered)
+	if cur_hovered == null: # Need a bit more
+		cur_hovered = child
+		child.activate_tooltip()
+	all_hovered.push_back(child)
 	pass
 
 ## Need to create functionality for if hovering 2 and unhover currently selected, hover new one
 func child_unhovered(child: DeckItem) -> void:
+	if cur_hovered == child:
+		child.deactivate_tooltip()
+		## Find new cur_hovered using hovered array and what is highest in it
+		cur_hovered = null
+	for i: int in range(all_hovered.size()):
+		i -= 1
+		if all_hovered[i] == child:
+			all_hovered.remove_at(i)
 	pass
 
 func child_clicked(child: DeckItem) -> void:
-	print("Ho")
-	print(child)
 	pass
