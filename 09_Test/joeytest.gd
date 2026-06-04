@@ -20,7 +20,7 @@ func _ready() -> void:
 	tooltip_manager.add_item(item3)
 	
 	item1.position = Vector2(200, 300)
-	item2.position = Vector2(600, 200)
+	item2.position = Vector2(225, 300)
 	item3.position = Vector2(400, 500)
 	
 	item1.drink_sprite.texture = preload("res://icon.svg")

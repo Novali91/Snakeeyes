@@ -6,6 +6,6 @@
 [node name="Joeytest" type="Node2D" unique_id=350037442]
 script = ExtResource("1_vk4i5")
 
-[node name="TooltipManager" type="Node" parent="." unique_id=267948972]
+[node name="TooltipManager" type="Node2D" parent="." unique_id=1668192751]
 script = ExtResource("2_f87y4")
 metadata/_custom_type_script = "uid://6hd2b0wx5v7f"

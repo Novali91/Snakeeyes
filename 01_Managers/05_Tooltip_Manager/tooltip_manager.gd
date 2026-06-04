@@ -2,24 +2,30 @@ extends Node2D
 class_name TooltipManager
 
 ## To use:
-# Whoever adds item to this john needs to call add_item(item)
+# Whoever adds item to this john needs to call add_item(item), and if you remove a child-
+# -call remove_item(item)
+
 # There is one of these for each screen, and each one controls all-
 # -snakes and drinks on each screen
 
-## Todo: Snakes/drinks need start_hover end_hover and click - Same hierarchical class
-## Tooltip manager intercepts hover signals but passes up click
-## Tooltip manager holds both, there are 3 (one for each area) 
+# Whenever a child (drink/snake) is hovered or unhovered or clicked-
+# -the tooltip manager managing that child receives those signals.
+# For hover: look at child_hovered(child)
+# For unhover: look at child_unhovered(child)
+# For click: look at child_clicked(child)
 
-## Does this call physics_tick in all of its children?
+# Whenever things should not be hoverable, call turn_off_hover()
+# But make sure to call turn_on_hover() when things should then be hoverable
 
 var cur_hovered: DeckItem = null
 var all_hovered: Array[DeckItem]
 
+## Set false when camera moves, maybe other cases too (use turn_off_hover()/turn_on_hover())
 var can_hover: bool = true
-signal child_was_clicked(child: DeckItem)
-## Note: When ported to each diff screen, diff logic?
 
-## Idea: Whoever adds items to this john's children needs to call add_item
+signal child_was_clicked(child: DeckItem)
+
+## Called whenever this manages any new DeckItems and sets them up
 func add_item(new_item: DeckItem) -> void:
 	add_child(new_item)
 	
@@ -28,48 +34,103 @@ func add_item(new_item: DeckItem) -> void:
 	new_item.clicked.connect(child_clicked)
 	pass
 
+## Should be called whenever this stops managing any DeckItems
+## Removes their logic with this tooltip_manager
 func remove_item(item: DeckItem, kill: bool) -> void:
+	# If it is in all_hovered, remove it from it
 	for i: int in range(all_hovered.size()):
 		i -= 1
 		if all_hovered[i] == item:
 			all_hovered.remove_at(i)
-	remove_child(item)
+	# If this child is currently hovered, remove its tooltip
 	if cur_hovered == item:
+		item.deactivate_tooltip()
 		find_new_hover()
+	
+	remove_child(item)
+	
 	if kill:
 		item.queue_free()
 	pass
 
-## How are ties broken? Can I see who is higher up in child tree?
+## This function activates whenever any child is hovered.
+## It handles adding it to all_hovered and figuring out if it is the front-most node-
+## -and therefore should have its tooltip appear
 func child_hovered(child: DeckItem) -> void:
 	all_hovered.push_back(child)
+	
 	if !can_hover:
-		pass
-	## Check if it's higher in scene tree than cur_hovered (or if nothing hovered)
-	if cur_hovered == null: # Need a bit more
-		cur_hovered = child
-		## Activate_hover
-		child.activate_tooltip()
+		return
+	
+	# If nothing is hovered currently:
+	if (cur_hovered == null):
+		activate_child(child)
+	# If something is currently hovered, but this child is above it:
+	elif (child.get_index() > cur_hovered.get_index()):
+		cur_hovered.deactivate_tooltip()
+		activate_child(child)
 	pass
 
-## TO be added
-func find_new_hover() -> void:
+## This function finds which hovered child is at the front/highest
+func find_new_hover() -> DeckItem:
+	var cur_front_index: int = -1
+	var cur_front_node: DeckItem = null
+	var temp_index: int
+	
+	# Find front node
+	for item: DeckItem in all_hovered:
+		temp_index = item.get_index()
+		
+		if (temp_index > cur_front_index) or (cur_front_index == -1):
+			cur_front_index = temp_index
+			cur_front_node = item
+	
+	return cur_front_node
+
+## This function should be used whenever activating any child's hover
+func activate_child(child: DeckItem) -> void:
+	cur_hovered = child
+	child.activate_tooltip()
 	pass
 
-## Need to create functionality for if hovering 2 and unhover currently selected, hover new one
+## Whenever a child is unhovered
 func child_unhovered(child: DeckItem) -> void:
-	if cur_hovered == child:
-		child.deactivate_tooltip()
-		## Find new cur_hovered using hovered array and what is highest in it
-		cur_hovered = null
+	# Remove this child from the all_hovered array
 	for i: int in range(all_hovered.size()):
 		i -= 1
 		if all_hovered[i] == child:
 			all_hovered.remove_at(i)
 			continue
+	
+	# Returns if this child isn't the currenly hovered child
+	if !(cur_hovered == child):
+		return
+	
+	# This code only executes if this child's tooltip was currently displayed
+	child.deactivate_tooltip()
+	# If nothing else is hovered:
+	if all_hovered.size() == 0:
+		cur_hovered = null
+	else:
+		# Find new cur_hovered using hovered array and what is highest in it
+		activate_child(find_new_hover())
 	pass
 
+## Ensures that only the hovered child (with a visible tooltip) can get clicked/drank/bought
 func child_clicked(child: DeckItem) -> void:
 	if cur_hovered == child:
 		child_was_clicked.emit(child)
 	pass
+
+## Should be called whenever things shouldn't be able to be hovered
+func turn_off_hover() -> void:
+	can_hover = false
+	cur_hovered.deactivate_tooltip()
+	cur_hovered = null
+	return
+
+## Should be called whenever things should now be able to be hovered
+func turn_on_hover() -> void:
+	can_hover = true
+	activate_child(find_new_hover())
+	return
