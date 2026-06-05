@@ -13,10 +13,14 @@ var current_drink: DrinkResource
 
 func _ready() -> void:
 	super._ready()
-	tooltip.instantiate_snake_values(attached_snake)
+	instantiate_tooltip()
 	set_texture()
 	pass
 
 func set_texture() -> void:
 	snake_sprite.texture = attached_snake.snake_sprite
 	pass
+
+func instantiate_tooltip() -> void:
+	tooltip.instantiate_snake_values(attached_snake, current_drink)
+	return

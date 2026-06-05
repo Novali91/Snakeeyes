@@ -26,6 +26,7 @@ func upgrade_snake(snake: Snake, increase: int, stat: int) -> void:
 			snake.current_drink.charm += increase
 		NUM_DRINKS:
 			pass
+	snake.instantiate_tooltip()
 
 func get_clairvoyant_drink(snake: Snake) -> DrinkResource:
 	var temp_drink: DrinkResource = snake.current_drink.duplicate()
