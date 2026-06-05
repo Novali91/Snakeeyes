@@ -30,6 +30,10 @@ var common_snakes: Array[SnakeResource] = [
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/python.tres"),
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/tiger_keelback.tres"),
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/placeboa.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/short_boa.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/long_boa.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/garden_snake.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/clairvoyant_snake.tres"),
 ]
 
 var rare_snakes: Array[SnakeResource] = [

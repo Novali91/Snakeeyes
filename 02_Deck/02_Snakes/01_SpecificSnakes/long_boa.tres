@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SnakeResource" format=3 uid="uid://bifprb5vwea5w"]
+
+[ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_sgx4i"]
+[ext_resource type="Resource" uid="uid://cygjt4rtfssgl" path="res://02_Deck/01_Drinks/01_SpecificDrinks/long_boa_venom.tres" id="1_xajog"]
+[ext_resource type="Texture2D" uid="uid://bqdway6mw43px" path="res://05_Assets/01_Art/01_DevArt/long_boa.png" id="3_fk2by"]
+
+[resource]
+script = ExtResource("1_sgx4i")
+snake_name = "Long-tailed Boa"
+drink_resource = ExtResource("1_xajog")
+snake_sprite = ExtResource("3_fk2by")
+description = "Draw 3"
+cost = 4
+rarity = "C"
+metadata/_custom_type_script = "uid://6sj3dk6frj4"

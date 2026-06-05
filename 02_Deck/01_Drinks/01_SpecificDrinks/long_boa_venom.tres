@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://cygjt4rtfssgl"]
+
+[ext_resource type="Texture2D" uid="uid://bd3teek105q2u" path="res://05_Assets/01_Art/01_DevArt/long_boa_venom.png" id="1_kb0n6"]
+[ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_l4aop"]
+
+[resource]
+script = ExtResource("1_l4aop")
+drink_name = "Long-tailed Boa Venom"
+drink_sprite = ExtResource("1_kb0n6")
+poison = 2
+strength = 1
+charm = 1
+special_ability = 4
+cost = 4
+description = "Draw 3"
+metadata/_custom_type_script = "uid://cysm36u2jsf44"
