@@ -5,6 +5,7 @@ var sm: TopStateMachine
 
 const NO_ABILITY: int = 0
 const BLUE_VIPER: int = 1
+const PLACEBOA: int = 2
 
 func trigger_ability(ind: int) -> void:
 	match ind:
@@ -17,4 +18,25 @@ func trigger_ability(ind: int) -> void:
 			var chosen_drink: Drink = await sm.hand_manager.ability_helper.choose_drink()
 			sm.deck_manager.return_to_drawpile(chosen_drink)
 			sm.hand_manager.ability_helper.slide_drink_back(chosen_drink)
+		PLACEBOA: 
+			draw_cards(1)
+			pass
 		pass
+
+func draw_cards(num: int) -> void:
+	var num_drinks = sm.hand_manager.get_num_drinks()
+	var drinks_remaining = sm.game_stats.HAND_SIZE - num_drinks
+	var real_draw = min(num, drinks_remaining)
+	
+	var draw_remaining = real_draw
+	while draw_remaining:
+		var drinks = sm.deck_manager.draw(draw_remaining)
+		draw_remaining -= drinks.size()
+		
+		sm.hand_manager.draw_drinks(drinks)
+		
+		if draw_remaining > 0:
+			_reshuffle_draw_pile()
+
+func _reshuffle_draw_pile() -> void:
+	sm.deck_manager.reshuffle_drawpile()
