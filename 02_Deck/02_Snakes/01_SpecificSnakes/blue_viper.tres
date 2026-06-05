@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://cco6u2vffel1w" path="res://02_Deck/01_Drinks/01_SpecificDrinks/blue_viper_venom.tres" id="1_16v11"]
 [ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_avnb1"]
-[ext_resource type="Texture2D" uid="uid://iydiawq3074m" path="res://icon.svg" id="3_ow5d2"]
+[ext_resource type="Texture2D" uid="uid://b4hyp37rgucew" path="res://05_Assets/01_Art/01_DevArt/blue_snake.png" id="3_ow5d2"]
 
 [resource]
 script = ExtResource("1_avnb1")

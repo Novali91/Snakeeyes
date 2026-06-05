@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://cco6u2vffel1w"]
 
 [ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_aahfr"]
+[ext_resource type="Texture2D" uid="uid://5d6d6r4um2n5" path="res://05_Assets/01_Art/01_DevArt/blue_poison.png" id="1_jplr2"]
 
 [resource]
 script = ExtResource("1_aahfr")
 drink_name = "Blue Viper Venom"
+drink_sprite = ExtResource("1_jplr2")
 poison = 1
 charm = 1
 special_ability = 1

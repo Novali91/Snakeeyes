@@ -10,3 +10,70 @@ metadata/_custom_type_script = "uid://b2okqtt318nbo"
 [node name="TooltipManager" type="Node2D" parent="." unique_id=653139634]
 script = ExtResource("2_8kjcj")
 metadata/_custom_type_script = "uid://6hd2b0wx5v7f"
+
+[node name="PriceLabels" type="Node2D" parent="." unique_id=450063478]
+
+[node name="Label" type="Label" parent="PriceLabels" unique_id=200667757]
+offset_left = 300.0
+offset_top = 675.0
+offset_right = 340.0
+offset_bottom = 698.0
+
+[node name="Label" type="Label" parent="PriceLabels/Label" unique_id=1453093933]
+layout_mode = 0
+offset_left = -104.0
+offset_right = -7.0
+offset_bottom = 23.0
+text = "Charm cost: "
+
+[node name="Label2" type="Label" parent="PriceLabels" unique_id=1712400039]
+offset_left = 600.0
+offset_top = 675.0
+offset_right = 640.0
+offset_bottom = 698.0
+
+[node name="Label" type="Label" parent="PriceLabels/Label2" unique_id=813303544]
+layout_mode = 0
+offset_left = -104.0
+offset_right = -7.0
+offset_bottom = 23.0
+text = "Charm cost: "
+
+[node name="Label3" type="Label" parent="PriceLabels" unique_id=1766833693]
+offset_left = 900.0
+offset_top = 675.0
+offset_right = 940.0
+offset_bottom = 698.0
+
+[node name="Label" type="Label" parent="PriceLabels/Label3" unique_id=1967914019]
+layout_mode = 0
+offset_left = -104.0
+offset_right = -7.0
+offset_bottom = 23.0
+text = "Charm cost: "
+
+[node name="Label4" type="Label" parent="PriceLabels" unique_id=1404002869]
+offset_left = 1200.0
+offset_top = 675.0
+offset_right = 1240.0
+offset_bottom = 698.0
+
+[node name="Label" type="Label" parent="PriceLabels/Label4" unique_id=2005382811]
+layout_mode = 0
+offset_left = -104.0
+offset_right = -7.0
+offset_bottom = 23.0
+text = "Charm cost: "
+
+[node name="Label5" type="Label" parent="PriceLabels" unique_id=1733416896]
+offset_left = 1500.0
+offset_top = 675.0
+offset_right = 1540.0
+offset_bottom = 698.0
+
+[node name="Label" type="Label" parent="PriceLabels/Label5" unique_id=275974070]
+layout_mode = 0
+offset_left = -104.0
+offset_right = -7.0
+offset_bottom = 23.0
+text = "Charm cost: "
