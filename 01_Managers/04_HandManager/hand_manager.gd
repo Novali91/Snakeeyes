@@ -5,7 +5,7 @@ const Y_POSITION_DRINKS: int = 800
 
 var cur_num_drinks: int = 0
 
-var drinks_in_hand: Array[Drink]
+var drinks: Array[Drink]
 
 @onready var tooltip_manager: TooltipManager = $TooltipManager
 @onready var slide_manager: SlideManager = $SlideManager
@@ -30,8 +30,8 @@ func get_num_drinks() -> int:
 func draw_drinks(new_drinks: Array[Drink]) -> void:
 	for drink in new_drinks:
 		tooltip_manager.add_item(drink)
-		drinks_in_hand.append(drink)
-	slide_manager.begin_slide_drinks_in(drinks_in_hand)
+		drinks.append(drink)
+	slide_manager.begin_slide_drinks_in(drinks)
 
 func _click_drink(drink: Drink) -> void:
 	if !drinks_drinkable:
@@ -44,13 +44,13 @@ func _click_drink(drink: Drink) -> void:
 
 ## 
 func remove_drink(drink_to_remove: Drink) -> void:
-	for i: int in range(drinks_in_hand.size()):
-		if drinks_in_hand[i] == drink_to_remove:
-			drinks_in_hand.remove_at(i)
+	for i: int in range(drinks.size()):
+		if drinks[i] == drink_to_remove:
+			drinks.remove_at(i)
 			break
 
 func end_turn_discard() -> void:
-	for i: int in range(drinks_in_hand.size()):
-		if drinks_in_hand[i] is Drink:
-			tooltip_manager.remove_item(drinks_in_hand[i], true)
-	drinks_in_hand.clear()
+	for i: int in range(drinks.size()):
+		if drinks[i] is Drink:
+			tooltip_manager.remove_item(drinks[i], true)
+	drinks.clear()

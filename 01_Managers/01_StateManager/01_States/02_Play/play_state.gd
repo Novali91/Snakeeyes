@@ -9,7 +9,7 @@ func setup() -> void:
 	_ability_helper.sm = sm
 
 func enter() -> void:
-	_ability_helper.draw_cards(5)
+	draw_cards(5)
 	sm.end_turn_button.make_pressable()
 	sm.camera_manager.unlock_camera()
 
@@ -21,6 +21,24 @@ func process_tick(_delta: float) -> void:
 
 func physics_tick(_delta: float) -> void:
 	pass
+
+func draw_cards(num: int) -> void:
+	var num_drinks = sm.hand_manager.get_num_drinks()
+	var drinks_remaining = sm.game_stats.HAND_SIZE - num_drinks
+	var real_draw = min(num, drinks_remaining)
+	
+	var draw_remaining = real_draw
+	while draw_remaining:
+		var drinks = sm.deck_manager.draw(draw_remaining)
+		draw_remaining -= drinks.size()
+		
+		sm.hand_manager.draw_drinks(drinks)
+		
+		if draw_remaining > 0:
+			_reshuffle_draw_pile()
+
+func _reshuffle_draw_pile() -> void:
+	sm.deck_manager.reshuffle_drawpile()
 
 func _play_card(drink: DrinkResource) -> void:
 	var new_poison = sm.game_stats.poison + drink.poison
