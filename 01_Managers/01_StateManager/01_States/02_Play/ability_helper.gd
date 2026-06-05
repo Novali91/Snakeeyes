@@ -6,6 +6,8 @@ var sm: TopStateMachine
 const NO_ABILITY: int = 0
 const BLUE_VIPER: int = 1
 const PLACEBOA: int = 2
+const SHORT_TAIL_BOA: int = 3
+const LONG_TAIL_BOA: int = 4
 
 func trigger_ability(ind: int) -> void:
 	match ind:
@@ -20,7 +22,10 @@ func trigger_ability(ind: int) -> void:
 			sm.hand_manager.ability_helper.slide_drink_back(chosen_drink)
 		PLACEBOA: 
 			draw_cards(1)
-			pass
+		SHORT_TAIL_BOA:
+			draw_cards(2)
+		LONG_TAIL_BOA:
+			draw_cards(3)
 		pass
 
 func draw_cards(num: int) -> void:
