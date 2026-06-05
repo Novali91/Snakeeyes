@@ -28,10 +28,11 @@ func physics_tick(_delta: float) -> void:
 	pass
 
 func _reset_stats() -> void:
-	sm.game_stats.poison = 1
-	sm.game_stats.strength = 0
+	GS.poison = 1
+	GS.strength = 0
+	GS.charm = 0
 	
-	sm.poison_bar.set_value(sm.game_stats.poison)
-	sm.player_strength.set_value(sm.game_stats.strength)
+	sm.poison_bar.set_value(GS.poison)
+	sm.player_strength.set_value(GS.strength)
 	
 	sm.charm_overlay.clear_charm()

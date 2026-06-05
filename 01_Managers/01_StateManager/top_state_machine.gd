@@ -33,7 +33,6 @@ var current_state: int
 @onready var end_turn_button: EndTurnButton = %EndTurnButton
 @onready var exit_shop_button: ExitShopButton = %ExitShopButton
 
-@onready var game_stats: GameStats = $GameStats
 @onready var camera_manager: CameraManager = %CameraManager
 @onready var dice_manager: DiceManager = %DiceManager
 @onready var attack_manager: AttackManager = %AttackManager
@@ -65,8 +64,8 @@ func switch_state(new_state: int) -> void:
 	_current_state_logic.enter()
 
 func _set_start_values() -> void:
-	game_stats.antidote_num = 1
-	antidote_count.set_value(game_stats.antidote_num)
+	GS.antidote_num = 1
+	antidote_count.set_value(GS.antidote_num)
 	
 	var starting_snakes = shop_manager.get_starting_snakes()
 	

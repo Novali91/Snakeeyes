@@ -7,6 +7,7 @@ const _ACC: float = 3000
 @onready var _bundle: Area2D = $Bundle
 @onready var _tokens_node: Node2D = $Tokens
 @onready var _count_label: Label = $Bundle/CountLabel
+@onready var _bundle_marker: Marker2D = $BundleMarker
 
 @onready var _token_scene: PackedScene = preload("res://03_VisualInputOutput/02_CharmOverlay/charm_token.tscn")
 
@@ -21,7 +22,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var screen_center = get_viewport().get_visible_rect().size / 2.
 	var global_center = get_viewport().get_canvas_transform().affine_inverse() * screen_center
-	_bundle.global_position = global_center
+	_bundle.global_position = global_center - screen_center + _bundle_marker.position
 	
 	for t: CharmToken in _all_tokens:
 		if t.wait_timer > 0:
@@ -33,7 +34,7 @@ func _process(delta: float) -> void:
 			else:
 				continue
 		
-		if t.spent:
+		if t.spent and t.spent_timer <= 0:
 			t.vel += t.spent_dir * _ACC * delta
 			t.spent_dist -= t.vel.length() * delta
 			if t.spent_dist <= 0:
@@ -41,13 +42,19 @@ func _process(delta: float) -> void:
 				t.queue_free()
 				continue
 		
-		else:
+		elif not t.spent:
 			var dir = t.global_position.direction_to(_bundle.global_position)
 			t.vel += dir * _ACC * delta
+			
+			var dir_to_bundle = t.global_position.direction_to(_bundle.global_position)
+			if t.vel.dot(dir_to_bundle) < 0:
+				t.vel = t.vel.normalized() * min(t.vel.length(), _MAX_SPEED)
 		
-		if t.global_position.distance_to(_bundle.global_position) < 300:
-			t.vel = t.vel.normalized() * min(t.vel.length(), _MAX_SPEED)
-		t.global_position += t.vel * delta
+		else:
+			t.spent_timer -= delta
+		
+		if not t.spent or t.spent_timer < 0:
+			t.global_position += t.vel * delta
 
 func gain_charm(val: int, pos: Vector2) -> void:
 	for i in val:
@@ -67,6 +74,7 @@ func spend_charm(val: int, pos: Vector2) -> void:
 		token.spent = true
 		token.send_to(pos)
 		token.vel = Vector2.ZERO
+		token.spent_timer = i * 0.1
 
 func clear_charm() -> void:
 	for t: CharmToken in _all_tokens:
@@ -76,6 +84,7 @@ func clear_charm() -> void:
 	_all_tokens = []
 
 func _bundle_hovered() -> void:
+	_count_label.text = str(GS.charm)
 	_count_label.visible = true
 
 func _bundle_unhovered() -> void:

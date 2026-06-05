@@ -7,6 +7,7 @@ signal snake_clicked(snake: Snake)
 signal antidote_clicked()
 
 var can_buy: bool = false
+var antidote_position: Vector2
 
 @onready var _tooltip_manager: TooltipManager = $TooltipManager
 @onready var _labels_node: Node2D = $PriceLabels
@@ -32,6 +33,8 @@ func _ready() -> void:
 	
 	for l: Label in _labels_node.get_children():
 		_labels.push_back(l)
+	
+	antidote_position = _antidote_button.global_position + Vector2(188 / 2., 0)
 
 func empty_shop() -> void:
 	var arr_copy = _cur_snakes.duplicate()

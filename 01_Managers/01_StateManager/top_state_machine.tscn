@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://co3yvks1wvd03" path="res://03_VisualInputOutput/01_ScoreBar/score_bar.tscn" id="8_1tnha"]
 [ext_resource type="Script" uid="uid://8n6gglpdm607" path="res://01_Managers/01_StateManager/01_States/06_EndTurn/end_turn_state.gd" id="8_8sj7b"]
 [ext_resource type="PackedScene" uid="uid://5odvimgwfuy1" path="res://03_VisualInputOutput/02_CharmOverlay/charm_overlay.tscn" id="9_tn0ij"]
-[ext_resource type="Script" uid="uid://b48nujih7nbem" path="res://01_Managers/01_StateManager/02_GameStats/game_stats.gd" id="10_8sj7b"]
 [ext_resource type="PackedScene" uid="uid://xs65s7uu2k0r" path="res://03_VisualInputOutput/04_PoisonBar/poison_bar.tscn" id="10_v5tm5"]
 [ext_resource type="PackedScene" uid="uid://b4th8xwlf86ht" path="res://03_VisualInputOutput/05_PlayerStrength'/player_strength.tscn" id="11_4aa5t"]
 [ext_resource type="PackedScene" uid="uid://cemkqlju26qyg" path="res://03_VisualInputOutput/06_AntidoteCount/antidote_count.tscn" id="12_mg5ld"]
@@ -62,10 +61,6 @@ metadata/_custom_type_script = "uid://8n6gglpdm607"
 script = ExtResource("7_nvmhh")
 metadata/_custom_type_script = "uid://qamd3pd3uan8"
 
-[node name="GameStats" type="Node" parent="." unique_id=539309303]
-script = ExtResource("10_8sj7b")
-metadata/_custom_type_script = "uid://b48nujih7nbem"
-
 [node name="Background" type="Node2D" parent="." unique_id=707012221]
 
 [node name="LeftScreen" type="ColorRect" parent="Background" unique_id=1833579260]
@@ -90,6 +85,24 @@ offset_right = 5760.0
 offset_bottom = 1080.0
 mouse_filter = 2
 color = Color(1, 0.65, 0.65, 1)
+
+[node name="CameraManager" parent="." unique_id=634864132 instance=ExtResource("15_v5tm5")]
+unique_name_in_owner = true
+
+[node name="AttackManager" parent="." unique_id=1488456757 instance=ExtResource("20_n6io1")]
+unique_name_in_owner = true
+position = Vector2(1920, 0)
+
+[node name="DeckManager" parent="." unique_id=1886334080 instance=ExtResource("22_lfho2")]
+unique_name_in_owner = true
+
+[node name="HandManager" parent="." unique_id=1877513829 instance=ExtResource("21_ffq48")]
+unique_name_in_owner = true
+position = Vector2(1920, 0)
+
+[node name="ShopManager" parent="." unique_id=690115681 instance=ExtResource("23_5mt65")]
+unique_name_in_owner = true
+position = Vector2(3840, 0)
 
 [node name="VisualInputOutput" type="Node2D" parent="." unique_id=881169245]
 
@@ -120,24 +133,6 @@ position = Vector2(3521, 906)
 unique_name_in_owner = true
 position = Vector2(5557, 928)
 
-[node name="CameraManager" parent="." unique_id=634864132 instance=ExtResource("15_v5tm5")]
-unique_name_in_owner = true
-
 [node name="DiceManager" parent="." unique_id=1005432025 instance=ExtResource("19_sa73t")]
 unique_name_in_owner = true
 position = Vector2(1920, 0)
-
-[node name="AttackManager" parent="." unique_id=1488456757 instance=ExtResource("20_n6io1")]
-unique_name_in_owner = true
-position = Vector2(1920, 0)
-
-[node name="DeckManager" parent="." unique_id=1886334080 instance=ExtResource("22_lfho2")]
-unique_name_in_owner = true
-
-[node name="HandManager" parent="." unique_id=1877513829 instance=ExtResource("21_ffq48")]
-unique_name_in_owner = true
-position = Vector2(1920, 0)
-
-[node name="ShopManager" parent="." unique_id=690115681 instance=ExtResource("23_5mt65")]
-unique_name_in_owner = true
-position = Vector2(3840, 0)

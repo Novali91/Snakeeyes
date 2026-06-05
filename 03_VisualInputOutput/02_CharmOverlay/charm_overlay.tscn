@@ -12,6 +12,8 @@ font_size = 48
 script = ExtResource("1_sy3cc")
 metadata/_custom_type_script = "uid://dkn3vaawwn56"
 
+[node name="Tokens" type="Node2D" parent="." unique_id=409966900]
+
 [node name="Bundle" type="Area2D" parent="." unique_id=1437377344]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bundle" unique_id=1846273930]
@@ -27,4 +29,5 @@ label_settings = SubResource("LabelSettings_tl6ep")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tokens" type="Node2D" parent="." unique_id=409966900]
+[node name="BundleMarker" type="Marker2D" parent="." unique_id=1750874820]
+position = Vector2(1684, 167)

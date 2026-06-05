@@ -25,21 +25,21 @@ func physics_tick(_delta: float) -> void:
 
 func play_card(drink: DrinkResource, drink_position: Vector2) -> void:
 
-	var new_poison = sm.game_stats.poison + drink.poison
+	var new_poison = GS.poison + drink.poison
 	new_poison = max(1, new_poison)
 	
-	sm.game_stats.poison = new_poison
-	sm.game_stats.strength += drink.strength
-	sm.game_stats.charm += drink.charm
+	GS.poison = new_poison
+	GS.strength += drink.strength
+	GS.charm += drink.charm
 	
-	sm.poison_bar.set_value(sm.game_stats.poison)
-	sm.player_strength.set_value(sm.game_stats.strength)
+	sm.poison_bar.set_value(GS.poison)
+	sm.player_strength.set_value(GS.strength)
 	
 	sm.charm_overlay.gain_charm(drink.charm, drink_position)
 	
 	_ability_helper.trigger_ability(drink.special_ability, drink_position)
 	
-	if sm.game_stats.poison >= 12:
+	if GS.poison >= 12:
 		sm.switch_state(sm.States.PASS_OUT)
 
 func _end_turn() -> void:

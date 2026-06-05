@@ -5,7 +5,7 @@ func setup() -> void:
 	pass
 
 func enter() -> void:
-	var player_str = sm.game_stats.strength
+	var player_str = GS.strength
 	var enemy_str = sm.attack_manager.get_attack()
 	
 	var attacks_blocked = 0
@@ -18,12 +18,12 @@ func enter() -> void:
 	
 	var damage = enemy_str.size() - attacks_blocked
 	if damage == 0:
-		sm.game_stats.score += 1
+		GS.score += 1
 	
 	else:
-		sm.game_stats.score -= damage
+		GS.score -= damage
 	
-	sm.score_bar.set_value(sm.game_stats.score)
+	sm.score_bar.set_value(GS.score)
 	
 	sm.switch_state(sm.States.SHOP)
 

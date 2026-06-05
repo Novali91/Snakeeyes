@@ -19,13 +19,13 @@ func physics_tick(_delta: float) -> void:
 	pass
 
 func _reroll() -> void:
-	if sm.game_stats.antidote_num > 0:
-		sm.game_stats.antidote_num -= 1
-		sm.antidote_count.set_value(sm.game_stats.antidote_num)
+	if GS.antidote_num > 0:
+		GS.antidote_num -= 1
+		sm.antidote_count.set_value(GS.antidote_num)
 		sm.dice_manager.reroll()
 
 func _check_poison(dice_roll: int) -> void:
-	if dice_roll > sm.game_stats.poison:
+	if dice_roll > GS.poison:
 		sm.dice_manager.close()
 		sm.switch_state(sm.States.COMPARE_STRENGTH)
 	
