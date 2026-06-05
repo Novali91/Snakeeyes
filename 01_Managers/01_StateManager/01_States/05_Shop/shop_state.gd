@@ -7,7 +7,7 @@ func setup() -> void:
 	sm.shop_manager.antidote_clicked.connect(_check_antidote)
 
 func enter() -> void:
-	sm.camera_manager.switch_screen(sm.camera_manager.RIGHT)
+	sm.camera_manager.switch_screen(sm.camera_manager.RIGHT, true)
 	sm.camera_manager.unlock_camera()
 	sm.exit_shop_button.make_pressable()
 	

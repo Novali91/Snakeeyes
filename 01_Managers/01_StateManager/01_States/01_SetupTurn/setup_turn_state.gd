@@ -5,7 +5,7 @@ func setup() -> void:
 	pass
 
 func enter() -> void:
-	sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE)
+	sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 	sm.camera_manager.lock_camera()
 	_reset_stats()
 	

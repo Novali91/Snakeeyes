@@ -37,8 +37,8 @@ func smooth_lerp(from: float, to: float, x: float) -> float:
 func screen_pos_x(ind: int) -> float:
 	return (ind + 0.5) * 1920
 
-func switch_screen(screen_ind: int) -> void:
-	if _camera_locked: return
+func switch_screen(screen_ind: int, bypass_lock: bool = false) -> void:
+	if _camera_locked and not bypass_lock: return
 	if screen_ind == _current_ind:
 		done_moving.emit()
 		return

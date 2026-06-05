@@ -52,7 +52,7 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 
 func draw_cards(num: int) -> void:
 	var num_drinks = sm.hand_manager.get_num_drinks()
-	var drinks_remaining = sm.game_stats.HAND_SIZE - num_drinks
+	var drinks_remaining = GS.HAND_SIZE - num_drinks
 	var real_draw = min(num, drinks_remaining)
 	
 	var draw_remaining = real_draw
