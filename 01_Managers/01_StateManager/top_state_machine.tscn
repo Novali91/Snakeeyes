@@ -132,12 +132,10 @@ position = Vector2(1920, 0)
 unique_name_in_owner = true
 position = Vector2(1920, 0)
 
-[node name="HandManager" parent="." unique_id=1877513829 instance=ExtResource("21_ffq48")]
-unique_name_in_owner = true
-position = Vector2(1920, 0)
-
 [node name="DeckManager" parent="." unique_id=1886334080 instance=ExtResource("22_lfho2")]
 unique_name_in_owner = true
+
+[node name="HandManager" parent="." unique_id=1877513829 instance=ExtResource("21_ffq48")]
 
 [node name="ShopManager" parent="." unique_id=690115681 instance=ExtResource("23_5mt65")]
 unique_name_in_owner = true
