@@ -7,6 +7,7 @@ func setup() -> void:
 func enter() -> void:
 	var damage = sm.attack_manager.get_attack().size()
 	sm.game_stats.score -= damage
+	sm.score_bar.set_value(sm.game_stats.score)
 	sm.switch_state(sm.States.SETUP_TURN)
 
 func exit() -> void:

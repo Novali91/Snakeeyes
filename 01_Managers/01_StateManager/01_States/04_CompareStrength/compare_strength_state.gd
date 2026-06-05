@@ -10,7 +10,7 @@ func enter() -> void:
 	
 	var attacks_blocked = 0
 	for i: int in enemy_str:
-		if player_str > i:
+		if player_str >= i:
 			player_str -= i
 			attacks_blocked += 1
 		

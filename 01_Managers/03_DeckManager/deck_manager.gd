@@ -31,8 +31,6 @@ func draw(amt: int) -> Array[Drink]:
 		new_array.push_back(temp_drink)
 		tooltip_manager.remove_item(temp_drink, false)
 	
-	print(new_array)
-	
 	return new_array
 	
 

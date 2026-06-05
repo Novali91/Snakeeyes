@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://bykhts4uvgn0j"]
 
 [ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_610f5"]
+[ext_resource type="Texture2D" uid="uid://74xiq8gf18vb" path="res://05_Assets/01_Art/01_DevArt/red_poison.png" id="1_e81c0"]
 
 [resource]
 script = ExtResource("1_610f5")
 drink_name = "Red Viper Venom"
+drink_sprite = ExtResource("1_e81c0")
 poison = 1
 strength = 2
 flavour_text = "The vicious Red Viper doesn't give its prey much time before it strikes."

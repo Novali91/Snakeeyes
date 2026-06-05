@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://eg5ukadcklbv" path="res://01_Managers/05_Tooltip_Manager/tooltip.tscn" id="2_su81r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m33or"]
-size = Vector2(50, 50)
+size = Vector2(75, 150)
 
 [node name="Snake" type="Area2D" unique_id=642352785]
 script = ExtResource("1_eehjs")

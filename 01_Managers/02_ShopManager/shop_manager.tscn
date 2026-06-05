@@ -77,3 +77,10 @@ offset_left = -104.0
 offset_right = -7.0
 offset_bottom = 23.0
 text = "Charm cost: "
+
+[node name="AntidoteButton" type="Button" parent="." unique_id=1471729517]
+offset_left = 879.0
+offset_top = 829.0
+offset_right = 1067.0
+offset_bottom = 860.0
+text = "Buy Antidote (3 Charm)"

@@ -4,11 +4,13 @@ extends Node2D
 const SHOP_SIZE: int = 5
 
 signal snake_clicked(snake: Snake)
+signal antidote_clicked()
 
 var can_buy: bool = false
 
 @onready var _tooltip_manager: TooltipManager = $TooltipManager
 @onready var _labels_node: Node2D = $PriceLabels
+@onready var _antidote_button: Button = $AntidoteButton
 
 @onready var _snake_scene: PackedScene = preload("res://02_Deck/02_Snakes/snake.tscn")
 
@@ -17,11 +19,18 @@ var _starting_snakes: Array[SnakeResource] = [
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/red_viper.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/red_viper.tres"),
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/blue_viper.tres"),
 ]
 
 var _common_snakes: Array[SnakeResource] = [
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres")
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/red_viper.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/blue_viper.tres"),
 ]
 
 var _rare_snakes: Array[SnakeResource]
@@ -38,15 +47,18 @@ var _shop_positions: Array[Vector2] = [
 
 var _cur_snakes: Array[Snake] = []
 var _labels: Array[Label] = []
+var _antidote_stock: int = 0
 
 func _ready() -> void:
 	_tooltip_manager.child_was_clicked.connect(_snake_clicked)
+	_antidote_button.pressed.connect(_antidote_clicked)
 	
 	for l: Label in _labels_node.get_children():
 		_labels.push_back(l)
 
 func empty_shop() -> void:
-	for s: Snake in _cur_snakes:
+	var arr_copy = _cur_snakes.duplicate()
+	for s: Snake in arr_copy:
 		_remove_snake(s)
 
 func fill_shop() -> void:
@@ -55,6 +67,8 @@ func fill_shop() -> void:
 		_cur_snakes[i].position = _shop_positions[i]
 		_labels[i].text = str(_cur_snakes[i].attached_snake.cost)
 		_tooltip_manager.add_item(_cur_snakes[i])
+	
+	_antidote_stock = 1
 
 func get_starting_snakes() -> Array[Snake]:
 	var snake_arr: Array[Snake] = []
@@ -74,11 +88,14 @@ func create_snake(resource: SnakeResource) -> Snake:
 func purchase_snake(snake: Snake) -> void:
 	_remove_snake(snake)
 
+func purchase_antidote() -> void:
+	_antidote_stock -= 1
+
 func _get_snakes(num: int) -> Array[Snake]:
 	var arr: Array[Snake] = []
 	
 	for i in num:
-		var new_snake = create_snake(_common_snakes[0])
+		var new_snake = create_snake(_common_snakes.pick_random())
 		arr.push_back(new_snake)
 	
 	return arr
@@ -88,6 +105,11 @@ func _snake_clicked(snake: DeckItem) -> void:
 	
 	var typed_snake = snake as Snake
 	snake_clicked.emit(typed_snake)
+
+func _antidote_clicked() -> void:
+	if not can_buy: return
+	if _antidote_stock <= 0: return
+	antidote_clicked.emit()
 
 func _remove_snake(snake: Snake) -> void:
 	_cur_snakes.erase(snake)
