@@ -16,9 +16,16 @@ class_name DeckManager
 @onready var _drink_scene = preload("res://02_Deck/01_Drinks/drink.tscn")
 
 @onready var tooltip_manager: TooltipManager = $TooltipManager
+@onready var ability_helper: DeckAbilityHelper = $DeckAbilityHelper
+
+signal snake_chosen(snake: Snake)
 
 ## Draw function: Currently if drawing too much for drawpile, it returns an array of size amt-
 ## -but for each drink that is "overflow", it just has a null
+
+func _ready() -> void:
+	tooltip_manager.child_was_clicked.connect(_child_clicked)
+	return
 
 func draw(amt: int) -> Array[Drink]:
 	var new_array: Array[Drink]
@@ -78,3 +85,8 @@ func return_to_drawpile(drink: Drink):
 	tooltip_manager.add_item(new_drink)
 	shuffle_drawpile()
 	pass
+
+func _child_clicked(child: DeckItem) -> void:
+	if child is Snake:
+		snake_chosen.emit(child)
+	return

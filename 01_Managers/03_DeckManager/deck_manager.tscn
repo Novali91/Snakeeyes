@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://5wr27sck76qa" path="res://01_Managers/03_DeckManager/deck_manager.gd" id="1_y12bu"]
 [ext_resource type="Script" uid="uid://6hd2b0wx5v7f" path="res://01_Managers/05_Tooltip_Manager/tooltip_manager.gd" id="2_quqkg"]
+[ext_resource type="Script" uid="uid://cu4y6m6v62a87" path="res://01_Managers/03_DeckManager/deck_ability_helper.gd" id="3_8iinh"]
 
 [node name="DeckManager" type="Node2D" unique_id=1886334080]
 script = ExtResource("1_y12bu")
@@ -10,3 +11,7 @@ metadata/_custom_type_script = "uid://5wr27sck76qa"
 [node name="TooltipManager" type="Node2D" parent="." unique_id=731468120]
 script = ExtResource("2_quqkg")
 metadata/_custom_type_script = "uid://6hd2b0wx5v7f"
+
+[node name="DeckAbilityHelper" type="Node" parent="." unique_id=1229039397]
+script = ExtResource("3_8iinh")
+metadata/_custom_type_script = "uid://cu4y6m6v62a87"
