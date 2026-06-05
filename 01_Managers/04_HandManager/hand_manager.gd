@@ -31,7 +31,7 @@ func draw_drinks(new_drinks: Array[Drink]) -> void:
 	for drink in new_drinks:
 		tooltip_manager.add_item(drink)
 		drinks.append(drink)
-	slide_manager.begin_slide_drinks_in(drinks)
+	slide_manager.begin_slide_drinks_in(new_drinks)
 
 func _click_drink(drink: Drink) -> void:
 	if !drinks_drinkable:
