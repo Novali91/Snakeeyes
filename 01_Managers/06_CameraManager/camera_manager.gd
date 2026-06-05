@@ -21,8 +21,6 @@ func _ready() -> void:
 	camera.global_position = Vector2(screen_pos_x(_current_ind), 1080 / 2.)
 
 func _process(_delta: float) -> void:
-	if _camera_locked: return
-	
 	#if camera is mid-transition
 	if _transition_progress > -1 && _transition_progress < transition_total_time:
 		_transition_progress += _delta
@@ -40,6 +38,7 @@ func screen_pos_x(ind: int) -> float:
 	return (ind + 0.5) * 1920
 
 func switch_screen(screen_ind: int) -> void:
+	if _camera_locked: return
 	if screen_ind == _current_ind:
 		done_moving.emit()
 		return

@@ -27,5 +27,7 @@ func upgrade_snake(snake: Snake, increase: int, stat: int) -> void:
 		NUM_DRINKS:
 			pass
 
-func clairvoyant_copy(snake: Snake) -> void:
-	pass
+func get_clairvoyant_drink(snake: Snake) -> DrinkResource:
+	var temp_drink: DrinkResource = snake.current_drink.duplicate()
+	temp_drink.poison = temp_drink.poison * 2
+	return temp_drink

@@ -2,6 +2,7 @@ class_name AbilityHelper
 extends Node
 
 var sm: TopStateMachine
+var play_state: PlayState
 
 const NO_ABILITY: int = 0
 const BLUE_VIPER: int = 1
@@ -11,7 +12,7 @@ const LONG_TAIL_BOA: int = 4
 const GARDEN_SNAKE: int = 5
 const CLAIRVOYANT_SNAKE: int = 6
 
-func trigger_ability(ind: int) -> void:
+func trigger_ability(ind: int, drink_position: Vector2) -> void:
 	match ind:
 		NO_ABILITY:
 			return
@@ -41,7 +42,11 @@ func trigger_ability(ind: int) -> void:
 			sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
 			sm.camera_manager.lock_camera()
 			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
-			sm.deck_manager.ability_helper.upgrade_snake(snake, 1, sm.deck_manager.ability_helper.STRENGTH)
+			sm.camera_manager.unlock_camera()
+			sm.camera_manager.switch_screen(sm.camera_manager.LEFT) # This logic should be updated when camera manager is updated
+			sm.camera_manager.lock_camera()
+			var clairvoyant_drink: DrinkResource = sm.deck_manager.ability_helper.get_clairvoyant_drink(snake)
+			play_state.play_card(clairvoyant_drink, drink_position)
 			sm.camera_manager.unlock_camera()
 		pass
 

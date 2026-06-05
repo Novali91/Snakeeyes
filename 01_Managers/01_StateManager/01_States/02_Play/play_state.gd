@@ -5,11 +5,12 @@ extends TopState
 
 func setup() -> void:
 	sm.end_turn_button.pressed.connect(_end_turn)
-	sm.hand_manager.drink_clicked.connect(_play_card)
+	sm.hand_manager.drink_drank.connect(play_card)
 	_ability_helper.sm = sm
+	_ability_helper.play_state = self
 
 func enter() -> void:
-	draw_cards(5)
+	_ability_helper.draw_cards(5)
 	sm.end_turn_button.make_pressable()
 	sm.camera_manager.unlock_camera()
 
@@ -22,25 +23,8 @@ func process_tick(_delta: float) -> void:
 func physics_tick(_delta: float) -> void:
 	pass
 
-func draw_cards(num: int) -> void:
-	var num_drinks = sm.hand_manager.get_num_drinks()
-	var drinks_remaining = sm.game_stats.HAND_SIZE - num_drinks
-	var real_draw = min(num, drinks_remaining)
-	
-	var draw_remaining = real_draw
-	while draw_remaining:
-		var drinks = sm.deck_manager.draw(draw_remaining)
-		draw_remaining -= drinks.size()
-		
-		sm.hand_manager.draw_drinks(drinks)
-		
-		if draw_remaining > 0:
-			_reshuffle_draw_pile()
+func play_card(drink: DrinkResource, drink_position: Vector2) -> void:
 
-func _reshuffle_draw_pile() -> void:
-	sm.deck_manager.reshuffle_drawpile()
-
-func _play_card(drink: DrinkResource) -> void:
 	var new_poison = sm.game_stats.poison + drink.poison
 	new_poison = max(1, new_poison)
 	
@@ -52,7 +36,7 @@ func _play_card(drink: DrinkResource) -> void:
 	sm.player_strength.set_value(sm.game_stats.strength)
 	sm.charm_overlay.set_value(sm.game_stats.charm)
 	
-	_ability_helper.trigger_ability(drink.special_ability)
+	_ability_helper.trigger_ability(drink.special_ability, drink_position)
 	
 	if sm.game_stats.poison >= 12:
 		sm.switch_state(sm.States.PASS_OUT)

@@ -14,7 +14,7 @@ var drinks: Array[Drink]
 var drinks_drinkable: bool = true
 
 ## For when a drink is drinkable and is clicked (play state connected to this)
-signal drink_clicked(resource: DrinkResource) ## Rename to drink_drank
+signal drink_drank(resource: DrinkResource, drink_position: Vector2)
 ## For when a drink is not drinkable and is clicked (hand_ability_helper maybe connected)
 signal drink_chosen(drink: Drink)
 
@@ -37,7 +37,7 @@ func _click_drink(drink: Drink) -> void:
 	if !drinks_drinkable:
 		drink_chosen.emit(drink)
 		return
-	drink_clicked.emit(drink.attached_drink)
+	drink_drank.emit(drink.attached_drink, drink.global_position)
 	remove_drink(drink)
 	tooltip_manager.remove_item(drink, true)
 	pass
