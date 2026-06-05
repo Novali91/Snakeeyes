@@ -14,29 +14,6 @@ var can_buy: bool = false
 
 @onready var _snake_scene: PackedScene = preload("res://02_Deck/02_Snakes/snake.tscn")
 
-var _starting_snakes: Array[SnakeResource] = [
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/red_viper.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/red_viper.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/blue_viper.tres"),
-]
-
-var _common_snakes: Array[SnakeResource] = [
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/red_viper.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/blue_viper.tres"),
-]
-
-var _rare_snakes: Array[SnakeResource]
-
-var _legendary_snakes: Array[SnakeResource]
-
 var _shop_positions: Array[Vector2] = [
 	Vector2(300, 1080 / 2.),
 	Vector2(600, 1080 / 2.),
@@ -73,7 +50,7 @@ func fill_shop() -> void:
 func get_starting_snakes() -> Array[Snake]:
 	var snake_arr: Array[Snake] = []
 	
-	for s: SnakeResource in _starting_snakes:
+	for s: SnakeResource in GS.starting_snakes:
 		var new_snake = create_snake(s)
 		snake_arr.push_back(new_snake)
 	
@@ -95,7 +72,7 @@ func _get_snakes(num: int) -> Array[Snake]:
 	var arr: Array[Snake] = []
 	
 	for i in num:
-		var new_snake = create_snake(_common_snakes.pick_random())
+		var new_snake = create_snake(GS.common_snakes.pick_random())
 		arr.push_back(new_snake)
 	
 	return arr
