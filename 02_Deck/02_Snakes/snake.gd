@@ -24,3 +24,11 @@ func set_texture() -> void:
 func instantiate_tooltip() -> void:
 	tooltip.instantiate_snake_values(attached_snake, current_drink)
 	return
+
+func activate_tooltip() -> void:
+	super()
+	snake_sprite.material.set_shader_parameter("alpha", 1.0)
+
+func deactivate_tooltip() -> void:
+	super()
+	snake_sprite.material.set_shader_parameter("alpha", 0.0)

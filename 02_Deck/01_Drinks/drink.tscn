@@ -2,9 +2,18 @@
 
 [ext_resource type="Script" uid="uid://d0vxlqxubniex" path="res://02_Deck/01_Drinks/drink.gd" id="1_3sv11"]
 [ext_resource type="PackedScene" uid="uid://eg5ukadcklbv" path="res://01_Managers/05_Tooltip_Manager/tooltip.tscn" id="2_kbsba"]
+[ext_resource type="Shader" uid="uid://0oonfw65mdnr" path="res://05_Assets/02_Shaders/outline.gdshader" id="2_mjnwm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbsba"]
 size = Vector2(128, 128)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ifok2"]
+resource_local_to_scene = true
+shader = ExtResource("2_mjnwm")
+shader_parameter/sprite_alpha = 1.0
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/alpha = 0.0
+shader_parameter/thickness = 0.05
 
 [node name="Drink" type="Area2D" unique_id=66274034]
 script = ExtResource("1_3sv11")
@@ -14,5 +23,6 @@ metadata/_custom_type_script = "uid://4lo1g706tbqt"
 shape = SubResource("RectangleShape2D_kbsba")
 
 [node name="DrinkSprite" type="Sprite2D" parent="." unique_id=555956909]
+material = SubResource("ShaderMaterial_ifok2")
 
 [node name="Tooltip" parent="." unique_id=1158809468 instance=ExtResource("2_kbsba")]

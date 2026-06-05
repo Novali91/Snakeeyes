@@ -1,10 +1,19 @@
 [gd_scene format=3 uid="uid://bxhfwwxj38y6n"]
 
 [ext_resource type="Script" uid="uid://cxsjn4i6ih5d2" path="res://02_Deck/02_Snakes/snake.gd" id="1_eehjs"]
+[ext_resource type="Shader" uid="uid://0oonfw65mdnr" path="res://05_Assets/02_Shaders/outline.gdshader" id="2_m33or"]
 [ext_resource type="PackedScene" uid="uid://eg5ukadcklbv" path="res://01_Managers/05_Tooltip_Manager/tooltip.tscn" id="2_su81r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m33or"]
 size = Vector2(75, 150)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_itj0u"]
+resource_local_to_scene = true
+shader = ExtResource("2_m33or")
+shader_parameter/sprite_alpha = 1.0
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/alpha = 0.0
+shader_parameter/thickness = 0.05
 
 [node name="Snake" type="Area2D" unique_id=642352785]
 script = ExtResource("1_eehjs")
@@ -14,5 +23,6 @@ metadata/_custom_type_script = "uid://4lo1g706tbqt"
 shape = SubResource("RectangleShape2D_m33or")
 
 [node name="SnakeSprite" type="Sprite2D" parent="." unique_id=2038083064]
+material = SubResource("ShaderMaterial_itj0u")
 
 [node name="Tooltip" parent="." unique_id=1158809468 instance=ExtResource("2_su81r")]

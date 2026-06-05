@@ -99,7 +99,6 @@ position = Vector2(3654, 406)
 
 [node name="CharmOverlay" parent="VisualInputOutput" unique_id=1000792462 instance=ExtResource("9_tn0ij")]
 unique_name_in_owner = true
-position = Vector2(2032, 448)
 
 [node name="PoisonBar" parent="VisualInputOutput" unique_id=674401828 instance=ExtResource("10_v5tm5")]
 unique_name_in_owner = true

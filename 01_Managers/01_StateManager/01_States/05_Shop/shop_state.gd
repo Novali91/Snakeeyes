@@ -27,7 +27,7 @@ func physics_tick(_delta: float) -> void:
 func _check_snake(snake: Snake) -> void:
 	if snake.attached_snake.cost <= sm.game_stats.charm:
 		sm.game_stats.charm -= snake.attached_snake.cost
-		sm.charm_overlay.set_value(sm.game_stats.charm)
+		sm.charm_overlay.spend_charm(snake.attached_snake.cost, snake.global_position)
 		
 		var snake_copy = sm.shop_manager.create_snake(snake.attached_snake)
 		sm.deck_manager.add_snake(snake_copy)

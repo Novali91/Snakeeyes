@@ -2,17 +2,29 @@
 
 [ext_resource type="Script" uid="uid://dkn3vaawwn56" path="res://03_VisualInputOutput/02_CharmOverlay/charm_overlay.gd" id="1_sy3cc"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tl6ep"]
+radius = 97.04638
+
+[sub_resource type="LabelSettings" id="LabelSettings_tl6ep"]
+font_size = 48
+
 [node name="CharmOverlay" type="Node2D" unique_id=213505803]
 script = ExtResource("1_sy3cc")
 metadata/_custom_type_script = "uid://dkn3vaawwn56"
 
-[node name="Label" type="Label" parent="." unique_id=1103381657]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Charm:"
+[node name="Bundle" type="Area2D" parent="." unique_id=1437377344]
 
-[node name="Input" type="Label" parent="." unique_id=443741357]
-offset_left = 64.0
-offset_right = 125.0
-offset_bottom = 23.0
-text = "0"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bundle" unique_id=1846273930]
+shape = SubResource("CircleShape2D_tl6ep")
+
+[node name="CountLabel" type="Label" parent="Bundle" unique_id=1169965914]
+custom_minimum_size = Vector2(400, 400)
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+label_settings = SubResource("LabelSettings_tl6ep")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tokens" type="Node2D" parent="." unique_id=409966900]

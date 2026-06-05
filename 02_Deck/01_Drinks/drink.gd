@@ -22,6 +22,8 @@ enum easing_function {EASE_IN, EASE_OUT}
 var slide_easing: easing_function
 var delete_after_slide: bool
 
+var _hover_tween: Tween
+
 func _ready() -> void:
 	super._ready()
 	tooltip.instantiate_drink_values(attached_drink)
@@ -31,3 +33,19 @@ func _ready() -> void:
 func set_texture() -> void:
 	drink_sprite.texture = attached_drink.drink_sprite
 	pass
+
+func activate_tooltip() -> void:
+	super()
+	drink_sprite.material.set_shader_parameter("alpha", 1.0)
+	
+	if _hover_tween: _hover_tween.kill()
+	_hover_tween = create_tween()
+	_hover_tween.tween_property(drink_sprite, "position", Vector2(0, -20), 0.1)
+
+func deactivate_tooltip() -> void:
+	super()
+	drink_sprite.material.set_shader_parameter("alpha", 0.0)
+	
+	if _hover_tween: _hover_tween.kill()
+	_hover_tween = create_tween()
+	_hover_tween.tween_property(drink_sprite, "position", Vector2.ZERO, 0.1)

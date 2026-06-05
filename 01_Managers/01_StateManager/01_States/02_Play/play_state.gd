@@ -34,7 +34,8 @@ func play_card(drink: DrinkResource, drink_position: Vector2) -> void:
 	
 	sm.poison_bar.set_value(sm.game_stats.poison)
 	sm.player_strength.set_value(sm.game_stats.strength)
-	sm.charm_overlay.set_value(sm.game_stats.charm)
+	
+	sm.charm_overlay.gain_charm(drink.charm, drink_position)
 	
 	_ability_helper.trigger_ability(drink.special_ability, drink_position)
 	

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bdhc08vrljn0f"]
+
+[ext_resource type="Texture2D" uid="uid://buaj133388e0p" path="res://05_Assets/01_Art/01_DevArt/charm_token.png" id="1_68j8m"]
+[ext_resource type="Script" uid="uid://cb55q1jh825qv" path="res://03_VisualInputOutput/02_CharmOverlay/charm_token.gd" id="1_tp83s"]
+
+[node name="CharmToken" type="Sprite2D" unique_id=599123848]
+texture = ExtResource("1_68j8m")
+script = ExtResource("1_tp83s")
