@@ -40,8 +40,8 @@ func draw_drinks(new_drinks: Array[Drink]) -> void:
 		if cur_drink >= new_drinks.size():
 			break
 		new_drink = new_drinks[cur_drink]
-		cur_drink += 1
 		if drink_slots[i] == null:
+			cur_drink += 1
 			tooltip_manager.add_item(new_drink)
 			drink_slots[i] = new_drink
 			## For some reason their position doesn't update

@@ -66,8 +66,6 @@ func remove_item(item: DeckItem, kill: bool) -> void:
 ## -and therefore should have its tooltip appear
 func child_hovered(child: DeckItem) -> void:
 	all_hovered.push_back(child)
-	print("Hover!")
-	print(cur_hovered)
 	if !can_hover:
 		return
 	

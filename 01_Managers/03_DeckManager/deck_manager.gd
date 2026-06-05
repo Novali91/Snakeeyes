@@ -31,6 +31,8 @@ func draw(amt: int) -> Array[Drink]:
 		new_array.push_back(temp_drink)
 		tooltip_manager.remove_item(temp_drink, false)
 	
+	print(new_array)
+	
 	return new_array
 	
 
@@ -48,7 +50,7 @@ func create_drink(drink_resource: DrinkResource, og_drink_resource: DrinkResourc
 	var new_drink: Drink = _drink_scene.instantiate()
 	new_drink.attached_drink = drink_resource.duplicate()
 	new_drink.attached_drink_resource = og_drink_resource
-	# Maybe we need to add other info to this (eg global position)? This is probably where we'd do it
+	new_drink.global_position = Vector2(200 + drink_drawpile.size() * 50, 800)
 	return new_drink
 
 ## Not sure how removing snakes will work
@@ -64,7 +66,7 @@ func remove_snake(snake) -> void:
 ## Idk where we want the animation to be placed (if we have one?)
 func add_snake(new_snake: Snake) -> void:
 	snake_deck.push_back(new_snake)
-	new_snake.global_position = Vector2(500, 500) # Should this be position?
+	new_snake.global_position = Vector2(200 + snake_deck.size() * 50, 1080 / 2.)
 	tooltip_manager.add_item(new_snake)
 	pass
 
@@ -72,8 +74,8 @@ func shuffle_drawpile() -> void:
 	drink_drawpile.shuffle()
 	pass
 
-func return_to_drawpile(attached_drink: DrinkResource, attached_drink_res: DrinkResource):
-	var new_drink: Drink = create_drink(attached_drink, attached_drink_res)
+func return_to_drawpile(drink: Drink):
+	var new_drink: Drink = create_drink(drink.attached_drink, drink.attached_drink_resource)
 	drink_drawpile.push_back(new_drink)
 	tooltip_manager.add_item(new_drink)
 	shuffle_drawpile()
