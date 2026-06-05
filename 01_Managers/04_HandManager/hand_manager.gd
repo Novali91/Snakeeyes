@@ -5,8 +5,7 @@ const Y_POSITION_DRINKS: int = 800
 
 var cur_num_drinks: int = 0
 
-# Placeholder for now
-var drink_slots: Array[Drink]
+var drinks_in_hand: Array[Drink]
 
 @onready var tooltip_manager: TooltipManager = $TooltipManager
 @onready var slide_manager: SlideManager = $SlideManager
@@ -20,7 +19,6 @@ signal drink_clicked(resource: DrinkResource) ## Rename to drink_drank
 signal drink_chosen(drink: Drink)
 
 func _ready() -> void:
-	drink_slots.resize(10)
 	tooltip_manager.child_was_clicked.connect(_click_drink)
 	pass
 
@@ -33,21 +31,10 @@ func get_num_drinks() -> int:
 ## Very placeholder-y function:
 ## Simon, when you implement slide_manager, you can change this as you please
 func draw_drinks(new_drinks: Array[Drink]) -> void:
-	
-	var cur_drink: int = 0
-	var new_drink: Drink = null
-	for i: int in range(drink_slots.size()):
-		if cur_drink >= new_drinks.size():
-			break
-		new_drink = new_drinks[cur_drink]
-		if drink_slots[i] == null:
-			cur_drink += 1
-			tooltip_manager.add_item(new_drink)
-			drink_slots[i] = new_drink
-			## For some reason their position doesn't update
-			#new_drink.position = Vector2((i+1)*100, 800)
-	slide_manager.begin_slide_drinks(drink_slots)
-	pass
+	for drink in new_drinks:
+		tooltip_manager.add_item(drink)
+		drinks_in_hand.append(drink)
+	slide_manager.begin_slide_drinks(drinks_in_hand)
 
 func _click_drink(drink: Drink) -> void:
 	if !drinks_drinkable:
@@ -59,19 +46,14 @@ func _click_drink(drink: Drink) -> void:
 	pass
 
 ## 
-func remove_drink(drink: Drink) -> void:
-	for i: int in range(drink_slots.size()):
-		i-=1
-		if drink_slots[i] == drink:
-			drink_slots.remove_at(i)
-			drink_slots.insert(i, null)
-	pass
+func remove_drink(drink_to_remove: Drink) -> void:
+	for i: int in range(drinks_in_hand.size()):
+		if drinks_in_hand[i] == drink_to_remove:
+			drinks_in_hand.remove_at(i)
+			break
 
 func end_turn_discard() -> void:
-	for i: int in range(drink_slots.size()):
-		i-=1
-		if drink_slots[i] is Drink:
-			tooltip_manager.remove_item(drink_slots[i], true)
-			drink_slots.remove_at(i)
-			drink_slots.insert(i, null)
-	pass
+	for i: int in range(drinks_in_hand.size()):
+		if drinks_in_hand[i] is Drink:
+			tooltip_manager.remove_item(drinks_in_hand[i], true)
+	drinks_in_hand.clear()
