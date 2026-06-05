@@ -15,8 +15,12 @@ var attached_drink: DrinkResource
 
 @onready var drink_sprite: Sprite2D = $DrinkSprite
 
+var slide_location_start: float
 var slide_location_goal: float
 var slide_start_time: float
+enum easing_function {EASE_IN, EASE_OUT}
+var slide_easing: easing_function
+var delete_after_slide: bool
 
 func _ready() -> void:
 	super._ready()

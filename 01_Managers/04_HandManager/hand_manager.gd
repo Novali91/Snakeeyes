@@ -27,14 +27,11 @@ func get_num_drinks() -> int:
 
 
 ## Bug: For some reason this is called twice? Is that normal?
-
-## Very placeholder-y function:
-## Simon, when you implement slide_manager, you can change this as you please
 func draw_drinks(new_drinks: Array[Drink]) -> void:
 	for drink in new_drinks:
 		tooltip_manager.add_item(drink)
 		drinks_in_hand.append(drink)
-	slide_manager.begin_slide_drinks(drinks_in_hand)
+	slide_manager.begin_slide_drinks_in(drinks_in_hand)
 
 func _click_drink(drink: Drink) -> void:
 	if !drinks_drinkable:

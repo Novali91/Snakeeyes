@@ -19,8 +19,5 @@ func choose_drink() -> Drink:
 
 func slide_drink_back(drink: Drink) -> void:
 	drink.input_pickable = false ## Placeholder: Is this how we want to do this?
-	## hm.slide_manager.slide_back(drink) -- to be added fully when slide_manager is implemented
-	## Maybe wait for animation to finish (or does slide_manager do this?)
-	hm.remove_drink(drink)
-	hm.tooltip_manager.remove_item(drink, true)
+	hm.slide_manager.begin_slide_back(drink)
 	return
