@@ -15,6 +15,6 @@ func trigger_ability(ind: int) -> void:
 			## Maybe bring up some ui for the selection?
 			## Make it so you can't end turn while selecting?
 			var chosen_drink: Drink = await sm.hand_manager.ability_helper.choose_drink()
+			sm.deck_manager.return_to_drawpile(chosen_drink.attached_drink, chosen_drink.attached_drink_resource)
 			sm.hand_manager.ability_helper.slide_drink_back(chosen_drink)
-			sm.deck_manager.return_to_drawpile(chosen_drink)
 		pass

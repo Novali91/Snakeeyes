@@ -72,8 +72,9 @@ func shuffle_drawpile() -> void:
 	drink_drawpile.shuffle()
 	pass
 
-func return_to_drawpile(drink: Drink):
-	drink_drawpile.push_back(drink)
-	tooltip_manager.add_item(drink)
+func return_to_drawpile(attached_drink: DrinkResource, attached_drink_res: DrinkResource):
+	var new_drink: Drink = create_drink(attached_drink, attached_drink_res)
+	drink_drawpile.push_back(new_drink)
+	tooltip_manager.add_item(new_drink)
 	shuffle_drawpile()
 	pass
