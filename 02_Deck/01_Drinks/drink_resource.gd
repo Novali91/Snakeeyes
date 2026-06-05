@@ -9,11 +9,11 @@ extends Resource
 @export var drink_sprite: Texture2D
 # Drink stats
 @export var poison: int
-@export var charm: int
 @export var strength: int
+@export var charm: int
 @export var special_ability: int
 @export var cost: int
 
 # For tooltip
-@export var description: String = ""
+@export var description: String = "No ability"
 @export var flavour_text: String

@@ -7,7 +7,7 @@ class_name SnakeResource
 
 @export var snake_sprite: Texture
 
-@export var description: String
+@export var description: String = "No ability"
 @export var flavour_text: String
 
 # Shop cost
