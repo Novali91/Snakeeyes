@@ -9,5 +9,5 @@ script = ExtResource("1_g3577")
 drink_resource = ExtResource("1_a1nyo")
 snake_sprite = ExtResource("3_vv24c")
 cost = 2
-rarity = "Starter"
+rarity = "S"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

@@ -28,6 +28,8 @@ var common_snakes: Array[SnakeResource] = [
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/red_viper.tres"),
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/blue_viper.tres"),
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/python.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/tiger_keelback.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/placeboa.tres"),
 ]
 
 var rare_snakes: Array[SnakeResource] = [

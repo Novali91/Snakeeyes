@@ -12,5 +12,5 @@ snake_sprite = ExtResource("3_ow5d2")
 description = "When drank, slide a drink back to your remaining drinks."
 flavour_text = "The Blue Viper is a cunning planner."
 cost = 3
-rarity = "Starter"
+rarity = "S"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"
