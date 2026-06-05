@@ -37,16 +37,24 @@ func add_item(new_item: DeckItem) -> void:
 ## Should be called whenever this stops managing any DeckItems
 ## Removes their logic with this tooltip_manager
 func remove_item(item: DeckItem, kill: bool) -> void:
-	# If it is in all_hovered, remove it from it
+	# If this child is currently hovered, remove its tooltip
+		# If it is in all_hovered, remove it from it
 	for i: int in range(all_hovered.size()):
 		i -= 1
 		if all_hovered[i] == item:
 			all_hovered.remove_at(i)
-	# If this child is currently hovered, remove its tooltip
+	
 	if cur_hovered == item:
 		item.deactivate_tooltip()
-		find_new_hover()
+		if all_hovered.size() > 0:
+			find_new_hover()
+		else:
+			cur_hovered = null
 	
+	
+	item.hovered.disconnect(child_hovered)
+	item.unhovered.disconnect(child_unhovered)
+	item.clicked.disconnect(child_clicked)
 	remove_child(item)
 	
 	if kill:
@@ -58,7 +66,8 @@ func remove_item(item: DeckItem, kill: bool) -> void:
 ## -and therefore should have its tooltip appear
 func child_hovered(child: DeckItem) -> void:
 	all_hovered.push_back(child)
-	
+	print("Hover!")
+	print(cur_hovered)
 	if !can_hover:
 		return
 	
@@ -100,7 +109,7 @@ func child_unhovered(child: DeckItem) -> void:
 		i -= 1
 		if all_hovered[i] == child:
 			all_hovered.remove_at(i)
-			continue
+			break
 	
 	# Returns if this child isn't the currenly hovered child
 	if !(cur_hovered == child):

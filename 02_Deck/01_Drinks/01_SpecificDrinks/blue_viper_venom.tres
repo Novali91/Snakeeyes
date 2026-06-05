@@ -9,4 +9,5 @@ poison = 1
 charm = 1
 special_ability = 1
 description = "On drink, put a drink back into your drawpile."
+flavour_text = "Often drank for recreational means, the Blue Viper's Venom is very hallucinogenic."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

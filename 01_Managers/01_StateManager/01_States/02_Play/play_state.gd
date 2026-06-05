@@ -61,4 +61,5 @@ func _play_card(drink: DrinkResource) -> void:
 		sm.switch_state(sm.States.PASS_OUT)
 
 func _end_turn() -> void:
+	sm.hand_manager.end_turn_discard()
 	sm.switch_state(sm.States.POISON_ROLL)

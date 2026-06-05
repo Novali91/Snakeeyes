@@ -7,10 +7,17 @@ var cur_num_drinks: int = 0
 
 # Placeholder for now
 var drink_slots: Array[Drink]
+
 @onready var tooltip_manager: TooltipManager = $TooltipManager
+@onready var slide_manager: SlideManager = $SlideManager
+@onready var ability_helper: HandAbilityHelper = $HandAbilityHelper
 
 var drinks_drinkable: bool = true
-signal drink_clicked(resource: DrinkResource)
+
+## For when a drink is drinkable and is clicked (play state connected to this)
+signal drink_clicked(resource: DrinkResource) ## Rename to drink_drank
+## For when a drink is not drinkable and is clicked (hand_ability_helper maybe connected)
+signal drink_chosen(drink: Drink)
 
 func _ready() -> void:
 	drink_slots.resize(10)
@@ -22,6 +29,9 @@ func get_num_drinks() -> int:
 
 
 ## Bug: For some reason this is called twice? Is that normal?
+
+## Very placeholder-y function:
+## Simon, when you implement slide_manager, you can change this as you please
 func draw_drinks(new_drinks: Array[Drink]) -> void:
 	
 	var cur_drink: int = 0
@@ -40,24 +50,27 @@ func draw_drinks(new_drinks: Array[Drink]) -> void:
 
 func _click_drink(drink: Drink) -> void:
 	if !drinks_drinkable:
+		drink_chosen.emit(drink)
 		return
 	drink_clicked.emit(drink.attached_drink)
 	remove_drink(drink)
+	tooltip_manager.remove_item(drink, true)
 	pass
 
+## 
 func remove_drink(drink: Drink) -> void:
 	for i: int in range(drink_slots.size()):
 		i-=1
 		if drink_slots[i] == drink:
 			drink_slots.remove_at(i)
 			drink_slots.insert(i, null)
-	
-	tooltip_manager.remove_item(drink, true)
 	pass
 
 func end_turn_discard() -> void:
 	for i: int in range(drink_slots.size()):
 		i-=1
 		if drink_slots[i] is Drink:
-			remove_drink(drink_slots[i])
+			tooltip_manager.remove_item(drink_slots[i], true)
+			drink_slots.remove_at(i)
+			drink_slots.insert(i, null)
 	pass

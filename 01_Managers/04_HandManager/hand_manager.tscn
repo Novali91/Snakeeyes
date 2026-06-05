@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cn4krwxb4nnm4" path="res://01_Managers/04_HandManager/hand_manager.gd" id="1_qdqya"]
 [ext_resource type="Script" uid="uid://s2kykbe77lg" path="res://01_Managers/04_HandManager/slide_manager.gd" id="2_kvpf8"]
 [ext_resource type="Script" uid="uid://6hd2b0wx5v7f" path="res://01_Managers/05_Tooltip_Manager/tooltip_manager.gd" id="3_kdvs2"]
+[ext_resource type="Script" uid="uid://bqpjhmdoblvws" path="res://01_Managers/04_HandManager/hand_ability_helper.gd" id="4_kdvs2"]
 
 [node name="HandManager" type="Node2D" unique_id=1877513829]
 script = ExtResource("1_qdqya")
@@ -15,3 +16,7 @@ metadata/_custom_type_script = "uid://s2kykbe77lg"
 [node name="TooltipManager" type="Node2D" parent="." unique_id=655508588]
 script = ExtResource("3_kdvs2")
 metadata/_custom_type_script = "uid://6hd2b0wx5v7f"
+
+[node name="HandAbilityHelper" type="Node" parent="." unique_id=158461179]
+script = ExtResource("4_kdvs2")
+metadata/_custom_type_script = "uid://bqpjhmdoblvws"

@@ -13,10 +13,6 @@ class_name DeckManager
 @export var snake_deck: Array[Snake]
 @export var drink_drawpile: Array[Drink]
 
-# Not sure if we're doing a maximum handsize, but if we are, this is the logic:
-const MAX_HAND_SIZE: int = 12
-var cur_hand_amt: int
-
 @onready var _drink_scene = preload("res://02_Deck/01_Drinks/drink.tscn")
 
 @onready var tooltip_manager: TooltipManager = $TooltipManager
@@ -25,10 +21,6 @@ var cur_hand_amt: int
 ## -but for each drink that is "overflow", it just has a null
 
 func draw(amt: int) -> Array[Drink]:
-	# Maximum handsize logic
-	#if amt > (MAX_HAND_SIZE - cur_hand_amt):
-		#amt = MAX_HAND_SIZE - cur_hand_amt
-	
 	var new_array: Array[Drink]
 	var temp_drink: Drink
 	for i in range(amt):
@@ -59,22 +51,11 @@ func create_drink(drink_resource: DrinkResource, og_drink_resource: DrinkResourc
 	# Maybe we need to add other info to this (eg global position)? This is probably where we'd do it
 	return new_drink
 
-## Presumably called whenever you a drink gets drank!
-# Will be ported to HandManager ig
-func empty_drink() -> void:
-	cur_hand_amt -= 1
-	pass
-
-## Presumably called at the start of a new turn/at some upkeep
-# Will be ported to HandManager ig
-func new_turn() -> void:
-	cur_hand_amt = 0
-	pass
-
-## Not sure how removing snakes will work, but rn it uses the name of the snake ig
-func remove_snake(name: String) -> void:
+## Not sure how removing snakes will work
+func remove_snake(snake) -> void:
 	for i in range(snake_deck.size()):
-		if snake_deck[i].attached_snake.name == name:
+		if snake_deck[i] == snake:
+			tooltip_manager.remove_item(snake, true)
 			snake_deck.remove_at(i)
 			# Probably will do more stuff here (like visuals)
 			break
@@ -83,7 +64,7 @@ func remove_snake(name: String) -> void:
 ## Idk where we want the animation to be placed (if we have one?)
 func add_snake(new_snake: Snake) -> void:
 	snake_deck.push_back(new_snake)
-	new_snake.global_position = Vector2(500, 500)
+	new_snake.global_position = Vector2(500, 500) # Should this be position?
 	tooltip_manager.add_item(new_snake)
 	pass
 
@@ -93,8 +74,6 @@ func shuffle_drawpile() -> void:
 
 func return_to_drawpile(drink: Drink):
 	drink_drawpile.push_back(drink)
+	tooltip_manager.add_item(drink)
 	shuffle_drawpile()
-	
-	# Will be ported to HandManager ig
-	cur_hand_amt -= 1
 	pass

@@ -16,7 +16,7 @@ var _starting_snakes: Array[SnakeResource] = [
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/blue_viper.tres"),
 ]
 
 var _common_snakes: Array[SnakeResource] = [

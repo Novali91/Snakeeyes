@@ -2,10 +2,14 @@
 
 [ext_resource type="Resource" uid="uid://cco6u2vffel1w" path="res://02_Deck/01_Drinks/01_SpecificDrinks/blue_viper_venom.tres" id="1_16v11"]
 [ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_avnb1"]
+[ext_resource type="Texture2D" uid="uid://iydiawq3074m" path="res://icon.svg" id="3_ow5d2"]
 
 [resource]
 script = ExtResource("1_avnb1")
-name = "Blue Viper"
-attached_drink = ExtResource("1_16v11")
+snake_name = "Blue Viper"
+drink_resource = ExtResource("1_16v11")
+snake_sprite = ExtResource("3_ow5d2")
+description = "When drank, slide a drink back to your remaining drinks."
+flavour_text = "The Blue Viper is a cunning planner."
 rarity = "Starter"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"
