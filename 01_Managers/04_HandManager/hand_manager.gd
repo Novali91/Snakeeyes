@@ -38,14 +38,15 @@ func draw_drinks(new_drinks: Array[Drink]) -> void:
 	var new_drink: Drink = null
 	for i: int in range(drink_slots.size()):
 		if cur_drink >= new_drinks.size():
-			return
+			break
 		new_drink = new_drinks[cur_drink]
 		cur_drink += 1
 		if drink_slots[i] == null:
 			tooltip_manager.add_item(new_drink)
 			drink_slots[i] = new_drink
 			## For some reason their position doesn't update
-			new_drink.position = Vector2((i+1)*100, 800)
+			#new_drink.position = Vector2((i+1)*100, 800)
+	slide_manager.begin_slide_drinks(drink_slots)
 	pass
 
 func _click_drink(drink: Drink) -> void:
