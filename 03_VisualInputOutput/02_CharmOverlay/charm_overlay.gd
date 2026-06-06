@@ -53,14 +53,14 @@ func _process(delta: float) -> void:
 		else:
 			t.spent_timer -= delta
 		
-		if not t.spent or t.spent_timer < 0:
+		if not t.spent or t.spent_timer <= 0:
 			t.global_position += t.vel * delta
 
 func gain_charm(val: int, pos: Vector2) -> void:
 	for i in val:
 		var new_token: CharmToken = _token_scene.instantiate()
 		new_token.global_position = pos
-		new_token.wait_timer = i * 0.1
+		new_token.wait_timer = i * 0.2
 		if i > 0:
 			new_token.visible = false
 		
@@ -74,7 +74,7 @@ func spend_charm(val: int, pos: Vector2) -> void:
 		token.spent = true
 		token.send_to(pos)
 		token.vel = Vector2.ZERO
-		token.spent_timer = i * 0.1
+		token.spent_timer = i * 0.2
 
 func clear_charm() -> void:
 	for t: CharmToken in _all_tokens:
