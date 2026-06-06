@@ -15,6 +15,8 @@ const CANNIBAL_SNAKE: int = 7
 const HYDRA: int = 8
 const FRIENDLY_SNAKE: int = 9
 const FAMILIAR_SNAKE: int = 10
+const CHARMING_SNAKE: int = 11
+const SNAKE_OF_ASCLEPIUS: int = 12
 
 func trigger_ability(ind: int, drink_position: Vector2) -> void:
 	match ind:
@@ -76,6 +78,16 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 			## This is where you would roll one D6
 			sm.deck_manager.ability_helper.increment_familiar_snakes(4)
 			pass
+		CHARMING_SNAKE:
+			## Maybe some visuals?
+			sm.shop_manager.ability_helper.increase_antidote_count(2)
+			pass
+		SNAKE_OF_ASCLEPIUS:
+			## Maybe some visuals?
+			GS.antidote_num += 1
+			sm.antidote_count.set_value(GS.antidote_num)
+			pass
+		
 
 func draw_cards(num: int) -> void:
 	var num_drinks = sm.hand_manager.get_num_drinks()

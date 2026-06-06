@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://c3fuvs1n0xyim"]
+
+[ext_resource type="Texture2D" uid="uid://bs6fl7hjy8ucy" path="res://05_Assets/01_Art/01_DevArt/drink_of_asclepius.png" id="1_0rxdk"]
+[ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_jrqwm"]
+
+[resource]
+script = ExtResource("1_jrqwm")
+drink_name = "Big Pharma's Juices"
+drink_sprite = ExtResource("1_0rxdk")
+poison = 1
+charm = -1
+special_ability = 12
+cost = 3
+description = "On drink, create an antidote."
+flavour_text = "Many confuse this drink with antidote itself."
+metadata/_custom_type_script = "uid://cysm36u2jsf44"

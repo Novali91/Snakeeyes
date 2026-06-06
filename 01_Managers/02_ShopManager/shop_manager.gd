@@ -10,6 +10,7 @@ var can_buy: bool = false
 var antidote_position: Vector2
 
 @onready var _tooltip_manager: TooltipManager = $TooltipManager
+@onready var ability_helper: ShopAbilityHelper = $ShopAbilityHelper
 @onready var _labels_node: Node2D = $PriceLabels
 @onready var _antidote_button: Button = $AntidoteButton
 
@@ -25,9 +26,10 @@ var _shop_positions: Array[Vector2] = [
 
 var _cur_snakes: Array[Snake] = []
 var _labels: Array[Label] = []
-var _antidote_stock: int = 0
+var antidote_stock: int = 0
 
 func _ready() -> void:
+	ability_helper.sm = self
 	_tooltip_manager.child_was_clicked.connect(_snake_clicked)
 	_antidote_button.pressed.connect(_antidote_clicked)
 	
@@ -48,7 +50,7 @@ func fill_shop() -> void:
 		_labels[i].text = str(_cur_snakes[i].attached_snake.cost)
 		_tooltip_manager.add_item(_cur_snakes[i])
 	
-	_antidote_stock = 1
+	antidote_stock = 1
 
 func get_starting_snakes() -> Array[Snake]:
 	var snake_arr: Array[Snake] = []
@@ -69,7 +71,7 @@ func purchase_snake(snake: Snake) -> void:
 	_remove_snake(snake)
 
 func purchase_antidote() -> void:
-	_antidote_stock -= 1
+	antidote_stock -= 1
 
 func _get_snakes(num: int) -> Array[Snake]:
 	var arr: Array[Snake] = []
@@ -88,7 +90,7 @@ func _snake_clicked(snake: DeckItem) -> void:
 
 func _antidote_clicked() -> void:
 	if not can_buy: return
-	if _antidote_stock <= 0: return
+	if antidote_stock <= 0: return
 	antidote_clicked.emit()
 
 func _remove_snake(snake: Snake) -> void:

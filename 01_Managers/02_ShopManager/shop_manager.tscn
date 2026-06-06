@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2okqtt318nbo" path="res://01_Managers/02_ShopManager/shop_manager.gd" id="1_oeh5l"]
 [ext_resource type="Script" uid="uid://6hd2b0wx5v7f" path="res://01_Managers/05_Tooltip_Manager/tooltip_manager.gd" id="2_8kjcj"]
+[ext_resource type="Script" uid="uid://cimjodkpl2ahn" path="res://01_Managers/02_ShopManager/shop_ability_helper.gd" id="3_ah0kr"]
 
 [node name="ShopManager" type="Node2D" unique_id=690115681]
 script = ExtResource("1_oeh5l")
@@ -84,3 +85,7 @@ offset_top = 829.0
 offset_right = 1067.0
 offset_bottom = 860.0
 text = "Buy Antidote (3 Charm)"
+
+[node name="ShopAbilityHelper" type="Node" parent="." unique_id=1728054696]
+script = ExtResource("3_ah0kr")
+metadata/_custom_type_script = "uid://cimjodkpl2ahn"

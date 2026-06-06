@@ -38,7 +38,9 @@ var common_snakes: Array[SnakeResource] = [
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/cannibal_snake.tres"),
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/hydra.tres"),
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/friendly_snake.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/familiar_snake.tres")
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/familiar_snake.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/charming_snake.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/asclepius_snake.tres"),
 ]
 
 var rare_snakes: Array[SnakeResource] = [

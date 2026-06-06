@@ -10,6 +10,6 @@ snake_name = "Familiar Snake"
 drink_resource = ExtResource("1_m5qj3")
 snake_sprite = ExtResource("3_2q55r")
 description = "When you drink this drink, roll a D6. Increase all familiar snakes' strength by that amount."
-cost = 1
+cost = 5
 rarity = "R"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"
