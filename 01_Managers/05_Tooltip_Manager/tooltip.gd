@@ -31,6 +31,8 @@ var sprite_size: Vector2 = Vector2(250, 350)
 @onready var poison_label: Label = $Poison
 @onready var strength_label: Label = $Strength
 @onready var charm_label: Label = $Charm
+## For now, this label exists as a placeholder
+@onready var num_drinks_label: Label = $NumDrinks
 
 ## Assuming viewport size does NOT change midgame (idk if it can or not)
 @onready var viewport_size: Vector2 = get_viewport_rect().size
@@ -97,11 +99,11 @@ func activate() -> void:
 	poison_label.visible=true
 	strength_label.visible = true
 	charm_label.visible = true
+	num_drinks_label.visible = true
 	pass
 
 func deactivate() -> void:
 	is_active = false
-	tooltip_sprite.visible = false
 	tooltip_sprite.visible = false
 	name_label.visible = false
 	desc_label.visible = false
@@ -109,6 +111,7 @@ func deactivate() -> void:
 	poison_label.visible=false
 	strength_label.visible = false
 	charm_label.visible = false
+	num_drinks_label.visible = false
 	pass
 
 ## Used to instantiate the values in the tooltip descriptions using the drink/snake resource
@@ -122,12 +125,13 @@ func instantiate_drink_values(info: DrinkResource) -> void:
 	
 	pass
 
-func instantiate_snake_values(info: SnakeResource, current_drink: DrinkResource) -> void:
+func instantiate_snake_values(info: SnakeResource, current_drink: DrinkResource, num_drinks) -> void:
 	name_label.text = info.snake_name
 	desc_label.text = info.description
 	flavour_label.text = info.flavour_text
 	poison_label.text = "Poison: " + str(current_drink.poison)
 	strength_label.text = "Strength: " + str(current_drink.strength)
 	charm_label.text = "Charm: " + str(current_drink.charm)
+	num_drinks_label.text = "Number of Drinks: " + str(num_drinks)
 	
 	pass

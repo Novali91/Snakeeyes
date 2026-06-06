@@ -31,6 +31,11 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_wv1ln"]
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_lupg5"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+outline_size = 6
+
 [node name="Tooltip" type="Node2D" unique_id=1158809468]
 script = ExtResource("1_vrqg4")
 metadata/_custom_type_script = "uid://40gxy6hwhljv"
@@ -86,3 +91,9 @@ offset_top = 80.0
 offset_right = 249.0
 offset_bottom = 110.0
 label_settings = SubResource("LabelSettings_wv1ln")
+
+[node name="NumDrinks" type="Label" parent="." unique_id=167646664]
+visible = false
+offset_top = -30.0
+offset_right = 250.0
+label_settings = SubResource("LabelSettings_lupg5")

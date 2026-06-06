@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://dppinbuux6fee"]
+
+[ext_resource type="Texture2D" uid="uid://cy1ky6dowclq0" path="res://05_Assets/01_Art/01_DevArt/Friendly_Drink.png" id="1_8a6ts"]
+[ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_ssmvy"]
+
+[resource]
+script = ExtResource("1_ssmvy")
+drink_name = "Friendly Venom"
+drink_sprite = ExtResource("1_8a6ts")
+poison = 4
+charm = 1
+special_ability = 9
+cost = 7
+description = "When drank, reduce the poison of all drinks in your hand by 1."
+flavour_text = "They say that after drinking this snake's venom, you just light up the room."
+metadata/_custom_type_script = "uid://cysm36u2jsf44"

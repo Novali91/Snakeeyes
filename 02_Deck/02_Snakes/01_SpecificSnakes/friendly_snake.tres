@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SnakeResource" format=3 uid="uid://kyxfmd4f3xxh"]
+
+[ext_resource type="Resource" uid="uid://dppinbuux6fee" path="res://02_Deck/01_Drinks/01_SpecificDrinks/friendly_drink.tres" id="1_c4g1r"]
+[ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_oqrdi"]
+[ext_resource type="Texture2D" uid="uid://b85r6h1ryk340" path="res://05_Assets/01_Art/01_DevArt/Friendly_Snake.png" id="3_7ouck"]
+
+[resource]
+script = ExtResource("1_oqrdi")
+snake_name = "Friendly Snake"
+drink_resource = ExtResource("1_c4g1r")
+snake_sprite = ExtResource("3_7ouck")
+description = "When drank, reduce the poison of all drinks in your hand by 1."
+flavour_text = "This snake has existed since prehistoric times. Its smile is an evolutionary trait so strong that it never went extinct!"
+cost = 8
+rarity = "R"
+metadata/_custom_type_script = "uid://6sj3dk6frj4"

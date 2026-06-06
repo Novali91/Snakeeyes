@@ -31,3 +31,9 @@ func give_drink_retain(drink: Drink) -> void:
 	
 	drink.instantiate_tooltip()
 	return
+
+func change_poison_values_in_hand(change: int) -> void:
+	for drink in hm.drinks:
+		drink.attached_drink.poison -= change
+		drink.instantiate_tooltip()
+	return
