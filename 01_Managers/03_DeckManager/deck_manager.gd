@@ -44,9 +44,10 @@ func draw(amt: int) -> Array[Drink]:
 func reshuffle_drawpile() -> void:
 	# Maybe this is where we put the animation for refilling the drinks if we want one?
 	for snake: Snake in snake_deck:
-		var new_drink: Drink = create_drink(snake.current_drink, snake.attached_snake.drink_resource)
-		drink_drawpile.push_back(new_drink)
-		tooltip_manager.add_item(new_drink)
+		for num_drink: int in snake.num_drinks:
+			var new_drink: Drink = create_drink(snake.current_drink, snake.attached_snake.drink_resource)
+			drink_drawpile.push_back(new_drink)
+			tooltip_manager.add_item(new_drink)
 	
 	shuffle_drawpile()
 	pass

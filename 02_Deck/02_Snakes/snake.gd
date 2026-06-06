@@ -24,7 +24,7 @@ func set_texture() -> void:
 	pass
 
 func instantiate_tooltip() -> void:
-	tooltip.instantiate_snake_values(attached_snake, current_drink)
+	tooltip.instantiate_snake_values(attached_snake, current_drink, num_drinks)
 	return
 
 func activate_tooltip() -> void:

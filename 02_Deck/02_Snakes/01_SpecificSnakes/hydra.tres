@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SnakeResource" format=3 uid="uid://bf3qr7q1npftm"]
+
+[ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_blt8l"]
+[ext_resource type="Resource" uid="uid://bmgd0eihuujmf" path="res://02_Deck/01_Drinks/01_SpecificDrinks/hydra_venom.tres" id="1_vpydl"]
+[ext_resource type="Texture2D" uid="uid://bks7wifrpp6up" path="res://05_Assets/01_Art/01_DevArt/Hydra_Snake.png" id="2_8bycp"]
+
+[resource]
+script = ExtResource("1_blt8l")
+snake_name = "Hydra"
+drink_resource = ExtResource("1_vpydl")
+snake_sprite = ExtResource("2_8bycp")
+description = "When drank, pick a snake. That snake produces an extra drink permanently."
+flavour_text = "The Legendary Hydra, known for its abilities to... give other snakes more heads?"
+cost = 10
+rarity = "L"
+metadata/_custom_type_script = "uid://6sj3dk6frj4"

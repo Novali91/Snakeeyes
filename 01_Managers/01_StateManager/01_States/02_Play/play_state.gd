@@ -11,6 +11,7 @@ func setup() -> void:
 
 func enter() -> void:
 	_ability_helper.draw_cards(5)
+	sm.hand_manager.drinks_drinkable = true
 	sm.end_turn_button.make_pressable()
 	sm.camera_manager.unlock_camera()
 
@@ -43,5 +44,6 @@ func play_card(drink: DrinkResource, drink_position: Vector2) -> void:
 		sm.switch_state(sm.States.PASS_OUT)
 
 func _end_turn() -> void:
+	sm.hand_manager.drinks_drinkable = false
 	sm.hand_manager.end_turn_discard()
 	sm.switch_state(sm.States.POISON_ROLL)
