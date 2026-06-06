@@ -73,6 +73,8 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 			sm.hand_manager.ability_helper.change_poison_values_in_hand(1)
 			pass
 		FAMILIAR_SNAKE:
+			## This is where you would roll one D6
+			sm.deck_manager.ability_helper.increment_familiar_snakes(4)
 			pass
 
 func draw_cards(num: int) -> void:

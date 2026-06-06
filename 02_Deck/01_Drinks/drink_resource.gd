@@ -19,6 +19,3 @@ extends Resource
 # For tooltip
 @export var description: String = "No ability."
 @export var flavour_text: String
-
-## This is for familiar snake. Placeholder solution. Avery: how would we do this?
-@export var times_drank: int = 0

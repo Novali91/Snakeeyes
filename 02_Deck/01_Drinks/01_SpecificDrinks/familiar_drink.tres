@@ -1,7 +1,14 @@
 [gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://efsx0rrmhjkh"]
 
 [ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_ttjk1"]
+[ext_resource type="Texture2D" uid="uid://bud83vj726bdb" path="res://05_Assets/01_Art/01_DevArt/Familiar_Drink.png" id="1_y1lox"]
 
 [resource]
 script = ExtResource("1_ttjk1")
+drink_name = "Familiar Venom"
+drink_sprite = ExtResource("1_y1lox")
+poison = 4
+special_ability = 10
+cost = 7
+description = "When you drink this drink, roll a D6. Increase all familiar snakes' strength by that amount."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

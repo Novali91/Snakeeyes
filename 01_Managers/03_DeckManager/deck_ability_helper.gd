@@ -32,3 +32,10 @@ func get_clairvoyant_drink(snake: Snake) -> DrinkResource:
 	var temp_drink: DrinkResource = snake.current_drink.duplicate()
 	temp_drink.poison = temp_drink.poison * 2
 	return temp_drink
+
+func increment_familiar_snakes(value: int) -> void:
+	for snake in _dm.snake_deck:
+		if snake.attached_snake.snake_name == "Familiar Snake":
+			snake.current_drink.strength += value
+			snake.instantiate_tooltip()
+	return
