@@ -8,6 +8,8 @@ class_name Snake
 @export var attached_snake: SnakeResource
 var current_drink: DrinkResource
 
+@onready var num_drinks: int = attached_snake.num_drinks
+
 # Reference to our sprite so that we can set the texture
 @onready var snake_sprite: Sprite2D = $SnakeSprite
 

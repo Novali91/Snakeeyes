@@ -1,6 +1,6 @@
 card effects:
 
-slide back to deck
+slide back to deck (done)
 draw cards (done)
 buff cards in hand (done)
 buff snakes in deck (done)
@@ -11,16 +11,16 @@ roll dice make decision (done)
 gain value based on other value (done)
 can buy multiple antidotes
 retain
-select snake from deck (remove or buff)
-select snake and play effect
-need to select drink in hand
+select snake from deck (remove or buff) (done)
+select snake and play effect (done)
+need to select drink in hand (done)
 get copy of drink in hand
 value for cards played this turn
 need to roll 1 or 2 dice
 strength equal to total in hand
 shop is 50% off
 buy effects
-snake makes multiple drinks (?)
+snake makes multiple drinks (?) (AWESOME!!!!)
 gain value next turn
 
 

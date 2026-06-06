@@ -14,6 +14,8 @@ extends Resource
 @export var special_ability: int
 @export var cost: int
 
+@export var retain: bool = false
+
 # For tooltip
 @export var description: String = "No ability"
 @export var flavour_text: String

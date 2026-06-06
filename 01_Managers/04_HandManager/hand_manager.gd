@@ -3,8 +3,6 @@ extends Node2D
 
 const Y_POSITION_DRINKS: int = 800
 
-var cur_num_drinks: int = 0
-
 var drinks: Array[Drink]
 
 @onready var tooltip_manager: TooltipManager = $TooltipManager
@@ -23,7 +21,7 @@ func _ready() -> void:
 	pass
 
 func get_num_drinks() -> int:
-	return cur_num_drinks
+	return drinks.size()
 
 
 ## Bug: For some reason this is called twice? Is that normal?
@@ -37,8 +35,8 @@ func _click_drink(drink: Drink) -> void:
 	if !drinks_drinkable:
 		drink_chosen.emit(drink)
 		return
-	drink_drank.emit(drink.attached_drink, drink.global_position)
 	remove_drink(drink)
+	drink_drank.emit(drink.attached_drink, drink.global_position)
 	tooltip_manager.remove_item(drink, true)
 	pass
 
@@ -50,7 +48,15 @@ func remove_drink(drink_to_remove: Drink) -> void:
 			break
 
 func end_turn_discard() -> void:
+	var temp_drink: Drink
 	for i: int in range(drinks.size()):
 		if drinks[i] is Drink:
-			tooltip_manager.remove_item(drinks[i], true)
-	drinks.clear()
+			temp_drink = drinks[i]
+			if temp_drink.attached_drink.retain == false: ## Test retain
+				tooltip_manager.remove_item(temp_drink, true)
+	_clear_drinks()
+
+func _clear_drinks() -> void:
+	for i: int in range(-1, drinks.size()-1):
+		if drinks[i].attached_drink.retain == false:
+			drinks.remove_at(i)

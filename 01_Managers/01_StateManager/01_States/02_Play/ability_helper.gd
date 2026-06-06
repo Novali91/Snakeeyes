@@ -11,12 +11,15 @@ const SHORT_TAIL_BOA: int = 3
 const LONG_TAIL_BOA: int = 4
 const GARDEN_SNAKE: int = 5
 const CLAIRVOYANT_SNAKE: int = 6
+const CANNIBAL_SNAKE: int = 7
 
 func trigger_ability(ind: int, drink_position: Vector2) -> void:
 	match ind:
 		NO_ABILITY:
 			return
 		BLUE_VIPER:
+			if sm.hand_manager.get_num_drinks() == 0:
+				return
 			## Lock camera?
 			sm.camera_manager.lock_camera()
 			## Maybe bring up some ui for the selection?
@@ -43,11 +46,18 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 			sm.camera_manager.lock_camera()
 			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
 			sm.camera_manager.unlock_camera()
-			sm.camera_manager.switch_screen(sm.camera_manager.LEFT) # This logic should be updated when camera manager is updated
+			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE) # This logic should be updated when camera manager is updated
 			sm.camera_manager.lock_camera()
 			var clairvoyant_drink: DrinkResource = sm.deck_manager.ability_helper.get_clairvoyant_drink(snake)
 			play_state.play_card(clairvoyant_drink, drink_position)
 			sm.camera_manager.unlock_camera()
+		CANNIBAL_SNAKE:
+			sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
+			sm.camera_manager.lock_camera()
+			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
+			sm.deck_manager.remove_snake(snake)
+			sm.camera_manager.unlock_camera()
+			pass
 		pass
 
 func draw_cards(num: int) -> void:

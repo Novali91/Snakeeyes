@@ -9,7 +9,7 @@ class_name SnakeResource
 
 @export var description: String = "No ability"
 @export var flavour_text: String
-
 # Shop cost
 @export var cost: int
 @export var rarity: String
+@export var num_drinks: int = 1
