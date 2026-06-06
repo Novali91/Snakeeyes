@@ -26,7 +26,7 @@ var _hover_tween: Tween
 
 func _ready() -> void:
 	super._ready()
-	tooltip.instantiate_drink_values(attached_drink)
+	instantiate_tooltip()
 	set_texture()
 	pass
 
@@ -49,3 +49,7 @@ func deactivate_tooltip() -> void:
 	if _hover_tween: _hover_tween.kill()
 	_hover_tween = create_tween()
 	_hover_tween.tween_property(drink_sprite, "position", Vector2.ZERO, 0.1)
+
+func instantiate_tooltip() -> void:
+	tooltip.instantiate_drink_values(attached_drink)
+	return

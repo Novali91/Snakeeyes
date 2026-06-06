@@ -26,7 +26,7 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 			## Make it so you can't end turn while selecting?
 			var chosen_drink: Drink = await sm.hand_manager.ability_helper.choose_drink()
 			sm.deck_manager.return_to_drawpile(chosen_drink)
-			sm.hand_manager.ability_helper.slide_drink_back(chosen_drink)
+			sm.hand_manager.ability_helper.give_drink_retain(chosen_drink)
 			sm.camera_manager.unlock_camera()
 		PLACEBOA: 
 			draw_cards(1)

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://duwfy2s813wch"]
+
+[ext_resource type="Texture2D" uid="uid://khalr0y0tw6o" path="res://05_Assets/01_Art/01_DevArt/Ambush_Snake.png" id="1_axjnp"]
+[ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_wre0m"]
+
+[resource]
+script = ExtResource("1_wre0m")
+drink_name = "Ambush Viper Venom"
+drink_sprite = ExtResource("1_axjnp")
+poison = 2
+strength = 4
+cost = 4
+retain = true
+description = "Stays on the table between rounds."
+flavour_text = "Tastes oddly of ground-up grass..."
+metadata/_custom_type_script = "uid://cysm36u2jsf44"
