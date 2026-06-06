@@ -57,6 +57,6 @@ func end_turn_discard() -> void:
 	_clear_drinks()
 
 func _clear_drinks() -> void:
-	for i: int in range(-1, drinks.size()-1):
+	for i: int in range(drinks.size() - 1, -1, -1):
 		if drinks[i].attached_drink.retain == false:
 			drinks.remove_at(i)
