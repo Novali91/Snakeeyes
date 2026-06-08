@@ -2,7 +2,7 @@ class_name CharmOverlay
 extends Node2D
 
 const _MAX_SPEED: float = 500
-const _ACC: float = 3000
+const _ACC: float = 2000
 
 @onready var _bundle: Area2D = $Bundle
 @onready var _tokens_node: Node2D = $Tokens
@@ -13,6 +13,8 @@ const _ACC: float = 3000
 
 var _tokens: Array[CharmToken] = []
 var _all_tokens: Array[CharmToken] = []
+var _reveal_timer: float = 0
+var _hovered: bool = false
 
 func _ready() -> void:
 	_count_label.visible = false
@@ -23,6 +25,9 @@ func _process(delta: float) -> void:
 	var screen_center = get_viewport().get_visible_rect().size / 2.
 	var global_center = get_viewport().get_canvas_transform().affine_inverse() * screen_center
 	_bundle.global_position = global_center - screen_center + _bundle_marker.position
+	
+	_count_label.visible = _hovered or _reveal_timer > 0
+	_reveal_timer -= delta
 	
 	for t: CharmToken in _all_tokens:
 		if t.wait_timer > 0:
@@ -47,18 +52,27 @@ func _process(delta: float) -> void:
 			t.vel += dir * _ACC * delta
 			
 			var dir_to_bundle = t.global_position.direction_to(_bundle.global_position)
-			if t.vel.dot(dir_to_bundle) < 0:
-				t.vel = t.vel.normalized() * min(t.vel.length(), _MAX_SPEED)
+			if t.vel.dot(dir_to_bundle) < 0 and t.vel.length() > _MAX_SPEED:
+				t.vel = t.vel.normalized() * t.vel.length() / (1. + delta * 10.)
 		
 		else:
 			t.spent_timer -= delta
 		
 		if not t.spent or t.spent_timer <= 0:
 			t.global_position += t.vel * delta
+			if t.vel.length() > 1:
+				t.rotation = t.vel.angle()
 
 func gain_charm(val: int, pos: Vector2) -> void:
-	for i in val:
+	var is_neg = val < 0
+	_reveal_timer = 1
+	_count_label.text = str(GS.charm)
+	var abs_val = abs(val)
+	
+	for i in abs_val:
 		var new_token: CharmToken = _token_scene.instantiate()
+		new_token.evil_collided.connect(_evil_collision)
+		new_token.evil = is_neg
 		new_token.global_position = pos
 		new_token.wait_timer = i * 0.2
 		if i > 0:
@@ -69,6 +83,9 @@ func gain_charm(val: int, pos: Vector2) -> void:
 		_tokens_node.add_child(new_token)
 
 func spend_charm(val: int, pos: Vector2) -> void:
+	_reveal_timer = 1
+	_count_label.text = str(GS.charm)
+	
 	for i in val:
 		var token = _tokens.pop_front()
 		token.spent = true
@@ -84,8 +101,20 @@ func clear_charm() -> void:
 	_all_tokens = []
 
 func _bundle_hovered() -> void:
-	_count_label.text = str(GS.charm)
-	_count_label.visible = true
+	_hovered = true
 
 func _bundle_unhovered() -> void:
-	_count_label.visible = false
+	_hovered = false
+
+func _evil_collision(me: CharmToken, other: CharmToken) -> void:
+	if me.deleted or other.deleted: return
+	
+	me.deleted = true
+	other.deleted = true
+	
+	_tokens.erase(me)
+	_tokens.erase(other)
+	_all_tokens.erase(me)
+	_all_tokens.erase(other)
+	me.queue_free()
+	other.queue_free()

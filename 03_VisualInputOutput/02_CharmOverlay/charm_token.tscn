@@ -2,7 +2,25 @@
 
 [ext_resource type="Texture2D" uid="uid://buaj133388e0p" path="res://05_Assets/01_Art/01_DevArt/charm_token.png" id="1_68j8m"]
 [ext_resource type="Script" uid="uid://cb55q1jh825qv" path="res://03_VisualInputOutput/02_CharmOverlay/charm_token.gd" id="1_tp83s"]
+[ext_resource type="Shader" uid="uid://c5fr77lhtfjdc" path="res://05_Assets/02_Shaders/greyscale.gdshader" id="2_d56hk"]
 
-[node name="CharmToken" type="Sprite2D" unique_id=599123848]
-texture = ExtResource("1_68j8m")
+[sub_resource type="CircleShape2D" id="CircleShape2D_68j8m"]
+radius = 18.027756
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d4226"]
+resource_local_to_scene = true
+shader = ExtResource("2_d56hk")
+shader_parameter/strength = 0.0
+
+[node name="CharmToken" type="Area2D" unique_id=1181272361]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_tp83s")
+metadata/_custom_type_script = "uid://cb55q1jh825qv"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1599727774]
+shape = SubResource("CircleShape2D_68j8m")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=599123848]
+material = SubResource("ShaderMaterial_d4226")
+texture = ExtResource("1_68j8m")

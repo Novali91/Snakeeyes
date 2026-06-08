@@ -50,6 +50,12 @@ right={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="mouse"
+2d_physics/layer_5="good_charm"
+2d_physics/layer_6="evil_charm"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
