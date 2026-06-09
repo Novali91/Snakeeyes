@@ -29,7 +29,7 @@ var _labels: Array[Label] = []
 var antidote_stock: int = 0
 
 func _ready() -> void:
-	ability_helper.sm = self
+	ability_helper.shop_manager = self
 	_tooltip_manager.child_was_clicked.connect(_snake_clicked)
 	_antidote_button.pressed.connect(_antidote_clicked)
 	

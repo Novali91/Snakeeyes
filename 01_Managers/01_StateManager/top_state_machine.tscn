@@ -37,10 +37,6 @@ metadata/_custom_type_script = "uid://c2nf15vbmvxwo"
 script = ExtResource("3_j2eob")
 metadata/_custom_type_script = "uid://eas41130dh2s"
 
-[node name="AbilityHelper" type="Node" parent="States/PlayState" unique_id=626357996]
-script = ExtResource("4_mg5ld")
-metadata/_custom_type_script = "uid://cnqf2nskskbax"
-
 [node name="PoisonRollState" type="Node" parent="States" unique_id=1250067155]
 script = ExtResource("4_r3ws3")
 metadata/_custom_type_script = "uid://blkwfhfovyhap"
@@ -60,6 +56,10 @@ metadata/_custom_type_script = "uid://8n6gglpdm607"
 [node name="PassOutState" type="Node" parent="States" unique_id=1618980514]
 script = ExtResource("7_nvmhh")
 metadata/_custom_type_script = "uid://qamd3pd3uan8"
+
+[node name="AbilityHelper" type="Node" parent="." unique_id=626357996]
+script = ExtResource("4_mg5ld")
+metadata/_custom_type_script = "uid://cnqf2nskskbax"
 
 [node name="Background" type="Node2D" parent="." unique_id=707012221]
 

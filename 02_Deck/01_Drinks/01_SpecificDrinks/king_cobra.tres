@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://f8fognhgjnwm"]
+
+[ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_op4ow"]
+[ext_resource type="Texture2D" uid="uid://bjvvl31o8nip7" path="res://05_Assets/01_Art/01_DevArt/red_snake.png" id="1_xcy0a"]
+
+[resource]
+script = ExtResource("1_op4ow")
+drink_name = "King Cobra Venom"
+drink_sprite = ExtResource("1_xcy0a")
+poison = 1
+strength = 3
+special_ability = 13
+description = ""
+metadata/_custom_type_script = "uid://cysm36u2jsf44"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SnakeResource" format=3 uid="uid://50bjoy8403su"]
+
+[ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_aphow"]
+[ext_resource type="Resource" uid="uid://cc42qsku0v8u4" path="res://02_Deck/01_Drinks/01_SpecificDrinks/mutated_tiger_keelback_venom.tres" id="1_jhwjx"]
+
+[resource]
+script = ExtResource("1_aphow")
+snake_name = "Mutated Tiger Keelback"
+drink_resource = ExtResource("1_jhwjx")
+num_drinks = 2
+metadata/_custom_type_script = "uid://6sj3dk6frj4"
