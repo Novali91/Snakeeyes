@@ -44,6 +44,7 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 			sm.camera_manager.lock_camera()
 			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
 			sm.deck_manager.ability_helper.upgrade_snake(snake, 1, sm.deck_manager.ability_helper.STRENGTH)
+			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 			sm.camera_manager.unlock_camera()
 			pass
 		CLAIRVOYANT_SNAKE:
