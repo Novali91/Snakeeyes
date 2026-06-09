@@ -8,8 +8,10 @@ const _ACC: float = 2000
 @onready var _tokens_node: Node2D = $Tokens
 @onready var _count_label: Label = $Bundle/CountLabel
 @onready var _bundle_marker: Marker2D = $BundleMarker
+@onready var _afters_node: Node2D = $Afters
 
 @onready var _token_scene: PackedScene = preload("res://03_VisualInputOutput/02_CharmOverlay/charm_token.tscn")
+@onready var _token_after_scene: PackedScene = preload("res://03_VisualInputOutput/02_CharmOverlay/charm_token_after.tscn")
 
 var _tokens: Array[CharmToken] = []
 var _all_tokens: Array[CharmToken] = []
@@ -60,8 +62,15 @@ func _process(delta: float) -> void:
 		
 		if not t.spent or t.spent_timer <= 0:
 			t.global_position += t.vel * delta
-			if t.vel.length() > 1:
-				t.rotation = t.vel.angle()
+			
+			if t.after_timer <= 0:
+				t.after_timer = 0.05
+				var new_after: Sprite2D = _token_after_scene.instantiate()
+				new_after.global_position = t.global_position
+				if t.evil:
+					new_after.material.set_shader_parameter("strength", 1.)
+				_afters_node.add_child(new_after)
+			t.after_timer -= delta
 
 func gain_charm(val: int, pos: Vector2) -> void:
 	var is_neg = val < 0
@@ -75,6 +84,7 @@ func gain_charm(val: int, pos: Vector2) -> void:
 		new_token.evil = is_neg
 		new_token.global_position = pos
 		new_token.wait_timer = i * 0.2
+		new_token.after_timer = randf_range(0., 0.05)
 		if i > 0:
 			new_token.visible = false
 		

@@ -12,6 +12,8 @@ font_size = 48
 script = ExtResource("1_sy3cc")
 metadata/_custom_type_script = "uid://dkn3vaawwn56"
 
+[node name="Afters" type="Node2D" parent="." unique_id=769751521]
+
 [node name="Tokens" type="Node2D" parent="." unique_id=409966900]
 
 [node name="Bundle" type="Area2D" parent="." unique_id=1437377344]

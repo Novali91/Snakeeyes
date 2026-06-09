@@ -12,6 +12,7 @@ var spent_dist: float
 var wait_timer: float
 var spent_timer: float
 var vel: Vector2
+var after_timer: float
 
 @onready var _sprite: Sprite2D = $Sprite
 
@@ -24,11 +25,6 @@ func _ready() -> void:
 	
 	else:
 		set_collision_layer_value(5, true)
-
-func _process(_delta: float) -> void:
-	if vel.length() > 1:
-		var t = create_tween()
-		t.tween_property(self, "rotation", vel.angle(), 0.1)
 
 func send_to(pos: Vector2) -> void:
 	monitoring = false
