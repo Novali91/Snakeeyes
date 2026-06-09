@@ -32,9 +32,9 @@ func _roll() -> void:
 	number_rolled.emit(_current_value)
 
 func _antidote_pressed() -> void:
-	if GS.antidote_num > 0:
+	if GS.get_antidote_num() > 0:
 		antidote_used.emit()
-		GS.antidote_num -= 1
+		GS.set_antidote_num(GS.get_antidote_num() - 1)
 		_reroll()
 
 func _reroll() -> void:

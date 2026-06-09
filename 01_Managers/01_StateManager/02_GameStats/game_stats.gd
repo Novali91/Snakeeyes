@@ -4,11 +4,57 @@ extends Node
 const HAND_SIZE: int = 10
 const SCREEN_SIZE: Vector2 = Vector2(1920, 1080)
 
-var poison: int
-var strength: int
-var charm: int
-var score: int
-var antidote_num: int
+signal poison_set(old_val: int, new_val: int)
+var _poison: int
+
+signal strength_set(old_val: int, new_val: int)
+var _strength: int
+
+signal charm_set(old_val: int, new_val: int)
+var _charm: int
+
+signal score_set(old_val: int, new_val: int)
+var _score: int
+
+signal antidote_num_set(old_val: int, new_val: int)
+var _antidote_num: int
+
+func set_poison(val: int) -> void:
+	poison_set.emit(_poison, val)
+	_poison = val
+
+func get_poison() -> int:
+	return _poison
+
+func set_strength(val: int) -> void:
+	strength_set.emit(_strength, val)
+	_strength = val
+
+func get_strength() -> int:
+	return _strength
+
+func set_charm(val: int) -> void:
+	charm_set.emit(_charm, val)
+	_charm = val
+
+func get_charm() -> int:
+	return _charm
+
+func set_score(val: int) -> void:
+	score_set.emit(_charm, val)
+	_score = val
+
+func get_score() -> int:
+	return _score
+
+func set_antidote_num(val: int) -> void:
+	antidote_num_set.emit(_antidote_num, val)
+	_antidote_num = val
+
+func get_antidote_num() -> int:
+	return _antidote_num
+
+################################################################################
 
 var starting_snakes: Array[SnakeResource] = [
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),

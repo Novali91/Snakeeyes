@@ -25,8 +25,8 @@ func physics_tick(_delta: float) -> void:
 	pass
 
 func _check_snake(snake: Snake) -> void:
-	if snake.attached_snake.cost <= GS.charm:
-		GS.charm -= snake.attached_snake.cost
+	if snake.attached_snake.cost <= GS.get_charm():
+		GS.set_charm(GS.get_charm() - snake.attached_snake.cost)
 		sm.charm_overlay.spend_charm(snake.attached_snake.cost, snake.global_position)
 		
 		var snake_copy = sm.shop_manager.create_snake(snake.attached_snake)
@@ -35,12 +35,10 @@ func _check_snake(snake: Snake) -> void:
 		sm.shop_manager.purchase_snake(snake)
 
 func _check_antidote() -> void:
-	if GS.charm >= 3:
+	if GS.get_charm() >= 2:
+		GS.set_antidote_num(GS.get_antidote_num() + 1)
+		GS.set_charm(GS.get_charm() - 2)
 		sm.shop_manager.purchase_antidote()
-		GS.antidote_num += 1
-		GS.charm -= 3
-		
-		sm.antidote_count.set_value(GS.antidote_num)
 		
 		sm.charm_overlay.spend_charm(3, sm.shop_manager.antidote_position)
 

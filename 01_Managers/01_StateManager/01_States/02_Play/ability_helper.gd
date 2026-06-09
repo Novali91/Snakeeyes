@@ -80,8 +80,7 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 			pass
 		SNAKE_OF_ASCLEPIUS:
 			## Maybe some visuals?
-			GS.antidote_num += 1
-			sm.antidote_count.set_value(GS.antidote_num)
+			GS.set_antidote_num(GS.get_antidote_num() + 1)
 			pass
 		_:
 			return

@@ -67,8 +67,7 @@ func switch_state(new_state: int) -> void:
 	_current_state_logic.enter()
 
 func _set_start_values() -> void:
-	GS.antidote_num = 1
-	antidote_count.set_value(GS.antidote_num)
+	GS.set_antidote_num(1)
 	
 	var starting_snakes = shop_manager.get_starting_snakes()
 	

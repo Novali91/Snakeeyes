@@ -75,7 +75,7 @@ func _process(delta: float) -> void:
 func gain_charm(val: int, pos: Vector2) -> void:
 	var is_neg = val < 0
 	_reveal_timer = 1
-	_count_label.text = str(GS.charm)
+	_count_label.text = str(GS.get_charm())
 	var abs_val = abs(val)
 	
 	for i in abs_val:
@@ -94,7 +94,7 @@ func gain_charm(val: int, pos: Vector2) -> void:
 
 func spend_charm(val: int, pos: Vector2) -> void:
 	_reveal_timer = 1
-	_count_label.text = str(GS.charm)
+	_count_label.text = str(GS.get_charm())
 	
 	for i in val:
 		var token = _tokens.pop_front()
