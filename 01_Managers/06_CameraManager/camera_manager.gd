@@ -14,22 +14,16 @@ enum {
 var _current_ind: int = 1
 var _prev_ind: int = 1
 var _camera_locked: bool
-var _transition_progress: float = -1
-var transition_total_time: float = 0.75
+var _camera_tween: Tween
 
 func _ready() -> void:
 	camera.global_position = Vector2(screen_pos_x(_current_ind), 1080 / 2.)
 
 func _process(_delta: float) -> void:
-	#if camera is mid-transition
-	if _transition_progress > -1 && _transition_progress < transition_total_time:
-		_transition_progress += _delta
-		camera.global_position.x = smooth_lerp(screen_pos_x(_prev_ind), screen_pos_x(_current_ind), _transition_progress/transition_total_time)
-	else:
-		if Input.is_action_just_pressed("left"):
-			_swipe_left()
-		elif Input.is_action_just_pressed("right"):
-			_swipe_right()
+	if Input.is_action_just_pressed("left"):
+		_swipe_left()
+	elif Input.is_action_just_pressed("right"):
+		_swipe_right()
 
 func smooth_lerp(from: float, to: float, x: float) -> float:
 	return from + (to - from) * (sin(PI * (x - 0.5))/2 + 0.5)
@@ -45,7 +39,13 @@ func switch_screen(screen_ind: int, bypass_lock: bool = false) -> void:
 	
 	_current_ind = screen_ind
 	
-	_transition_progress = 0
+	var center = GS.SCREEN_SIZE / 2.
+	var target_pos = center + Vector2(GS.SCREEN_SIZE.x * _current_ind, 0)
+	
+	if _camera_tween: _camera_tween.kill()
+	_camera_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	_camera_tween.tween_property(camera, "global_position", target_pos, 0.5)
+	
 	done_moving.emit()
 
 func lock_camera() -> void:

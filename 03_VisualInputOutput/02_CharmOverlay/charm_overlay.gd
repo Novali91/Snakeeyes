@@ -104,11 +104,11 @@ func spend_charm(val: int, pos: Vector2) -> void:
 		token.spent_timer = i * 0.2
 
 func clear_charm() -> void:
-	for t: CharmToken in _all_tokens:
+	for t: CharmToken in _tokens:
+		_all_tokens.erase(t)
 		t.queue_free()
 	
 	_tokens = []
-	_all_tokens = []
 
 func _bundle_hovered() -> void:
 	_hovered = true
