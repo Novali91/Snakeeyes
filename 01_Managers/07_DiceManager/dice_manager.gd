@@ -24,9 +24,6 @@ func start_roll() -> void:
 func close() -> void:
 	visible = false
 
-func reroll() -> void:
-	_roll()
-
 func _roll() -> void:
 	var value_rolled = _get_roll_value()
 	
@@ -35,7 +32,13 @@ func _roll() -> void:
 	number_rolled.emit(_current_value)
 
 func _antidote_pressed() -> void:
-	antidote_used.emit()
+	if GS.antidote_num > 0:
+		antidote_used.emit()
+		GS.antidote_num -= 1
+		_reroll()
+
+func _reroll() -> void:
+	_roll()
 
 func _continue_pressed() -> void:
 	number_accepted.emit(_current_value)
