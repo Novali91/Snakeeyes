@@ -61,13 +61,12 @@ func create_drink(drink_resource: DrinkResource, og_drink_resource: DrinkResourc
 
 ## Not sure how removing snakes will work
 func remove_snake(snake) -> void:
-	for i in range(snake_deck.size()):
-		if snake_deck[i] == snake:
-			tooltip_manager.remove_item(snake, true)
-			snake_deck.remove_at(i)
-			# Probably will do more stuff here (like visuals)
-			break
-	pass
+	var ind = snake_deck.find(snake)
+	snake_deck.erase(snake)
+	tooltip_manager.remove_item(snake, true)
+	
+	for i in range(ind, snake_deck.size()):
+		snake_deck[i].global_position.x -= 50
 
 ## Idk where we want the animation to be placed (if we have one?)
 func add_snake(new_snake: Snake) -> void:
