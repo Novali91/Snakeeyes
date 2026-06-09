@@ -39,12 +39,15 @@ var current_state: int
 @onready var hand_manager: HandManager = %HandManager
 @onready var deck_manager: DeckManager = %DeckManager
 @onready var shop_manager: ShopManager = %ShopManager
+@onready var ability_helper: AbilityHelper = $AbilityHelper
 
 func _ready() -> void:
 	for state: TopState in _state_logic_dict.values():
 		state.sm = self
 		state.setup()
-	
+	ability_helper.sm = self
+	shop_manager.ability_helper.top_ability_helper = ability_helper
+	ability_helper.play_state = _state_logic_dict[States.PLAY]
 	switch_state(States.SETUP_TURN)
 	
 	_set_start_values()

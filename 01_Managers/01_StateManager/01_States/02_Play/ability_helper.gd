@@ -17,6 +17,7 @@ const FRIENDLY_SNAKE: int = 9
 const FAMILIAR_SNAKE: int = 10
 const CHARMING_SNAKE: int = 11
 const SNAKE_OF_ASCLEPIUS: int = 12
+const KING_COBRA: int = 13
 
 func trigger_ability(ind: int, drink_position: Vector2) -> void:
 	match ind:
@@ -30,7 +31,6 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 			## Maybe bring up some ui for the selection?
 			## Make it so you can't end turn while selecting?
 			var chosen_drink: Drink = await sm.hand_manager.ability_helper.choose_drink()
-			sm.deck_manager.return_to_drawpile(chosen_drink)
 			sm.hand_manager.ability_helper.give_drink_retain(chosen_drink)
 			sm.camera_manager.unlock_camera()
 		PLACEBOA: 
@@ -57,11 +57,7 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 			play_state.play_card(clairvoyant_drink, drink_position)
 			sm.camera_manager.unlock_camera()
 		CANNIBAL_SNAKE:
-			sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
-			sm.camera_manager.lock_camera()
-			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
-			sm.deck_manager.remove_snake(snake)
-			sm.camera_manager.unlock_camera()
+			remove_snake()
 			pass
 		HYDRA:
 			sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
@@ -87,7 +83,8 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 			GS.antidote_num += 1
 			sm.antidote_count.set_value(GS.antidote_num)
 			pass
-		
+		_:
+			return
 
 func draw_cards(num: int) -> void:
 	var num_drinks = sm.hand_manager.get_num_drinks()
@@ -106,3 +103,10 @@ func draw_cards(num: int) -> void:
 
 func _reshuffle_draw_pile() -> void:
 	sm.deck_manager.reshuffle_drawpile()
+
+func remove_snake() -> void:
+	sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
+	sm.camera_manager.lock_camera()
+	var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
+	sm.deck_manager.remove_snake(snake)
+	sm.camera_manager.unlock_camera()

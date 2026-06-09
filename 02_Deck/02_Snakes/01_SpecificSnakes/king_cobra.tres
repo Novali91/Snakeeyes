@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SnakeResource" format=3 uid="uid://lmni6j4febli"]
+
+[ext_resource type="Resource" uid="uid://f8fognhgjnwm" path="res://02_Deck/01_Drinks/01_SpecificDrinks/king_cobra.tres" id="1_3v756"]
+[ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_yas5o"]
+[ext_resource type="Texture2D" uid="uid://74xiq8gf18vb" path="res://05_Assets/01_Art/01_DevArt/red_poison.png" id="3_ejmbg"]
+
+[resource]
+script = ExtResource("1_yas5o")
+snake_name = "King Cobra"
+drink_resource = ExtResource("1_3v756")
+snake_sprite = ExtResource("3_ejmbg")
+description = "On purchase, kill a snake permanently. "
+cost = 1
+rarity = "R"
+metadata/_custom_type_script = "uid://6sj3dk6frj4"

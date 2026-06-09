@@ -31,6 +31,7 @@ func _check_snake(snake: Snake) -> void:
 		
 		var snake_copy = sm.shop_manager.create_snake(snake.attached_snake)
 		sm.deck_manager.add_snake(snake_copy)
+		sm.shop_manager.ability_helper.buy_snake(snake_copy)
 		sm.shop_manager.purchase_snake(snake)
 
 func _check_antidote() -> void:
