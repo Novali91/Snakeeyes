@@ -73,6 +73,8 @@ func _process(delta: float) -> void:
 			t.after_timer -= delta
 
 func gain_charm(val: int, pos: Vector2) -> void:
+	if val == 0: return
+	
 	var is_neg = val < 0
 	_reveal_timer = 1
 	_count_label.text = str(GS.get_charm())
@@ -93,6 +95,8 @@ func gain_charm(val: int, pos: Vector2) -> void:
 		_tokens_node.add_child(new_token)
 
 func spend_charm(val: int, pos: Vector2) -> void:
+	if val == 0: return
+	
 	_reveal_timer = 1
 	_count_label.text = str(GS.get_charm())
 	

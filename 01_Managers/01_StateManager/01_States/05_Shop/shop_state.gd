@@ -35,12 +35,12 @@ func _check_snake(snake: Snake) -> void:
 		sm.shop_manager.purchase_snake(snake)
 
 func _check_antidote() -> void:
-	if GS.get_charm() >= 2:
+	if GS.get_charm() >= GS.ANTIDOTE_COST:
 		GS.set_antidote_num(GS.get_antidote_num() + 1)
-		GS.set_charm(GS.get_charm() - 2)
+		GS.set_charm(GS.get_charm() - GS.ANTIDOTE_COST)
 		sm.shop_manager.purchase_antidote()
 		
-		sm.charm_overlay.spend_charm(3, sm.shop_manager.antidote_position)
+		sm.charm_overlay.spend_charm(GS.ANTIDOTE_COST, sm.shop_manager.antidote_position)
 
 func _exit_shop() -> void:
 	sm.switch_state(sm.States.END_TURN)

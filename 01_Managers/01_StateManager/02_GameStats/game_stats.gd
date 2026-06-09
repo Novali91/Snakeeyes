@@ -3,6 +3,7 @@ extends Node
 
 const HAND_SIZE: int = 10
 const SCREEN_SIZE: Vector2 = Vector2(1920, 1080)
+const ANTIDOTE_COST: int = 2
 
 signal poison_set(old_val: int, new_val: int)
 var _poison: int

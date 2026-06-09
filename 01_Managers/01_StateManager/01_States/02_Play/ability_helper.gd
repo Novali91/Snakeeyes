@@ -57,7 +57,7 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 			play_state.play_card(clairvoyant_drink, drink_position)
 			sm.camera_manager.unlock_camera()
 		CANNIBAL_SNAKE:
-			remove_snake()
+			remove_snake(sm.camera_manager.MIDDLE)
 			pass
 		HYDRA:
 			sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
@@ -103,9 +103,10 @@ func draw_cards(num: int) -> void:
 func _reshuffle_draw_pile() -> void:
 	sm.deck_manager.reshuffle_drawpile()
 
-func remove_snake() -> void:
+func remove_snake(start_screen: int) -> void:
 	sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
 	sm.camera_manager.lock_camera()
 	var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
 	sm.deck_manager.remove_snake(snake)
+	sm.camera_manager.switch_screen(start_screen, true)
 	sm.camera_manager.unlock_camera()

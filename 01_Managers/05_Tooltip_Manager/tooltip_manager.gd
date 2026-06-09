@@ -17,6 +17,7 @@ class_name TooltipManager
 # Whenever things should not be hoverable, call turn_off_hover()
 # But make sure to call turn_on_hover() when things should then be hoverable
 
+
 var cur_hovered: DeckItem = null
 var all_hovered: Array[DeckItem]
 
@@ -80,13 +81,16 @@ func child_hovered(child: DeckItem) -> void:
 
 ## This function finds which hovered child is at the front/highest
 func find_new_hover() -> DeckItem:
-	var cur_front_index: int = -1
+	var cur_front_index: float = -1
 	var cur_front_node: DeckItem = null
-	var temp_index: int
+	var temp_index: float
 	
 	# Find front node
 	for item: DeckItem in all_hovered:
 		temp_index = item.get_index()
+		
+		if y_sort_enabled:
+			temp_index = item.position.y
 		
 		if (temp_index > cur_front_index) or (cur_front_index == -1):
 			cur_front_index = temp_index
