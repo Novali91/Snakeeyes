@@ -1,9 +1,28 @@
 [gd_scene format=3 uid="uid://cbygupp4jpnp6"]
 
 [ext_resource type="Script" uid="uid://d30y0q47xsgt0" path="res://01_Managers/06_CameraManager/camera_manager.gd" id="1_5qfpc"]
+[ext_resource type="Shader" uid="uid://bdpwcu8ab33bh" path="res://01_Managers/06_CameraManager/full_screen_effects.gdshader" id="2_x2vs0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tmo6x"]
+shader = ExtResource("2_x2vs0")
+shader_parameter/fisheye_intensity = 0.02
+shader_parameter/fisheye_speed = 2.0
 
 [node name="CameraManager" type="Node2D" unique_id=1135895677]
 script = ExtResource("1_5qfpc")
 metadata/_custom_type_script = "uid://d30y0q47xsgt0"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=97266164]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=1147795827]
+offset = Vector2(960, 540)
+transform = Transform2D(1, 0, 0, 1, 960, 540)
+
+[node name="FullScreenEffects" type="ColorRect" parent="Camera2D/CanvasLayer" unique_id=433282015]
+visible = false
+material = SubResource("ShaderMaterial_tmo6x")
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+mouse_filter = 2
