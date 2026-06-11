@@ -1,18 +1,24 @@
 shader_type canvas_item;
 
 uniform float level;
-uniform float max_height;
-uniform vec4 color;
+uniform vec4 main_col;
+uniform vec4 secondary_col;
+uniform vec4 back_col;
 uniform float wave_speed;
 uniform float wave_amplitude;
 uniform float wave_length;
 
 void vertex() {
-	float average_height = (VERTEX.y * level * -1.0) + max_height;
-	float wave_height = (sin((TIME + (VERTEX.x * wave_length)) * wave_speed) * VERTEX.y * wave_amplitude);
-	VERTEX.y = average_height + wave_height;
 }
 
 void fragment() {
-	COLOR = color;
+	float main_wave_height = level + (sin((TIME + (UV.x / wave_length)) * wave_speed) * wave_amplitude);
+	float secondary_wave_height = level + (sin((TIME * 0.5 + (UV.x / wave_length * 1.5)) * wave_speed) * wave_amplitude / 2.0);
+	if (1.0 - UV.y < main_wave_height) {
+		COLOR = main_col;
+	} else if (1.0 - UV.y < secondary_wave_height) {
+		COLOR = secondary_col;
+	} else {
+		COLOR = back_col;
+	}
 }
