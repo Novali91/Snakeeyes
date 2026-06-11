@@ -3,6 +3,7 @@ extends Node2D
 
 const _MAX_SPEED: float = 500
 const _ACC: float = 2000
+const _MAX_TOKENS_SHOWN: int = 50
 
 @onready var _bundle: Area2D = $Bundle
 @onready var _tokens_node: Node2D = $Tokens
@@ -17,6 +18,7 @@ var _tokens: Array[CharmToken] = []
 var _all_tokens: Array[CharmToken] = []
 var _reveal_timer: float = 0
 var _hovered: bool = false
+var _current_charm_count: int = 0
 
 func _ready() -> void:
 	_count_label.visible = false
@@ -56,6 +58,11 @@ func _process(delta: float) -> void:
 			var dir_to_bundle = t.global_position.direction_to(_bundle.global_position)
 			if t.vel.dot(dir_to_bundle) < 0 and t.vel.length() > _MAX_SPEED:
 				t.vel = t.vel.normalized() * t.vel.length() / (1. + delta * 10.)
+			
+			var delete_fake = t.vel.dot(dir_to_bundle) < 0 and t.is_fake
+			if t.global_position.distance_to(_bundle.global_position) < 200 and delete_fake:
+				_all_tokens.erase(t)
+				t.queue_free()
 		
 		else:
 			t.spent_timer -= delta
@@ -90,7 +97,16 @@ func gain_charm(val: int, pos: Vector2) -> void:
 		if i > 0:
 			new_token.visible = false
 		
-		_tokens.push_back(new_token)
+		_current_charm_count += -1 if is_neg else 1
+		
+		if _current_charm_count >= _MAX_TOKENS_SHOWN or _current_charm_count <= -_MAX_TOKENS_SHOWN:
+			new_token.is_fake = true
+		
+		else:
+			_tokens.push_back(new_token)
+		
+		
+		
 		_all_tokens.push_back(new_token)
 		_tokens_node.add_child(new_token)
 
@@ -99,6 +115,8 @@ func spend_charm(val: int, pos: Vector2) -> void:
 	
 	_reveal_timer = 1
 	_count_label.text = str(GS.get_charm())
+	
+	_current_charm_count -= val
 	
 	for i in val:
 		var token = _tokens.pop_front()
@@ -113,6 +131,7 @@ func clear_charm() -> void:
 		t.queue_free()
 	
 	_tokens = []
+	_current_charm_count = 0
 
 func _bundle_hovered() -> void:
 	_hovered = true
