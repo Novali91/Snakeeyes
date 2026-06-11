@@ -1,92 +1,117 @@
 class_name SlideManager
 extends Node
 
-@onready var hm: HandManager = get_parent()
+signal delete_after_slide(drink: Drink)
+
+const _FAR_TABLE_SCALE: float = 0.5
+const _CLOSE_TABLE_SCALE: float = 1
+const _TABLE_DIM: Vector2 = Vector2(1, 0.45)
+const _LOCAL_DIM: Vector2 = Vector2(1920, 380)
+const _WAIT_TIME: float = 0.5
+const _SLIDE_TIME: float = 1.2
+const _X_OFF_SCREEN: float = -60
+
+const _ENDPOINT_MAX_TABLE_OFFSET: float = 0.1
+
+var _all_endpoints: Array[Vector2]
+var _empty_endpoints: Array[Vector2]
+
+var _active_drinks: Array[Drink]
 
 func _ready() -> void:
-	pass
+	_populate_endpoints()
 
 func _process(delta: float) -> void:
-	if hm.drinks != null and hm.drinks.size() > 0:
-		var slide_end_time = get_latest_slide_end_time()
-		if Time.get_ticks_msec() < slide_end_time:
-			slide_drinks()
-		elif Time.get_ticks_msec() < slide_end_time + 50: #arbitrarily small amount of ms
-			finish_slide_drinks()
+	_update_slide(delta)
 
-func get_latest_slide_end_time() -> float:
-	var latest = 0
-	for drink in hm.drinks:
-		if drink != null and drink.slide_start_time + slide_time > latest:
-			latest = drink.slide_start_time + slide_time
-	return latest
+func slide_drinks(drinks: Array[Drink]) -> void:
+	for d: Drink in drinks:
+		_empty_endpoints.shuffle()
+		var endpoint = _empty_endpoints.pop_front()
+		var offset_dir = Vector2.RIGHT.rotated(randf_range(0, TAU))
+		endpoint += offset_dir * randf_range(0, _ENDPOINT_MAX_TABLE_OFFSET)
+		
+		var local_endpoint = _to_local(endpoint)
+		
+		d.position = Vector2(_X_OFF_SCREEN, local_endpoint.y)
+		
+		d.slide_start = d.position
+		d.slide_target = local_endpoint
+		d.slide_easing = d.EASE_OUT
+		d.delete_after_slide = false
+		d.scale = Vector2.ONE * _get_scale(endpoint.y)
+	
+	for d: Drink in drinks:
+		d.visible = true
+		
+		_active_drinks.push_back(d)
+		
+		await get_tree().create_timer(_WAIT_TIME).timeout
 
-var slide_time = 1200
-var slide_intro_spacing = 100
-var slide_start_offset_pos = 30
-var drink_spacing = 125
-var margins = Vector2(600,375)
-
-func begin_slide_drinks_in(new_drinks: Array[Drink]) -> void:
-	if hm.drinks.size() == 0: #should never be the case but for some reason it is??
-		return
-	for i in new_drinks.size():
-		var drink = new_drinks[i]
-		if drink != null:
-			drink.slide_start_time = Time.get_ticks_msec() + i * slide_intro_spacing
-			drink.slide_location_goal = pick_new_drink_position(drink)
-			drink.slide_location_start = Vector2(0,700)
-			drink.slide_easing = Drink.easing_function.EASE_OUT
-			drink.delete_after_slide = false
-
-func begin_slide_back(drink: Drink) -> void:
-	drink.slide_start_time = Time.get_ticks_msec()
-	drink.slide_location_start = drink.position
-	drink.slide_location_goal = Vector2(-1920,drink.position.y)
-	drink.slide_easing = Drink.easing_function.EASE_IN
+func slide_back(drink: Drink) -> void:
+	drink.slide_start = drink.position
+	drink.slide_target = Vector2(_X_OFF_SCREEN, drink.position.y)
+	drink.slide_easing = drink.EASE_IN
 	drink.delete_after_slide = true
+	
+	if drink not in _active_drinks:
+		_active_drinks.push_back(drink)
 
-func pick_new_drink_position(drink: Drink) -> Vector2:
-	var clear_spot_found = false
-	var potential_position = Vector2.ZERO
-	var temp_drink_spacing = drink_spacing
-	var attempt_count = 0
-	while not clear_spot_found:
-		potential_position = Vector2(randf_range(margins.x,GS.SCREEN_SIZE.x-margins.x),randf_range(margins.y,GS.SCREEN_SIZE.y-margins.y))
-		clear_spot_found = is_drink_position_available(drink, potential_position, temp_drink_spacing)
-		attempt_count+=1
-		if attempt_count % 10 == 0: #reduce the spacing requirements over time
-			temp_drink_spacing*=0.75
-	return potential_position
+func free_endpoint(drink: Drink) -> void:
+	_empty_endpoints.push_back(_all_endpoints[drink.slide_ind])
 
-func is_drink_position_available(drink: Drink, potential_position: Vector2, temp_drink_spacing: float) -> bool:
-	for other_drink in hm.drinks:
-		var dist = potential_position.distance_to(other_drink.slide_location_goal)
-		if other_drink != drink and potential_position.distance_to(other_drink.slide_location_goal) < temp_drink_spacing:
-			return false
-	return true
+func _populate_endpoints() -> void:
+	_all_endpoints = [
+		Vector2(0.2, 0.1),
+		Vector2(0.3, 0.2),
+		Vector2(0.4, 0.3),
+		Vector2(0.55, 0.35),
+		Vector2(0.65, 0.2),
+		Vector2(0.75, 0.275),
+		Vector2(0.8, 0.35),
+		Vector2(0.8, 0.1),
+		Vector2(0.35, 0.4),
+		Vector2(0.25, 0.35),
+	]
+	
+	_empty_endpoints = _all_endpoints.duplicate()
 
-func slide_drinks() -> void:
-	for i in hm.drinks.size():
-		var drink = hm.drinks[i]
-		var amount_through_slide_linear = (Time.get_ticks_msec() - drink.slide_start_time - slide_start_offset_pos)/float(slide_time)
-		var amount_through_slide: float
-		if drink.slide_easing == Drink.easing_function.EASE_OUT:
-			amount_through_slide = clamp(ease_out_0_1(amount_through_slide_linear),-slide_start_offset_pos,1)
-		if drink.slide_easing == Drink.easing_function.EASE_IN:
-			amount_through_slide = clamp(ease_in_0_1(amount_through_slide_linear),-slide_start_offset_pos,1)
-		if drink != null:
-			drink.position = Vector2(drink.slide_location_start.x + amount_through_slide * drink.slide_location_goal.x,drink.slide_location_goal.y)
+func _update_slide(delta: float) -> void:
+	for d in _active_drinks:
+		
+		d.slide_time += delta
+		
+		var anim_percent = d.slide_time / _SLIDE_TIME
+		anim_percent = clampf(anim_percent, 0, 1)
+		
+		if d.slide_easing == d.EASE_IN:
+			anim_percent = _ease_in_0_1(anim_percent)
+		
+		elif d.slide_easing == d.EASE_OUT:
+			anim_percent = _ease_out_0_1(anim_percent)
+		
+		d.position = lerp(d.slide_start, d.slide_target, anim_percent)
+		
+		if anim_percent == 1:
+			_active_drinks.erase(d)
+			
+			if d.delete_after_slide:
+				delete_after_slide.emit(d)
 
-func finish_slide_drinks() -> void:
-	for drink in hm.drinks:
-		drink.position = Vector2(drink.slide_location_start.x + drink.slide_location_goal.x,drink.slide_location_goal.y)
-		if drink.delete_after_slide:
-			hm.remove_drink(drink)
-			hm.tooltip_manager.remove_item(drink, true)
+func _to_table(pos: Vector2) -> Vector2:
+	var y_offset = GS.SCREEN_SIZE.y - _LOCAL_DIM.y
+	return (pos - Vector2(0, y_offset)) / _LOCAL_DIM * _TABLE_DIM
 
-func ease_out_0_1(x: float) -> float:
+func _to_local(pos: Vector2) -> Vector2:
+	var y_offset = GS.SCREEN_SIZE.y - _LOCAL_DIM.y
+	return pos / _TABLE_DIM * _LOCAL_DIM + Vector2(0, y_offset)
+
+func _get_scale(table_y: float) -> float:
+	var factor = table_y / _TABLE_DIM.y
+	return lerp(_FAR_TABLE_SCALE, _CLOSE_TABLE_SCALE, factor)
+
+func _ease_out_0_1(x: float) -> float:
 	return sin(clamp(x,0,1) * PI / 2)
 
-func ease_in_0_1(x: float) -> float:
+func _ease_in_0_1(x: float) -> float:
 	return sin((clamp(x,0,1) - 1) * PI / 2) + 1

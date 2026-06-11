@@ -15,11 +15,17 @@ var attached_drink: DrinkResource
 
 @onready var drink_sprite: Sprite2D = $DrinkSprite
 
-var slide_location_start: Vector2
-var slide_location_goal: Vector2
-var slide_start_time: float
-enum easing_function {EASE_IN, EASE_OUT}
-var slide_easing: easing_function
+enum {
+	EASE_IN,
+	EASE_OUT
+}
+
+var slide_start: Vector2
+var slide_target: Vector2
+var slide_ind: int
+
+var slide_time: float
+var slide_easing: int
 var delete_after_slide: bool
 
 var _hover_tween: Tween
@@ -40,7 +46,7 @@ func activate_tooltip() -> void:
 	
 	if _hover_tween: _hover_tween.kill()
 	_hover_tween = create_tween()
-	_hover_tween.tween_property(drink_sprite, "position", Vector2(0, -20), 0.1)
+	_hover_tween.tween_property(drink_sprite, "position", Vector2(0, -20 * scale.y - 64), 0.1)
 
 func deactivate_tooltip() -> void:
 	super()
@@ -48,7 +54,7 @@ func deactivate_tooltip() -> void:
 	
 	if _hover_tween: _hover_tween.kill()
 	_hover_tween = create_tween()
-	_hover_tween.tween_property(drink_sprite, "position", Vector2.ZERO, 0.1)
+	_hover_tween.tween_property(drink_sprite, "position", Vector2(0, -64), 0.1)
 
 func instantiate_tooltip() -> void:
 	tooltip.instantiate_drink_values(attached_drink)

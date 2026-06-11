@@ -1,8 +1,6 @@
 class_name HandManager
 extends Node2D
 
-const Y_POSITION_DRINKS: int = 800
-
 var drinks: Array[Drink]
 
 @onready var tooltip_manager: TooltipManager = $TooltipManager
@@ -18,7 +16,7 @@ signal drink_chosen(drink: Drink)
 
 func _ready() -> void:
 	tooltip_manager.child_was_clicked.connect(_click_drink)
-	pass
+	slide_manager.delete_after_slide.connect(_delete_drink)
 
 func get_num_drinks() -> int:
 	return drinks.size()
@@ -27,9 +25,10 @@ func get_num_drinks() -> int:
 ## Bug: For some reason this is called twice? Is that normal?
 func draw_drinks(new_drinks: Array[Drink]) -> void:
 	for drink in new_drinks:
+		drink.visible = false
 		tooltip_manager.add_item(drink)
 		drinks.append(drink)
-	slide_manager.begin_slide_drinks_in(new_drinks)
+	slide_manager.slide_drinks(new_drinks)
 
 func _click_drink(drink: Drink) -> void:
 	if !drinks_drinkable:
@@ -41,9 +40,14 @@ func _click_drink(drink: Drink) -> void:
 	pass
 
 ## 
+func _delete_drink(drink: Drink) -> void:
+	remove_drink(drink)
+	tooltip_manager.remove_item(drink, false)
+
 func remove_drink(drink_to_remove: Drink) -> void:
 	for i: int in range(drinks.size()):
 		if drinks[i] == drink_to_remove:
+			slide_manager.free_endpoint(drinks[i])
 			drinks.remove_at(i)
 			break
 
