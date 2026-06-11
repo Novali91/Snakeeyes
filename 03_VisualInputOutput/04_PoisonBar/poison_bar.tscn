@@ -1,6 +1,16 @@
 [gd_scene format=3 uid="uid://xs65s7uu2k0r"]
 
 [ext_resource type="Script" uid="uid://c6wawj3dlldt1" path="res://03_VisualInputOutput/04_PoisonBar/poison_bar.gd" id="1_mq5yv"]
+[ext_resource type="Shader" uid="uid://xd47y4b3abpk" path="res://03_VisualInputOutput/04_PoisonBar/poison_bar.gdshader" id="2_03wfj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1jv14"]
+shader = ExtResource("2_03wfj")
+shader_parameter/level = 0.0
+shader_parameter/max_height = 0.0
+shader_parameter/color = Vector4(0, 1, 0, 1)
+shader_parameter/wave_speed = 0.75
+shader_parameter/wave_amplitude = 0.05
+shader_parameter/wave_length = 10.0
 
 [node name="PoisonBar" type="Node2D" unique_id=1869495971]
 script = ExtResource("1_mq5yv")
@@ -16,3 +26,10 @@ offset_left = 64.0
 offset_right = 125.0
 offset_bottom = 23.0
 text = "1"
+
+[node name="Liquid" type="Polygon2D" parent="." unique_id=147473184]
+visible = false
+material = SubResource("ShaderMaterial_1jv14")
+position = Vector2(13, 61)
+scale = Vector2(2.08, 4.02)
+polygon = PackedVector2Array(50, 50, 0, 50, 0, 0, 10, 0, 20, 0, 30, 0, 40, 0, 50, 0)
