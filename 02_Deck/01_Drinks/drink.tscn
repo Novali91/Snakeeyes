@@ -20,11 +20,9 @@ script = ExtResource("1_3sv11")
 metadata/_custom_type_script = "uid://4lo1g706tbqt"
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1306363368]
-position = Vector2(0, -64)
 shape = SubResource("RectangleShape2D_kbsba")
 
 [node name="DrinkSprite" type="Sprite2D" parent="." unique_id=555956909]
 material = SubResource("ShaderMaterial_ifok2")
-position = Vector2(0, -64)
 
 [node name="Tooltip" parent="." unique_id=1158809468 instance=ExtResource("2_kbsba")]

@@ -63,4 +63,5 @@ func end_turn_discard() -> void:
 func _clear_drinks() -> void:
 	for i: int in range(drinks.size() - 1, -1, -1):
 		if drinks[i].attached_drink.retain == false:
+			slide_manager.free_endpoint(drinks[i])
 			drinks.remove_at(i)

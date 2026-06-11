@@ -45,6 +45,7 @@ func _ready() -> void:
 	for state: TopState in _state_logic_dict.values():
 		state.sm = self
 		state.setup()
+	
 	ability_helper.sm = self
 	shop_manager.ability_helper.top_ability_helper = ability_helper
 	ability_helper.play_state = _state_logic_dict[States.PLAY]

@@ -7,7 +7,7 @@ const _FAR_TABLE_SCALE: float = 0.8
 const _CLOSE_TABLE_SCALE: float = 1.2
 const _TABLE_DIM: Vector2 = Vector2(1, 0.45)
 const _LOCAL_DIM: Vector2 = Vector2(1920, 380)
-const _WAIT_TIME: float = 0.5
+const _WAIT_TIME: float = 0.25
 const _SLIDE_TIME: float = 1.2
 const _X_OFF_SCREEN: float = -60
 
@@ -58,6 +58,9 @@ func slide_back(drink: Drink) -> void:
 		_active_drinks.push_back(drink)
 
 func free_endpoint(drink: Drink) -> void:
+	if drink in _active_drinks:
+		_active_drinks.erase(drink)
+	
 	_empty_endpoints.push_back(_all_endpoints[drink.slide_ind])
 
 func _populate_endpoints() -> void:
