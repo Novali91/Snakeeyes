@@ -46,7 +46,7 @@ func activate_tooltip() -> void:
 	
 	if _hover_tween: _hover_tween.kill()
 	_hover_tween = create_tween()
-	_hover_tween.tween_property(drink_sprite, "position", Vector2(0, -20 * scale.y - 64), 0.1)
+	_hover_tween.tween_property(drink_sprite, "position", Vector2(0, -20 * scale.y), 0.1)
 
 func deactivate_tooltip() -> void:
 	super()
@@ -54,7 +54,7 @@ func deactivate_tooltip() -> void:
 	
 	if _hover_tween: _hover_tween.kill()
 	_hover_tween = create_tween()
-	_hover_tween.tween_property(drink_sprite, "position", Vector2(0, -64), 0.1)
+	_hover_tween.tween_property(drink_sprite, "position", Vector2(0, 0), 0.1)
 
 func instantiate_tooltip() -> void:
 	tooltip.instantiate_drink_values(attached_drink)

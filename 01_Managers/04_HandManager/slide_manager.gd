@@ -3,8 +3,8 @@ extends Node
 
 signal delete_after_slide(drink: Drink)
 
-const _FAR_TABLE_SCALE: float = 0.5
-const _CLOSE_TABLE_SCALE: float = 1
+const _FAR_TABLE_SCALE: float = 0.8
+const _CLOSE_TABLE_SCALE: float = 1.2
 const _TABLE_DIM: Vector2 = Vector2(1, 0.45)
 const _LOCAL_DIM: Vector2 = Vector2(1920, 380)
 const _WAIT_TIME: float = 0.5
