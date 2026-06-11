@@ -97,15 +97,16 @@ func gain_charm(val: int, pos: Vector2) -> void:
 		if i > 0:
 			new_token.visible = false
 		
-		_current_charm_count += -1 if is_neg else 1
-		
-		if _current_charm_count >= _MAX_TOKENS_SHOWN or _current_charm_count <= -_MAX_TOKENS_SHOWN:
+		var same_dir = (_current_charm_count > 0 and not is_neg) or (_current_charm_count < 0 and is_neg)
+		if same_dir and ((_current_charm_count >= _MAX_TOKENS_SHOWN) or (_current_charm_count <= -_MAX_TOKENS_SHOWN)):
+			new_token.is_fake = true
+		if not same_dir and ((_current_charm_count > _MAX_TOKENS_SHOWN) or (_current_charm_count < -_MAX_TOKENS_SHOWN)):
 			new_token.is_fake = true
 		
 		else:
 			_tokens.push_back(new_token)
 		
-		
+		_current_charm_count += -1 if is_neg else 1
 		
 		_all_tokens.push_back(new_token)
 		_tokens_node.add_child(new_token)
@@ -141,6 +142,7 @@ func _bundle_unhovered() -> void:
 
 func _evil_collision(me: CharmToken, other: CharmToken) -> void:
 	if me.deleted or other.deleted: return
+	if me.is_fake or other.is_fake: return
 	
 	me.deleted = true
 	other.deleted = true
