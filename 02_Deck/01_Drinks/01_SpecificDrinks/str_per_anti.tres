@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://cneu854lg52uh"]
+
+[ext_resource type="Texture2D" uid="uid://bks7wifrpp6up" path="res://05_Assets/01_Art/01_DevArt/Hydra_Snake.png" id="1_e8h17"]
+[ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_qa56a"]
+
+[resource]
+script = ExtResource("1_qa56a")
+drink_name = "Placeholder"
+drink_sprite = ExtResource("1_e8h17")
+special_ability = 14
+metadata/_custom_type_script = "uid://cysm36u2jsf44"

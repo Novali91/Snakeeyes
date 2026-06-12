@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SnakeResource" format=3 uid="uid://coh38gguhdhri"]
+
+[ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_8ekav"]
+[ext_resource type="Resource" uid="uid://cneu854lg52uh" path="res://02_Deck/01_Drinks/01_SpecificDrinks/str_per_anti.tres" id="1_yg5lf"]
+[ext_resource type="Texture2D" uid="uid://bavejx8kt1of8" path="res://05_Assets/01_Art/01_DevArt/pink_poison.png" id="3_sqa34"]
+
+[resource]
+script = ExtResource("1_8ekav")
+snake_name = "Placeholder"
+drink_resource = ExtResource("1_yg5lf")
+snake_sprite = ExtResource("3_sqa34")
+cost = 1
+rarity = "R"
+metadata/_custom_type_script = "uid://6sj3dk6frj4"

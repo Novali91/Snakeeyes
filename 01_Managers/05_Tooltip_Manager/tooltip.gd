@@ -37,7 +37,7 @@ var sprite_size: Vector2 = Vector2(250, 350)
 ## Assuming viewport size does NOT change midgame (idk if it can or not)
 @onready var viewport_size: Vector2 = get_viewport_rect().size
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# Not visible means it doesn't do stuff!
 	if !is_active:
 		return
@@ -92,46 +92,61 @@ func get_spot(mouse_position: Vector2) -> int:
 
 func activate() -> void:
 	is_active = true
-	tooltip_sprite.visible = true
-	name_label.visible = true
-	desc_label.visible = true
-	flavour_label.visible = true
-	poison_label.visible=true
-	strength_label.visible = true
-	charm_label.visible = true
-	num_drinks_label.visible = true
+	visible = true
 	pass
 
 func deactivate() -> void:
 	is_active = false
-	tooltip_sprite.visible = false
-	name_label.visible = false
-	desc_label.visible = false
-	flavour_label.visible = false
-	poison_label.visible=false
-	strength_label.visible = false
-	charm_label.visible = false
-	num_drinks_label.visible = false
+	visible = false
 	pass
 
 ## Used to instantiate the values in the tooltip descriptions using the drink/snake resource
-func instantiate_drink_values(info: DrinkResource) -> void:
+func instantiate_drink_values(info: DrinkResource, og_info: DrinkResource) -> void:
+	match info.special_ability:
+		14:
+			set_val(info.strength+GS.get_antidote_num(), og_info.strength, strength_label, "Strength: ")
+			set_psn_val(info.poison, og_info.poison, poison_label)
+			set_val(info.charm, og_info.charm, charm_label, "Charm: ")
+		_:
+			## Check if it's greater/less than og vals
+			set_val(info.strength, og_info.strength, strength_label, "Strength: ")
+			set_psn_val(info.poison, og_info.poison, poison_label)
+			set_val(info.charm, og_info.charm, charm_label, "Charm: ")
 	name_label.text = info.drink_name
 	desc_label.text = info.description
 	flavour_label.text = info.flavour_text
-	poison_label.text = "Poison: " + str(info.poison)
-	strength_label.text = "Strength: " + str(info.strength)
-	charm_label.text = "Charm: " + str(info.charm)
-	
 	pass
 
-func instantiate_snake_values(info: SnakeResource, current_drink: DrinkResource, num_drinks) -> void:
+func instantiate_snake_values(info: SnakeResource, current_drink: DrinkResource) -> void:
+	match current_drink.special_ability:
+		14:
+			set_val(current_drink.strength+GS.get_antidote_num(), info.drink_resource.strength, strength_label, "Strength: ")
+			set_psn_val(current_drink.poison, info.drink_resource.poison, poison_label)
+			set_val(current_drink.charm, info.drink_resource.charm, charm_label, "Charm: ")
+		_:
+			set_val(current_drink.strength, info.drink_resource.strength, strength_label, "Strength: ")
+			set_psn_val(current_drink.poison, info.drink_resource.poison, poison_label)
+			set_val(current_drink.charm, info.drink_resource.charm, charm_label, "Charm: ")
 	name_label.text = info.snake_name
 	desc_label.text = info.description
 	flavour_label.text = info.flavour_text
-	poison_label.text = "Poison: " + str(current_drink.poison)
-	strength_label.text = "Strength: " + str(current_drink.strength)
-	charm_label.text = "Charm: " + str(current_drink.charm)
-	num_drinks_label.text = "Number of Drinks: " + str(num_drinks)
-	
+
+func set_val(val: int, og_val: int, label: Label, prefix: String) -> void:
+	label.text = prefix + str(val)
+	if val == og_val:
+		label.label_settings.font_color = Color(0, 0, 0)
+	elif val > og_val:
+		label.label_settings.font_color = Color(0.05, 1.0, 0.5)
+	else:
+		label.label_settings.font_color = Color(1.0, 0.3, 0.2)
+	pass
+
+func set_psn_val(val: int, og_val: int, label: Label) -> void:
+	label.text = "Poison: " + str(val)
+	if val == og_val:
+		label.label_settings.font_color = Color(0, 0, 0)
+	elif val < og_val:
+		label.label_settings.font_color = Color(0.05, 1.0, 0.5)
+	else:
+		label.label_settings.font_color = Color(1.0, 0.3, 0.2)
 	pass

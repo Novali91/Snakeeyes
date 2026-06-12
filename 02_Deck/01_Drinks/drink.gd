@@ -33,6 +33,7 @@ var _hover_tween: Tween
 func _ready() -> void:
 	super._ready()
 	instantiate_tooltip()
+	GS.antidote_num_set.connect(instantiate_tooltip)
 	set_texture()
 	pass
 
@@ -47,6 +48,8 @@ func activate_tooltip() -> void:
 	if _hover_tween: _hover_tween.kill()
 	_hover_tween = create_tween()
 	_hover_tween.tween_property(drink_sprite, "position", Vector2(0, -20 * scale.y), 0.1)
+	
+	tooltip.instantiate_drink_values(attached_drink, attached_drink_resource)
 
 func deactivate_tooltip() -> void:
 	super()
@@ -57,5 +60,5 @@ func deactivate_tooltip() -> void:
 	_hover_tween.tween_property(drink_sprite, "position", Vector2(0, 0), 0.1)
 
 func instantiate_tooltip() -> void:
-	tooltip.instantiate_drink_values(attached_drink)
+	tooltip.instantiate_drink_values(attached_drink, attached_drink_resource)
 	return
