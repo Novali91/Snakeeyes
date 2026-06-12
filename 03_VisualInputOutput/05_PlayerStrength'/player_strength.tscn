@@ -3,13 +3,18 @@
 [ext_resource type="Script" uid="uid://blafpy8fea7fb" path="res://03_VisualInputOutput/05_PlayerStrength'/player_strength.gd" id="1_wxbxo"]
 [ext_resource type="Texture2D" uid="uid://dyvrfcxwvyws8" path="res://05_Assets/01_Art/03_UI_Sprites/strength board sprite.png" id="2_gujg7"]
 [ext_resource type="Texture2D" uid="uid://cyngu0oorn3g1" path="res://05_Assets/01_Art/03_UI_Sprites/strength scaler sprite.png" id="3_xi3mp"]
+[ext_resource type="Script" uid="uid://cfqx3dcaojqrs" path="res://03_VisualInputOutput/01_ScoreBar/custom_number.gd" id="4_xi3mp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xi3mp"]
+font_size = 20
+font_color = Color(1, 0.87, 0.48000002, 1)
 
 [node name="PlayerStrength" type="Node2D" unique_id=1002047189]
 script = ExtResource("1_wxbxo")
 metadata/_custom_type_script = "uid://blafpy8fea7fb"
 
 [node name="Bar" type="Sprite2D" parent="." unique_id=3562556]
-position = Vector2(0, -335)
+position = Vector2(0, -322)
 texture = ExtResource("2_gujg7")
 
 [node name="Ticker" type="Sprite2D" parent="." unique_id=449204062]
@@ -23,5 +28,65 @@ offset_top = 148.0
 offset_right = 41.0
 offset_bottom = 248.0
 text = "0"
+label_settings = SubResource("LabelSettings_xi3mp")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CustomNumber" type="Node2D" parent="Ticker" unique_id=1417211364]
+visible = false
+position = Vector2(-9, 199)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("4_xi3mp")
+digits = 4
+digit_spacing = -20.0
+metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
+
+[node name="Markers" type="Node2D" parent="." unique_id=1820616886]
+
+[node name="0" type="Marker2D" parent="Markers" unique_id=1627163282]
+position = Vector2(45.166748, -12.277771)
+
+[node name="1" type="Marker2D" parent="Markers" unique_id=262518696]
+position = Vector2(45.166748, -27.277771)
+
+[node name="2" type="Marker2D" parent="Markers" unique_id=1206250088]
+position = Vector2(45.166748, -63.27777)
+
+[node name="3" type="Marker2D" parent="Markers" unique_id=482951777]
+position = Vector2(45.166748, -98.27777)
+
+[node name="4" type="Marker2D" parent="Markers" unique_id=566600097]
+position = Vector2(45.166748, -134.27777)
+
+[node name="5" type="Marker2D" parent="Markers" unique_id=1293544167]
+position = Vector2(45.166748, -169.27777)
+
+[node name="10" type="Marker2D" parent="Markers" unique_id=1004175399]
+position = Vector2(45.166748, -205.27777)
+
+[node name="15" type="Marker2D" parent="Markers" unique_id=1469544813]
+position = Vector2(45.166748, -239.27777)
+
+[node name="20" type="Marker2D" parent="Markers" unique_id=1933530093]
+position = Vector2(45.166748, -275.27777)
+
+[node name="30" type="Marker2D" parent="Markers" unique_id=643784412]
+position = Vector2(45.166748, -310.27777)
+
+[node name="40" type="Marker2D" parent="Markers" unique_id=441598673]
+position = Vector2(45.166748, -345.27777)
+
+[node name="50" type="Marker2D" parent="Markers" unique_id=32606292]
+position = Vector2(45.166748, -380.27777)
+
+[node name="60" type="Marker2D" parent="Markers" unique_id=1131637398]
+position = Vector2(45.166748, -415.27777)
+
+[node name="80" type="Marker2D" parent="Markers" unique_id=2097125849]
+position = Vector2(45.166748, -451.27777)
+
+[node name="120" type="Marker2D" parent="Markers" unique_id=1563711177]
+position = Vector2(45.166748, -486.27777)
+
+[node name="1000" type="Marker2D" parent="Markers" unique_id=1342284570]
+position = Vector2(45.166748, -556.2778)

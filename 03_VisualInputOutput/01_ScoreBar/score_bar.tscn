@@ -12,23 +12,23 @@ metadata/_custom_type_script = "uid://dhidk03elcsg1"
 texture = ExtResource("2_01k1c")
 
 [node name="Score" type="Node2D" parent="." unique_id=1998445763]
-position = Vector2(7, 22)
-scale = Vector2(0.7, 0.7)
+position = Vector2(21.999996, 9.000003)
+rotation = 0.08726646
+scale = Vector2(0.9, 0.9)
 script = ExtResource("3_44rer")
-digits = 3
-digit_spacing = -20.0
+digits = 1
 metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
 
 [node name="Goal" type="Node2D" parent="." unique_id=36648135]
-position = Vector2(-105, 50)
-scale = Vector2(0.7, 0.7)
+position = Vector2(-92, 39.000004)
+scale = Vector2(0.65, 0.65)
 script = ExtResource("3_44rer")
-digits = 2
+digits = 4
 digit_spacing = -20.0
 metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
 
 [node name="Turn" type="Node2D" parent="." unique_id=2070661474]
-position = Vector2(136, 80)
+position = Vector2(118, 71)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("3_44rer")
 digits = 2
