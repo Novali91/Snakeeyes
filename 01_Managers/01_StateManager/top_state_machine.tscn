@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://yt1ucroojbxf"]
 
 [ext_resource type="Script" uid="uid://dx0ujiglfqi5e" path="res://01_Managers/01_StateManager/top_state_machine.gd" id="1_brpme"]
+[ext_resource type="Script" uid="uid://8oochc6mhqam" path="res://01_Managers/01_StateManager/01_States/08_TitleScreen/title_screen.gd" id="2_2a4np"]
 [ext_resource type="Script" uid="uid://c2nf15vbmvxwo" path="res://01_Managers/01_StateManager/01_States/01_SetupTurn/setup_turn_state.gd" id="2_n4aau"]
 [ext_resource type="Script" uid="uid://eas41130dh2s" path="res://01_Managers/01_StateManager/01_States/02_Play/play_state.gd" id="3_j2eob"]
 [ext_resource type="Script" uid="uid://cnqf2nskskbax" path="res://01_Managers/01_StateManager/01_States/02_Play/ability_helper.gd" id="4_mg5ld"]
@@ -25,12 +26,17 @@
 [ext_resource type="PackedScene" uid="uid://dhqysni4gdtju" path="res://01_Managers/03_DeckManager/deck_manager.tscn" id="22_lfho2"]
 [ext_resource type="PackedScene" uid="uid://bnjofbbb7q1gy" path="res://01_Managers/02_ShopManager/shop_manager.tscn" id="23_5mt65"]
 [ext_resource type="PackedScene" uid="uid://dcac3rjwq26kc" path="res://01_Managers/09_OverlayManager/overlay_manager.tscn" id="25_gwsv7"]
+[ext_resource type="PackedScene" uid="uid://dmqecy4uccb4k" path="res://01_Managers/10_TitleScreenManager/title_screen_manager.tscn" id="27_u5576"]
 
 [node name="TopStateMachine" type="Node" unique_id=741613550]
 script = ExtResource("1_brpme")
 metadata/_custom_type_script = "uid://dx0ujiglfqi5e"
 
 [node name="States" type="Node" parent="." unique_id=868300327]
+
+[node name="TitleScreenState" type="Node" parent="States" unique_id=1090541103]
+script = ExtResource("2_2a4np")
+metadata/_custom_type_script = "uid://8oochc6mhqam"
 
 [node name="SetupTurnState" type="Node" parent="States" unique_id=314075310]
 script = ExtResource("2_n4aau")
@@ -122,3 +128,6 @@ unique_name_in_owner = true
 position = Vector2(1920, 0)
 
 [node name="OverlayManager" parent="." unique_id=941339809 instance=ExtResource("25_gwsv7")]
+
+[node name="TitleScreenManager" parent="." unique_id=147652467 instance=ExtResource("27_u5576")]
+position = Vector2(2880, 540)

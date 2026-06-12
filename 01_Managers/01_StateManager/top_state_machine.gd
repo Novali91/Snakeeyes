@@ -2,6 +2,7 @@ class_name TopStateMachine
 extends Node
 
 enum States {
+	TITLE_SCREEN,
 	SETUP_TURN,
 	PLAY,
 	POISON_ROLL,
@@ -14,6 +15,7 @@ enum States {
 var current_state: int
 
 @onready var _state_logic_dict: Dictionary[int, TopState] = {
+	States.TITLE_SCREEN: $States/TitleScreenState,
 	States.SETUP_TURN: $States/SetupTurnState,
 	States.PLAY: $States/PlayState,
 	States.POISON_ROLL: $States/PoisonRollState,
@@ -41,6 +43,7 @@ var current_state: int
 @onready var shop_manager: ShopManager = %ShopManager
 @onready var ability_helper: AbilityHelper = $AbilityHelper
 @onready var overlay_manager: OverlayManager = $OverlayManager
+@onready var title_screen_manager: TitleScreenManager = $TitleScreenManager
 
 func _ready() -> void:
 	for state: TopState in _state_logic_dict.values():
@@ -50,7 +53,7 @@ func _ready() -> void:
 	ability_helper.sm = self
 	shop_manager.ability_helper.top_ability_helper = ability_helper
 	ability_helper.play_state = _state_logic_dict[States.PLAY]
-	switch_state(States.SETUP_TURN)
+	switch_state(States.TITLE_SCREEN)
 	
 	_set_start_values()
 

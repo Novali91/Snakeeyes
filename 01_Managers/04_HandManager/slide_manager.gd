@@ -9,6 +9,7 @@ const _TABLE_DIM: Vector2 = Vector2(1, 0.45)
 const _LOCAL_DIM: Vector2 = Vector2(1920, 380)
 const _WAIT_TIME: float = 0.25
 const _SLIDE_TIME: float = 1.2
+const _SLIDE_BACK_TIME: float = 0.5
 const _X_OFF_SCREEN: float = -60
 
 const _ENDPOINT_MAX_TABLE_OFFSET: float = 0.015
@@ -109,7 +110,9 @@ func _update_slide(delta: float) -> void:
 		
 		d.slide_time += delta
 		
-		var anim_percent = d.slide_time / _SLIDE_TIME
+		var time_max = _SLIDE_BACK_TIME if d.delete_after_slide else _SLIDE_TIME
+		
+		var anim_percent = d.slide_time / time_max
 		anim_percent = clampf(anim_percent, 0, 1)
 		
 		if d.slide_easing == d.EASE_IN:

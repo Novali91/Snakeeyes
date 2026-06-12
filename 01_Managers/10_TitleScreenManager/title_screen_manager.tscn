@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dmqecy4uccb4k"]
+
+[ext_resource type="Script" uid="uid://beb6750t48cxl" path="res://01_Managers/10_TitleScreenManager/title_screen_manager.gd" id="1_njavn"]
+[ext_resource type="Texture2D" uid="uid://5rq7dg3hbajb" path="res://05_Assets/01_Art/02_Backgrounds/begin game background.png" id="2_ke0wo"]
+[ext_resource type="Shader" uid="uid://0oonfw65mdnr" path="res://05_Assets/02_Shaders/outline.gdshader" id="3_37l6j"]
+[ext_resource type="Texture2D" uid="uid://ced2yvvgoiqf0" path="res://05_Assets/01_Art/03_UI_Sprites/begin game sprite.png" id="4_cybs7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vwu47"]
+shader = ExtResource("3_37l6j")
+shader_parameter/sprite_alpha = 1.0
+shader_parameter/color = Color(0.857, 0.33999997, 1, 1)
+shader_parameter/alpha = 0.0
+shader_parameter/thickness = 0.00999999977648
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kcsrw"]
+radius = 459.0011
+
+[node name="TitleScreenManager" type="Node2D" unique_id=147652467]
+script = ExtResource("1_njavn")
+metadata/_custom_type_script = "uid://beb6750t48cxl"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=473197520]
+texture = ExtResource("2_ke0wo")
+
+[node name="Bubble" type="Sprite2D" parent="." unique_id=357123337]
+material = SubResource("ShaderMaterial_vwu47")
+texture = ExtResource("4_cybs7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1380328483]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=186065061]
+shape = SubResource("CircleShape2D_kcsrw")
