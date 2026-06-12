@@ -33,7 +33,9 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 			sm.camera_manager.lock_camera()
 			## Maybe bring up some ui for the selection?
 			## Make it so you can't end turn while selecting?
+			sm.overlay_manager.toggle_retain(true)
 			var chosen_drink: Drink = await sm.hand_manager.ability_helper.choose_drink()
+			sm.overlay_manager.toggle_retain(false)
 			sm.hand_manager.ability_helper.give_drink_retain(chosen_drink)
 			sm.camera_manager.unlock_camera()
 		PLACEBOA: 
@@ -45,7 +47,9 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 		GARDEN_SNAKE: 
 			sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
 			sm.camera_manager.lock_camera()
+			sm.overlay_manager.toggle_buff(true)
 			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
+			sm.overlay_manager.toggle_buff(false)
 			sm.deck_manager.ability_helper.upgrade_snake(snake, 1, sm.deck_manager.ability_helper.STRENGTH)
 			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 			sm.camera_manager.unlock_camera()
@@ -53,7 +57,9 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 		CLAIRVOYANT_SNAKE:
 			sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
 			sm.camera_manager.lock_camera()
+			sm.overlay_manager.toggle_dbl_poison(true)
 			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
+			sm.overlay_manager.toggle_dbl_poison(false)
 			#sm.camera_manager.unlock_camera()
 			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE) # This logic should be updated when camera manager is updated
 			#sm.camera_manager.lock_camera()
@@ -61,7 +67,9 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 			play_state.play_card(clairvoyant_drink, drink_position)
 			sm.camera_manager.unlock_camera()
 		CANNIBAL_SNAKE:
+			sm.overlay_manager.toggle_kill(true)
 			remove_snake(sm.camera_manager.MIDDLE)
+			sm.overlay_manager.toggle_kill(false)
 			pass
 		HYDRA:
 			sm.camera_manager.switch_screen(sm.camera_manager.LEFT)

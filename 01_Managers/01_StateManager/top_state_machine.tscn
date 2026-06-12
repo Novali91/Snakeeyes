@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://c3dy1ps3avrnp" path="res://01_Managers/04_HandManager/hand_manager.tscn" id="21_ffq48"]
 [ext_resource type="PackedScene" uid="uid://dhqysni4gdtju" path="res://01_Managers/03_DeckManager/deck_manager.tscn" id="22_lfho2"]
 [ext_resource type="PackedScene" uid="uid://bnjofbbb7q1gy" path="res://01_Managers/02_ShopManager/shop_manager.tscn" id="23_5mt65"]
+[ext_resource type="PackedScene" uid="uid://dcac3rjwq26kc" path="res://01_Managers/09_OverlayManager/overlay_manager.tscn" id="25_gwsv7"]
 
 [node name="TopStateMachine" type="Node" unique_id=741613550]
 script = ExtResource("1_brpme")
@@ -119,3 +120,5 @@ unique_name_in_owner = true
 [node name="DiceManager" parent="." unique_id=1005432025 instance=ExtResource("19_sa73t")]
 unique_name_in_owner = true
 position = Vector2(1920, 0)
+
+[node name="OverlayManager" parent="." unique_id=941339809 instance=ExtResource("25_gwsv7")]
