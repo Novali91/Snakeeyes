@@ -54,9 +54,6 @@ func slide_drinks(drinks: Array[Drink]) -> void:
 	drinks.sort_custom(_sort_drink_far_slide)
 	
 	for d: Drink in drinks:
-		print(d.slide_target.x)
-	
-	for d: Drink in drinks:
 		if d == null: continue
 		
 		d.visible = true
