@@ -16,6 +16,7 @@ var current_drink: DrinkResource
 func _ready() -> void:
 	super._ready()
 	instantiate_tooltip()
+	GS.antidote_num_set.connect(instantiate_tooltip)
 	set_texture()
 	pass
 
@@ -24,12 +25,14 @@ func set_texture() -> void:
 	pass
 
 func instantiate_tooltip() -> void:
-	tooltip.instantiate_snake_values(attached_snake, current_drink, num_drinks)
+	tooltip.instantiate_snake_values(attached_snake, current_drink)
 	return
 
 func activate_tooltip() -> void:
 	super()
 	snake_sprite.material.set_shader_parameter("alpha", 1.0)
+	
+	tooltip.instantiate_snake_values(attached_snake, current_drink)
 
 func deactivate_tooltip() -> void:
 	super()

@@ -18,6 +18,7 @@ const FAMILIAR_SNAKE: int = 10
 const CHARMING_SNAKE: int = 11
 const SNAKE_OF_ASCLEPIUS: int = 12
 const KING_COBRA: int = 13
+const STR_PER_ANTI: int = 14
 
 func trigger_ability(ind: int, drink_position: Vector2) -> void:
 	match ind:
@@ -83,6 +84,9 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 			## Maybe some visuals?
 			GS.set_antidote_num(GS.get_antidote_num() + 1)
 			pass
+		STR_PER_ANTI:
+			var str_inc: int = GS.get_antidote_num() # Right now it is  str per antidote
+			GS.set_strength(GS.get_strength() + str_inc)
 		_:
 			return
 
