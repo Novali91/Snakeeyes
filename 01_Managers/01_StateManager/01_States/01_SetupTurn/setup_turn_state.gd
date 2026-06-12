@@ -13,6 +13,10 @@ func enter() -> void:
 	sm.shop_manager.fill_shop()
 	
 	sm.attack_manager.next_attack()
+	sm.score_bar.set_goal_value(sm.attack_manager.get_attack_goal())
+	
+	GS.turn_count += 1
+	sm.score_bar.set_turn_value(GS.turn_count)
 	
 	await get_tree().create_timer(0.5).timeout
 	

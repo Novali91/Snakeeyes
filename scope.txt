@@ -76,4 +76,10 @@ SlideManager - sometimes drinks overlap
 
 
 other stuff:
-score bar gets turn and goal
+score bar is confusing, goal? score?
+shop darken needs to fade in
+shop darken needs to not include snakes
+shop darken should be a little less
+poison bar should have that back wave it had before (going opposite way?)
+poison bar should be transparent instead of darker green
+shouldnt be able to switch screens while drawing cards

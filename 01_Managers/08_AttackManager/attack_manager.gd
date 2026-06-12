@@ -20,3 +20,9 @@ func next_attack() -> void:
 
 func get_attack() -> Array[int]:
 	return _current_attack
+
+func get_attack_goal() -> int:
+	var out = 0
+	for i in _current_attack:
+		out += i
+	return out
