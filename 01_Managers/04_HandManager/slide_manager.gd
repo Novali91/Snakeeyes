@@ -59,6 +59,7 @@ func slide_back(drink: Drink) -> void:
 	drink.slide_target = Vector2(_X_OFF_SCREEN, drink.position.y)
 	drink.slide_easing = drink.EASE_IN
 	drink.delete_after_slide = true
+	drink.slide_time = 0
 	
 	if drink not in _active_drinks:
 		_active_drinks.push_back(drink)
