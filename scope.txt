@@ -28,5 +28,4 @@ gain value next turn
 
 
 other stuff:
-dice should have access to stat block
-maybe shop should too
+score bar gets turn and goal

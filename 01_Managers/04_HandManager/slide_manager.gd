@@ -46,6 +46,8 @@ func slide_drinks(drinks: Array[Drink]) -> void:
 		d.slide_ind = ind
 	
 	for d: Drink in drinks:
+		if d == null: continue
+		
 		d.visible = true
 		
 		_active_drinks.push_back(d)
