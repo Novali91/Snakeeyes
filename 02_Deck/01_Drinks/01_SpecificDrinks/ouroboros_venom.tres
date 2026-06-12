@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://byl6wrr0051u4"]
+
+[ext_resource type="Texture2D" uid="uid://buc58wvv0qou4" path="res://05_Assets/01_Art/01_DevArt/clairvoyant_snake.png" id="1_bhoqk"]
+[ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_tuy4v"]
+
+[resource]
+script = ExtResource("1_tuy4v")
+drink_name = "Ouroboros Venom"
+drink_sprite = ExtResource("1_bhoqk")
+poison = 1
+strength = 3
+charm = 2
+special_ability = 17
+description = "When you drink this venom, slide it back"
+flavour_text = "TO INFINITY AND BEYOND! HAHAH"
+metadata/_custom_type_script = "uid://cysm36u2jsf44"

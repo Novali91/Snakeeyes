@@ -19,7 +19,7 @@ func choose_drink() -> Drink:
 
 func slide_drink_back(drink: Drink) -> void:
 	drink.input_pickable = false ## Placeholder: Is this how we want to do this?
-	hm.slide_manager.begin_slide_back(drink)
+	hm.slide_manager.slide_back(drink)
 	return
 
 func give_drink_retain(drink: Drink) -> void:

@@ -21,6 +21,7 @@ const KING_COBRA: int = 13
 const STR_PER_ANTI: int = 14
 const BETTER_GARDEN_SNAKE: int = 15
 const JORMUNGANDR: int = 16
+const OUROBOROS: int = 17
 
 func trigger_ability(ind: int, drink_position: Vector2) -> void:
 	match ind:
@@ -36,7 +37,8 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 			sm.overlay_manager.toggle_retain(true)
 			var chosen_drink: Drink = await sm.hand_manager.ability_helper.choose_drink()
 			sm.overlay_manager.toggle_retain(false)
-			sm.hand_manager.ability_helper.give_drink_retain(chosen_drink)
+			# sm.hand_manager.ability_helper.give_drink_retain(chosen_drink)
+			sm.hand_manager.ability_helper.slide_drink_back(chosen_drink)
 			sm.camera_manager.unlock_camera()
 		PLACEBOA: 
 			draw_cards(1)
@@ -126,10 +128,6 @@ func remove_snake(start_screen: int) -> Vector2i:
 	sm.camera_manager.lock_camera()
 	var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
 	var stats: Vector2i = Vector2i(snake.current_drink.strength, snake.current_drink.charm)
-	# Bandaid fix
-	if snake.current_drink.special_ability == STR_PER_ANTI:
-		stats.x += GS.get_antidote_num()
-	
 	sm.deck_manager.remove_snake(snake)
 	sm.camera_manager.switch_screen(start_screen, true)
 	sm.camera_manager.unlock_camera()

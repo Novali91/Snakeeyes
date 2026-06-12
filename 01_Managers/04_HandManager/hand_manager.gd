@@ -34,10 +34,14 @@ func _click_drink(drink: Drink) -> void:
 	if !drinks_drinkable:
 		drink_chosen.emit(drink)
 		return
-	remove_drink(drink)
 	drink_drank.emit(drink.attached_drink, drink.global_position)
-	tooltip_manager.remove_item(drink, true)
-	pass
+	# Bandaid fix
+	if drink.attached_drink.special_ability != 17:
+		remove_drink(drink)
+		tooltip_manager.remove_item(drink, true)
+	else:
+		slide_manager.slide_back(drink)
+		drinks.erase(drink)
 
 ## 
 func _delete_drink(drink: Drink) -> void:
