@@ -27,39 +27,43 @@ Starter:
 Need 3
 
 Common:
-Placeboa (Draw 1)
-Garden Snake (Pick a snake. It gains 1 strength permanently)
-Asclepius Snake (Gain an antidote)
-Cat Snake (Retain)
-Tiger Keelback
-Python
-Boa Constrictor (Draw 2)
-Scarlet Snake (All dice roll +1)
-Corn Snake (Roll 2d6. 1-6: -1 poison, 7-12: -2 poison)
+0 0 1 Placeboa (Draw 1)
+1 2 0 Garden Snake (Pick a snake. It gains 1 charm permanently)
+1 1 -1 Asclepius Snake (Gain an antidote)
+2 4 0 Cat Snake (Retain)
+1 -2 3 Tiger Keelback
+1 2 0 Python (1/2 charm for strength)
+1 0 1 Boa Constrictor (Draw 2) # need 
+0 0 1 Scarlet Snake (All dice roll +1)
+0 0 1 Corn Snake (Roll 2d6. 1-6: -1 poison, 7-12: -2 poison)
+1 1 1 Parrot Snake (Shares stats)
+
 Need 1 more (with ability of all have the same stats?)
 (Also want 1/2 charm for strength)
 
 Rare:
-Kingsnake (On drink, kill a snake)
-Ball Python (Pick a snake then roll 2d6. 1-6: +2 strength, 7-12: +5 strength)
-Gorgon Snake 
-Black Mamba (Gain 1 strength per each card played this turn)
-Rainbow Boa (Roll 2d6. 1-6: Draw 1, 7-12: Draw 4)
-Basilisk (Some sort of charm?)
-Coral Snake (Roll 2d6. Gain that strength) 
-King Cobra (On buy: Kill a snake. Gain its strength and charm permanently)
-Amphisbaena (Can buy 2 more antidote this turn)
+3 4 0 Kingsnake (On drink, kill a snake)
+1 2 0 Ball Python (Pick a snake then roll 2d6. 1-6: +1 strength, 7-12: +5 strength)
+1 0 2 Gorgon Snake (Retain, double target drinks strength)
+2 0 0 Black Mamba (Gain 1 strength per each card played this turn)
+1 0 1 Rainboa (Roll 2d6. 1-6: Draw 1, 7-12: Draw 4)
+2 2 0 Basilisk (Lose all charm, target snake gains that much strength)
+1 0 0 Coral Snake (Roll 2d6. Gain that strength) 
+1 2 0 King Cobra (On buy: Kill a snake. Gain its strength and charm permanently)
+-1 0 1 Amphisbaena (Can buy 2 more antidote this turn)
+4 2 0 Pit Viper (-1 poison to all drinks in hand)
+
 Need 1 more
 (Str per antidote, friendly snake, maybe one more -poison snake?)
 
 Legendary:
 Hydra (Creates 3 drinks, draw 2)
 Ouroboros (When you drink it, slide it back)
-Chimera Tail (but snake is now the head)
+Chimera Tail (BREATH FIRE!!!)
 Jormungandr (Gain strength equal to the total combined strength of drinks in your hand)
 Quetzalcoatl (Draw 3, slide back 3, and give those drinks -1,+1,+1)
 Nidhogg (On drink, kill another snake. Drink its drink)
-Caduceus (but just the snakes probably?) (Double your antidote)
+Caduceus (Double your antidote)
 
 Rerolls in shop
 UI for selecting snakes/drinks
