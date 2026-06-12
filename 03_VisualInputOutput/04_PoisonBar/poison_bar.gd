@@ -8,6 +8,8 @@ var _change_progress: float = -1.0
 var _old_level: int;
 var _new_level: int;
 
+var poison_heights = [0.0,0.0,5.0,10.0,16.67,25.0,39.0,60.0,75.0,85.0,89.0,97.23,100.0]
+
 func _ready() -> void:
 	GS.poison_set.connect(set_value)
 
@@ -21,10 +23,10 @@ func _process(delta: float) -> void:
 	var mat = _liquid.material as Material
 	if _change_progress >= 0.0 and _change_progress <= 1.0:
 		_change_progress += delta * change_speed
-		mat.set_shader_parameter("level",lerp_eased(_old_level,_new_level,_change_progress)/12.0)
+		mat.set_shader_parameter("level",lerp_eased(poison_heights[_old_level],poison_heights[_new_level],_change_progress))
 	else:
 		_change_progress = -1.0
-		mat.set_shader_parameter("level",(_new_level)/12.0)
+		mat.set_shader_parameter("level",poison_heights[_new_level])
 
 func lerp_eased(from: float, to: float, x: float) -> float:
 	return from + (to-from) * ease_in_out_0_1(x)
