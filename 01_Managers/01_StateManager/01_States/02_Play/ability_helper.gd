@@ -19,6 +19,8 @@ const CHARMING_SNAKE: int = 11
 const SNAKE_OF_ASCLEPIUS: int = 12
 const KING_COBRA: int = 13
 const STR_PER_ANTI: int = 14
+const BETTER_GARDEN_SNAKE: int = 15
+const JORMUNGANDR: int = 16
 
 func trigger_ability(ind: int, drink_position: Vector2) -> void:
 	match ind:
@@ -87,6 +89,9 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 		STR_PER_ANTI:
 			var str_inc: int = GS.get_antidote_num() # Right now it is  str per antidote
 			GS.set_strength(GS.get_strength() + str_inc)
+		JORMUNGANDR: 
+			var total: int = sm.hand_manager.ability_helper.get_total_hand_str()
+			GS.set_strength(GS.get_strength() + total)
 		_:
 			return
 
@@ -108,10 +113,16 @@ func draw_cards(num: int) -> void:
 func _reshuffle_draw_pile() -> void:
 	sm.deck_manager.reshuffle_drawpile()
 
-func remove_snake(start_screen: int) -> void:
+func remove_snake(start_screen: int) -> Vector2i:
 	sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
 	sm.camera_manager.lock_camera()
 	var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
+	var stats: Vector2i = Vector2i(snake.current_drink.strength, snake.current_drink.charm)
+	# Bandaid fix
+	if snake.current_drink.special_ability == STR_PER_ANTI:
+		stats.x += GS.get_antidote_num()
+	
 	sm.deck_manager.remove_snake(snake)
 	sm.camera_manager.switch_screen(start_screen, true)
 	sm.camera_manager.unlock_camera()
+	return stats

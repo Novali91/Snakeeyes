@@ -37,3 +37,9 @@ func change_poison_values_in_hand(change: int) -> void:
 		drink.attached_drink.poison -= change
 		drink.instantiate_tooltip()
 	return
+
+func get_total_hand_str() -> int:
+	var total: int = 0
+	for drink: Drink in hm.drinks:
+		total += drink.attached_drink.strength
+	return total

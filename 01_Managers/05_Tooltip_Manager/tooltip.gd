@@ -102,7 +102,7 @@ func deactivate() -> void:
 func instantiate_drink_values(info: DrinkResource, og_info: DrinkResource) -> void:
 	match info.special_ability:
 		14:
-			set_val(info.strength+GS.get_antidote_num(), og_info.strength, strength_label, "Strength: ")
+			set_val(info.strength, og_info.strength, strength_label, "Strength: ")
 			set_psn_val(info.poison, og_info.poison, poison_label)
 			set_val(info.charm, og_info.charm, charm_label, "Charm: ")
 		_:
