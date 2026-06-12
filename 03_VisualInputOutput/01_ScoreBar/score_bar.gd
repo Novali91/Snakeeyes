@@ -1,10 +1,18 @@
 class_name ScoreBar
 extends Node2D
 
-@onready var _input: Label = $Input
+@onready var _score: CustomNumber = $Score
+@onready var _goal: CustomNumber = $Goal
+@onready var _turn: CustomNumber = $Turn
 
 func _ready() -> void:
-	GS.score_set.connect(set_value)
+	GS.score_set.connect(set_score_value)
 
-func set_value(old_val: int, new_val: int) -> void:
-	_input.text = str(new_val)
+func set_score_value(_old_val: int, new_val: int) -> void:
+	_score.set_value(new_val)
+
+func set_turn_value(val: int) -> void:
+	_score.set_value(val)
+
+func set_goal_value(val: int) -> void:
+	_goal.set_value(val)

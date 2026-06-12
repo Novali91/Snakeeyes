@@ -75,7 +75,7 @@ unique_name_in_owner = true
 
 [node name="ScoreBar" parent="." unique_id=292557974 instance=ExtResource("8_1tnha")]
 unique_name_in_owner = true
-position = Vector2(3654, 406)
+position = Vector2(2880, 125)
 
 [node name="PlayerStrength" parent="." unique_id=940870006 instance=ExtResource("11_4aa5t")]
 unique_name_in_owner = true
@@ -85,11 +85,11 @@ position = Vector2(2118, 709)
 position = Vector2(2880, 540)
 texture = ExtResource("11_gwsv7")
 
-[node name="AttackManager" parent="." unique_id=1488456757 instance=ExtResource("20_n6io1")]
+[node name="HandManager" parent="." unique_id=1877513829 instance=ExtResource("21_ffq48")]
 unique_name_in_owner = true
 position = Vector2(1920, 0)
 
-[node name="HandManager" parent="." unique_id=1877513829 instance=ExtResource("21_ffq48")]
+[node name="AttackManager" parent="." unique_id=1488456757 instance=ExtResource("20_n6io1")]
 unique_name_in_owner = true
 position = Vector2(1920, 0)
 

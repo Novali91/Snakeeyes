@@ -1,18 +1,36 @@
 [gd_scene format=3 uid="uid://co3yvks1wvd03"]
 
 [ext_resource type="Script" uid="uid://dhidk03elcsg1" path="res://03_VisualInputOutput/01_ScoreBar/score_bar.gd" id="1_frerc"]
+[ext_resource type="Texture2D" uid="uid://bgv6r34qfw61j" path="res://05_Assets/01_Art/03_UI_Sprites/scoreboard sprite.png" id="2_01k1c"]
+[ext_resource type="Script" uid="uid://cfqx3dcaojqrs" path="res://03_VisualInputOutput/01_ScoreBar/custom_number.gd" id="3_44rer"]
 
 [node name="ScoreBar" type="Node2D" unique_id=958898566]
 script = ExtResource("1_frerc")
 metadata/_custom_type_script = "uid://dhidk03elcsg1"
 
-[node name="Label" type="Label" parent="." unique_id=1081740439]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Score: "
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1128272843]
+texture = ExtResource("2_01k1c")
 
-[node name="Input" type="Label" parent="." unique_id=1917417763]
-offset_left = 64.0
-offset_right = 125.0
-offset_bottom = 23.0
-text = "0"
+[node name="Score" type="Node2D" parent="." unique_id=1998445763]
+position = Vector2(7, 22)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("3_44rer")
+digits = 3
+digit_spacing = -20.0
+metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
+
+[node name="Goal" type="Node2D" parent="." unique_id=36648135]
+position = Vector2(-105, 50)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("3_44rer")
+digits = 2
+digit_spacing = -20.0
+metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
+
+[node name="Turn" type="Node2D" parent="." unique_id=2070661474]
+position = Vector2(136, 80)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("3_44rer")
+digits = 2
+digit_spacing = -20.0
+metadata/_custom_type_script = "uid://cfqx3dcaojqrs"

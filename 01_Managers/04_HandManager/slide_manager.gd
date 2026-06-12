@@ -29,9 +29,10 @@ func slide_drinks(drinks: Array[Drink]) -> void:
 		_empty_endpoints.shuffle()
 		var endpoint = _empty_endpoints.pop_front()
 		var offset_dir = Vector2.RIGHT.rotated(randf_range(0, TAU))
-		endpoint += offset_dir * randf_range(0, _ENDPOINT_MAX_TABLE_OFFSET)
+		var offset = offset_dir * randf_range(0, _ENDPOINT_MAX_TABLE_OFFSET)
+		var offset_endpoint = endpoint + offset
 		
-		var local_endpoint = _to_local(endpoint)
+		var local_endpoint = _to_local(offset_endpoint)
 		
 		d.position = Vector2(_X_OFF_SCREEN, local_endpoint.y)
 		
@@ -40,6 +41,9 @@ func slide_drinks(drinks: Array[Drink]) -> void:
 		d.slide_easing = d.EASE_OUT
 		d.delete_after_slide = false
 		d.scale = Vector2.ONE * _get_scale(endpoint.y)
+		
+		var ind = _all_endpoints.find(endpoint)
+		d.slide_ind = ind
 	
 	for d: Drink in drinks:
 		d.visible = true
