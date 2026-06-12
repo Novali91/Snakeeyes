@@ -10,9 +10,11 @@ var drinks: Array[Drink]
 var drinks_drinkable: bool = true
 
 ## For when a drink is drinkable and is clicked (play state connected to this)
-signal drink_drank(resource: DrinkResource, drink_position: Vector2)
+signal drink_drank(resource: DrinkResource, drink_position: Vector2, og_resource: DrinkResource)
 ## For when a drink is not drinkable and is clicked (hand_ability_helper maybe connected)
 signal drink_chosen(drink: Drink)
+
+var drinks_drank: int
 
 func _ready() -> void:
 	tooltip_manager.child_was_clicked.connect(_click_drink)
@@ -34,13 +36,14 @@ func _click_drink(drink: Drink) -> void:
 	if !drinks_drinkable:
 		drink_chosen.emit(drink)
 		return
-	drink_drank.emit(drink.attached_drink, drink.global_position)
+	drink_drank.emit(drink.attached_drink, drink.global_position, drink.attached_drink_resource)
+	drinks_drank += 1
 	# Bandaid fix
 	if drink.attached_drink.special_ability != 17:
 		remove_drink(drink)
 		tooltip_manager.remove_item(drink, true)
 	else:
-		slide_manager.slide_back(drink)
+		ability_helper.slide_drink_back(drink)
 		drinks.erase(drink)
 
 ## 
@@ -63,6 +66,7 @@ func end_turn_discard() -> void:
 			if temp_drink.attached_drink.retain == false: ## Test retain
 				tooltip_manager.remove_item(temp_drink, true)
 	_clear_drinks()
+	drinks_drank = 0
 
 func _clear_drinks() -> void:
 	for i: int in range(drinks.size() - 1, -1, -1):

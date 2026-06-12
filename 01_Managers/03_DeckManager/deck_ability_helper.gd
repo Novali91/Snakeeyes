@@ -28,10 +28,12 @@ func upgrade_snake(snake: Snake, increase: int, stat: int) -> void:
 			pass
 	snake.instantiate_tooltip()
 
-func get_clairvoyant_drink(snake: Snake) -> DrinkResource:
+func get_clairvoyant_drink(snake: Snake) -> Drink:
 	var temp_drink: DrinkResource = snake.current_drink.duplicate()
-	temp_drink.poison = temp_drink.poison * 2
-	return temp_drink
+	var og_temp_drink: DrinkResource = snake.current_drink
+	temp_drink.poison = 0
+	var temp: Drink = _dm.create_drink(temp_drink, og_temp_drink)
+	return temp
 
 func increment_familiar_snakes(value: int) -> void:
 	for snake in _dm.snake_deck:

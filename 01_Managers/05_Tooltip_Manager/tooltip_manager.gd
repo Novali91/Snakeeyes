@@ -48,7 +48,7 @@ func remove_item(item: DeckItem, kill: bool) -> void:
 	if cur_hovered == item:
 		item.deactivate_tooltip()
 		if all_hovered.size() > 0:
-			find_new_hover()
+			activate_child(find_new_hover())
 		else:
 			cur_hovered = null
 	

@@ -22,8 +22,10 @@ const STR_PER_ANTI: int = 14
 const BETTER_GARDEN_SNAKE: int = 15
 const JORMUNGANDR: int = 16
 const OUROBOROS: int = 17
+const QUETZALCOATL: int = 18
+const GORGON_SNAKE: int = 19
 
-func trigger_ability(ind: int, drink_position: Vector2) -> void:
+func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource, og_drink: DrinkResource) -> void:
 	match ind:
 		NO_ABILITY:
 			return
@@ -31,15 +33,12 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 			if sm.hand_manager.get_num_drinks() == 0:
 				return
 			## Lock camera?
-			sm.camera_manager.lock_camera()
 			## Maybe bring up some ui for the selection?
 			## Make it so you can't end turn while selecting?
 			sm.overlay_manager.toggle_retain(true)
-			var chosen_drink: Drink = await sm.hand_manager.ability_helper.choose_drink()
+			var chosen_drink: Drink = await pick_drink()
 			sm.overlay_manager.toggle_retain(false)
-			# sm.hand_manager.ability_helper.give_drink_retain(chosen_drink)
-			sm.hand_manager.ability_helper.slide_drink_back(chosen_drink)
-			sm.camera_manager.unlock_camera()
+			sm.hand_manager.ability_helper.give_drink_retain(chosen_drink)
 		PLACEBOA: 
 			draw_cards(1)
 		SHORT_TAIL_BOA:
@@ -52,7 +51,7 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 			sm.overlay_manager.toggle_buff(true)
 			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
 			sm.overlay_manager.toggle_buff(false)
-			sm.deck_manager.ability_helper.upgrade_snake(snake, 1, sm.deck_manager.ability_helper.STRENGTH)
+			sm.deck_manager.ability_helper.upgrade_snake(snake, 1, sm.deck_manager.ability_helper.CHARM)
 			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 			sm.camera_manager.unlock_camera()
 			pass
@@ -65,8 +64,9 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 			#sm.camera_manager.unlock_camera()
 			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE) # This logic should be updated when camera manager is updated
 			#sm.camera_manager.lock_camera()
-			var clairvoyant_drink: DrinkResource = sm.deck_manager.ability_helper.get_clairvoyant_drink(snake)
-			play_state.play_card(clairvoyant_drink, drink_position)
+			var clairvoyant_drink: Drink = sm.deck_manager.ability_helper.get_clairvoyant_drink(snake)
+			play_state.play_card(clairvoyant_drink.attached_drink, drink_position, clairvoyant_drink.attached_drink_resource)
+			sm.hand_manager.drinks_drank += 1
 			sm.camera_manager.unlock_camera()
 		CANNIBAL_SNAKE:
 			sm.overlay_manager.toggle_kill(true)
@@ -102,6 +102,21 @@ func trigger_ability(ind: int, drink_position: Vector2) -> void:
 		JORMUNGANDR: 
 			var total: int = sm.hand_manager.ability_helper.get_total_hand_str()
 			GS.set_strength(GS.get_strength() + total)
+		OUROBOROS:
+			sm.deck_manager.return_to_drawpile(og_drink, cur_drink)
+			pass
+		QUETZALCOATL:
+			draw_cards(3)
+			## UI for picking to slideback here:
+			var chosen_drink: Drink = await pick_drink()
+			quetzalcoatl_slide_back(chosen_drink)
+			chosen_drink = await pick_drink()
+			quetzalcoatl_slide_back(chosen_drink)
+			chosen_drink = await pick_drink()
+			quetzalcoatl_slide_back(chosen_drink)
+		GORGON_SNAKE:
+			var chosen_drink: Drink = await pick_drink()
+			chosen_drink.attached_drink.strength = chosen_drink.attached_drink.strength * 2
 		_:
 			return
 
@@ -132,3 +147,19 @@ func remove_snake(start_screen: int) -> Vector2i:
 	sm.camera_manager.switch_screen(start_screen, true)
 	sm.camera_manager.unlock_camera()
 	return stats
+
+func pick_drink() -> Drink:
+	sm.end_turn_button.stop_pressable()
+	sm.camera_manager.lock_camera()
+	var chosen_drink: Drink = await sm.hand_manager.ability_helper.choose_drink()
+	sm.camera_manager.unlock_camera()
+	sm.end_turn_button.make_pressable()
+	return chosen_drink
+
+func quetzalcoatl_slide_back(drink: Drink) -> void:
+	var attached: DrinkResource = drink.attached_drink
+	attached.poison -= 1
+	attached.strength += 1
+	attached.charm += 1
+	sm.hand_manager.ability_helper.slide_drink_back(drink)
+	sm.deck_manager.return_to_drawpile(drink.attached_drink_resource, drink.attached_drink)

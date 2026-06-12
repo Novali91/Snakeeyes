@@ -20,14 +20,14 @@ func process_tick(_delta: float) -> void:
 func physics_tick(_delta: float) -> void:
 	pass
 
-func play_card(drink: DrinkResource, drink_position: Vector2) -> void:
+func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkResource) -> void:
 	GS.set_poison(GS.get_poison() + drink.poison)
 	GS.set_strength(GS.get_strength() + drink.strength)
 	GS.set_charm(GS.get_charm() + drink.charm)
 	
 	sm.charm_overlay.gain_charm(drink.charm, drink_position)
 	
-	sm.ability_helper.trigger_ability(drink.special_ability, drink_position)
+	sm.ability_helper.trigger_ability(drink.special_ability, drink_position, drink, og_drink)
 	
 	if GS.get_poison() >= 12:
 		sm.hand_manager.drinks_drinkable = false

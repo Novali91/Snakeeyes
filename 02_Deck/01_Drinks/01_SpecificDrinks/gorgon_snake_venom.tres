@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://cj5g5qncbtv2u"]
+
+[ext_resource type="Texture2D" uid="uid://b85r6h1ryk340" path="res://05_Assets/01_Art/01_DevArt/Friendly_Snake.png" id="1_0yox0"]
+[ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="2_hp4eg"]
+
+[resource]
+script = ExtResource("2_hp4eg")
+drink_name = "Gorgon Venom"
+drink_sprite = ExtResource("1_0yox0")
+poison = 2
+charm = 2
+retain = true
+description = "On drink, pick a drink. That drink's strength doubles."
+metadata/_custom_type_script = "uid://cysm36u2jsf44"
