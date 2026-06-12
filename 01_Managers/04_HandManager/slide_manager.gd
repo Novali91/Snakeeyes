@@ -11,10 +11,10 @@ const _WAIT_TIME: float = 0.25
 const _SLIDE_TIME: float = 1.2
 const _X_OFF_SCREEN: float = -60
 
-const _ENDPOINT_MAX_TABLE_OFFSET: float = 0.0
+const _ENDPOINT_MAX_TABLE_OFFSET: float = 0.015
 
 var _all_endpoints: Array[Vector2]
-var _empty_endpoints: Array[Vector2]
+var _empty_endpoints: Array[bool]
 
 var _active_drinks: Array[Drink]
 
@@ -25,9 +25,15 @@ func _process(delta: float) -> void:
 	_update_slide(delta)
 
 func slide_drinks(drinks: Array[Drink]) -> void:
+	var checked_index = 0
+	
 	for d: Drink in drinks:
-		_empty_endpoints.shuffle()
-		var endpoint = _empty_endpoints.pop_front()
+		while checked_index < _all_endpoints.size():
+			if _empty_endpoints[checked_index]: break
+			checked_index += 1
+		
+		_empty_endpoints[checked_index] = false
+		var endpoint = _all_endpoints[checked_index]
 		var offset_dir = Vector2.RIGHT.rotated(randf_range(0, TAU))
 		var offset = offset_dir * randf_range(0, _ENDPOINT_MAX_TABLE_OFFSET)
 		var offset_endpoint = endpoint + offset
@@ -44,6 +50,11 @@ func slide_drinks(drinks: Array[Drink]) -> void:
 		
 		var ind = _all_endpoints.find(endpoint)
 		d.slide_ind = ind
+	
+	drinks.sort_custom(_sort_drink_far_slide)
+	
+	for d: Drink in drinks:
+		print(d.slide_target.x)
 	
 	for d: Drink in drinks:
 		if d == null: continue
@@ -68,21 +79,33 @@ func free_endpoint(drink: Drink) -> void:
 	if drink in _active_drinks:
 		_active_drinks.erase(drink)
 	
-	_empty_endpoints.push_back(_all_endpoints[drink.slide_ind])
+	_empty_endpoints[drink.slide_ind] = true
 
 func _populate_endpoints() -> void:
 	_all_endpoints = [
-		Vector2(0.1, 0.3),
-		Vector2(0.2, 0.3),
-		Vector2(0.3, 0.3),
-		Vector2(0.4, 0.3),
-		Vector2(0.5, 0.3),
-		Vector2(0.6, 0.3),
-		Vector2(0.7, 0.3),
-		Vector2(0.8, 0.3),
+		Vector2(0.1, 0.2),
+		Vector2(0.2, 0.2),
+		Vector2(0.3, 0.2),
+		Vector2(0.4, 0.2),
+		Vector2(0.5, 0.2),
+		Vector2(0.6, 0.2),
+		Vector2(0.125, 0.1),
+		Vector2(0.225, 0.1),
+		Vector2(0.325, 0.1),
+		Vector2(0.425, 0.1),
+		Vector2(0.525, 0.1),
+		Vector2(0.625, 0.1),
+		Vector2(0.15, 0.3),
+		Vector2(0.25, 0.3),
+		Vector2(0.35, 0.3),
+		Vector2(0.45, 0.3),
+		Vector2(0.55, 0.3),
+		Vector2(0.65, 0.3),
 	]
 	
-	_empty_endpoints = _all_endpoints.duplicate()
+	_empty_endpoints = []
+	for e in _all_endpoints:
+		_empty_endpoints.push_back(true)
 
 func _update_slide(delta: float) -> void:
 	for d in _active_drinks:
@@ -123,3 +146,6 @@ func _ease_out_0_1(x: float) -> float:
 
 func _ease_in_0_1(x: float) -> float:
 	return sin((clamp(x,0,1) - 1) * PI / 2) + 1
+
+func _sort_drink_far_slide(drink1: Drink, drink2: Drink) -> bool:
+	return drink1.slide_target.x > drink2.slide_target.x
