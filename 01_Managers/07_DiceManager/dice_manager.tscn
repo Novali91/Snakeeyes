@@ -1,9 +1,88 @@
 [gd_scene format=3 uid="uid://bmyg1l3eqrxql"]
 
 [ext_resource type="Script" uid="uid://bm0r4ar0bjg1l" path="res://01_Managers/07_DiceManager/dice_manager.gd" id="1_2k3sa"]
+[ext_resource type="Texture2D" uid="uid://bnlh4t3t803a2" path="res://05_Assets/01_Art/03_UI_Sprites/dice spritesheet 150 by 150.png" id="2_o43fa"]
+[ext_resource type="Texture2D" uid="uid://44n8lq26nevn" path="res://05_Assets/01_Art/03_UI_Sprites/dice roll cup spritesheet 500 by 500.png" id="3_cvl4k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gefl3"]
+atlas = ExtResource("3_cvl4k")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksian"]
+atlas = ExtResource("3_cvl4k")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tyl8d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gefl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksian")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvl4k"]
+atlas = ExtResource("2_o43fa")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ummri"]
+atlas = ExtResource("2_o43fa")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6sk2"]
+atlas = ExtResource("2_o43fa")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkwlg"]
+atlas = ExtResource("2_o43fa")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u73lx"]
+atlas = ExtResource("2_o43fa")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5jfh"]
+atlas = ExtResource("2_o43fa")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gefl3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvl4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ummri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6sk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkwlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u73lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5jfh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="DiceManager" type="Node2D" unique_id=1005432025]
 script = ExtResource("1_2k3sa")
+animation_time = 2.5
+cup_lower_time = 0.8
+cup_shake_frequency = 50.0
+cup_shake_wavelength = 15.0
+cup_shake_offset = -0.7
 metadata/_custom_type_script = "uid://bm0r4ar0bjg1l"
 
 [node name="Label" type="Label" parent="." unique_id=1512454025]
@@ -32,3 +111,18 @@ offset_top = 643.0
 offset_right = 1097.0
 offset_bottom = 674.0
 text = "Continue"
+
+[node name="Cup" type="AnimatedSprite2D" parent="." unique_id=885028806]
+position = Vector2(411, 368)
+sprite_frames = SubResource("SpriteFrames_tyl8d")
+
+[node name="Dice1" type="AnimatedSprite2D" parent="." unique_id=135930146]
+position = Vector2(820, 934)
+sprite_frames = SubResource("SpriteFrames_gefl3")
+
+[node name="Dice2" type="AnimatedSprite2D" parent="." unique_id=61177975]
+position = Vector2(923, 933)
+sprite_frames = SubResource("SpriteFrames_gefl3")
+
+[node name="CupLoc" type="Marker2D" parent="." unique_id=385157325]
+position = Vector2(979, 820)

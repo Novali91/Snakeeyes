@@ -6,7 +6,7 @@ func setup() -> void:
 
 func enter() -> void:
 	sm.camera_manager.lock_camera()
-	sm.dice_manager.start_roll()
+	sm.dice_manager.start_roll(true)
 
 func exit() -> void:
 	pass
