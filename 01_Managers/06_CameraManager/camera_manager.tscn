@@ -5,11 +5,14 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tmo6x"]
 shader = ExtResource("2_x2vs0")
-shader_parameter/fisheye_intensity = 0.02
-shader_parameter/fisheye_speed = 2.0
+shader_parameter/fisheye_intensity = 0.0
+shader_parameter/fisheye_speed = 1.0
 
 [node name="CameraManager" type="Node2D" unique_id=1135895677]
 script = ExtResource("1_5qfpc")
+poison_effect_change_speed = 3.0
+poison_fish_eye_intensity = 0.003
+poison_effect_begin_level = 6
 metadata/_custom_type_script = "uid://d30y0q47xsgt0"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=97266164]
@@ -19,7 +22,6 @@ offset = Vector2(960, 540)
 transform = Transform2D(1, 0, 0, 1, 960, 540)
 
 [node name="FullScreenEffects" type="ColorRect" parent="Camera2D/CanvasLayer" unique_id=433282015]
-visible = false
 material = SubResource("ShaderMaterial_tmo6x")
 offset_left = -960.0
 offset_top = -540.0

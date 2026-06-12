@@ -10,20 +10,37 @@ enum {
 }
 
 @onready var camera: Camera2D = $Camera2D
+@onready var full_screen_effects: ColorRect = $Camera2D/CanvasLayer/FullScreenEffects
 
 var _current_ind: int = 1
 var _prev_ind: int = 1
 var _camera_locked: bool
 var _camera_tween: Tween
 
+@export var poison_effect_change_speed: float
+@export var poison_fish_eye_intensity: float
+@export var poison_effect_begin_level: int
+var poison_effect_change_progress: float = -1.0
+var old_poison: int = 0
+var new_poison: int = 0
+
 func _ready() -> void:
 	camera.global_position = Vector2(screen_pos_x(_current_ind), 1080 / 2.)
+	GS.poison_set.connect(set_poison_effect)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("left"):
 		_swipe_left()
 	elif Input.is_action_just_pressed("right"):
 		_swipe_right()
+	if(poison_effect_change_progress >= 0 and poison_effect_change_progress < 1):
+		poison_effect_change_progress += _delta * poison_effect_change_speed
+		full_screen_effects.material.set_shader_parameter("fisheye_intensity",clamp((old_poison + (new_poison - old_poison) * poison_effect_change_progress) - poison_effect_begin_level,0,12) * poison_fish_eye_intensity)
+
+func set_poison_effect(old_val: int, new_val: int) -> void:
+	poison_effect_change_progress = 0.0
+	old_poison = old_val
+	new_poison = new_val
 
 func smooth_lerp(from: float, to: float, x: float) -> float:
 	return from + (to - from) * (sin(PI * (x - 0.5))/2 + 0.5)
@@ -38,6 +55,14 @@ func switch_screen(screen_ind: int, bypass_lock: bool = false) -> void:
 		return
 	
 	_current_ind = screen_ind
+	
+	if _current_ind == 1:
+		new_poison = old_poison
+		old_poison = 0
+	else:
+		old_poison = new_poison
+		new_poison = 0
+	poison_effect_change_progress = 0
 	
 	var center = GS.SCREEN_SIZE / 2.
 	var target_pos = center + Vector2(GS.SCREEN_SIZE.x * _current_ind, 0)
