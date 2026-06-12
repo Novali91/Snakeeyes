@@ -11,7 +11,7 @@ const _WAIT_TIME: float = 0.25
 const _SLIDE_TIME: float = 1.2
 const _X_OFF_SCREEN: float = -60
 
-const _ENDPOINT_MAX_TABLE_OFFSET: float = 0.1
+const _ENDPOINT_MAX_TABLE_OFFSET: float = 0.0
 
 var _all_endpoints: Array[Vector2]
 var _empty_endpoints: Array[Vector2]
@@ -71,16 +71,14 @@ func free_endpoint(drink: Drink) -> void:
 
 func _populate_endpoints() -> void:
 	_all_endpoints = [
-		Vector2(0.2, 0.1),
-		Vector2(0.3, 0.2),
+		Vector2(0.1, 0.3),
+		Vector2(0.2, 0.3),
+		Vector2(0.3, 0.3),
 		Vector2(0.4, 0.3),
-		Vector2(0.55, 0.35),
-		Vector2(0.65, 0.2),
-		Vector2(0.75, 0.275),
-		Vector2(0.8, 0.35),
-		Vector2(0.8, 0.1),
-		Vector2(0.35, 0.4),
-		Vector2(0.25, 0.35),
+		Vector2(0.5, 0.3),
+		Vector2(0.6, 0.3),
+		Vector2(0.7, 0.3),
+		Vector2(0.8, 0.3),
 	]
 	
 	_empty_endpoints = _all_endpoints.duplicate()
