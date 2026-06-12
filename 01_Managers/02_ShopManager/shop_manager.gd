@@ -13,6 +13,7 @@ var antidote_position: Vector2
 @onready var ability_helper: ShopAbilityHelper = $ShopAbilityHelper
 @onready var _labels_node: Node2D = $PriceLabels
 @onready var _antidote_button: Button = $AntidoteButton
+@onready var darkness: ColorRect = $Darkness
 
 @onready var _snake_scene: PackedScene = preload("res://02_Deck/02_Snakes/snake.tscn")
 
