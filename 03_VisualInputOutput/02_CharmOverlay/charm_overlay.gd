@@ -100,7 +100,7 @@ func gain_charm(val: int, pos: Vector2) -> void:
 		var same_dir = (_current_charm_count > 0 and not is_neg) or (_current_charm_count < 0 and is_neg)
 		if same_dir and ((_current_charm_count >= _MAX_TOKENS_SHOWN) or (_current_charm_count <= -_MAX_TOKENS_SHOWN)):
 			new_token.is_fake = true
-		if not same_dir and ((_current_charm_count > _MAX_TOKENS_SHOWN) or (_current_charm_count < -_MAX_TOKENS_SHOWN)):
+		elif not same_dir and ((_current_charm_count > _MAX_TOKENS_SHOWN) or (_current_charm_count < -_MAX_TOKENS_SHOWN)):
 			new_token.is_fake = true
 		
 		else:
@@ -117,14 +117,24 @@ func spend_charm(val: int, pos: Vector2) -> void:
 	_reveal_timer = 1
 	_count_label.text = str(GS.get_charm())
 	
-	_current_charm_count -= val
-	
 	for i in val:
-		var token = _tokens.pop_front()
-		token.spent = true
-		token.send_to(pos)
-		token.vel = Vector2.ZERO
-		token.spent_timer = i * 0.2
+		_current_charm_count -= 1
+		
+		var spent_token: CharmToken
+		
+		if _current_charm_count < _MAX_TOKENS_SHOWN:
+			spent_token = _tokens.pop_front()
+		
+		else:
+			spent_token = _token_scene.instantiate()
+			spent_token.global_position = _bundle.global_position
+			_all_tokens.push_back(spent_token)
+			_tokens_node.add_child(spent_token)
+		
+		spent_token.spent = true
+		spent_token.send_to(pos)
+		spent_token.vel = Vector2.ZERO
+		spent_token.spent_timer = i * 0.2
 
 func clear_charm() -> void:
 	for t: CharmToken in _tokens:
