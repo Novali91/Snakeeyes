@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://dcac3rjwq26kc"]
+
+[ext_resource type="Script" uid="uid://cbdye4nhhth7w" path="res://01_Managers/09_OverlayManager/overlay_manager.gd" id="1_u4ujy"]
+
+[node name="OverlayManager" type="Node2D" unique_id=941339809]
+script = ExtResource("1_u4ujy")
+
+[node name="Retain" type="ColorRect" parent="." unique_id=403715083]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2730.0
+offset_top = 465.0
+offset_right = 3030.0
+offset_bottom = 615.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.18039216)
+
+[node name="Label" type="Label" parent="Retain" unique_id=962611772]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 150.0
+text = "Pick a drink to make last until next round."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="DoublePoison" type="ColorRect" parent="." unique_id=1418329519]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 810.0
+offset_top = 465.0
+offset_right = 1110.0
+offset_bottom = 615.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.18039216)
+
+[node name="Label" type="Label" parent="DoublePoison" unique_id=67400518]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 150.0
+text = "Pick a snake to instantly drink their venom with double poison."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Buff" type="ColorRect" parent="." unique_id=681962169]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 810.0
+offset_top = 465.0
+offset_right = 1110.0
+offset_bottom = 615.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.18039216)
+
+[node name="Label" type="Label" parent="Buff" unique_id=708214745]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 150.0
+text = "Pick a snake to add 1 strength to."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Kill" type="ColorRect" parent="." unique_id=919652704]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 810.0
+offset_top = 465.0
+offset_right = 1110.0
+offset_bottom = 615.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.18039216)
+
+[node name="Label" type="Label" parent="Kill" unique_id=330687584]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 150.0
+text = "Pick a snake to kill."
+horizontal_alignment = 1
+vertical_alignment = 1

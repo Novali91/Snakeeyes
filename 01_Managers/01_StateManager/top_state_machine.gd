@@ -40,6 +40,7 @@ var current_state: int
 @onready var deck_manager: DeckManager = %DeckManager
 @onready var shop_manager: ShopManager = %ShopManager
 @onready var ability_helper: AbilityHelper = $AbilityHelper
+@onready var overlay_manager: OverlayManager = $OverlayManager
 
 func _ready() -> void:
 	for state: TopState in _state_logic_dict.values():
