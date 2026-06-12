@@ -26,6 +26,9 @@ gain value next turn
 Starter:
 Need 3
 
+
+blue is milk snake
+
 Common:
 0 0 1 Placeboa (Draw 1)
 1 2 0 Garden Snake (Pick a snake. It gains 1 charm permanently)
@@ -33,8 +36,8 @@ Common:
 2 4 0 Cat Snake (Retain)
 1 -2 3 Tiger Keelback
 1 2 0 Python (1/2 charm for strength)
-1 0 1 Boa Constrictor (Draw 2) # need 
-0 0 1 Scarlet Snake (All dice roll +1)
+1 0 1 Boa Constrictor (Draw 2) # need new name
+1 0 1 Scarlet Snake (All dice roll +1)
 0 0 1 Corn Snake (Roll 2d6. 1-6: -1 poison, 7-12: -2 poison)
 1 1 1 Parrot Snake (Shares stats)
 
@@ -52,6 +55,7 @@ Rare:
 1 2 0 King Cobra (On buy: Kill a snake. Gain its strength and charm permanently)
 -1 0 1 Amphisbaena (Can buy 2 more antidote this turn)
 4 2 0 Pit Viper (-1 poison to all drinks in hand)
+1 0 1 Chimera Tail (Gain strength equal to your antidote count)
 
 Need 1 more
 (Str per antidote, friendly snake, maybe one more -poison snake?)
@@ -59,11 +63,10 @@ Need 1 more
 Legendary:
 Hydra (Creates 3 drinks, draw 2)
 Ouroboros (When you drink it, slide it back)
-Chimera Tail (BREATH FIRE!!!)
 Jormungandr (Gain strength equal to the total combined strength of drinks in your hand)
 Quetzalcoatl (Draw 3, slide back 3, and give those drinks -1,+1,+1)
 Nidhogg (On drink, kill another snake. Drink its drink)
-Caduceus (Double your antidote)
+Caduceus (Roll 2d6. 1-6: Gain 1 antidote. 7-12: Double your antidote)
 
 Rerolls in shop
 UI for selecting snakes/drinks
