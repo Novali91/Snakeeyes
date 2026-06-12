@@ -12,11 +12,13 @@ func enter() -> void:
 	sm.exit_shop_button.make_pressable()
 	
 	sm.shop_manager.can_buy = true
+	sm.shop_manager.darkness.visible = false
 	
 
 func exit() -> void:
 	sm.exit_shop_button.stop_pressable()
 	sm.shop_manager.can_buy = false
+	sm.shop_manager.darkness.visible = true
 
 func process_tick(_delta: float) -> void:
 	pass
