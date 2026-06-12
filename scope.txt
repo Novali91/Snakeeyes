@@ -25,8 +25,8 @@ gain value next turn
 
 Starter:
 Need 3
-
-
+charm is corn snake
+strength is puff adder
 blue is milk snake
 
 Common:
@@ -38,7 +38,7 @@ Common:
 1 2 0 Python (1/2 charm for strength)
 1 0 1 Boa Constrictor (Draw 2) # need new name
 1 0 1 Scarlet Snake (All dice roll +1)
-0 0 1 Corn Snake (Roll 2d6. 1-6: -1 poison, 7-12: -2 poison)
+0 0 1 Hognose Snake (Roll 2d6. 1-6: -1 poison, 7-12: -2 poison)
 1 1 1 Parrot Snake (Shares stats)
 
 Need 1 more (with ability of all have the same stats?)
