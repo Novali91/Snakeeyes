@@ -31,8 +31,6 @@ var sprite_size: Vector2 = Vector2(250, 350)
 @onready var poison_label: Label = $Poison
 @onready var strength_label: Label = $Strength
 @onready var charm_label: Label = $Charm
-## For now, this label exists as a placeholder
-@onready var num_drinks_label: Label = $NumDrinks
 
 ## Assuming viewport size does NOT change midgame (idk if it can or not)
 @onready var viewport_size: Vector2 = get_viewport_rect().size

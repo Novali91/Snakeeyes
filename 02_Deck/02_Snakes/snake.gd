@@ -16,7 +16,6 @@ var current_drink: DrinkResource
 func _ready() -> void:
 	super._ready()
 	instantiate_tooltip()
-	GS.antidote_num_set.connect(instantiate_tooltip)
 	set_texture()
 	pass
 
