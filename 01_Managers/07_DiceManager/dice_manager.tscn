@@ -78,25 +78,52 @@ animations = [{
 
 [node name="DiceManager" type="Node2D" unique_id=1005432025]
 script = ExtResource("1_2k3sa")
-animation_time = 2.5
+animation_time = 5.5
 cup_lower_time = 0.8
+text_appear_time = 2.5
+bonus_appear_time = 3.8
 cup_shake_frequency = 50.0
 cup_shake_wavelength = 15.0
 cup_shake_offset = -0.7
 metadata/_custom_type_script = "uid://bm0r4ar0bjg1l"
 
-[node name="Label" type="Label" parent="." unique_id=1512454025]
-offset_left = 851.0
-offset_top = 520.0
-offset_right = 973.0
-offset_bottom = 543.0
-text = "Number rolled: "
+[node name="PoisonRes" type="Label" parent="." unique_id=1512454025]
+offset_left = 763.0
+offset_top = 440.0
+offset_right = 944.0
+offset_bottom = 463.0
+text = "Your roll:"
+horizontal_alignment = 1
 
-[node name="Input" type="Label" parent="Label" unique_id=383974154]
+[node name="Input" type="Label" parent="PoisonRes" unique_id=383974154]
 layout_mode = 0
-offset_left = 122.0
-offset_right = 162.0
-offset_bottom = 23.0
+offset_left = 4.0
+offset_top = 30.0
+offset_right = 170.0
+offset_bottom = 190.0
+theme_override_font_sizes/font_size = 100
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PoisonLevel" type="Label" parent="." unique_id=1724037662]
+offset_left = 1008.0
+offset_top = 441.0
+offset_right = 1189.0
+offset_bottom = 464.0
+text = "Your poison:"
+horizontal_alignment = 1
+
+[node name="Input" type="Label" parent="PoisonLevel" unique_id=607230635]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 30.0
+offset_right = 170.0
+offset_bottom = 190.0
+theme_override_font_sizes/font_size = 100
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="UseAntidoteButton" type="Button" parent="." unique_id=1561089080]
 offset_left = 808.0
@@ -126,3 +153,14 @@ sprite_frames = SubResource("SpriteFrames_gefl3")
 
 [node name="CupLoc" type="Marker2D" parent="." unique_id=385157325]
 position = Vector2(979, 820)
+
+[node name="LabelLoc" type="Marker2D" parent="." unique_id=2033646791]
+position = Vector2(860, 465)
+
+[node name="Bonus" type="Label" parent="." unique_id=1421968943]
+offset_left = 892.0
+offset_top = 488.0
+offset_right = 945.0
+offset_bottom = 530.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30

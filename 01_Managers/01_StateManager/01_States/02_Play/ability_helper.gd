@@ -237,7 +237,7 @@ func quetzalcoatl_slide_back(drink: Drink) -> void:
 	sm.deck_manager.return_to_drawpile(drink.attached_drink_resource, drink.attached_drink)
 
 func roll_dice() -> int:
-	sm.dice_manager.start_roll(false)
+	sm.dice_manager.start_roll(false,false)
 	var num: int = await sm.dice_manager.number_accepted
 	sm.dice_manager.close()
 	return num
