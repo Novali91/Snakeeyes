@@ -45,6 +45,7 @@ var current_state: int
 @onready var overlay_manager: OverlayManager = $OverlayManager
 @onready var title_screen_manager: TitleScreenManager = $TitleScreenManager
 
+
 func _ready() -> void:
 	for state: TopState in _state_logic_dict.values():
 		state.sm = self

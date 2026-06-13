@@ -37,6 +37,7 @@ func _click_drink(drink: Drink) -> void:
 		drink_chosen.emit(drink)
 		return
 	remove_drink(drink)
+	GS.sound_manager.play_gulp()
 	drink_drank.emit(drink.attached_drink, drink.global_position, drink.attached_drink_resource)
 	drinks_drank += 1
 	# Bandaid fix
@@ -45,7 +46,6 @@ func _click_drink(drink: Drink) -> void:
 	else:
 		ability_helper.slide_drink_back(drink)
 
-## 
 func _delete_drink(drink: Drink) -> void:
 	remove_drink(drink)
 	tooltip_manager.remove_item(drink, false)

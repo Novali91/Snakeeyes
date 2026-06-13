@@ -14,6 +14,7 @@ var spent_timer: float
 var vel: Vector2
 var after_timer: float
 var is_fake: bool = false
+var has_reached_bundle: bool = false
 
 @onready var _sprite: Sprite2D = $Sprite
 
