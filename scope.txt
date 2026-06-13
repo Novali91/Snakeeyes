@@ -62,10 +62,14 @@ Quetzalcoatl (Draw 3, slide back 3, and give those drinks -1,+1,+1)
 Nidhogg (On drink, kill another snake. Drink its drink)
 Caduceus (Roll 2d6. 1-6: Gain 1 antidote. 7-12: Double your antidote)
 
-Rerolls in shop
-UI for selecting snakes/drinks
-SlideManager - sometimes drinks overlap
 
+
+
+
+to do:
+rerolls in shop
+snakes in shop
+snakes in deck
 
 
 
