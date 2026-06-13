@@ -4,6 +4,7 @@ extends Node2D
 const _MAX_SPEED: float = 500
 const _ACC: float = 2000
 const _MAX_TOKENS_SHOWN: int = 50
+const _TOTAL_SPAWN_TIME: float = 0.75
 
 @onready var _bundle: Area2D = $Bundle
 @onready var _tokens_node: Node2D = $Tokens
@@ -84,12 +85,14 @@ func gain_charm(val: int, pos: Vector2) -> void:
 	_count_label.text = str(GS.get_charm())
 	var abs_val = abs(val)
 	
+	var wait_time = _TOTAL_SPAWN_TIME / (val)
+	
 	for i in abs_val:
 		var new_token: CharmToken = _token_scene.instantiate()
 		new_token.evil_collided.connect(_evil_collision)
 		new_token.evil = is_neg
 		new_token.global_position = pos
-		new_token.wait_timer = i * 0.2
+		new_token.wait_timer = i * wait_time
 		new_token.after_timer = randf_range(0., 0.05)
 		if i > 0:
 			new_token.visible = false
@@ -114,6 +117,8 @@ func spend_charm(val: int, pos: Vector2) -> void:
 	_reveal_timer = 1
 	_count_label.text = str(GS.get_charm())
 	
+	var wait_time = _TOTAL_SPAWN_TIME / (val)
+	
 	for i in val:
 		_current_charm_count -= 1
 		
@@ -131,7 +136,7 @@ func spend_charm(val: int, pos: Vector2) -> void:
 		spent_token.spent = true
 		spent_token.send_to(pos)
 		spent_token.vel = Vector2.ZERO
-		spent_token.spent_timer = i * 0.2
+		spent_token.spent_timer = i * wait_time
 
 func clear_charm() -> void:
 	for t: CharmToken in _tokens:
