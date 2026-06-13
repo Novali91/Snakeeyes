@@ -12,6 +12,12 @@ shader = ExtResource("4_0hb6a")
 script = ExtResource("1_oeh5l")
 metadata/_custom_type_script = "uid://b2okqtt318nbo"
 
+[node name="Darkness" type="ColorRect" parent="." unique_id=1368893615]
+material = SubResource("ShaderMaterial_mkdgh")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
 [node name="TooltipManager" type="Node2D" parent="." unique_id=653139634]
 script = ExtResource("2_8kjcj")
 metadata/_custom_type_script = "uid://6hd2b0wx5v7f"
@@ -93,12 +99,6 @@ text = "Buy Antidote (2 Charm)"
 [node name="ShopAbilityHelper" type="Node" parent="." unique_id=1728054696]
 script = ExtResource("3_ah0kr")
 metadata/_custom_type_script = "uid://cimjodkpl2ahn"
-
-[node name="Darkness" type="ColorRect" parent="." unique_id=1368893615]
-material = SubResource("ShaderMaterial_mkdgh")
-offset_right = 1920.0
-offset_bottom = 1080.0
-mouse_filter = 2
 
 [node name="RerollButton" type="Button" parent="." unique_id=1611665676]
 offset_left = 1738.0

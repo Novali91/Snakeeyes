@@ -29,7 +29,7 @@ func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkRes
 	
 	sm.ability_helper.trigger_ability(drink.special_ability, drink_position, drink, og_drink)
 	
-	if GS.get_poison() >= 2:
+	if GS.get_poison() >= 12:
 		sm.hand_manager.drinks_drinkable = false
 		sm.hand_manager.end_turn_discard()
 		sm.switch_state(sm.States.PASS_OUT)
