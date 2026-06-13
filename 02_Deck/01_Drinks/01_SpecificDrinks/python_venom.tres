@@ -9,6 +9,7 @@ drink_name = "Python Venom"
 drink_sprite = ExtResource("1_5w42v")
 poison = 1
 strength = 2
+special_ability = 22
 cost = 3
 description = "Gain charm equal to half of this snake's poison"
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

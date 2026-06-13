@@ -57,6 +57,9 @@ func set_antidote_num(val: int) -> void:
 func get_antidote_num() -> int:
 	return _antidote_num
 
+## Bandaid fix but we know how we could've made the code better if we weren't cutting corners so it doesn't matter (sorry I'm a chud :()
+var hand_manager: HandManager
+
 ################################################################################
 
 var starting_snakes: Array[SnakeResource] = [

@@ -54,6 +54,7 @@ func _ready() -> void:
 	ability_helper.sm = self
 	shop_manager.ability_helper.top_ability_helper = ability_helper
 	ability_helper.play_state = _state_logic_dict[States.PLAY]
+	GS.hand_manager = hand_manager
 	switch_state(States.TITLE_SCREEN)
 	
 	_set_start_values()

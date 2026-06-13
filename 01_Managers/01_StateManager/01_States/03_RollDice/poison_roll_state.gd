@@ -7,7 +7,8 @@ func setup() -> void:
 
 func enter() -> void:
 	sm.camera_manager.lock_camera()
-	sm.dice_manager.start_roll(true)
+	sm.dice_manager.set_poison(GS.get_poison())
+	sm.dice_manager.start_roll(true,true)
 	var num: int = await sm.dice_manager.number_accepted
 	_check_poison(num)
 
