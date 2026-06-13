@@ -11,5 +11,5 @@ poison = 2
 charm = 2
 special_ability = 19
 retain = true
-description = "On drink, pick a drink. That drink's strength doubles."
+description = "On drink, pick a drink. That drink's strength doubles. THIS CARD RETAINS!!"
 metadata/_custom_type_script = "uid://cysm36u2jsf44"
