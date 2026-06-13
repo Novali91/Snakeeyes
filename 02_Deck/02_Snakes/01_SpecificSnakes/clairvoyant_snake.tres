@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_g5tcr"]
 [ext_resource type="Resource" uid="uid://bummjw51ubqqw" path="res://02_Deck/01_Drinks/01_SpecificDrinks/clairvoyant_snake_venom.tres" id="1_n8dnk"]
-[ext_resource type="Texture2D" uid="uid://buc58wvv0qou4" path="res://05_Assets/01_Art/01_DevArt/clairvoyant_snake.png" id="3_cnut2"]
+[ext_resource type="Texture2D" uid="uid://ciywofij33mfe" path="res://05_Assets/01_Art/04_Snakes/nidhogg.png" id="3_n8dnk"]
 
 [resource]
 script = ExtResource("1_g5tcr")
 snake_name = "Nidhogg"
 drink_resource = ExtResource("1_n8dnk")
-snake_sprite = ExtResource("3_cnut2")
-description = "On drink, kill another snake, then immediately drink that snake's venom for 0 poison."
-flavour_text = "Translating to Malice Striker, Nidhogg is known for eating the roots of the World Tree."
+snake_sprite = ExtResource("3_n8dnk")
+description = "On drink, kill another snake, then immediately drink that snake's venom for no poison."
+flavour_text = "Translating to Malice Striker, Nidhogg is known for eating away at the roots of the World Tree."
 cost = 12
 rarity = "L"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

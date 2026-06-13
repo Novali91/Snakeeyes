@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_ladcy"]
 [ext_resource type="Resource" uid="uid://crmuerryn6534" path="res://02_Deck/01_Drinks/01_SpecificDrinks/caduceus_venom.tres" id="1_poddx"]
-[ext_resource type="Texture2D" uid="uid://b43hfxnjii7eu" path="res://05_Assets/01_Art/01_DevArt/purple_poison.png" id="3_r4u2r"]
+[ext_resource type="Texture2D" uid="uid://de05fsjop3lhx" path="res://05_Assets/01_Art/04_Snakes/caduceus spritesheet.png" id="3_poddx"]
 
 [resource]
 script = ExtResource("1_ladcy")
 snake_name = "Caduceus Snake"
 drink_resource = ExtResource("1_poddx")
-snake_sprite = ExtResource("3_r4u2r")
-description = "Roll 2d6.\\n2-6: Gain 1 antidote\\n7-12: Double your antidote."
+snake_sprite = ExtResource("3_poddx")
+description = "On drink, roll 2d6: On 2-6, gain 1 antidote. On 7+, double your antidote."
 flavour_text = "Originally enrapt in combat, these snakes are now heralds of peace after Hermes stopped them."
 cost = 12
 rarity = "L"

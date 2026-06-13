@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_610f5")
-drink_name = "Red Viper Venom"
+drink_name = "Puffy Adder Venom"
 drink_sprite = ExtResource("1_e81c0")
 poison = 1
 strength = 2
-flavour_text = "The vicious Red Viper doesn't give its prey much time before it strikes."
+flavour_text = "The Puffy Adder uses tradititional camouflage as well as a complete camouflage of scent to strike down prey."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

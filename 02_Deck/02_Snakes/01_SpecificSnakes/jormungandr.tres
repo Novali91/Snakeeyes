@@ -2,14 +2,15 @@
 
 [ext_resource type="Resource" uid="uid://byhf0yk1kg5vd" path="res://02_Deck/01_Drinks/01_SpecificDrinks/jormungandr_venom.tres" id="1_12ggr"]
 [ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_t47ay"]
-[ext_resource type="Texture2D" uid="uid://cosenw7vc06ie" path="res://05_Assets/01_Art/01_DevArt/charming_snake.png" id="3_y2jvk"]
+[ext_resource type="Texture2D" uid="uid://ws6pwsf7urvi" path="res://05_Assets/01_Art/04_Snakes/jormungandr spritesheet.png" id="3_12ggr"]
 
 [resource]
 script = ExtResource("1_t47ay")
 snake_name = "Jormungandr"
 drink_resource = ExtResource("1_12ggr")
-snake_sprite = ExtResource("3_y2jvk")
+snake_sprite = ExtResource("3_12ggr")
 description = "On drink, gain strength equal to the total strength of drinks in your hand."
+flavour_text = "Known as the World Serpent, Jormungandr is said to encompass the Earth."
 cost = 12
 rarity = "L"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

@@ -10,5 +10,6 @@ drink_sprite = ExtResource("1_c0j25")
 poison = 1
 charm = 2
 special_ability = 26
-description = "Roll 2d6:\\n1-6: Draw 1\\n7-12: Draw 4."
+description = "Roll 2d6: On 1-6, slide in 1 drink. On 7-12: slide in 4 drinks."
+flavour_text = "The Rainboa is distinctified by its rainbow sheen, which uses the same phenomenon as peacock feathers."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

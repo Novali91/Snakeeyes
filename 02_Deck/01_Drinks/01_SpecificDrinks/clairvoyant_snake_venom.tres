@@ -12,5 +12,6 @@ strength = 1
 charm = 2
 special_ability = 6
 cost = 10
-description = "On drink, kill another snake, then immediately drink that snake's venom for 0 poison."
+description = "Kill another snake, then immediately drink that snake's venom for no poison."
+flavour_text = "Translating to Malice Striker, Nidhogg is known for eating the roots of the World Tree."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

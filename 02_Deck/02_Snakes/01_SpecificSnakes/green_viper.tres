@@ -6,9 +6,10 @@
 
 [resource]
 script = ExtResource("1_3o2gv")
-snake_name = "Corn Snake"
+snake_name = "Cornsnake"
 drink_resource = ExtResource("1_7eleh")
 snake_sprite = ExtResource("3_udocb")
+description = "No ability."
 flavour_text = "The friendliest snake, corn snakes make great pets!"
 cost = 2
 rarity = "S"

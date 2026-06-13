@@ -19,10 +19,10 @@ var is_active: bool = false
 
 # Math stuff
 ## Question: Does tooltip appearing over sprite seem bad? Should buffer always push it off?
-var buffer: Vector2 = Vector2(40, 0)
+var buffer: Vector2 = Vector2(120, 0)
 
 ## Set this when we get actual sprite size for the tooltip (currently placeholder)
-var sprite_size: Vector2 = Vector2(250, 350)
+var sprite_size: Vector2 = Vector2(400, 450)
 
 ## References for instantiating values:
 @onready var name_label: Label = $Name

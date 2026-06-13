@@ -2,14 +2,15 @@
 
 [ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_8ekav"]
 [ext_resource type="Resource" uid="uid://cneu854lg52uh" path="res://02_Deck/01_Drinks/01_SpecificDrinks/str_per_anti.tres" id="1_yg5lf"]
-[ext_resource type="Texture2D" uid="uid://bavejx8kt1of8" path="res://05_Assets/01_Art/01_DevArt/pink_poison.png" id="3_sqa34"]
+[ext_resource type="Texture2D" uid="uid://3ifcpj6m721t" path="res://05_Assets/01_Art/04_Snakes/chimera spritesheet.png" id="3_yg5lf"]
 
 [resource]
 script = ExtResource("1_8ekav")
 snake_name = "Chimera Tail"
 drink_resource = ExtResource("1_yg5lf")
-snake_sprite = ExtResource("3_sqa34")
+snake_sprite = ExtResource("3_yg5lf")
 description = "Gain strength equal to your antidote"
+flavour_text = "Sources typically depict the Chimera as having a snake for a tail. "
 cost = 7
 rarity = "R"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

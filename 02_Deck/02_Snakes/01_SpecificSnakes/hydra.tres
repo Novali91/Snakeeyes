@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_blt8l"]
 [ext_resource type="Resource" uid="uid://bmgd0eihuujmf" path="res://02_Deck/01_Drinks/01_SpecificDrinks/hydra_venom.tres" id="1_vpydl"]
-[ext_resource type="Texture2D" uid="uid://bks7wifrpp6up" path="res://05_Assets/01_Art/01_DevArt/Hydra_Snake.png" id="2_8bycp"]
+[ext_resource type="Texture2D" uid="uid://cn1wfp02txcrg" path="res://05_Assets/01_Art/04_Snakes/hydra spritesheet.png" id="3_vpydl"]
 
 [resource]
 script = ExtResource("1_blt8l")
 snake_name = "Hydra"
 drink_resource = ExtResource("1_vpydl")
-snake_sprite = ExtResource("2_8bycp")
-description = "On drink, pick a snake, and then roll 2d6. 2-6: Double its poison. 7+: Double its strength."
+snake_sprite = ExtResource("3_vpydl")
+description = "On drink, pick a snake, and then roll 2d6: On 2-6, double its poison. On 7+, double its strength."
 flavour_text = "The mythical Hydra, known for its ability to... Give other snakes more heads?"
 cost = 12
 rarity = "L"

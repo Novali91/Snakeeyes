@@ -12,5 +12,5 @@ charm = 4
 special_ability = 11
 cost = 5
 description = "You may buy two additional antidotes this round."
-flavour_text = "Charisma +2."
+flavour_text = "The bilateral Amphisbaena is said to have spawned from Medusa's blood. It is also said to have medicinal venom."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

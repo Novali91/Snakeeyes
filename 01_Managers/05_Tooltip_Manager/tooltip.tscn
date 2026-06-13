@@ -9,7 +9,7 @@ colors = PackedColorArray(1, 1, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_o8cfu"]
 gradient = SubResource("Gradient_vrqg4")
 width = 300
-height = 350
+height = 375
 
 [sub_resource type="LabelSettings" id="LabelSettings_8dqle"]
 font_size = 32
@@ -89,13 +89,14 @@ offset_right = 249.0
 offset_bottom = 110.0
 label_settings = SubResource("LabelSettings_wv1ln")
 
-[node name="Label" type="Label" parent="." unique_id=1888864494]
+[node name="Retain" type="Label" parent="." unique_id=1888864494]
 offset_top = 320.0
 offset_right = 220.0
 offset_bottom = 350.0
+text = "Stays on the table?:"
 label_settings = SubResource("LabelSettings_p1mje")
 
-[node name="CheckBox" type="CheckBox" parent="." unique_id=916894764]
+[node name="RetainMark" type="CheckBox" parent="." unique_id=916894764]
 offset_left = 220.0
 offset_top = 320.0
 offset_right = 250.0

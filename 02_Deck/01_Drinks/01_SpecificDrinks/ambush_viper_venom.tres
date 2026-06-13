@@ -11,6 +11,5 @@ poison = 2
 strength = 4
 cost = 4
 retain = true
-description = "Stays on the table between rounds."
-flavour_text = "Oddly, tastes more like drool than venom..."
+flavour_text = "Ever lying in wait, the cat snake pounces on its prey at the most opportune moment. Its venom tastes oddly of drool..."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

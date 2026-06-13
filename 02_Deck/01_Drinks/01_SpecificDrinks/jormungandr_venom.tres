@@ -10,5 +10,6 @@ drink_sprite = ExtResource("1_iaml4")
 poison = 1
 strength = 3
 special_ability = 16
-description = "Gain strength equal to the total amount of strength of drinks in your hand"
+description = "Gain strength equal to the total strength of drinks in your hand."
+flavour_text = "Known as the World Serpent, Jormungandr is said to encompass the Earth."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

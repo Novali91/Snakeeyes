@@ -2,14 +2,15 @@
 
 [ext_resource type="Resource" uid="uid://cuxmxsw7d3f14" path="res://02_Deck/01_Drinks/01_SpecificDrinks/quetzalcoatl_venom.tres" id="1_h3ax1"]
 [ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_mym2y"]
-[ext_resource type="Texture2D" uid="uid://5d6d6r4um2n5" path="res://05_Assets/01_Art/01_DevArt/blue_poison.png" id="3_ofyx7"]
+[ext_resource type="Texture2D" uid="uid://pdcbmc0gq24m" path="res://05_Assets/01_Art/04_Snakes/quetzalquatl spritesheet.png" id="3_h3ax1"]
 
 [resource]
 script = ExtResource("1_mym2y")
 snake_name = "Quetzalcoatl"
 drink_resource = ExtResource("1_h3ax1")
-snake_sprite = ExtResource("3_ofyx7")
+snake_sprite = ExtResource("3_h3ax1")
 description = "On drink, draw 3, then pick 3 drinks to give them -1/+1/+1 and slide them back."
+flavour_text = "The Aztec God of wind and wisdom, the knowledge he bestows is mighty fleeting."
 cost = 12
 rarity = "L"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

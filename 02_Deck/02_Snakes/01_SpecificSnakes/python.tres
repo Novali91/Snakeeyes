@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_6jbnm"]
 [ext_resource type="Resource" uid="uid://dpucaxbcj6te7" path="res://02_Deck/01_Drinks/01_SpecificDrinks/python_venom.tres" id="1_mc8j8"]
-[ext_resource type="Texture2D" uid="uid://bwdjoakwqpvks" path="res://05_Assets/01_Art/01_DevArt/black_snake.png" id="3_mc4cq"]
+[ext_resource type="Texture2D" uid="uid://cs6x2eafk3vkt" path="res://05_Assets/01_Art/04_Snakes/python spritesheet.png" id="3_mc8j8"]
 
 [resource]
 script = ExtResource("1_6jbnm")
 snake_name = "Python"
 drink_resource = ExtResource("1_mc8j8")
-snake_sprite = ExtResource("3_mc4cq")
-description = "Gain half of this snakes strength as charm."
-flavour_text = "Strong snake with strong venom"
+snake_sprite = ExtResource("3_mc8j8")
+description = "On drink, gain half of this snakes strength as charm."
+flavour_text = "To make up for their lack of venom, pythons harbour immense strength, both of body, and of tongue."
 cost = 7
 rarity = "R"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

@@ -11,4 +11,5 @@ poison = 1
 charm = 1
 special_ability = 27
 description = "Roll 2d6. Gain strength equal to that value."
+flavour_text = "\"Red on yellow, kill a fellow.\""
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

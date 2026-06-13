@@ -104,6 +104,8 @@ func find_new_hover() -> DeckItem:
 
 ## This function should be used whenever activating any child's hover
 func activate_child(child: DeckItem) -> void:
+	if child == null:
+		return
 	cur_hovered = child
 	child.activate_tooltip()
 	pass
