@@ -1,5 +1,5 @@
 class_name DiceManager
-extends Node2D
+extends CanvasLayer
 
 signal number_rolled(val: int)
 signal number_accepted(val: int)
