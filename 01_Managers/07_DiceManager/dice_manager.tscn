@@ -76,7 +76,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="DiceManager" type="Node2D" unique_id=1005432025]
+[node name="DiceManager" type="CanvasLayer" unique_id=377975783]
 script = ExtResource("1_2k3sa")
 animation_time = 5.5
 cup_lower_time = 0.8
