@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://byhf0yk1kg5vd"]
+
+[ext_resource type="Texture2D" uid="uid://c3anqygtpbbnx" path="res://05_Assets/01_Art/01_DevArt/purple_snake.png" id="1_iaml4"]
+[ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_yu573"]
+
+[resource]
+script = ExtResource("1_yu573")
+drink_name = "Jormungandr's Venom"
+drink_sprite = ExtResource("1_iaml4")
+poison = 1
+strength = 3
+special_ability = 16
+description = "Gain strength equal to the total amount of strength of drinks in your hand"
+metadata/_custom_type_script = "uid://cysm36u2jsf44"

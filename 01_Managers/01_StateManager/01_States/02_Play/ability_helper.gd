@@ -24,6 +24,10 @@ const JORMUNGANDR: int = 16
 const OUROBOROS: int = 17
 const QUETZALCOATL: int = 18
 const GORGON_SNAKE: int = 19
+const BLACK_MAMBA: int = 20
+const BASILISK: int = 21
+const PYTHON: int = 22
+const PARROT: int = 23
 
 func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource, og_drink: DrinkResource) -> void:
 	match ind:
@@ -67,6 +71,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			var clairvoyant_drink: Drink = sm.deck_manager.ability_helper.get_clairvoyant_drink(snake)
 			play_state.play_card(clairvoyant_drink.attached_drink, drink_position, clairvoyant_drink.attached_drink_resource)
 			sm.hand_manager.drinks_drank += 1
+			sm.deck_manager.remove_snake(snake)
 			sm.camera_manager.unlock_camera()
 		CANNIBAL_SNAKE:
 			sm.overlay_manager.toggle_kill(true)
@@ -74,12 +79,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			sm.overlay_manager.toggle_kill(false)
 			pass
 		HYDRA:
-			sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
-			sm.camera_manager.lock_camera()
-			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
-			snake.num_drinks += 1
-			snake.instantiate_tooltip()
-			sm.camera_manager.unlock_camera()
+			draw_cards(2)
 			pass
 		FRIENDLY_SNAKE:
 			sm.hand_manager.ability_helper.change_poison_values_in_hand(1)
@@ -117,6 +117,21 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 		GORGON_SNAKE:
 			var chosen_drink: Drink = await pick_drink()
 			chosen_drink.attached_drink.strength = chosen_drink.attached_drink.strength * 2
+			chosen_drink.instantiate_tooltip()
+		BLACK_MAMBA:
+			GS.set_strength(GS.get_strength() + sm.hand_manager.drinks_drank)
+		BASILISK: 
+			sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
+			sm.camera_manager.lock_camera()
+			sm.overlay_manager.toggle_buff(true)
+			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
+			sm.overlay_manager.toggle_buff(false)
+			sm.deck_manager.ability_helper.upgrade_snake(snake, GS.get_charm(), sm.deck_manager.ability_helper.STRENGTH)
+			GS.set_charm(0)
+			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
+			sm.camera_manager.unlock_camera()
+		PYTHON:
+			GS.set_charm(GS.get_charm()+(cur_drink.strength)/2)
 		_:
 			return
 

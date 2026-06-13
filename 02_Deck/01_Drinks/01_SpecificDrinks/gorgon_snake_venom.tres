@@ -9,6 +9,7 @@ drink_name = "Gorgon Venom"
 drink_sprite = ExtResource("1_0yox0")
 poison = 2
 charm = 2
+special_ability = 19
 retain = true
 description = "On drink, pick a drink. That drink's strength doubles."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

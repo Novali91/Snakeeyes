@@ -13,4 +13,5 @@ description = "When drank, pick a snake. That snake produces an extra drink perm
 flavour_text = "The Legendary Hydra, known for its abilities to... give other snakes more heads?"
 cost = 10
 rarity = "L"
+num_drinks = 3
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

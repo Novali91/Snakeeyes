@@ -89,7 +89,10 @@ var common_snakes: Array[SnakeResource] = [
 	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/asclepius_snake.tres"),
 	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/king_cobra.tres"),
 	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/str_per_anti.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/ouroboros.tres")
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/ouroboros.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/quetzalcoatl.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/gorgon_snake.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/jormungandr.tres")
 ]
 
 var rare_snakes: Array[SnakeResource] = [

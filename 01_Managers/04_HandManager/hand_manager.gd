@@ -36,15 +36,14 @@ func _click_drink(drink: Drink) -> void:
 	if !drinks_drinkable:
 		drink_chosen.emit(drink)
 		return
+	remove_drink(drink)
 	drink_drank.emit(drink.attached_drink, drink.global_position, drink.attached_drink_resource)
 	drinks_drank += 1
 	# Bandaid fix
 	if drink.attached_drink.special_ability != 17:
-		remove_drink(drink)
 		tooltip_manager.remove_item(drink, true)
 	else:
 		ability_helper.slide_drink_back(drink)
-		drinks.erase(drink)
 
 ## 
 func _delete_drink(drink: Drink) -> void:

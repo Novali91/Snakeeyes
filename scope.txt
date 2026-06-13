@@ -25,7 +25,7 @@ gain value next turn
 
 Starter:
 Need 3
-charm is corn snake
+charm is corn snake 
 strength is puff adder
 blue is milk snake
 
@@ -41,9 +41,6 @@ Common:
 0 0 1 Hognose Snake (Roll 2d6. 1-6: -1 poison, 7-12: -2 poison)
 1 1 1 Parrot Snake (Shares stats)
 
-Need 1 more (with ability of all have the same stats?)
-(Also want 1/2 charm for strength)
-
 Rare:
 3 4 0 Kingsnake (On drink, kill a snake)
 1 2 0 Ball Python (Pick a snake then roll 2d6. 1-6: +1 strength, 7-12: +5 strength)
@@ -56,9 +53,6 @@ Rare:
 -1 0 1 Amphisbaena (Can buy 2 more antidote this turn)
 4 2 0 Pit Viper (-1 poison to all drinks in hand)
 1 0 1 Chimera Tail (Gain strength equal to your antidote count)
-
-Need 1 more
-(Str per antidote, friendly snake, maybe one more -poison snake?)
 
 Legendary:
 Hydra (Creates 3 drinks, draw 2)
@@ -76,10 +70,4 @@ SlideManager - sometimes drinks overlap
 
 
 other stuff:
-score bar is confusing, goal? score?
-shop darken needs to fade in
-shop darken needs to not include snakes
-shop darken should be a little less
-poison bar should have that back wave it had before (going opposite way?)
-poison bar should be transparent instead of darker green
-shouldnt be able to switch screens while drawing cards
+score bar gets turn and goal

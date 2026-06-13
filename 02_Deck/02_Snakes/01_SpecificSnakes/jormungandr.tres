@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SnakeResource" format=3 uid="uid://bbwtvi3wogbsc"]
+
+[ext_resource type="Resource" uid="uid://byhf0yk1kg5vd" path="res://02_Deck/01_Drinks/01_SpecificDrinks/jormungandr_venom.tres" id="1_12ggr"]
+[ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_t47ay"]
+[ext_resource type="Texture2D" uid="uid://cosenw7vc06ie" path="res://05_Assets/01_Art/01_DevArt/charming_snake.png" id="3_y2jvk"]
+
+[resource]
+script = ExtResource("1_t47ay")
+snake_name = "Jormungandr"
+drink_resource = ExtResource("1_12ggr")
+snake_sprite = ExtResource("3_y2jvk")
+description = "On drink, gain strength equal to the total strength of drinks in your hand."
+cost = 1
+rarity = "L"
+metadata/_custom_type_script = "uid://6sj3dk6frj4"
