@@ -149,7 +149,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 			sm.camera_manager.unlock_camera()
 		PYTHON:
-			sm.charm_overlay.gain_charm(GS.get_charm() + floor((cur_drink.strength)/2.0), drink_position)
+			sm.charm_overlay.gain_charm(floor((cur_drink.strength)/2.0), drink_position)
 			GS.set_charm(GS.get_charm() + floor((cur_drink.strength)/2.0))
 		SCARLET_SNAKE:
 			pass
