@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bnjofbbb7q1gy" path="res://01_Managers/02_ShopManager/shop_manager.tscn" id="23_5mt65"]
 [ext_resource type="PackedScene" uid="uid://dcac3rjwq26kc" path="res://01_Managers/09_OverlayManager/overlay_manager.tscn" id="25_gwsv7"]
 [ext_resource type="PackedScene" uid="uid://dmqecy4uccb4k" path="res://01_Managers/10_TitleScreenManager/title_screen_manager.tscn" id="27_u5576"]
+[ext_resource type="PackedScene" uid="uid://dre8t8sp8st3f" path="res://01_Managers/11_SoundManager/sound_manager.tscn" id="28_u5576"]
 
 [node name="TopStateMachine" type="Node" unique_id=741613550]
 script = ExtResource("1_brpme")
@@ -131,3 +132,5 @@ position = Vector2(1920, 0)
 
 [node name="TitleScreenManager" parent="." unique_id=147652467 instance=ExtResource("27_u5576")]
 position = Vector2(2880, 540)
+
+[node name="SoundManager" parent="." unique_id=1682959940 instance=ExtResource("28_u5576")]

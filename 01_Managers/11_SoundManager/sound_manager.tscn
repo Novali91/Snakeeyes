@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dre8t8sp8st3f"]
+
+[ext_resource type="Script" uid="uid://s0m06v7nsdvd" path="res://01_Managers/11_SoundManager/sound_manager.gd" id="1_aw07p"]
+[ext_resource type="AudioStream" uid="uid://beqeucdfkfo02" path="res://05_Assets/03_SoundEffects/clink.mp3" id="2_tkdvi"]
+[ext_resource type="AudioStream" uid="uid://dhawxi5s2hf13" path="res://05_Assets/03_SoundEffects/gulp.mp3" id="3_8gqlx"]
+[ext_resource type="AudioStream" uid="uid://4qv8lv5cjwhc" path="res://05_Assets/03_SoundEffects/Charm.mp3" id="4_r18u2"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8gqlx"]
+random_pitch = 1.1863941
+random_volume_offset_db = 8.77
+streams_count = 1
+stream_0/stream = ExtResource("2_tkdvi")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_r18u2"]
+random_pitch = 1.0892487
+random_volume_offset_db = 5.76
+streams_count = 1
+stream_0/stream = ExtResource("4_r18u2")
+
+[node name="SoundManager" type="Node2D" unique_id=1682959940]
+script = ExtResource("1_aw07p")
+
+[node name="Clink" type="AudioStreamPlayer" parent="." unique_id=546941583]
+stream = SubResource("AudioStreamRandomizer_8gqlx")
+volume_db = -25.938
+pitch_scale = 3.09
+
+[node name="Gulp" type="AudioStreamPlayer" parent="." unique_id=929464433]
+stream = ExtResource("3_8gqlx")
+volume_db = -9.066
+
+[node name="Charm" type="AudioStreamPlayer" parent="." unique_id=1638881296]
+stream = SubResource("AudioStreamRandomizer_r18u2")
+volume_db = -12.035
+pitch_scale = 1.95

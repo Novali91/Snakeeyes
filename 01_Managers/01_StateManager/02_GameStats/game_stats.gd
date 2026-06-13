@@ -145,3 +145,5 @@ var attack_array: Array[PackedInt64Array] = [
 	[99999999],
 	[99999999]
 ]
+
+var sound_manager: SoundManager

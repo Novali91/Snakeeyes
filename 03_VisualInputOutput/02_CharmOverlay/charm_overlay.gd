@@ -49,6 +49,7 @@ func _process(delta: float) -> void:
 			if t.spent_dist <= 0:
 				_all_tokens.erase(t)
 				t.queue_free()
+				GS.sound_manager.play_charm()
 				continue
 		
 		elif not t.spent:
@@ -58,6 +59,9 @@ func _process(delta: float) -> void:
 			var dir_to_bundle = t.global_position.direction_to(_bundle.global_position)
 			if t.vel.dot(dir_to_bundle) < 0 and t.vel.length() > _MAX_SPEED:
 				t.vel = t.vel.normalized() * t.vel.length() / (1. + delta * 10.)
+				if !t.has_reached_bundle:
+					t.has_reached_bundle = true
+					GS.sound_manager.play_charm()
 			
 			var delete_fake = t.vel.dot(dir_to_bundle) < 0 and t.is_fake
 			if t.global_position.distance_to(_bundle.global_position) < 200 and delete_fake:
