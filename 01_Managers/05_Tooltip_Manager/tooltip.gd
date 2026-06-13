@@ -117,6 +117,10 @@ func instantiate_drink_values(info: DrinkResource, og_info: DrinkResource) -> vo
 			name_label.text = info.drink_name
 			desc_label.text = info.description + " (" + str(GS.get_charm()) + ")."
 			flavour_label.text = info.flavour_text
+		22:
+			name_label.text = info.drink_name
+			desc_label.text = info.description + " (" + str(info.strength/2.0) + ")."
+			flavour_label.text = info.flavour_text
 		_:
 			name_label.text = info.drink_name
 			desc_label.text = info.description
@@ -130,10 +134,6 @@ func instantiate_snake_values(info: SnakeResource, current_drink: DrinkResource)
 		14:
 			name_label.text = info.snake_name
 			desc_label.text = info.description + " (" + str(GS.get_antidote_num()) + ")."
-			flavour_label.text = info.flavour_text
-		20:
-			name_label.text = info.drink_name
-			desc_label.text = info.description + " (" + str(GS.hand_manager.drinks_drank) + ")."
 			flavour_label.text = info.flavour_text
 		_:
 			name_label.text = info.snake_name
