@@ -17,6 +17,7 @@ class_name TooltipManager
 # Whenever things should not be hoverable, call turn_off_hover()
 # But make sure to call turn_on_hover() when things should then be hoverable
 
+@export var x_sort: bool = false
 
 var cur_hovered: DeckItem = null
 var all_hovered: Array[DeckItem]
@@ -89,7 +90,10 @@ func find_new_hover() -> DeckItem:
 	for item: DeckItem in all_hovered:
 		temp_index = item.get_index()
 		
-		if y_sort_enabled:
+		if x_sort:
+			temp_index = item.position.x
+		
+		elif y_sort_enabled:
 			temp_index = item.position.y
 		
 		if (temp_index > cur_front_index) or (cur_front_index == -1):

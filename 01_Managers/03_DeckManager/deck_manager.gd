@@ -18,14 +18,32 @@ class_name DeckManager
 @onready var tooltip_manager: TooltipManager = $TooltipManager
 @onready var ability_helper: DeckAbilityHelper = $DeckAbilityHelper
 
+@onready var _markers_node: Node2D = $Markers
+@onready var _current_count: Label = $CurrentCount
+
 signal snake_chosen(snake: Snake)
 
 ## Draw function: Currently if drawing too much for drawpile, it returns an array of size amt-
 ## -but for each drink that is "overflow", it just has a null
 
+
+var _all_slots: Array[Vector2]
+var _open_slot_inds: Array[int]
+
+
+
 func _ready() -> void:
+	_all_slots = []
+	_open_slot_inds = []
+	
+	var i = 0
+	for m: Marker2D in _markers_node.get_children():
+		_all_slots.push_back(m.position)
+		_open_slot_inds.push_back(i)
+		
+		i += 1
+	
 	tooltip_manager.child_was_clicked.connect(_child_clicked)
-	return
 
 func draw(amt: int) -> Array[Drink]:
 	var new_array: Array[Drink]
@@ -60,19 +78,26 @@ func create_drink(drink_resource: DrinkResource, og_drink_resource: DrinkResourc
 	return new_drink
 
 ## Not sure how removing snakes will work
-func remove_snake(snake) -> void:
-	var ind = snake_deck.find(snake)
+func remove_snake(snake: Snake) -> void:
 	snake_deck.erase(snake)
 	tooltip_manager.remove_item(snake, true)
+	_open_slot_inds.push_back(snake.deck_index)
 	
-	for i in range(ind, snake_deck.size()):
-		snake_deck[i].global_position.x -= 50
+	_current_count.text = str(snake_deck.size())
 
 ## Idk where we want the animation to be placed (if we have one?)
 func add_snake(new_snake: Snake) -> void:
 	snake_deck.push_back(new_snake)
-	new_snake.global_position = Vector2(200 + snake_deck.size() * 50, 1080 / 2.)
+	
+	var ind = _open_slot_inds.pick_random()
+	_open_slot_inds.erase(ind)
+	new_snake.deck_index = ind
+	
+	new_snake.position = _all_slots[ind]
+	
 	tooltip_manager.add_item(new_snake)
+	
+	_current_count.text = str(snake_deck.size())
 	pass
 
 func shuffle_drawpile() -> void:

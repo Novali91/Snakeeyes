@@ -13,6 +13,8 @@ var current_drink: DrinkResource
 # Reference to our sprite so that we can set the texture
 @onready var snake_sprite: Sprite2D = $SnakeSprite
 
+var deck_index: int = -1
+
 func _ready() -> void:
 	super._ready()
 	instantiate_tooltip()

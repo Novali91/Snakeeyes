@@ -31,12 +31,12 @@ blue is milk snake
 
 Common:
 0 0 1 Placeboa (Draw 1)
-1 2 0 Garden Snake (Pick a snake. It gains 1 charm permanently)
+1 2 0 Garden Snake (Pick a snake. It gains 2 strength)
 1 1 -1 Asclepius Snake (Gain an antidote)
 2 4 0 Cat Snake (Retain)
 1 -2 3 Tiger Keelback
 1 2 0 Python (1/2 charm for strength)
-1 0 1 Boa Constrictor (Draw 2) # need new name
+1 0 1 Boa Constrictor (Draw 2)
 1 0 1 Scarlet Snake (All dice roll +1)
 0 0 1 Hognose Snake (Roll 2d6. 1-6: -1 poison, 7-12: -2 poison)
 1 1 1 Parrot Snake (Shares stats)
@@ -55,7 +55,7 @@ Rare:
 1 0 1 Chimera Tail (Gain strength equal to your antidote count)
 
 Legendary:
-Hydra (Creates 3 drinks, draw 2)
+Hydra (Roll 2d6. 2-6 double its poison, 7-12 double its strength)
 Ouroboros (When you drink it, slide it back)
 Jormungandr (Gain strength equal to the total combined strength of drinks in your hand)
 Quetzalcoatl (Draw 3, slide back 3, and give those drinks -1,+1,+1)
@@ -70,8 +70,18 @@ to do:
 rerolls in shop
 snakes in shop
 snakes in deck
+attacks
 
 
 
 other stuff:
-score bar gets turn and goal
+score bar is confusing, goal? score?
+shop darken needs to fade in
+shop darken needs to not include snakes
+shop darken should be a little less
+poison bar should have that back wave it had before (going opposite way?)
+poison bar should be transparent instead of darker green
+shouldnt be able to switch screens while drawing cards
+picking a drink with no drinks is a softlock
+change retain to tickbox
+poison bar is full when poison is negative

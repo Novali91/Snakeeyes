@@ -5,13 +5,12 @@
 [ext_resource type="Script" uid="uid://cu4y6m6v62a87" path="res://01_Managers/03_DeckManager/deck_ability_helper.gd" id="3_8iinh"]
 [ext_resource type="Texture2D" uid="uid://q10a3yaatp0q" path="res://05_Assets/01_Art/02_Backgrounds/snake box sprite.png" id="4_ckda5"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_ckda5"]
+font_size = 48
+
 [node name="DeckManager" type="Node2D" unique_id=1886334080]
 script = ExtResource("1_y12bu")
 metadata/_custom_type_script = "uid://5wr27sck76qa"
-
-[node name="TooltipManager" type="Node2D" parent="." unique_id=731468120]
-script = ExtResource("2_quqkg")
-metadata/_custom_type_script = "uid://6hd2b0wx5v7f"
 
 [node name="DeckAbilityHelper" type="Node" parent="." unique_id=1229039397]
 script = ExtResource("3_8iinh")
@@ -20,3 +19,115 @@ metadata/_custom_type_script = "uid://cu4y6m6v62a87"
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=449462633]
 position = Vector2(965, 540)
 texture = ExtResource("4_ckda5")
+
+[node name="TooltipManager" type="Node2D" parent="." unique_id=731468120]
+script = ExtResource("2_quqkg")
+x_sort = true
+metadata/_custom_type_script = "uid://6hd2b0wx5v7f"
+
+[node name="Markers" type="Node2D" parent="." unique_id=995333400]
+
+[node name="0" type="Marker2D" parent="Markers" unique_id=1875088930]
+position = Vector2(361, 248)
+
+[node name="1" type="Marker2D" parent="Markers" unique_id=436247607]
+position = Vector2(637, 250)
+
+[node name="2" type="Marker2D" parent="Markers" unique_id=1022467243]
+position = Vector2(780, 250)
+
+[node name="3" type="Marker2D" parent="Markers" unique_id=17069127]
+position = Vector2(937, 250)
+
+[node name="4" type="Marker2D" parent="Markers" unique_id=1105040084]
+position = Vector2(1087, 250)
+
+[node name="5" type="Marker2D" parent="Markers" unique_id=1113690493]
+position = Vector2(1239, 250)
+
+[node name="6" type="Marker2D" parent="Markers" unique_id=2073557916]
+position = Vector2(1377, 248)
+
+[node name="7" type="Marker2D" parent="Markers" unique_id=191593759]
+position = Vector2(1644, 253)
+
+[node name="8" type="Marker2D" parent="Markers" unique_id=1076653748]
+position = Vector2(361, 500)
+
+[node name="9" type="Marker2D" parent="Markers" unique_id=2067815928]
+position = Vector2(637, 502)
+
+[node name="10" type="Marker2D" parent="Markers" unique_id=207079377]
+position = Vector2(780, 502)
+
+[node name="11" type="Marker2D" parent="Markers" unique_id=82009716]
+position = Vector2(937, 502)
+
+[node name="12" type="Marker2D" parent="Markers" unique_id=230631767]
+position = Vector2(1087, 502)
+
+[node name="13" type="Marker2D" parent="Markers" unique_id=2033146081]
+position = Vector2(1239, 502)
+
+[node name="14" type="Marker2D" parent="Markers" unique_id=216035893]
+position = Vector2(1377, 500)
+
+[node name="15" type="Marker2D" parent="Markers" unique_id=1885685741]
+position = Vector2(1644, 505)
+
+[node name="16" type="Marker2D" parent="Markers" unique_id=339622653]
+position = Vector2(361, 730)
+
+[node name="17" type="Marker2D" parent="Markers" unique_id=1027606729]
+position = Vector2(637, 733)
+
+[node name="18" type="Marker2D" parent="Markers" unique_id=339794784]
+position = Vector2(780, 733)
+
+[node name="19" type="Marker2D" parent="Markers" unique_id=2103351541]
+position = Vector2(937, 733)
+
+[node name="20" type="Marker2D" parent="Markers" unique_id=25060590]
+position = Vector2(1087, 733)
+
+[node name="21" type="Marker2D" parent="Markers" unique_id=134342653]
+position = Vector2(1239, 733)
+
+[node name="22" type="Marker2D" parent="Markers" unique_id=1352898375]
+position = Vector2(1377, 731)
+
+[node name="23" type="Marker2D" parent="Markers" unique_id=2146039686]
+position = Vector2(1644, 735)
+
+[node name="Slash" type="Label" parent="." unique_id=1010463254]
+custom_minimum_size = Vector2(50, 50)
+offset_left = 987.0
+offset_top = 62.0
+offset_right = 1037.0
+offset_bottom = 129.0
+text = "/"
+label_settings = SubResource("LabelSettings_ckda5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentCount" type="Label" parent="." unique_id=546527665]
+custom_minimum_size = Vector2(100, 50)
+offset_left = 892.0
+offset_top = 62.0
+offset_right = 992.0
+offset_bottom = 129.0
+text = "0"
+label_settings = SubResource("LabelSettings_ckda5")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MaxCount" type="Label" parent="." unique_id=440124151]
+custom_minimum_size = Vector2(100, 50)
+offset_left = 1009.0
+offset_top = 62.0
+offset_right = 1109.0
+offset_bottom = 129.0
+text = "24"
+label_settings = SubResource("LabelSettings_ckda5")
+horizontal_alignment = 1
+vertical_alignment = 1
