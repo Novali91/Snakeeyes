@@ -144,8 +144,8 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
 			sm.overlay_manager.toggle_buff(false)
 			sm.deck_manager.ability_helper.upgrade_snake(snake, GS.get_charm(), sm.deck_manager.ability_helper.STRENGTH)
-			GS.set_charm(0)
 			sm.charm_overlay.spend_charm(GS.get_charm(), snake.global_position)
+			GS.set_charm(0)
 			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 			sm.camera_manager.unlock_camera()
 		PYTHON:
