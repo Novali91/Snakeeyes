@@ -146,11 +146,12 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			sm.deck_manager.ability_helper.upgrade_snake(snake, GS.get_charm(), sm.deck_manager.ability_helper.STRENGTH)
 			sm.charm_overlay.spend_charm(GS.get_charm(), snake.global_position)
 			GS.set_charm(0)
+			sm.charm_overlay.clear_charm()
 			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 			sm.camera_manager.unlock_camera()
 		PYTHON:
-			sm.charm_overlay.gain_charm(floor((cur_drink.strength)/2.0), drink_position)
 			GS.set_charm(GS.get_charm() + floor((cur_drink.strength)/2.0))
+			sm.charm_overlay.gain_charm(floor((cur_drink.strength)/2.0), drink_position)
 		SCARLET_SNAKE:
 			pass
 		HOGNOSE_SNAKE:

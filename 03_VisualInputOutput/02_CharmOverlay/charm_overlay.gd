@@ -17,20 +17,13 @@ const _MAX_TOKENS_SHOWN: int = 50
 var _tokens: Array[CharmToken] = []
 var _all_tokens: Array[CharmToken] = []
 var _reveal_timer: float = 0
-var _hovered: bool = false
 var _current_charm_count: int = 0
-
-func _ready() -> void:
-	_count_label.visible = false
-	_bundle.mouse_entered.connect(_bundle_hovered)
-	_bundle.mouse_exited.connect(_bundle_unhovered)
 
 func _process(delta: float) -> void:
 	var screen_center = get_viewport().get_visible_rect().size / 2.
 	var global_center = get_viewport().get_canvas_transform().affine_inverse() * screen_center
 	_bundle.global_position = global_center - screen_center + _bundle_marker.position
 	
-	_count_label.visible = _hovered or _reveal_timer > 0
 	_reveal_timer -= delta
 	
 	for t: CharmToken in _all_tokens:
@@ -147,12 +140,6 @@ func clear_charm() -> void:
 	
 	_tokens = []
 	_current_charm_count = 0
-
-func _bundle_hovered() -> void:
-	_hovered = true
-
-func _bundle_unhovered() -> void:
-	_hovered = false
 
 func _evil_collision(me: CharmToken, other: CharmToken) -> void:
 	if me.deleted or other.deleted: return

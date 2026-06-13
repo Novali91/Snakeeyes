@@ -7,6 +7,7 @@ radius = 97.04638
 
 [sub_resource type="LabelSettings" id="LabelSettings_tl6ep"]
 font_size = 48
+font_color = Color(1, 0.9806667, 0.42000002, 1)
 
 [node name="CharmOverlay" type="Node2D" unique_id=213505803]
 script = ExtResource("1_sy3cc")
@@ -27,6 +28,7 @@ offset_left = -200.0
 offset_top = -200.0
 offset_right = 200.0
 offset_bottom = 200.0
+text = "0"
 label_settings = SubResource("LabelSettings_tl6ep")
 horizontal_alignment = 1
 vertical_alignment = 1
