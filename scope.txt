@@ -93,7 +93,16 @@ poison bar is full when poison is negative
 
 black mamba needs to change (switch to buffing hand or buffing self based on hand)
 
+max hand size enforced
+max snake remove snake
+min snakes well
+
 visual things:
 score board diff
+add back tick marks but no numbers
 
 color outlines based on rarities
+
+start at 6 lives
+gain +1 on win
+need to win 36 rounds

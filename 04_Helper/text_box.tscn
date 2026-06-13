@@ -41,3 +41,5 @@ vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=571918502]
 libraries/ = SubResource("AnimationLibrary_ppwx1")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2115322998]
