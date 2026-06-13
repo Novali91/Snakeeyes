@@ -13,7 +13,6 @@ enum {
 func choose_snake() -> Snake:
 	## Put some UI thing here? Or does play ability helper do this?
 	var snake: Snake = await _dm.snake_chosen
-	GS.sound_manager.play_click()
 	return snake
 
 func upgrade_snake(snake: Snake, increase: int, stat: int) -> void:

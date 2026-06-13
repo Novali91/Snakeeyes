@@ -70,7 +70,10 @@ func child_hovered(child: DeckItem) -> void:
 	all_hovered.push_back(child)
 	if !can_hover:
 		return
-	GS.sound_manager.play_clink()
+	if child is Drink:
+		GS.sound_manager.play_clink()
+	else:
+		GS.sound_manager.play_click()
 	# If nothing is hovered currently:
 	if (cur_hovered == null):
 		activate_child(child)

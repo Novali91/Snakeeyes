@@ -8,6 +8,7 @@ extends Node2D
 @onready var click: AudioStreamPlayer = $Click
 @onready var dice: AudioStreamPlayer = $Dice
 @onready var fall: AudioStreamPlayer = $Fall
+@onready var slide: AudioStreamPlayer = $Slide
 
 var _bell_base_pitch: float
 @export var bell_pitch_step: float
@@ -37,3 +38,6 @@ func play_dice() -> void:
 	
 func play_fall() -> void:
 	fall.play()
+
+func play_slide() -> void:
+	slide.play()

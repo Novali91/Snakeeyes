@@ -60,7 +60,7 @@ func slide_drinks(drinks: Array[Drink]) -> void:
 		d.visible = true
 		
 		_active_drinks.push_back(d)
-		
+		GS.sound_manager.play_slide()
 		await get_tree().create_timer(_WAIT_TIME).timeout
 
 func slide_back(drink: Drink) -> void:
