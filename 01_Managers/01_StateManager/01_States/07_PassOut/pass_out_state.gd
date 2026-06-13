@@ -1,6 +1,8 @@
 class_name PassOutState
 extends TopState
 
+
+
 func setup() -> void:
 	pass
 
