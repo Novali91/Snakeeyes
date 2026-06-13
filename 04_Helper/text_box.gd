@@ -1,6 +1,8 @@
 class_name TextBox
 extends Node2D
 
+signal closed()
+
 const _PER_CHARACTER_SPEED: float = 0.01
 const _WAIT_TIME: float = 0.1
 
@@ -22,14 +24,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("click"):
 		if _waiting:
+			if _text_ind >= text_array.size():
+				_animation_player.play("close")
+				await _animation_player.animation_finished
+				
+				return
+			
 			_reveal_text()
 			_text_ind += 1
 			_waiting = false
 			_wait_timer = _WAIT_TIME
-			
-			if _text_ind >= text_array.size():
-				pass
-				# remove
 		
 		else:
 			if _wait_timer <= 0:

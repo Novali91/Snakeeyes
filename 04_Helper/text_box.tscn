@@ -2,11 +2,15 @@
 
 [ext_resource type="Script" uid="uid://ogt7rvwqqrmu" path="res://04_Helper/text_box.gd" id="1_k3i5s"]
 
+[sub_resource type="Animation" id="Animation_ppwx1"]
+resource_name = "close"
+
 [sub_resource type="Animation" id="Animation_k3i5s"]
 resource_name = "open"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ppwx1"]
 _data = {
+&"close": SubResource("Animation_ppwx1"),
 &"open": SubResource("Animation_k3i5s")
 }
 
