@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SnakeResource" format=3 uid="uid://cquxr588hptpn"]
+
+[ext_resource type="Resource" uid="uid://yyjfqgr2c360" path="res://02_Deck/01_Drinks/01_SpecificDrinks/ball_python_venom.tres" id="1_5j032"]
+[ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_pwk80"]
+
+[resource]
+script = ExtResource("1_pwk80")
+snake_name = "Ball Python"
+drink_resource = ExtResource("1_5j032")
+description = "Choose a snake. Roll 2d6:\\n2-6: Give it +2 strength\\n7-12: Give it +5 strength."
+cost = 1
+rarity = "R"
+metadata/_custom_type_script = "uid://6sj3dk6frj4"

@@ -2,11 +2,14 @@ class_name PoisonRollState
 extends TopState
 
 func setup() -> void:
-	sm.dice_manager.number_accepted.connect(_check_poison)
+	#sm.dice_manager.number_accepted.connect(_check_poison)
+	pass
 
 func enter() -> void:
 	sm.camera_manager.lock_camera()
 	sm.dice_manager.start_roll(true)
+	var num: int = await sm.dice_manager.number_accepted
+	_check_poison(num)
 
 func exit() -> void:
 	pass

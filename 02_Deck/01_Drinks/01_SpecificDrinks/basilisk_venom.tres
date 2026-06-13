@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://dbp8u2bq8rgji"]
+
+[ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_t0lm7"]
+[ext_resource type="Texture2D" uid="uid://b2kaubrwd6rlc" path="res://05_Assets/01_Art/01_DevArt/pink_snake.png" id="1_xfeng"]
+
+[resource]
+script = ExtResource("1_t0lm7")
+drink_name = "Basilisk Venom"
+drink_sprite = ExtResource("1_xfeng")
+poison = 1
+strength = 2
+description = "Pick a snake. Remove all of your charm and give that snake strength equal to that charm"
+metadata/_custom_type_script = "uid://cysm36u2jsf44"

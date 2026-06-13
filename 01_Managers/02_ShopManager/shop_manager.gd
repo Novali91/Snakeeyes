@@ -17,6 +17,8 @@ var antidote_position: Vector2
 
 @onready var _snake_scene: PackedScene = preload("res://02_Deck/02_Snakes/snake.tscn")
 
+var _actual_parrot: SnakeResource
+
 var _shop_positions: Array[Vector2] = [
 	Vector2(300, 1080 / 2.),
 	Vector2(600, 1080 / 2.),
@@ -38,6 +40,9 @@ func _ready() -> void:
 		_labels.push_back(l)
 	
 	antidote_position = _antidote_button.global_position + Vector2(188 / 2., 0)
+	
+	var _parrot_resource: SnakeResource = load("res://02_Deck/02_Snakes/01_SpecificSnakes/parrot_snake.tres")
+	_actual_parrot = _parrot_resource.duplicate()
 
 func empty_shop() -> void:
 	var arr_copy = _cur_snakes.duplicate()
@@ -65,7 +70,10 @@ func get_starting_snakes() -> Array[Snake]:
 func create_snake(resource: SnakeResource) -> Snake:
 	var new_snake: Snake = _snake_scene.instantiate()
 	new_snake.attached_snake = resource
-	new_snake.current_drink = resource.drink_resource.duplicate()
+	if (resource.drink_resource.special_ability == 23):
+		new_snake.current_drink = _actual_parrot.drink_resource
+	else:
+		new_snake.current_drink = resource.drink_resource.duplicate()
 	return new_snake
 
 func purchase_snake(snake: Snake) -> void:

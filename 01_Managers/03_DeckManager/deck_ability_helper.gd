@@ -19,7 +19,7 @@ func choose_snake() -> Snake:
 func upgrade_snake(snake: Snake, increase: int, stat: int) -> void:
 	match stat:
 		POISON:
-			snake.current_drink.poison -= increase
+			snake.current_drink.poison += increase
 		STRENGTH:
 			snake.current_drink.strength += increase
 		CHARM:

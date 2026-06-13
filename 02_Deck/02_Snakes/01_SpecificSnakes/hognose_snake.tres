@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SnakeResource" format=3 uid="uid://uujb61bbvwpk"]
+
+[ext_resource type="Resource" uid="uid://yahrsnncypf0" path="res://02_Deck/01_Drinks/01_SpecificDrinks/hognose_venom.tres" id="1_ttyuh"]
+[ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_vitel"]
+[ext_resource type="Texture2D" uid="uid://bud83vj726bdb" path="res://05_Assets/01_Art/01_DevArt/Familiar_Drink.png" id="3_5c8ge"]
+
+[resource]
+script = ExtResource("1_vitel")
+snake_name = "Hognose Snake"
+drink_resource = ExtResource("1_ttyuh")
+snake_sprite = ExtResource("3_5c8ge")
+description = "Roll 2d6. \\n2-6: -1 poison\\n7-12: -3 poison."
+cost = 1
+rarity = "C"
+metadata/_custom_type_script = "uid://6sj3dk6frj4"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://bwh3t72aeod3n"]
+
+[ext_resource type="Texture2D" uid="uid://bks7wifrpp6up" path="res://05_Assets/01_Art/01_DevArt/Hydra_Snake.png" id="1_c0j25"]
+[ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_ofv00"]
+
+[resource]
+script = ExtResource("1_ofv00")
+drink_name = "Rainboa Venom"
+drink_sprite = ExtResource("1_c0j25")
+poison = 1
+charm = 1
+special_ability = 26
+description = "Roll 2d6:\\n1-6: Draw 1\\n7-12: Draw 4."
+metadata/_custom_type_script = "uid://cysm36u2jsf44"

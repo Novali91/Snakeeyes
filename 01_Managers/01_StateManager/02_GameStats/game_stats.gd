@@ -82,7 +82,7 @@ var common_snakes: Array[SnakeResource] = [
 	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/clairvoyant_snake.tres"),
 	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/ambush_viper.tres"),
 	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/cannibal_snake.tres"),
-	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/hydra.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/hydra.tres"),
 	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/friendly_snake.tres"),
 	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/familiar_snake.tres"),
 	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/charming_snake.tres"),
@@ -92,7 +92,18 @@ var common_snakes: Array[SnakeResource] = [
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/ouroboros.tres"),
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/quetzalcoatl.tres"),
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/gorgon_snake.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/jormungandr.tres")
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/jormungandr.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/black_mamba.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/basilisk.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/scarlet_snake.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/ball_python.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/caduceus_snake.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/coral_snake.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/hognose_snake.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/parrot_snake.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/str_per_anti.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/rainboa.tres"),
+	
 ]
 
 var rare_snakes: Array[SnakeResource] = [

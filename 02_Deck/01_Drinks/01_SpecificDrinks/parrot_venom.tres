@@ -1,9 +1,14 @@
 [gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://do8x1k0li3hyy"]
 
+[ext_resource type="Texture2D" uid="uid://bqdway6mw43px" path="res://05_Assets/01_Art/01_DevArt/long_boa.png" id="1_brmjg"]
 [ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_st48i"]
 
 [resource]
 script = ExtResource("1_st48i")
 drink_name = "Parrot Venom"
+drink_sprite = ExtResource("1_brmjg")
+poison = 1
+strength = 1
+charm = 1
 special_ability = 23
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SnakeResource" format=3 uid="uid://d3cgmplkw27p3"]
+
+[ext_resource type="Resource" uid="uid://bneumgmwb6y2f" path="res://02_Deck/01_Drinks/01_SpecificDrinks/scarlet_venom.tres" id="1_6770r"]
+[ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_l8q0y"]
+[ext_resource type="Texture2D" uid="uid://dv1b58tri3jog" path="res://05_Assets/01_Art/01_DevArt/Hydra_Drink.png" id="3_1axi5"]
+
+[resource]
+script = ExtResource("1_l8q0y")
+snake_name = "Scarlet Snake"
+drink_resource = ExtResource("1_6770r")
+snake_sprite = ExtResource("3_1axi5")
+description = "All dice rolls this turn roll +1."
+cost = 1
+rarity = "C"
+metadata/_custom_type_script = "uid://6sj3dk6frj4"

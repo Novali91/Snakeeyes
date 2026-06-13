@@ -19,7 +19,7 @@ const CHARMING_SNAKE: int = 11
 const SNAKE_OF_ASCLEPIUS: int = 12
 const KING_COBRA: int = 13
 const STR_PER_ANTI: int = 14
-const BETTER_GARDEN_SNAKE: int = 15
+const BALL_PYTHON: int = 15
 const JORMUNGANDR: int = 16
 const OUROBOROS: int = 17
 const QUETZALCOATL: int = 18
@@ -28,6 +28,11 @@ const BLACK_MAMBA: int = 20
 const BASILISK: int = 21
 const PYTHON: int = 22
 const PARROT: int = 23
+const SCARLET_SNAKE: int = 24
+const HOGNOSE_SNAKE: int = 25
+const RAINBOA: int = 26
+const CORAL_SNAKE: int = 27
+const CADUCEUS: int = 28
 
 func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource, og_drink: DrinkResource) -> void:
 	match ind:
@@ -55,7 +60,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			sm.overlay_manager.toggle_buff(true)
 			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
 			sm.overlay_manager.toggle_buff(false)
-			sm.deck_manager.ability_helper.upgrade_snake(snake, 1, sm.deck_manager.ability_helper.CHARM)
+			sm.deck_manager.ability_helper.upgrade_snake(snake, 2, sm.deck_manager.ability_helper.STRENGTH)
 			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 			sm.camera_manager.unlock_camera()
 			pass
@@ -79,7 +84,19 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			sm.overlay_manager.toggle_kill(false)
 			pass
 		HYDRA:
-			draw_cards(2)
+			#draw_cards(2) # Old hydra
+			sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
+			sm.camera_manager.lock_camera()
+			sm.overlay_manager.toggle_buff(true)
+			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
+			sm.overlay_manager.toggle_buff(false)
+			var val: int = await roll_dice()
+			if val < 7:
+				sm.deck_manager.ability_helper.upgrade_snake(snake, snake.current_drink.poison, sm.deck_manager.ability_helper.POISON)
+			else:
+				sm.deck_manager.ability_helper.upgrade_snake(snake, snake.current_drink.strength, sm.deck_manager.ability_helper.STRENGTH)
+			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
+			sm.camera_manager.unlock_camera()
 			pass
 		FRIENDLY_SNAKE:
 			sm.hand_manager.ability_helper.change_poison_values_in_hand(1)
@@ -100,7 +117,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			var str_inc: int = GS.get_antidote_num() # Right now it is  str per antidote
 			GS.set_strength(GS.get_strength() + str_inc)
 		JORMUNGANDR: 
-			var total: int = sm.hand_manager.ability_helper.get_total_hand_str()
+			var total: int = sm.hand_manager.ability_helper.get_total_hand_str()-cur_drink.strength
 			GS.set_strength(GS.get_strength() + total)
 		OUROBOROS:
 			sm.deck_manager.return_to_drawpile(og_drink, cur_drink)
@@ -127,11 +144,50 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
 			sm.overlay_manager.toggle_buff(false)
 			sm.deck_manager.ability_helper.upgrade_snake(snake, GS.get_charm(), sm.deck_manager.ability_helper.STRENGTH)
-			GS.set_charm(0)
+			sm.charm_overlay.spend_charm(GS.get_charm(), snake.global_position)
 			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 			sm.camera_manager.unlock_camera()
 		PYTHON:
 			GS.set_charm(GS.get_charm()+(cur_drink.strength)/2)
+		SCARLET_SNAKE:
+			pass
+		HOGNOSE_SNAKE:
+			var val: int = await roll_dice()
+			if val < 7:
+				GS.set_poison(GS.get_poison() - 1)
+			else:
+				GS.set_poison(GS.get_poison()-3)
+		RAINBOA:
+			var val: int = await roll_dice()
+			if val < 7:
+				draw_cards(1)
+			else:
+				draw_cards(4)
+		CORAL_SNAKE:
+			var val: int = await roll_dice()
+			GS.set_strength(GS.get_strength()+val)
+		CADUCEUS:
+			var val: int = await roll_dice()
+			if val < 7:
+				GS.set_antidote_num(GS.get_antidote_num()+1)
+			else:
+				GS.set_antidote_num(GS.get_antidote_num()*2)
+		BALL_PYTHON:
+			sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
+			sm.camera_manager.lock_camera()
+			sm.overlay_manager.toggle_buff(true)
+			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
+			sm.overlay_manager.toggle_buff(false)
+			var val: int = await roll_dice()
+			var to_buff: int
+			if val < 7:
+				to_buff = 2
+			else:
+				to_buff = 5
+			sm.deck_manager.ability_helper.upgrade_snake(snake, to_buff, sm.deck_manager.ability_helper.STRENGTH)
+			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
+			sm.camera_manager.unlock_camera()
+			pass
 		_:
 			return
 
@@ -178,3 +234,7 @@ func quetzalcoatl_slide_back(drink: Drink) -> void:
 	attached.charm += 1
 	sm.hand_manager.ability_helper.slide_drink_back(drink)
 	sm.deck_manager.return_to_drawpile(drink.attached_drink_resource, drink.attached_drink)
+
+func roll_dice() -> int:
+	sm.dice_manager.start_roll(false)
+	return await sm.dice_manager.number_accepted
