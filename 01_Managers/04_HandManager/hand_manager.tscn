@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c3dy1ps3avrnp"]
 
 [ext_resource type="Script" uid="uid://cn4krwxb4nnm4" path="res://01_Managers/04_HandManager/hand_manager.gd" id="1_qdqya"]
+[ext_resource type="PackedScene" uid="uid://dre8t8sp8st3f" path="res://01_Managers/11_SoundManager/sound_manager.tscn" id="2_8mhe4"]
 [ext_resource type="Script" uid="uid://s2kykbe77lg" path="res://01_Managers/04_HandManager/slide_manager.gd" id="2_kvpf8"]
 [ext_resource type="Script" uid="uid://6hd2b0wx5v7f" path="res://01_Managers/05_Tooltip_Manager/tooltip_manager.gd" id="3_kdvs2"]
 [ext_resource type="Script" uid="uid://bqpjhmdoblvws" path="res://01_Managers/04_HandManager/hand_ability_helper.gd" id="4_kdvs2"]
@@ -8,6 +9,8 @@
 [node name="HandManager" type="Node2D" unique_id=1877513829]
 script = ExtResource("1_qdqya")
 metadata/_custom_type_script = "uid://cn4krwxb4nnm4"
+
+[node name="SoundManager" parent="." unique_id=1682959940 instance=ExtResource("2_8mhe4")]
 
 [node name="SlideManager" type="Node" parent="." unique_id=314046848]
 script = ExtResource("2_kvpf8")

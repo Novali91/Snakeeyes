@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://cuxmxsw7d3f14"]
 
 [ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_jghwj"]
+[ext_resource type="Texture2D" uid="uid://iydiawq3074m" path="res://icon.svg" id="1_yk3xa"]
 
 [resource]
 script = ExtResource("1_jghwj")
 drink_name = "Pretzelcoatl"
+drink_sprite = ExtResource("1_yk3xa")
 poison = 1
 strength = 2
 charm = 2

@@ -70,7 +70,7 @@ func child_hovered(child: DeckItem) -> void:
 	all_hovered.push_back(child)
 	if !can_hover:
 		return
-	
+	GS.sound_manager.play_clink()
 	# If nothing is hovered currently:
 	if (cur_hovered == null):
 		activate_child(child)
