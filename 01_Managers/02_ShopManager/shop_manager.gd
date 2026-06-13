@@ -8,6 +8,7 @@ const R_CHANCE_PER_SLOT: float = 0.27
 
 signal snake_clicked(snake: Snake)
 signal antidote_clicked()
+signal reroll_clicked()
 
 var can_buy: bool = false
 var antidote_position: Vector2
@@ -19,6 +20,7 @@ var antidote_position: Vector2
 @onready var darkness: ColorRect = $Darkness
 
 @onready var _snake_scene: PackedScene = preload("res://02_Deck/02_Snakes/snake.tscn")
+@onready var reroll_button: Button = $RerollButton
 
 var _actual_parrot: SnakeResource
 
@@ -38,6 +40,7 @@ func _ready() -> void:
 	ability_helper.shop_manager = self
 	_tooltip_manager.child_was_clicked.connect(_snake_clicked)
 	_antidote_button.pressed.connect(_antidote_clicked)
+	reroll_button.pressed.connect(_reroll_pressed)
 	
 	for l: Label in _labels_node.get_children():
 		_labels.push_back(l)
@@ -122,3 +125,12 @@ func _antidote_clicked() -> void:
 func _remove_snake(snake: Snake) -> void:
 	_cur_snakes.erase(snake)
 	_tooltip_manager.remove_item(snake, true)
+
+
+############ UGLY NEED FIX??
+
+func _reroll_pressed() -> void:
+	reroll_clicked.emit()
+
+func update_reroll(cost: int) -> void:
+	reroll_button.text = "REROLL: " + str(cost)

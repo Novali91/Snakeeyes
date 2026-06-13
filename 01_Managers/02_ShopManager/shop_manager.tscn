@@ -99,3 +99,10 @@ material = SubResource("ShaderMaterial_mkdgh")
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
+
+[node name="RerollButton" type="Button" parent="." unique_id=1611665676]
+offset_left = 1738.0
+offset_top = 519.0
+offset_right = 1814.0
+offset_bottom = 550.0
+text = "REROLL: "

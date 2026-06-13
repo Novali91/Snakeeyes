@@ -1,12 +1,18 @@
 class_name ShopState
 extends TopState
 
+var _reroll_cost: int = 1
+
 func setup() -> void:
 	sm.exit_shop_button.pressed.connect(_exit_shop)
 	sm.shop_manager.snake_clicked.connect(_check_snake)
 	sm.shop_manager.antidote_clicked.connect(_check_antidote)
+	sm.shop_manager.reroll_clicked.connect(_reroll_pressed)
 
 func enter() -> void:
+	_reroll_cost = 1
+	sm.shop_manager.update_reroll(_reroll_cost)
+	
 	sm.camera_manager.switch_screen(sm.camera_manager.RIGHT, true)
 	sm.camera_manager.unlock_camera()
 	sm.exit_shop_button.make_pressable()
@@ -46,3 +52,15 @@ func _check_antidote() -> void:
 
 func _exit_shop() -> void:
 	sm.switch_state(sm.States.END_TURN)
+
+func _reroll_pressed() -> void:
+	if GS.get_charm() < _reroll_cost: return
+	
+	GS.set_charm(GS.get_charm() - _reroll_cost)
+	sm.charm_overlay.spend_charm(_reroll_cost, sm.shop_manager.reroll_button.global_position)
+	
+	_reroll_cost += 1
+	sm.shop_manager.update_reroll(_reroll_cost)
+	
+	sm.shop_manager.empty_shop()
+	sm.shop_manager.fill_shop()
