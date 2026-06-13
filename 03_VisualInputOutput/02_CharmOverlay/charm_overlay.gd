@@ -145,6 +145,8 @@ func clear_charm() -> void:
 	
 	_tokens = []
 	_current_charm_count = 0
+	
+	_count_label.text = str(GS.get_charm())
 
 func _evil_collision(me: CharmToken, other: CharmToken) -> void:
 	if me.deleted or other.deleted: return

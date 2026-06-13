@@ -90,3 +90,5 @@ shouldnt be able to switch screens while drawing cards
 picking a drink with no drinks is a softlock
 change retain to tickbox
 poison bar is full when poison is negative
+
+black mamba needs to change (switch to buffing hand or buffing self based on hand)

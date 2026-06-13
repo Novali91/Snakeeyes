@@ -130,6 +130,7 @@ func _remove_snake(snake: Snake) -> void:
 ############ UGLY NEED FIX??
 
 func _reroll_pressed() -> void:
+	if not can_buy: return
 	reroll_clicked.emit()
 
 func update_reroll(cost: int) -> void:
