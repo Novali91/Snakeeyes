@@ -23,10 +23,10 @@ func _process(delta: float) -> void:
 	var mat = _liquid.material as Material
 	if _change_progress >= 0.0 and _change_progress <= 1.0:
 		_change_progress += delta * change_speed
-		mat.set_shader_parameter("level",lerp_eased(poison_heights[_old_level],poison_heights[_new_level],_change_progress))
+		mat.set_shader_parameter("level",lerp_eased(poison_heights[clamp(_old_level,0,12)],poison_heights[clamp(_new_level,0,12)],_change_progress))
 	else:
 		_change_progress = -1.0
-		mat.set_shader_parameter("level",poison_heights[_new_level])
+		mat.set_shader_parameter("level",poison_heights[clamp(_new_level,0,12)])
 
 func lerp_eased(from: float, to: float, x: float) -> float:
 	return from + (to-from) * ease_in_out_0_1(x)
