@@ -11,6 +11,7 @@ func enter() -> void:
 	
 	sm.shop_manager.empty_shop()
 	sm.shop_manager.fill_shop()
+	sm.shop_manager.stock_antidote()
 	
 	sm.attack_manager.next_attack()
 	sm.score_bar.set_goal_value(sm.attack_manager.get_attack_goal())

@@ -126,7 +126,6 @@ unique_name_in_owner = true
 
 [node name="DiceManager" parent="." unique_id=1005432025 instance=ExtResource("19_sa73t")]
 unique_name_in_owner = true
-position = Vector2(1920, 0)
 
 [node name="OverlayManager" parent="." unique_id=941339809 instance=ExtResource("25_gwsv7")]
 

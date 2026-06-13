@@ -64,7 +64,8 @@ func fill_shop() -> void:
 		_cur_snakes[i].position = _shop_positions[i]
 		_labels[i].text = str(_cur_snakes[i].attached_snake.cost)
 		_tooltip_manager.add_item(_cur_snakes[i])
-	
+
+func stock_antidote() -> void:
 	antidote_stock = 1
 
 func get_starting_snakes() -> Array[Snake]:
