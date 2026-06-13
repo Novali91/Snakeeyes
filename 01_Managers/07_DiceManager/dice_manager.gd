@@ -4,6 +4,7 @@ extends CanvasLayer
 signal number_rolled(val: int)
 signal number_accepted(val: int)
 signal antidote_used()
+signal closed()
 
 @onready var _p_res: Label = $PoisonRes
 @onready var _p_res_input: Label = $PoisonRes/Input
@@ -33,6 +34,8 @@ var num_scarlets: int
 
 var poison: int
 var show_poison: bool
+
+@onready var _animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	visible = false
@@ -80,6 +83,8 @@ func _ease_out_0_1(x: float) -> float:
 
 func start_roll(lower_cup: bool, show_poison: bool) -> void:
 	visible = true
+	_animation_player.play("open")
+	
 	self.show_poison = show_poison
 	if lower_cup:
 		_animation_progress = 0.0
@@ -98,7 +103,10 @@ func start_roll(lower_cup: bool, show_poison: bool) -> void:
 	_roll()
 
 func close() -> void:
+	_animation_player.play("close")
+	await _animation_player.animation_finished
 	visible = false
+	closed.emit()
 
 func _roll() -> void:
 	var d1val = randi_range(1,6)

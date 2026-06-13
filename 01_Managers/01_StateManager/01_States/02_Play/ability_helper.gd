@@ -181,6 +181,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			sm.overlay_manager.toggle_buff(true)
 			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
 			sm.overlay_manager.toggle_buff(false)
+			sm.deck_manager.tooltip_manager.turn_off_hover()
 			var val: int = await roll_dice()
 			var to_buff: int
 			if val < 7:
@@ -190,6 +191,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			sm.deck_manager.ability_helper.upgrade_snake(snake, to_buff, sm.deck_manager.ability_helper.STRENGTH)
 			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 			sm.camera_manager.unlock_camera()
+			sm.deck_manager.tooltip_manager.turn_on_hover()
 			pass
 		_:
 			return
@@ -242,4 +244,5 @@ func roll_dice() -> int:
 	sm.dice_manager.start_roll(false,false)
 	var num: int = await sm.dice_manager.number_accepted
 	sm.dice_manager.close()
+	await sm.dice_manager.closed
 	return num

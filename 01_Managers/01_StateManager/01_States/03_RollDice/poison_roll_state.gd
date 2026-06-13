@@ -22,10 +22,11 @@ func physics_tick(_delta: float) -> void:
 	pass
 
 func _check_poison(dice_roll: int) -> void:
+	sm.dice_manager.close()
+	await sm.dice_manager.closed
+	
 	if dice_roll >= GS.get_poison():
-		sm.dice_manager.close()
 		sm.switch_state(sm.States.COMPARE_STRENGTH)
 	
 	else:
-		sm.dice_manager.close()
 		sm.switch_state(sm.States.PASS_OUT)
