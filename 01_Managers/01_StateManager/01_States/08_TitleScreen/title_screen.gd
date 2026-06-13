@@ -11,10 +11,6 @@ func exit() -> void:
 	pass
 
 func _play_clicked() -> void:
-	var t = create_tween()
-	t.tween_property(sm.title_screen_manager, "modulate:a", 0., 0.5)
-	
-	await t.finished
 	sm.title_screen_manager.queue_free()
 	
 	sm.switch_state(sm.States.SETUP_TURN)

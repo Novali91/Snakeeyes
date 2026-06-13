@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://eg5ukadcklbv" path="res://01_Managers/05_Tooltip_Manager/tooltip.tscn" id="2_su81r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m33or"]
-size = Vector2(75, 150)
+size = Vector2(150, 150)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_itj0u"]
 resource_local_to_scene = true
