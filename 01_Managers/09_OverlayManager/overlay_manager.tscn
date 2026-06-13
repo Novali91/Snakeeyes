@@ -30,6 +30,31 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="RetainStrength" type="ColorRect" parent="." unique_id=15305774]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2730.0
+offset_top = 465.0
+offset_right = 3030.0
+offset_bottom = 615.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.18039216)
+
+[node name="Label" type="Label" parent="RetainStrength" unique_id=92888571]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 150.0
+text = "Pick a drink to make last until next round and double its strength."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="DoublePoison" type="ColorRect" parent="." unique_id=1418329519]
 visible = false
 anchors_preset = 8

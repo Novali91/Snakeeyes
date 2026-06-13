@@ -132,7 +132,9 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			chosen_drink = await pick_drink()
 			quetzalcoatl_slide_back(chosen_drink)
 		GORGON_SNAKE:
+			sm.overlay_manager.toggle_retain_strength(true)
 			var chosen_drink: Drink = await pick_drink()
+			sm.overlay_manager.toggle_retain_strength(false)
 			chosen_drink.attached_drink.strength = chosen_drink.attached_drink.strength * 2
 			chosen_drink.instantiate_tooltip()
 		BLACK_MAMBA:
