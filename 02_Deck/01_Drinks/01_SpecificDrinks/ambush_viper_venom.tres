@@ -12,5 +12,5 @@ strength = 4
 cost = 4
 retain = true
 description = "Stays on the table between rounds."
-flavour_text = "Tastes oddly of ground-up grass..."
+flavour_text = "Oddly, tastes more like drool than venom..."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

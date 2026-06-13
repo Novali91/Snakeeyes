@@ -10,6 +10,7 @@ snake_name = "Caduceus Snake"
 drink_resource = ExtResource("1_poddx")
 snake_sprite = ExtResource("3_r4u2r")
 description = "Roll 2d6.\\n2-6: Gain 1 antidote\\n7-12: Double your antidote."
+flavour_text = "Originally enrapt in combat, these snakes are now heralds of peace after Hermes stopped them."
 cost = 12
 rarity = "L"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

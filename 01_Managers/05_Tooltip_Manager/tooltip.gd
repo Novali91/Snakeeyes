@@ -111,7 +111,7 @@ func instantiate_drink_values(info: DrinkResource, og_info: DrinkResource) -> vo
 			flavour_label.text = info.flavour_text
 		20:
 			name_label.text = info.drink_name
-			desc_label.text = info.description + " (" + str(GS.hand_manager.drinks_drank) + ")."
+			desc_label.text = info.description + " (" + str(GS.hand_manager.drinks.size()) + ")."
 			flavour_label.text = info.flavour_text
 		21:
 			name_label.text = info.drink_name

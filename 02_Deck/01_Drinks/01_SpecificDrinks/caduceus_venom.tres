@@ -11,4 +11,5 @@ poison = 2
 strength = 2
 special_ability = 28
 description = "Roll 2d6.\\n2-6: Gain 1 antidote\\n7-12: Double your antidote."
+flavour_text = "Double the snakes, double the antidote!"
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

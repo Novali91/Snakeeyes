@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://yyjfqgr2c360" path="res://02_Deck/01_Drinks/01_SpecificDrinks/ball_python_venom.tres" id="1_5j032"]
 [ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_pwk80"]
-[ext_resource type="Texture2D" uid="uid://dhaorlne6wb00" path="res://05_Assets/01_Art/03_UI_Sprites/poison scale mask.png" id="3_2wc7v"]
+[ext_resource type="Texture2D" uid="uid://dvy4voolb0jah" path="res://05_Assets/01_Art/04_Snakes/ball python spritesheet.png" id="3_2wc7v"]
 
 [resource]
 script = ExtResource("1_pwk80")
@@ -10,6 +10,7 @@ snake_name = "Ball Python"
 drink_resource = ExtResource("1_5j032")
 snake_sprite = ExtResource("3_2wc7v")
 description = "Choose a snake. Roll 2d6:\\n2-6: Give it +2 strength\\n7-12: Give it +5 strength."
+flavour_text = "Knows ball."
 cost = 7
 rarity = "R"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

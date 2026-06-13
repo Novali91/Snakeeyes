@@ -8,7 +8,7 @@ colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_o8cfu"]
 gradient = SubResource("Gradient_vrqg4")
-width = 250
+width = 300
 height = 350
 
 [sub_resource type="LabelSettings" id="LabelSettings_8dqle"]

@@ -38,8 +38,8 @@ func _check_snake(snake: Snake) -> void:
 		sm.charm_overlay.spend_charm(snake.attached_snake.cost, snake.global_position)
 		
 		var snake_copy = sm.shop_manager.create_snake(snake.attached_snake)
+		await sm.shop_manager.ability_helper.buy_snake(snake_copy)
 		sm.deck_manager.add_snake(snake_copy)
-		sm.shop_manager.ability_helper.buy_snake(snake_copy)
 		sm.shop_manager.purchase_snake(snake)
 
 func _check_antidote() -> void:

@@ -10,7 +10,6 @@ snake_name = "Garden Snake"
 drink_resource = ExtResource("1_uedf5")
 snake_sprite = ExtResource("3_xl378")
 description = "Gives +2 STR to another snake permanently"
-flavour_text = "Younger sibling mentality"
 cost = 3
 rarity = "C"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

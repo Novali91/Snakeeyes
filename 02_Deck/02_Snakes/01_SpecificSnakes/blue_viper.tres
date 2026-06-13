@@ -10,7 +10,6 @@ snake_name = "Milk Snake"
 drink_resource = ExtResource("1_16v11")
 snake_sprite = ExtResource("3_ow5d2")
 description = "When drank, choose a drink. This drink stays on the table between rounds."
-flavour_text = "The Blue Viper is a cunning planner."
 cost = 3
 rarity = "S"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

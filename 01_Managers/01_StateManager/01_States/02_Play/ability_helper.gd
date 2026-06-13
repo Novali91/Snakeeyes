@@ -136,7 +136,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			chosen_drink.attached_drink.strength = chosen_drink.attached_drink.strength * 2
 			chosen_drink.instantiate_tooltip()
 		BLACK_MAMBA:
-			GS.set_strength(GS.get_strength() + sm.hand_manager.drinks_drank)
+			GS.set_strength(GS.get_strength() + sm.hand_manager.drinks.size())
 		BASILISK: 
 			sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
 			sm.camera_manager.lock_camera()
@@ -172,7 +172,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 		CADUCEUS:
 			var val: int = await roll_dice()
 			if val < 7:
-				GS.set_antidote_num(GS.get_antidote_num()+1)
+				GS.set_antidote_num(GS.get_antidote_num()+2)
 			else:
 				GS.set_antidote_num(GS.get_antidote_num()*2)
 		BALL_PYTHON:
@@ -214,15 +214,35 @@ func draw_cards(num: int) -> void:
 func _reshuffle_draw_pile() -> void:
 	sm.deck_manager.reshuffle_drawpile()
 
-func remove_snake(start_screen: int) -> Vector2i:
+func remove_snake(start_screen: int) -> void:
 	sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
 	sm.camera_manager.lock_camera()
 	var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
-	var stats: Vector2i = Vector2i(snake.current_drink.strength, snake.current_drink.charm)
 	sm.deck_manager.remove_snake(snake)
 	sm.camera_manager.switch_screen(start_screen, true)
 	sm.camera_manager.unlock_camera()
-	return stats
+	return
+
+func king_cobra_remove(start_screen: int) -> Vector4i:
+	sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
+	sm.camera_manager.lock_camera()
+	sm.overlay_manager.toggle_kill(true)
+	var snake_stats: Vector4i
+	
+	var snake_one: Snake = await sm.deck_manager.ability_helper.choose_snake()
+	snake_stats.w = snake_one.current_drink.strength
+	snake_stats.x = snake_one.current_drink.charm
+	sm.deck_manager.remove_snake(snake_one)
+	
+	var snake_two: Snake = await sm.deck_manager.ability_helper.choose_snake()
+	snake_stats.y = snake_two.current_drink.strength
+	snake_stats.z = snake_two.current_drink.charm
+	sm.deck_manager.remove_snake(snake_two)
+	
+	sm.overlay_manager.toggle_kill(false)
+	sm.camera_manager.switch_screen(start_screen, true)
+	sm.camera_manager.unlock_camera()
+	return snake_stats
 
 func pick_drink() -> Drink:
 	sm.end_turn_button.stop_pressable()

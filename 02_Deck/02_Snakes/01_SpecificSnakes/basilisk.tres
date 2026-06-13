@@ -2,14 +2,15 @@
 
 [ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_flc0q"]
 [ext_resource type="Resource" uid="uid://dbp8u2bq8rgji" path="res://02_Deck/01_Drinks/01_SpecificDrinks/basilisk_venom.tres" id="1_jqc6o"]
-[ext_resource type="Texture2D" uid="uid://iydiawq3074m" path="res://icon.svg" id="3_hh14d"]
+[ext_resource type="Texture2D" uid="uid://wfr7arkqwftj" path="res://05_Assets/01_Art/04_Snakes/basilisk spritesheet.png" id="3_jqc6o"]
 
 [resource]
 script = ExtResource("1_flc0q")
 snake_name = "Basilisk"
 drink_resource = ExtResource("1_jqc6o")
-snake_sprite = ExtResource("3_hh14d")
+snake_sprite = ExtResource("3_jqc6o")
 description = "Pick a snake. Remove all of your charm and give that snake strength equal to that charm"
+flavour_text = "The cunning basilisk, known for its silver tongue and its lethal gaze."
 cost = 7
 rarity = "R"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

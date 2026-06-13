@@ -2,14 +2,15 @@
 
 [ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_r68uh"]
 [ext_resource type="Resource" uid="uid://cdke43o2o7247" path="res://02_Deck/01_Drinks/01_SpecificDrinks/black_mamba_venom.tres" id="1_tocy2"]
-[ext_resource type="Texture2D" uid="uid://c26iavinui4px" path="res://05_Assets/01_Art/01_DevArt/orange_poison.png" id="3_v41ya"]
+[ext_resource type="Texture2D" uid="uid://cwfs4bqwjt0qr" path="res://05_Assets/01_Art/04_Snakes/black mamba spritesheet.png" id="3_tocy2"]
 
 [resource]
 script = ExtResource("1_r68uh")
 snake_name = "Black Mamba"
 drink_resource = ExtResource("1_tocy2")
-snake_sprite = ExtResource("3_v41ya")
+snake_sprite = ExtResource("3_tocy2")
 description = "Gain strength for each drink drank this turn"
+flavour_text = "Fastest snake"
 cost = 7
 rarity = "R"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"
