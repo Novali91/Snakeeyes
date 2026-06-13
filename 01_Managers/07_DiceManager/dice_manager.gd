@@ -22,6 +22,8 @@ var _animation_progress = -1.0
 
 var _current_value: int
 
+var num_scarlets: int
+
 func _ready() -> void:
 	visible = false
 	
@@ -64,7 +66,7 @@ func _roll() -> void:
 	var d2val = randi_range(1,6)
 	var value_rolled = d1val + d2val
 	
-	_current_value = value_rolled
+	_current_value = value_rolled + num_scarlets
 	_input.text = str(_current_value)
 	number_rolled.emit(_current_value)
 	_dice1.frame = d1val-1

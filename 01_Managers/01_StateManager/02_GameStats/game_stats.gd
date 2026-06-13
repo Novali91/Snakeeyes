@@ -73,7 +73,7 @@ var starting_snakes: Array[SnakeResource] = [
 ]
 
 var common_snakes: Array[SnakeResource] = [
-	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/python.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/python.tres"),
 	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/tiger_keelback.tres"),
 	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/placeboa.tres"),
 	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/short_boa.tres"),

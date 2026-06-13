@@ -9,5 +9,6 @@ drink_name = "Basilisk Venom"
 drink_sprite = ExtResource("1_xfeng")
 poison = 1
 strength = 2
+special_ability = 21
 description = "Pick a snake. Remove all of your charm and give that snake strength equal to that charm"
 metadata/_custom_type_script = "uid://cysm36u2jsf44"
