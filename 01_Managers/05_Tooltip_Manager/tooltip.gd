@@ -102,38 +102,46 @@ func deactivate() -> void:
 func instantiate_drink_values(info: DrinkResource, og_info: DrinkResource) -> void:
 	match info.special_ability:
 		14:
-			set_val(info.strength, og_info.strength, strength_label, "Strength: ")
-			set_psn_val(info.poison, og_info.poison, poison_label)
-			set_val(info.charm, og_info.charm, charm_label, "Charm: ")
 			name_label.text = info.drink_name
 			desc_label.text = info.description + " (" + str(GS.get_antidote_num()) + ")."
 			flavour_label.text = info.flavour_text
+		16:
+			name_label.text = info.drink_name
+			desc_label.text = info.description + " (" + str(GS.hand_manager.ability_helper.get_total_hand_str()) + ")."
+			flavour_label.text = info.flavour_text
+		20:
+			name_label.text = info.drink_name
+			desc_label.text = info.description + " (" + str(GS.hand_manager.drinks_drank) + ")."
+			flavour_label.text = info.flavour_text
+		21:
+			name_label.text = info.drink_name
+			desc_label.text = info.description + " (" + str(GS.get_charm()) + ")."
+			flavour_label.text = info.flavour_text
 		_:
-			## Check if it's greater/less than og vals
-			set_val(info.strength, og_info.strength, strength_label, "Strength: ")
-			set_psn_val(info.poison, og_info.poison, poison_label)
-			set_val(info.charm, og_info.charm, charm_label, "Charm: ")
 			name_label.text = info.drink_name
 			desc_label.text = info.description
 			flavour_label.text = info.flavour_text
-	pass
+	set_val(info.strength, og_info.strength, strength_label, "Strength: ")
+	set_psn_val(info.poison, og_info.poison, poison_label)
+	set_val(info.charm, og_info.charm, charm_label, "Charm: ")
 
 func instantiate_snake_values(info: SnakeResource, current_drink: DrinkResource) -> void:
 	match current_drink.special_ability:
 		14:
-			set_val(current_drink.strength, info.drink_resource.strength, strength_label, "Strength: ")
-			set_psn_val(current_drink.poison, info.drink_resource.poison, poison_label)
-			set_val(current_drink.charm, info.drink_resource.charm, charm_label, "Charm: ")
 			name_label.text = info.snake_name
 			desc_label.text = info.description + " (" + str(GS.get_antidote_num()) + ")."
 			flavour_label.text = info.flavour_text
+		20:
+			name_label.text = info.drink_name
+			desc_label.text = info.description + " (" + str(GS.hand_manager.drinks_drank) + ")."
+			flavour_label.text = info.flavour_text
 		_:
-			set_val(current_drink.strength, info.drink_resource.strength, strength_label, "Strength: ")
-			set_psn_val(current_drink.poison, info.drink_resource.poison, poison_label)
-			set_val(current_drink.charm, info.drink_resource.charm, charm_label, "Charm: ")
 			name_label.text = info.snake_name
 			desc_label.text = info.description
 			flavour_label.text = info.flavour_text
+	set_val(current_drink.strength, info.drink_resource.strength, strength_label, "Strength: ")
+	set_psn_val(current_drink.poison, info.drink_resource.poison, poison_label)
+	set_val(current_drink.charm, info.drink_resource.charm, charm_label, "Charm: ")
 
 func set_val(val: int, og_val: int, label: Label, prefix: String) -> void:
 	label.text = prefix + str(val)
