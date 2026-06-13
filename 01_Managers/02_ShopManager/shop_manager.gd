@@ -94,7 +94,7 @@ func _get_snakes(num: int) -> Array[Snake]:
 		if chance <= L_CHANCE_PER_SLOT:
 			new_snake = create_snake(GS.legendary_snakes.pick_random())
 		elif chance <= R_CHANCE_PER_SLOT+L_CHANCE_PER_SLOT:
-			new_snake = create_snake(GS.legendary_snakes.pick_random())
+			new_snake = create_snake(GS.rare_snakes.pick_random())
 		else:
 			new_snake = create_snake(GS.common_snakes.pick_random())
 		arr.push_back(new_snake)
