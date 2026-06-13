@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b6l5xioi16nd8"]
+
+[ext_resource type="Script" uid="uid://bsqqravlq1cew" path="res://01_Managers/06_CameraManager/camera_arrow.gd" id="1_wogym"]
+
+[node name="CameraArrow" type="Button" unique_id=5611268]
+physics_interpolation_mode = 0
+custom_minimum_size = Vector2(100, 300)
+script = ExtResource("1_wogym")
+metadata/_custom_type_script = "uid://bsqqravlq1cew"

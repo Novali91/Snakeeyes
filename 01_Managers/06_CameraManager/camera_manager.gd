@@ -14,6 +14,8 @@ enum {
 @onready var poison_effect: ColorRect = $Camera2D/CanvasLayer/PoisonEffect
 @onready var pass_out_effect: ColorRect = $Camera2D/CanvasLayer/PassOutEffect
 
+@onready var _arrow_node: Node2D = $Arrows
+
 var _current_ind: int = 1
 var _prev_ind: int = 1
 var _camera_locked: bool
@@ -34,6 +36,9 @@ func _ready() -> void:
 	camera.global_position = Vector2(screen_pos_x(_current_ind), 1080 / 2.)
 	GS.poison_set.connect(set_poison_effect)
 	pass_out_effect.visible = false
+	
+	for a: CameraArrow in _arrow_node.get_children():
+		a.arrow_pressed.connect(_handle_arrow_press)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("left"):
@@ -94,6 +99,13 @@ func lock_camera() -> void:
 
 func unlock_camera() -> void:
 	_camera_locked = false
+
+func _handle_arrow_press(is_left: bool) -> void:
+	if is_left:
+		_swipe_left()
+	
+	else:
+		_swipe_right()
 
 func _swipe_left() -> void:
 	_prev_ind = _current_ind
