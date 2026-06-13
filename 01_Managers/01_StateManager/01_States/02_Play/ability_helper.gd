@@ -87,9 +87,9 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			#draw_cards(2) # Old hydra
 			sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
 			sm.camera_manager.lock_camera()
-			sm.overlay_manager.toggle_buff(true)
+			sm.overlay_manager.toggle_dbl_strength_poison(true)
 			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
-			sm.overlay_manager.toggle_buff(false)
+			sm.overlay_manager.toggle_dbl_strength_poison(false)
 			var val: int = await roll_dice()
 			if val < 7:
 				sm.deck_manager.ability_helper.upgrade_snake(snake, snake.current_drink.poison, sm.deck_manager.ability_helper.POISON)
@@ -125,11 +125,17 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 		QUETZALCOATL:
 			draw_cards(3)
 			## UI for picking to slideback here:
+			sm.overlay_manager.toggle_slide_back(true,1)
 			var chosen_drink: Drink = await pick_drink()
+			sm.overlay_manager.toggle_slide_back(false,1)
+			sm.overlay_manager.toggle_slide_back(true,2)
 			quetzalcoatl_slide_back(chosen_drink)
 			chosen_drink = await pick_drink()
+			sm.overlay_manager.toggle_slide_back(false,2)
+			sm.overlay_manager.toggle_slide_back(true,3)
 			quetzalcoatl_slide_back(chosen_drink)
 			chosen_drink = await pick_drink()
+			sm.overlay_manager.toggle_slide_back(false,3)
 			quetzalcoatl_slide_back(chosen_drink)
 		GORGON_SNAKE:
 			sm.overlay_manager.toggle_retain_strength(true)
