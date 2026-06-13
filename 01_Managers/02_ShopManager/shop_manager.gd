@@ -4,7 +4,7 @@ extends Node2D
 const SHOP_SIZE: int = 5
 
 const L_CHANCE_PER_SLOT: float = 0.04
-const R_CHANCE_PER_SLOT: float = 0.2
+const R_CHANCE_PER_SLOT: float = 0.27
 
 signal snake_clicked(snake: Snake)
 signal antidote_clicked()
@@ -53,7 +53,10 @@ func empty_shop() -> void:
 		_remove_snake(s)
 
 func fill_shop() -> void:
-	_cur_snakes = _get_snakes(SHOP_SIZE)
+	var cur_snake_resources: Array[SnakeResource] = _get_snakes(SHOP_SIZE)
+	for snake: SnakeResource in cur_snake_resources:
+		_cur_snakes.append(create_snake(snake))
+	
 	for i in SHOP_SIZE:
 		_cur_snakes[i].position = _shop_positions[i]
 		_labels[i].text = str(_cur_snakes[i].attached_snake.cost)
@@ -85,18 +88,22 @@ func purchase_snake(snake: Snake) -> void:
 func purchase_antidote() -> void:
 	antidote_stock -= 1
 
-func _get_snakes(num: int) -> Array[Snake]:
-	var arr: Array[Snake] = []
+func _get_snakes(num: int) -> Array[SnakeResource]:
+	var arr: Array[SnakeResource] = []
 	var chance: float
-	var new_snake: Snake
+	var new_snake: SnakeResource = null
 	for i in num:
 		chance = randf()
 		if chance <= L_CHANCE_PER_SLOT:
-			new_snake = create_snake(GS.legendary_snakes.pick_random())
+			while new_snake in arr or new_snake == null:
+				new_snake = GS.legendary_snakes.pick_random()
 		elif chance <= R_CHANCE_PER_SLOT+L_CHANCE_PER_SLOT:
-			new_snake = create_snake(GS.rare_snakes.pick_random())
+			while new_snake in arr or new_snake == null:
+				new_snake = GS.rare_snakes.pick_random()
 		else:
-			new_snake = create_snake(GS.common_snakes.pick_random())
+			while new_snake in arr or new_snake == null:
+				new_snake = GS.common_snakes.pick_random()
+		
 		arr.push_back(new_snake)
 	
 	return arr
