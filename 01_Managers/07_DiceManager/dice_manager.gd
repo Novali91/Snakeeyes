@@ -33,6 +33,8 @@ func _process(delta: float) -> void:
 		_animation_progress += delta
 		if _animation_progress > cup_lower_time:
 			_cup.position.x = _cup_loc.position.x + (sin((_animation_progress + cup_shake_offset) * cup_shake_frequency))/(_animation_progress+cup_shake_offset)*cup_shake_wavelength
+			if _animation_progress < cup_lower_time + 0.05:
+				GS.sound_manager.play_dice()
 	else:
 		_cup.frame = 1
 		_dice1.visible = true
