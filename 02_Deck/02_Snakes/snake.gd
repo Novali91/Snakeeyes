@@ -12,6 +12,7 @@ var current_drink: DrinkResource
 
 # Reference to our sprite so that we can set the texture
 @onready var snake_sprite: Sprite2D = $SnakeSprite
+@onready var _animation_player: AnimationPlayer = $AnimationPlayer
 
 var deck_index: int = -1
 
@@ -32,9 +33,12 @@ func instantiate_tooltip() -> void:
 func activate_tooltip() -> void:
 	super()
 	snake_sprite.material.set_shader_parameter("alpha", 1.0)
+	_animation_player.play("default")
 	
 	tooltip.instantiate_snake_values(attached_snake, current_drink)
 
 func deactivate_tooltip() -> void:
 	super()
 	snake_sprite.material.set_shader_parameter("alpha", 0.0)
+	
+	_animation_player.play("RESET")

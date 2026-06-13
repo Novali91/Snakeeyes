@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_3o2gv"]
 [ext_resource type="Resource" uid="uid://daf5iu2vifaq6" path="res://02_Deck/01_Drinks/01_SpecificDrinks/starting_charm_drink.tres" id="1_7eleh"]
-[ext_resource type="Texture2D" uid="uid://dhjeq0d6t20ad" path="res://05_Assets/01_Art/01_DevArt/green_snake.png" id="3_udocb"]
+[ext_resource type="Texture2D" uid="uid://i0ue3sll6tgf" path="res://05_Assets/01_Art/04_Snakes/corn snake spritesheet.png" id="3_udocb"]
 
 [resource]
 script = ExtResource("1_3o2gv")
-snake_name = "Green Viper"
+snake_name = "Corn Snake"
 drink_resource = ExtResource("1_7eleh")
 snake_sprite = ExtResource("3_udocb")
 cost = 2
