@@ -60,3 +60,6 @@ func set_value(_old_val: int, new_val: int) -> void:
 	
 	_tween = create_tween().set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	_tween.tween_property(_ticker, "position:y", ticker_target, 1)
+	
+	if _old_val != new_val && new_val > 0:
+		GS.sound_manager.play_bell(new_val)

@@ -4,6 +4,9 @@
 [ext_resource type="AudioStream" uid="uid://beqeucdfkfo02" path="res://05_Assets/03_SoundEffects/clink.mp3" id="2_tkdvi"]
 [ext_resource type="AudioStream" uid="uid://dhawxi5s2hf13" path="res://05_Assets/03_SoundEffects/gulp.mp3" id="3_8gqlx"]
 [ext_resource type="AudioStream" uid="uid://4qv8lv5cjwhc" path="res://05_Assets/03_SoundEffects/Charm.mp3" id="4_r18u2"]
+[ext_resource type="AudioStream" uid="uid://cjcu1temx0aie" path="res://05_Assets/03_SoundEffects/Bell.mp3" id="5_0t81y"]
+[ext_resource type="AudioStream" uid="uid://d3etygdvtccch" path="res://05_Assets/03_SoundEffects/Click.mp3" id="6_1lo1y"]
+[ext_resource type="AudioStream" uid="uid://51sylv8ycj2a" path="res://05_Assets/03_SoundEffects/Dice.mp3" id="7_obxvf"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8gqlx"]
 random_pitch = 1.1863941
@@ -19,6 +22,7 @@ stream_0/stream = ExtResource("4_r18u2")
 
 [node name="SoundManager" type="Node2D" unique_id=1682959940]
 script = ExtResource("1_aw07p")
+bell_pitch_step = 0.1
 
 [node name="Clink" type="AudioStreamPlayer" parent="." unique_id=546941583]
 stream = SubResource("AudioStreamRandomizer_8gqlx")
@@ -33,3 +37,15 @@ volume_db = -9.066
 stream = SubResource("AudioStreamRandomizer_r18u2")
 volume_db = -12.035
 pitch_scale = 1.95
+
+[node name="Bell" type="AudioStreamPlayer" parent="." unique_id=1090275278]
+stream = ExtResource("5_0t81y")
+volume_db = -23.524
+pitch_scale = 0.5
+
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=874878673]
+stream = ExtResource("6_1lo1y")
+
+[node name="Dice" type="AudioStreamPlayer" parent="." unique_id=612057509]
+stream = ExtResource("7_obxvf")
+volume_db = 2.476
