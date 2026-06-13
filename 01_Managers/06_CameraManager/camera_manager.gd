@@ -10,7 +10,7 @@ enum {
 }
 
 @onready var camera: Camera2D = $Camera2D
-@onready var full_screen_effects: ColorRect = $Camera2D/CanvasLayer/FullScreenEffects
+@onready var poison_effect: ColorRect = $Camera2D/CanvasLayer/PoisonEffect
 
 var _current_ind: int = 1
 var _prev_ind: int = 1
@@ -35,7 +35,7 @@ func _process(_delta: float) -> void:
 		_swipe_right()
 	if(poison_effect_change_progress >= 0 and poison_effect_change_progress < 1):
 		poison_effect_change_progress += _delta * poison_effect_change_speed
-		full_screen_effects.material.set_shader_parameter("fisheye_intensity",clamp((old_poison + (new_poison - old_poison) * poison_effect_change_progress) - poison_effect_begin_level,0,12) * poison_fish_eye_intensity)
+		poison_effect.material.set_shader_parameter("fisheye_intensity",clamp((old_poison + (new_poison - old_poison) * poison_effect_change_progress) - poison_effect_begin_level,0,12) * poison_fish_eye_intensity)
 
 func set_poison_effect(old_val: int, new_val: int) -> void:
 	poison_effect_change_progress = 0.0
