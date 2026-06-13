@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_lsosv"]
 [ext_resource type="Resource" uid="uid://duwfy2s813wch" path="res://02_Deck/01_Drinks/01_SpecificDrinks/ambush_viper_venom.tres" id="1_on5dn"]
-[ext_resource type="Texture2D" uid="uid://khalr0y0tw6o" path="res://05_Assets/01_Art/01_DevArt/Ambush_Snake.png" id="3_odvyq"]
+[ext_resource type="Texture2D" uid="uid://duv8kqypkcjh" path="res://05_Assets/01_Art/04_Snakes/cat snake spritesheet.png" id="3_on5dn"]
 
 [resource]
 script = ExtResource("1_lsosv")
-snake_name = "Ambush Viper"
+snake_name = "Cat Snake"
 drink_resource = ExtResource("1_on5dn")
-snake_sprite = ExtResource("3_odvyq")
+snake_sprite = ExtResource("3_on5dn")
 description = "Stays on the table between rounds."
-flavour_text = "Can you even see it?"
+flavour_text = "Lying in wait, the cat snake pounces on its prey at the most opportune moment."
 cost = 4
 rarity = "C"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

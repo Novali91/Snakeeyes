@@ -10,6 +10,6 @@ snake_name = "Coral Snake"
 drink_resource = ExtResource("1_4anu2")
 snake_sprite = ExtResource("3_ncndk")
 description = "Roll 2d6. Gain strength equal to that value."
-cost = 1
+cost = 7
 rarity = "R"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

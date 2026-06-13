@@ -10,6 +10,6 @@ snake_name = "Quetzalcoatl"
 drink_resource = ExtResource("1_h3ax1")
 snake_sprite = ExtResource("3_ofyx7")
 description = "On drink, draw 3, then pick 3 drinks to give them -1/+1/+1 and slide them back."
-cost = 1
+cost = 12
 rarity = "L"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

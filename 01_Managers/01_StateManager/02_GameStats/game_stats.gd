@@ -74,44 +74,40 @@ var starting_snakes: Array[SnakeResource] = [
 
 var common_snakes: Array[SnakeResource] = [
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/python.tres"),
-	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/tiger_keelback.tres"),
-	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/placeboa.tres"),
-	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/short_boa.tres"),
-	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/long_boa.tres"),
-	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/garden_snake.tres"),
-	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/clairvoyant_snake.tres"),
-	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/ambush_viper.tres"),
-	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/cannibal_snake.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/hydra.tres"),
-	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/friendly_snake.tres"),
-	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/familiar_snake.tres"),
-	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/charming_snake.tres"),
-	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/asclepius_snake.tres"),
-	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/king_cobra.tres"),
-	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/str_per_anti.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/ouroboros.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/quetzalcoatl.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/gorgon_snake.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/jormungandr.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/black_mamba.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/basilisk.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/tiger_keelback.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/placeboa.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/short_boa.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/garden_snake.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/ambush_viper.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/asclepius_snake.tres"),
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/scarlet_snake.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/ball_python.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/caduceus_snake.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/coral_snake.tres"),
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/hognose_snake.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/parrot_snake.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/str_per_anti.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/rainboa.tres"),
-	
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/parrot_snake.tres")
+	#load("res://02_Deck/02_Snakes/01_SpecificSnakes/long_boa.tres"), Removed
+	# load("res://02_Deck/02_Snakes/01_SpecificSnakes/familiar_snake.tres"), Removed
 ]
 
 var rare_snakes: Array[SnakeResource] = [
-	
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/cannibal_snake.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/friendly_snake.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/king_cobra.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/str_per_anti.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/gorgon_snake.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/black_mamba.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/basilisk.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/rainboa.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/ball_python.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/coral_snake.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/charming_snake.tres"),
 ]
 
 var legendary_snakes: Array[SnakeResource] = [
-	
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/clairvoyant_snake.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/hydra.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/ouroboros.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/quetzalcoatl.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/caduceus_snake.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/jormungandr.tres")
 ]
 
 var attack_array: Array[PackedInt64Array] = [

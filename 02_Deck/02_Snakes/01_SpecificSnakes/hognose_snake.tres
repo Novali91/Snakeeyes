@@ -10,6 +10,6 @@ snake_name = "Hognose Snake"
 drink_resource = ExtResource("1_ttyuh")
 snake_sprite = ExtResource("3_5c8ge")
 description = "Roll 2d6. \\n2-6: -1 poison\\n7-12: -3 poison."
-cost = 1
+cost = 4
 rarity = "C"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

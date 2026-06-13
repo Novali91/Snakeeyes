@@ -5,7 +5,8 @@
 
 [resource]
 script = ExtResource("1_qa56a")
-drink_name = "Placeholder"
+drink_name = "Chimera Venom"
 drink_sprite = ExtResource("1_e8h17")
 special_ability = 14
+description = "Gain strength equal to your antidote"
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

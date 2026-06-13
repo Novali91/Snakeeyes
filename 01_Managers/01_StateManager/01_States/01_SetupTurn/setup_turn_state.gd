@@ -35,5 +35,6 @@ func _reset_stats() -> void:
 	GS.set_poison(1)
 	GS.set_strength(0)
 	GS.set_charm(0)
+	sm.dice_manager.num_scarlets = 0
 	
 	sm.charm_overlay.clear_charm()

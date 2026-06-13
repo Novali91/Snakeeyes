@@ -6,9 +6,10 @@
 
 [resource]
 script = ExtResource("1_8ekav")
-snake_name = "Placeholder"
+snake_name = "Chimera Tail"
 drink_resource = ExtResource("1_yg5lf")
 snake_sprite = ExtResource("3_sqa34")
-cost = 1
+description = "Gain strength equal to your antidote"
+cost = 7
 rarity = "R"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

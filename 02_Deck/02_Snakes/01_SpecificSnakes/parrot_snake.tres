@@ -9,5 +9,5 @@ script = ExtResource("1_qt25q")
 snake_name = "Parrot Snake"
 drink_resource = ExtResource("1_lethk")
 snake_sprite = ExtResource("3_nsg03")
-cost = 1
+cost = 5
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

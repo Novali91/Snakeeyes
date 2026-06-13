@@ -7,7 +7,6 @@
 script = ExtResource("2_ku7r0")
 drink_name = "Placeboa Venom"
 drink_sprite = ExtResource("1_v4r3m")
-poison = -1
 charm = 1
 special_ability = 2
 cost = 3

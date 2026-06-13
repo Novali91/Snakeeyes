@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_oqrdi")
-snake_name = "Friendly Snake"
+snake_name = "Pit Viper"
 drink_resource = ExtResource("1_c4g1r")
 snake_sprite = ExtResource("3_7ouck")
 description = "When drank, reduce the poison of all drinks in your hand by 1."

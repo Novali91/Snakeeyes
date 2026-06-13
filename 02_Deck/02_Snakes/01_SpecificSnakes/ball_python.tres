@@ -8,6 +8,6 @@ script = ExtResource("1_pwk80")
 snake_name = "Ball Python"
 drink_resource = ExtResource("1_5j032")
 description = "Choose a snake. Roll 2d6:\\n2-6: Give it +2 strength\\n7-12: Give it +5 strength."
-cost = 1
+cost = 7
 rarity = "R"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

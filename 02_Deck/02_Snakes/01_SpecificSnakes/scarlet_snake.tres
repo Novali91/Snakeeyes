@@ -10,6 +10,6 @@ snake_name = "Scarlet Snake"
 drink_resource = ExtResource("1_6770r")
 snake_sprite = ExtResource("3_1axi5")
 description = "All dice rolls this turn roll +1."
-cost = 1
+cost = 4
 rarity = "C"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

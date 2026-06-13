@@ -6,11 +6,11 @@
 
 [resource]
 script = ExtResource("1_yidwo")
-snake_name = "Charming Snake"
+snake_name = "Amphisbaena"
 drink_resource = ExtResource("1_fiks4")
 snake_sprite = ExtResource("3_r27wn")
 description = "When drank, you may buy two additional antidotes this round."
-flavour_text = "Look at that smile!"
+flavour_text = "Something about being spawned from Medusa's blood and having medicinal property and two heads"
 cost = 5
 rarity = "C"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

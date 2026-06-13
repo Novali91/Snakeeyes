@@ -11,6 +11,6 @@ drink_resource = ExtResource("1_6kw3p")
 snake_sprite = ExtResource("3_1swm3")
 description = "When you drink this drink, slide it back"
 flavour_text = "Long lifespan snake!"
-cost = 1
+cost = 12
 rarity = "L"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

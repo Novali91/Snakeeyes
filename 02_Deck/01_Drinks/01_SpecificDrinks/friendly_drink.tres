@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("1_ssmvy")
-drink_name = "Friendly Venom"
+drink_name = "Pit Viper Venom"
 drink_sprite = ExtResource("1_8a6ts")
 poison = 4
-charm = 1
+strength = 2
 special_ability = 9
 cost = 7
 description = "When drank, reduce the poison of all drinks in your hand by 1."

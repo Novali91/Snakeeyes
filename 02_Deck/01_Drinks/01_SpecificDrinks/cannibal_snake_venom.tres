@@ -5,12 +5,12 @@
 
 [resource]
 script = ExtResource("1_kcvr0")
-drink_name = "Cannibal Snake Venom"
+drink_name = "Kingsnake"
 drink_sprite = ExtResource("1_ymohw")
 poison = 3
-charm = 1
+strength = 4
 special_ability = 7
 cost = 7
-description = "Kill a snake permanently."
+description = "On drink, kill a snake."
 flavour_text = "Luckily for us, it only eats snakes..."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

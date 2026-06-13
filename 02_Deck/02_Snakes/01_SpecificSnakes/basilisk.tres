@@ -10,6 +10,6 @@ snake_name = "Basilisk"
 drink_resource = ExtResource("1_jqc6o")
 snake_sprite = ExtResource("3_hh14d")
 description = "Pick a snake. Remove all of your charm and give that snake strength equal to that charm"
-cost = 1
+cost = 7
 rarity = "R"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

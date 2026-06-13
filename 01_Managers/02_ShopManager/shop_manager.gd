@@ -3,6 +3,9 @@ extends Node2D
 
 const SHOP_SIZE: int = 5
 
+const L_CHANCE_PER_SLOT: float = 0.04
+const R_CHANCE_PER_SLOT: float = 0.2
+
 signal snake_clicked(snake: Snake)
 signal antidote_clicked()
 
@@ -84,9 +87,16 @@ func purchase_antidote() -> void:
 
 func _get_snakes(num: int) -> Array[Snake]:
 	var arr: Array[Snake] = []
-	
+	var chance: float
+	var new_snake: Snake
 	for i in num:
-		var new_snake = create_snake(GS.common_snakes.pick_random())
+		chance = randf()
+		if chance <= L_CHANCE_PER_SLOT:
+			new_snake = create_snake(GS.legendary_snakes.pick_random())
+		elif chance <= R_CHANCE_PER_SLOT+L_CHANCE_PER_SLOT:
+			new_snake = create_snake(GS.legendary_snakes.pick_random())
+		else:
+			new_snake = create_snake(GS.common_snakes.pick_random())
 		arr.push_back(new_snake)
 	
 	return arr

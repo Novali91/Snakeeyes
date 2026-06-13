@@ -10,6 +10,6 @@ snake_name = "Black Mamba"
 drink_resource = ExtResource("1_tocy2")
 snake_sprite = ExtResource("3_v41ya")
 description = "Gain strength for each drink drank this turn"
-cost = 1
+cost = 7
 rarity = "R"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

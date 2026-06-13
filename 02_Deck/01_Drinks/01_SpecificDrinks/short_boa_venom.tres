@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_0wjna")
-drink_name = "Short-tailed Boa Venom"
+drink_name = "Boa Constrictor Venom"
 drink_sprite = ExtResource("1_t6ug0")
 poison = 1
 charm = 1

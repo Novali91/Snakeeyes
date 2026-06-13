@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_ywhdi")
-snake_name = "Short-tailed Boa"
+snake_name = "Boa Constrictor"
 drink_resource = ExtResource("1_sq8ku")
 snake_sprite = ExtResource("3_m3ej2")
 description = "Draw 2"

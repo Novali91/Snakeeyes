@@ -6,10 +6,11 @@
 
 [resource]
 script = ExtResource("1_g5tcr")
-snake_name = "Clairvoyant Snake"
+snake_name = "Nidhogg"
 drink_resource = ExtResource("1_n8dnk")
 snake_sprite = ExtResource("3_cnut2")
-description = "Drink another snake's venom instantly, but with double poison"
-cost = 10
+description = "On drink, kill another snake, then immediately drink that snake's venom for 0 poison."
+flavour_text = "Known as Malice Striker... Like from Clipse! Heh! Where is Pusha T striker!"
+cost = 12
 rarity = "L"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

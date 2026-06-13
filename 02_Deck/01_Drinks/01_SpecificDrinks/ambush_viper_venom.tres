@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_wre0m")
-drink_name = "Ambush Viper Venom"
+drink_name = "Cat Snake Venom"
 drink_sprite = ExtResource("1_axjnp")
 poison = 2
 strength = 4

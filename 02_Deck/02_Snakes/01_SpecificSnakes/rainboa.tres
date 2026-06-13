@@ -10,6 +10,6 @@ snake_name = "Rainboa"
 drink_resource = ExtResource("1_8udjw")
 snake_sprite = ExtResource("3_ooyvs")
 description = "Roll 2d6:\\n1-6: Draw 1\\n7-12: Draw 4."
-cost = 1
+cost = 7
 rarity = "R"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"
