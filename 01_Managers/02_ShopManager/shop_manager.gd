@@ -17,7 +17,8 @@ var antidote_position: Vector2
 @onready var ability_helper: ShopAbilityHelper = $ShopAbilityHelper
 @onready var _labels_node: Node2D = $PriceLabels
 @onready var _antidote_button: Button = $AntidoteButton
-@onready var darkness: ColorRect = $Darkness
+@onready var _darkness: ColorRect = $Darkness
+@onready var _open_sign: AnimatedSprite2D = $OpenSign
 
 @onready var _snake_scene: PackedScene = preload("res://02_Deck/02_Snakes/snake.tscn")
 @onready var reroll_button: Button = $RerollButton
@@ -64,6 +65,14 @@ func fill_shop() -> void:
 		_cur_snakes[i].position = _shop_positions[i]
 		_labels[i].text = str(_cur_snakes[i].attached_snake.cost)
 		_tooltip_manager.add_item(_cur_snakes[i])
+
+func toggle_open(open: bool) -> void:
+	can_buy = open
+	_darkness.visible = !open
+	if open:
+		_open_sign.frame = 0
+	else:
+		_open_sign.frame = 1
 
 func stock_antidote() -> void:
 	antidote_stock = 1

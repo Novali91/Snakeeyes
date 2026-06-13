@@ -17,14 +17,12 @@ func enter() -> void:
 	sm.camera_manager.unlock_camera()
 	sm.exit_shop_button.make_pressable()
 	
-	sm.shop_manager.can_buy = true
-	sm.shop_manager.darkness.visible = false
+	sm.shop_manager.toggle_open(true)
 	
 
 func exit() -> void:
 	sm.exit_shop_button.stop_pressable()
-	sm.shop_manager.can_buy = false
-	sm.shop_manager.darkness.visible = true
+	sm.shop_manager.toggle_open(false)
 
 func process_tick(_delta: float) -> void:
 	pass

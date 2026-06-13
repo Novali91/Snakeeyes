@@ -4,9 +4,32 @@
 [ext_resource type="Script" uid="uid://6hd2b0wx5v7f" path="res://01_Managers/05_Tooltip_Manager/tooltip_manager.gd" id="2_8kjcj"]
 [ext_resource type="Script" uid="uid://cimjodkpl2ahn" path="res://01_Managers/02_ShopManager/shop_ability_helper.gd" id="3_ah0kr"]
 [ext_resource type="Shader" uid="uid://csr6a823jullk" path="res://01_Managers/02_ShopManager/shop_darkness.gdshader" id="4_0hb6a"]
+[ext_resource type="Texture2D" uid="uid://bvgqs0gme8k7j" path="res://05_Assets/01_Art/03_UI_Sprites/closed and open shop sign spritesheet 400 by 400.png" id="5_mkdgh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mkdgh"]
 shader = ExtResource("4_0hb6a")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4eqn"]
+atlas = ExtResource("5_mkdgh")
+region = Rect2(0, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7e4h"]
+atlas = ExtResource("5_mkdgh")
+region = Rect2(400, 0, 400, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fre6n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4eqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7e4h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="ShopManager" type="Node2D" unique_id=690115681]
 script = ExtResource("1_oeh5l")
@@ -106,3 +129,8 @@ offset_top = 519.0
 offset_right = 1814.0
 offset_bottom = 550.0
 text = "REROLL: "
+
+[node name="OpenSign" type="AnimatedSprite2D" parent="." unique_id=1509979121]
+position = Vector2(960, 105)
+sprite_frames = SubResource("SpriteFrames_fre6n")
+frame = 1
