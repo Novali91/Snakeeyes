@@ -9,6 +9,7 @@ script = ExtResource("1_3o2gv")
 snake_name = "Corn Snake"
 drink_resource = ExtResource("1_7eleh")
 snake_sprite = ExtResource("3_udocb")
+flavour_text = "The friendliest snake, corn snakes make great pets!"
 cost = 2
 rarity = "S"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"
