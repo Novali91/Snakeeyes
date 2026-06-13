@@ -11,6 +11,6 @@ drink_resource = ExtResource("1_n8dnk")
 snake_sprite = ExtResource("3_cnut2")
 description = "On drink, kill another snake, then immediately drink that snake's venom for 0 poison."
 flavour_text = "Translating to Malice Striker, Nidhogg is known for eating the roots of the World Tree."
-cost = 1
+cost = 12
 rarity = "L"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"
