@@ -24,18 +24,20 @@ change_speed = 5.0
 metadata/_custom_type_script = "uid://c6wawj3dlldt1"
 
 [node name="Label" type="Label" parent="." unique_id=73514371]
-offset_left = 81.0
-offset_top = 7.0
-offset_right = 142.0
-offset_bottom = 30.0
+offset_left = 15.0
+offset_top = -164.0
+offset_right = 76.0
+offset_bottom = -141.0
 text = "Poison: "
 
 [node name="Input" type="Label" parent="." unique_id=2011245053]
-offset_left = 151.0
-offset_top = 8.0
-offset_right = 212.0
-offset_bottom = 31.0
+offset_left = 13.0
+offset_top = -122.0
+offset_right = 74.0
+offset_bottom = -67.0
+theme_override_font_sizes/font_size = 40
 text = "1"
+horizontal_alignment = 1
 
 [node name="Liquid" type="ColorRect" parent="." unique_id=1143124310]
 material = SubResource("ShaderMaterial_03wfj")
