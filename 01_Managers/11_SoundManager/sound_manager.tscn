@@ -48,4 +48,4 @@ stream = ExtResource("6_1lo1y")
 
 [node name="Dice" type="AudioStreamPlayer" parent="." unique_id=612057509]
 stream = ExtResource("7_obxvf")
-volume_db = 2.476
+volume_db = 1.0
