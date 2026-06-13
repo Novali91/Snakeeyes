@@ -11,13 +11,20 @@ shader_parameter/fisheye_speed = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_46yof"]
 shader = ExtResource("3_tmo6x")
-shader_parameter/close_time = 10.0
+shader_parameter/close_time = 0.0
+shader_parameter/start_time = 0.0
+shader_parameter/fade_time = 0.6
+shader_parameter/flutter_speed = 7.0
+shader_parameter/fall_dist = 0.5
+shader_parameter/awake_time = 4.5
 
 [node name="CameraManager" type="Node2D" unique_id=1135895677]
 script = ExtResource("1_5qfpc")
 poison_effect_change_speed = 3.0
 poison_fish_eye_intensity = 0.003
 poison_effect_begin_level = 6
+pass_out_time = 4.0
+pass_out_fall_time = 2.5
 metadata/_custom_type_script = "uid://d30y0q47xsgt0"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=97266164]
@@ -35,7 +42,6 @@ offset_bottom = 540.0
 mouse_filter = 2
 
 [node name="PassOutEffect" type="ColorRect" parent="Camera2D/CanvasLayer" unique_id=304278898]
-visible = false
 material = SubResource("ShaderMaterial_46yof")
 offset_left = -960.0
 offset_top = -540.0

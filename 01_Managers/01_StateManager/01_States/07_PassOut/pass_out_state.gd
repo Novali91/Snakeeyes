@@ -9,7 +9,11 @@ func setup() -> void:
 func enter() -> void:
 	var damage = sm.attack_manager.get_attack().size()
 	GS.set_score(GS.get_score() - damage)
+	sm.camera_manager.start_pass_out()
+	await(sm.camera_manager.pass_out_complete)
+	GS.sound_manager.play_fall()
 	sm.switch_state(sm.States.SETUP_TURN)
+	
 
 func exit() -> void:
 	pass
