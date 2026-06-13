@@ -68,11 +68,16 @@ Caduceus (Roll 2d6. 1-6: Gain 1 antidote. 7-12: Double your antidote)
 
 to do:
 rerolls in shop
+attacks
+affordable snakes should look different
+
+avery:
+refill animation
+tutorial
+add left / right buttons
+color outlines based on rarity
 snakes in shop
 snakes in deck
-attacks
-
-
 
 other stuff:
 score bar is confusing, goal? score?

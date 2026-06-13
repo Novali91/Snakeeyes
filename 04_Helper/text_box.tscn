@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://b6sevij1iobuf"]
+
+[ext_resource type="Script" uid="uid://ogt7rvwqqrmu" path="res://04_Helper/text_box.gd" id="1_k3i5s"]
+
+[sub_resource type="Animation" id="Animation_k3i5s"]
+resource_name = "open"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ppwx1"]
+_data = {
+&"open": SubResource("Animation_k3i5s")
+}
+
+[node name="TextBox" type="Node2D" unique_id=215385471]
+script = ExtResource("1_k3i5s")
+metadata/_custom_type_script = "uid://ogt7rvwqqrmu"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1122339646]
+custom_minimum_size = Vector2(800, 300)
+offset_left = -400.0
+offset_top = -150.0
+offset_right = 400.0
+offset_bottom = 150.0
+color = Color(0, 0, 0, 0.5568628)
+
+[node name="Text" type="RichTextLabel" parent="ColorRect" unique_id=800317632]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Sssssnake eyesss...."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=571918502]
+libraries/ = SubResource("AnimationLibrary_ppwx1")
