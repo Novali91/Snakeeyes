@@ -1,9 +1,12 @@
 [gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://cc42qsku0v8u4"]
 
+[ext_resource type="Texture2D" uid="uid://nhvr7gys1jdf" path="res://05_Assets/01_Art/03_UI_Sprites/poison meter.png" id="1_ilaxd"]
 [ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_q7ex7"]
 
 [resource]
 script = ExtResource("1_q7ex7")
+drink_sprite = ExtResource("1_ilaxd")
 poison = 1
-charm = 2
+strength = -2
+charm = 3
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

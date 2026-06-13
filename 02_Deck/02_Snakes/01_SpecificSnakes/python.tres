@@ -9,6 +9,7 @@ script = ExtResource("1_6jbnm")
 snake_name = "Python"
 drink_resource = ExtResource("1_mc8j8")
 snake_sprite = ExtResource("3_mc4cq")
+description = "Gain half of this snakes strength as charm."
 flavour_text = "Strong snake with strong venom"
 cost = 3
 rarity = "C"

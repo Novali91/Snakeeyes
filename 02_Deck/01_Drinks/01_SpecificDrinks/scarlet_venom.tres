@@ -7,7 +7,7 @@
 script = ExtResource("1_e0jbb")
 drink_name = "Scarlet Venom"
 drink_sprite = ExtResource("1_b1c1w")
-charm = 1
+charm = 2
 special_ability = 24
 description = "All dice rolls this turn roll +1."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"
