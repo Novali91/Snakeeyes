@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c6q0pm414jrde"]
+
+[ext_resource type="Script" uid="uid://bfx51hdkobah" path="res://01_Managers/12_TutorialManager/tutorial_manager.gd" id="1_lqt02"]
+
+[node name="TutorialManager" type="Node2D" unique_id=1208958163]
+script = ExtResource("1_lqt02")
+metadata/_custom_type_script = "uid://bfx51hdkobah"
