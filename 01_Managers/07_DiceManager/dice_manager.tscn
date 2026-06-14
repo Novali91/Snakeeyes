@@ -137,6 +137,7 @@ bonus_appear_time = 3.8
 cup_shake_frequency = 50.0
 cup_shake_wavelength = 15.0
 cup_shake_offset = -0.7
+antidote_flash_time = 0.25
 metadata/_custom_type_script = "uid://bm0r4ar0bjg1l"
 
 [node name="Cover" type="ColorRect" parent="." unique_id=563285309]
