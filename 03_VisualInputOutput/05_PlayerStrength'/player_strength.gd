@@ -67,8 +67,6 @@ func place_attack_tickers(attacks: Array[int], next_attacks: Array[int]) -> void
 		add_child(temp_next_attack_ticker)
 		temp_next_attack_ticker.get_child(1).set_value(attack_total)
 		temp_next_attack_ticker.position.y = get_height(attack_total) - _TICKER_Y_OFFSET
-		temp_next_attack_ticker.get_child(1).tint_col = Color.from_rgba8(30,30,30,255)
-		temp_next_attack_ticker.get_child(1).toggle_tint(true)
 		_next_attack_tickers.append(temp_next_attack_ticker)
 	
 	_next_attack_tickers[-1].set_top()
