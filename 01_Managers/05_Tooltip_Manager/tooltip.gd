@@ -33,8 +33,17 @@ var sprite_size: Vector2 = Vector2(300, 375)
 @onready var strength_label: Label = $Strength
 @onready var charm_label: Label = $Charm
 @onready var retain_label: Label = $Retain
+@onready var rarity_sprite: Sprite2D = $Rarity
+@onready var legendary_sprite: Sprite2D = $Legendary
+@onready var ap: AnimationPlayer = $AnimationPlayer
 ## Assuming viewport size does NOT change midgame (idk if it can or not)
 @onready var viewport_size: Vector2 = get_viewport_rect().size
+
+var rarities = [
+	preload("res://05_Assets/01_Art/06_Rarities/cmmon.png"),
+	preload("res://05_Assets/01_Art/06_Rarities/rare.png"),
+	preload("res://05_Assets/01_Art/06_Rarities/legendary.png")
+]
 
 func _ready() -> void:
 	desc_label.add_theme_color_override("default_color", Color())
@@ -112,7 +121,7 @@ func instantiate_drink_values(info: DrinkResource, og_info: DrinkResource) -> vo
 			desc_label.text = info.description + " (" + str(GS.get_antidote_num()) + ")." + "\n" + "\n" + "[color=\"686868\"]" + info.flavour_text
 		16:
 			name_label.text = info.drink_name
-			desc_label.text = info.description + " (" + str(GS.hand_manager.ability_helper.get_total_hand_str()) + ")." + "\n" + "[color=\"#686868\"]" + info.flavour_text
+			desc_label.text = info.description + " (" + str(GS.hand_manager.ability_helper.get_total_hand_str()-info.strength) + ")." + "\n" + "[color=\"#686868\"]" + info.flavour_text
 		21:
 			name_label.text = info.drink_name
 			desc_label.text = info.description + " (" + str(GS.get_charm()) + ")." + "\n" + "\n" + "[color=\"#686868\"]" + info.flavour_text
@@ -122,9 +131,10 @@ func instantiate_drink_values(info: DrinkResource, og_info: DrinkResource) -> vo
 		_:
 			name_label.text = info.drink_name
 			desc_label.text = info.description + "\n" + "\n" + "[color=\"#686868\"]" + info.flavour_text
-	set_val(info.strength, og_info.strength, strength_label, "Strength: ")
+	set_val(info.strength, og_info.strength, strength_label)
 	set_psn_val(info.poison, og_info.poison, poison_label)
-	set_val(info.charm, og_info.charm, charm_label, "Charm: ")
+	set_val(info.charm, og_info.charm, charm_label)
+	get_rarity(info.rarity)
 
 func instantiate_snake_values(info: SnakeResource, current_drink: DrinkResource) -> void:
 	if current_drink.retain: 
@@ -136,12 +146,13 @@ func instantiate_snake_values(info: SnakeResource, current_drink: DrinkResource)
 		_:
 			name_label.text = info.snake_name
 			desc_label.text = info.description + "\n" + "\n" + "[color=\"#686868\"]" + info.flavour_text
-	set_val(current_drink.strength, info.drink_resource.strength, strength_label, "Strength: ")
+	set_val(current_drink.strength, info.drink_resource.strength, strength_label)
 	set_psn_val(current_drink.poison, info.drink_resource.poison, poison_label)
-	set_val(current_drink.charm, info.drink_resource.charm, charm_label, "Charm: ")
+	set_val(current_drink.charm, info.drink_resource.charm, charm_label)
+	get_rarity(info.rarity)
 
-func set_val(val: int, og_val: int, label: Label, prefix: String) -> void:
-	label.text = prefix + str(val)
+func set_val(val: int, og_val: int, label: Label) -> void:
+	label.text = str(val)
 	if val == og_val:
 		label.label_settings.font_color = Color(0, 0, 0)
 	elif val > og_val:
@@ -150,21 +161,27 @@ func set_val(val: int, og_val: int, label: Label, prefix: String) -> void:
 		label.label_settings.font_color = Color(1.0, 0.3, 0.2)
 	pass
 
-func get_rarity(character: String) -> String:
-	var new_string: String
+func get_rarity(character: String) -> void:
 	match character:
-		"L":
-			new_string = "Legendary"
-		"R":
-			new_string = "Rare"
-		"C":
-			new_string = "Common"
 		"S":
-			new_string = "Starter"
-	return new_string
+			rarity_sprite.texture = rarities.get(0)
+			rarity_sprite.position = Vector2(155, 70)
+		"C":
+			rarity_sprite.texture = rarities.get(0)
+			rarity_sprite.position = Vector2(155, 70)
+		"R":
+			rarity_sprite.texture = rarities.get(1)
+			rarity_sprite.position = Vector2(150, 70)
+		"L":
+			ap.play("new_animation")
+			ap.get_animation("new_animation").loop_mode = Animation.LOOP_LINEAR
+			legendary_sprite.visible = true
+			return
+	rarity_sprite.visible = true
+	return
 
 func set_psn_val(val: int, og_val: int, label: Label) -> void:
-	label.text = "Poison: " + str(val)
+	label.text = str(val)
 	if val == og_val:
 		label.label_settings.font_color = Color(0, 0, 0)
 	elif val < og_val:
