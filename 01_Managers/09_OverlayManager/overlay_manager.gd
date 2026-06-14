@@ -5,7 +5,7 @@ extends Node2D
 @onready var buff = $Buff
 @onready var kill = $Kill
 @onready var dbl_poison = $DoublePoison
-@onready var retain_strength = $RetainStrength
+@onready var dbl_strength = $DoubleStrength
 @onready var slide_back_1 = $SlideBack1
 @onready var slide_back_2 = $SlideBack2
 @onready var slide_back_3 = $SlideBack3
@@ -23,8 +23,8 @@ func toggle_kill(vis) -> void:
 func toggle_dbl_poison(vis) -> void:
 	dbl_poison.visible = vis
 	
-func toggle_retain_strength(vis) -> void:
-	retain_strength.visible = vis
+func toggle_dbl_strength(vis) -> void:
+	dbl_strength.visible = vis
 
 func toggle_slide_back(vis, num) -> void:
 	var slide_back

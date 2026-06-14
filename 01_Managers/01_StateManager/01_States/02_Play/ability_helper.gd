@@ -142,9 +142,9 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			if sm.hand_manager.get_num_drinks() == 0:
 				return
 			
-			sm.overlay_manager.toggle_retain_strength(true)
+			sm.overlay_manager.toggle_dbl_strength(true)
 			var chosen_drink: Drink = await pick_drink()
-			sm.overlay_manager.toggle_retain_strength(false)
+			sm.overlay_manager.toggle_dbl_strength(false)
 			chosen_drink.attached_drink.strength = chosen_drink.attached_drink.strength * 2
 			chosen_drink.instantiate_tooltip()
 		BLACK_MAMBA:
