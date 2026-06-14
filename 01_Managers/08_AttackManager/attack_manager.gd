@@ -129,10 +129,10 @@ func get_attack_goal() -> int:
 	return out
 
 func _attack_hovered() -> void:
-	var n = _attack_ind + 1
+	var n = _attack_ind
 	while ATTACK_LIST[n].ability_index == 0: n += 1
 	
-	boss_tooltip.activate_boss_attack_tooltip(n, n - _attack_ind)
+	boss_tooltip.activate_boss_attack_tooltip(ATTACK_LIST[n].ability_index, n - _attack_ind)
 
 func _attack_unhovered() -> void:
 	boss_tooltip.deactivate_boss_attack_tooltip()
