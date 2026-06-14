@@ -13,4 +13,5 @@ description = "On drink, pick a drink. That drink's strength doubles."
 flavour_text = "If you look away for just a moment, their heads might just double."
 cost = 8
 rarity = "R"
+jingle_id = 10
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

@@ -13,4 +13,5 @@ description = "No ability."
 flavour_text = "Tiger Keelbacks are known for releasing the poison ingested from the toads in their diet as a defensive mechanism."
 cost = 3
 rarity = "C"
+jingle_id = 7
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

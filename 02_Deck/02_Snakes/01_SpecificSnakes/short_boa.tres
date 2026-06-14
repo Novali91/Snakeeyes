@@ -13,4 +13,5 @@ description = "On drink, slide in 2 drinks."
 flavour_text = "The Boa Constrictor is a fearsome snake, often coaxing prey. Despite this, they are a common and friendly pet."
 cost = 4
 rarity = "C"
+jingle_id = 5
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

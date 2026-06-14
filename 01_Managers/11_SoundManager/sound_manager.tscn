@@ -9,6 +9,20 @@
 [ext_resource type="AudioStream" uid="uid://51sylv8ycj2a" path="res://05_Assets/03_SoundEffects/Dice.mp3" id="7_obxvf"]
 [ext_resource type="AudioStream" uid="uid://bxn85hjhlj87r" path="res://05_Assets/03_SoundEffects/Fall.mp3" id="8_hdkfc"]
 [ext_resource type="AudioStream" uid="uid://bt1of5kawpjko" path="res://05_Assets/03_SoundEffects/Slide.mp3" id="9_rbmre"]
+[ext_resource type="AudioStream" uid="uid://b8gucht6dx3cl" path="res://05_Assets/03_SoundEffects/jingles/commonjingle1.wav" id="10_6pb87"]
+[ext_resource type="AudioStream" uid="uid://bwwwhm1fdumqr" path="res://05_Assets/03_SoundEffects/jingles/commonjingle2.wav" id="11_ttb52"]
+[ext_resource type="AudioStream" uid="uid://co1blyrl7n203" path="res://05_Assets/03_SoundEffects/jingles/commonjingle3.wav" id="12_omckb"]
+[ext_resource type="AudioStream" uid="uid://cmwybjc16s2wf" path="res://05_Assets/03_SoundEffects/jingles/commonjingle4.wav" id="13_74l0r"]
+[ext_resource type="AudioStream" uid="uid://b1jsplslb4l48" path="res://05_Assets/03_SoundEffects/jingles/commonjingle5.wav" id="14_sjc11"]
+[ext_resource type="AudioStream" uid="uid://xbetbf4q5o5c" path="res://05_Assets/03_SoundEffects/jingles/commonjingle6.wav" id="15_vgbr3"]
+[ext_resource type="AudioStream" uid="uid://c5r7yy4jr7ksj" path="res://05_Assets/03_SoundEffects/jingles/commonjingle7.wav" id="16_5m8bq"]
+[ext_resource type="AudioStream" uid="uid://c43ao5v1bthpe" path="res://05_Assets/03_SoundEffects/jingles/commonjingle8.wav" id="17_iey67"]
+[ext_resource type="AudioStream" uid="uid://brqc66mhls8bm" path="res://05_Assets/03_SoundEffects/jingles/commonjingle9.wav" id="18_cn8ca"]
+[ext_resource type="AudioStream" uid="uid://n2lckrx53d8e" path="res://05_Assets/03_SoundEffects/jingles/rare_ballpython.wav" id="19_ev6ds"]
+[ext_resource type="AudioStream" uid="uid://c1m88ajdx4sal" path="res://05_Assets/03_SoundEffects/jingles/rare_gorgon.wav" id="20_6itj8"]
+[ext_resource type="AudioStream" uid="uid://bdxrmigw23q5f" path="res://05_Assets/03_SoundEffects/jingles/rare_kingcobra.wav" id="21_7fogv"]
+[ext_resource type="AudioStream" uid="uid://s2c7cst1kbrd" path="res://05_Assets/03_SoundEffects/jingles/rare_kingsnake.wav" id="22_3qiuh"]
+[ext_resource type="AudioStream" uid="uid://chnfwfva5d48r" path="res://05_Assets/03_SoundEffects/jingles/rare_rainboa.wav" id="23_j8sid"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8gqlx"]
 random_pitch = 1.1863941
@@ -72,3 +86,61 @@ volume_db = 0.431
 [node name="Slide" type="AudioStreamPlayer" parent="." unique_id=2137986849]
 stream = SubResource("AudioStreamRandomizer_nccvg")
 volume_db = -13.744
+
+[node name="Jingles" type="Node" parent="." unique_id=2100341000]
+
+[node name="Commonjingle1" type="AudioStreamPlayer" parent="Jingles" unique_id=1826889680]
+stream = ExtResource("10_6pb87")
+volume_db = -15.0
+
+[node name="Commonjingle2" type="AudioStreamPlayer" parent="Jingles" unique_id=1098711598]
+stream = ExtResource("11_ttb52")
+volume_db = -15.0
+
+[node name="Commonjingle3" type="AudioStreamPlayer" parent="Jingles" unique_id=1568944960]
+stream = ExtResource("12_omckb")
+volume_db = -15.0
+
+[node name="Commonjingle4" type="AudioStreamPlayer" parent="Jingles" unique_id=584057573]
+stream = ExtResource("13_74l0r")
+volume_db = -15.0
+
+[node name="Commonjingle5" type="AudioStreamPlayer" parent="Jingles" unique_id=1556799671]
+stream = ExtResource("14_sjc11")
+volume_db = -15.0
+
+[node name="Commonjingle6" type="AudioStreamPlayer" parent="Jingles" unique_id=293216999]
+stream = ExtResource("15_vgbr3")
+volume_db = -15.0
+
+[node name="Commonjingle7" type="AudioStreamPlayer" parent="Jingles" unique_id=1994170804]
+stream = ExtResource("16_5m8bq")
+volume_db = -15.0
+
+[node name="Commonjingle8" type="AudioStreamPlayer" parent="Jingles" unique_id=1649645520]
+stream = ExtResource("17_iey67")
+volume_db = -15.0
+
+[node name="Commonjingle9" type="AudioStreamPlayer" parent="Jingles" unique_id=1829948960]
+stream = ExtResource("18_cn8ca")
+volume_db = -15.0
+
+[node name="RareBallpython" type="AudioStreamPlayer" parent="Jingles" unique_id=1873825551]
+stream = ExtResource("19_ev6ds")
+volume_db = -15.0
+
+[node name="RareGorgon" type="AudioStreamPlayer" parent="Jingles" unique_id=1253984981]
+stream = ExtResource("20_6itj8")
+volume_db = -15.0
+
+[node name="RareKingcobra" type="AudioStreamPlayer" parent="Jingles" unique_id=814965649]
+stream = ExtResource("21_7fogv")
+volume_db = -15.0
+
+[node name="RareKingsnake" type="AudioStreamPlayer" parent="Jingles" unique_id=1394386837]
+stream = ExtResource("22_3qiuh")
+volume_db = -15.0
+
+[node name="RareRainboa" type="AudioStreamPlayer" parent="Jingles" unique_id=483698032]
+stream = ExtResource("23_j8sid")
+volume_db = -15.0

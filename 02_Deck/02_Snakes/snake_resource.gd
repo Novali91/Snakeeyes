@@ -13,3 +13,5 @@ class_name SnakeResource
 @export var cost: int
 @export var rarity: String
 @export var num_drinks: int = 1
+
+@export var jingle_id: int

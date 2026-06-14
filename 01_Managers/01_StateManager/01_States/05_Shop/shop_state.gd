@@ -39,6 +39,7 @@ func _check_snake(snake: Snake) -> void:
 		await sm.shop_manager.ability_helper.buy_snake(snake_copy)
 		sm.deck_manager.add_snake(snake_copy)
 		sm.shop_manager.purchase_snake(snake)
+		GS.sound_manager.play_jingle(snake.attached_snake.jingle_id)
 
 func _check_antidote() -> void:
 	if GS.get_charm() >= GS.ANTIDOTE_COST:

@@ -13,4 +13,5 @@ description = "On drink, roll 2d6: On 1-6, slide in 1 drink. On 7-12: slide in 4
 flavour_text = "The Rainboa is distinctified by its rainbow sheen, which uses the same phenomenon as peacock feathers."
 cost = 7
 rarity = "R"
+jingle_id = 13
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

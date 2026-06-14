@@ -13,4 +13,5 @@ description = "All dice rolls this turn roll +1."
 flavour_text = "\"Red on black, friend of Jack.\""
 cost = 4
 rarity = "C"
+jingle_id = 8
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

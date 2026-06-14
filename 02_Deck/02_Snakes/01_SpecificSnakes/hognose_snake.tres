@@ -13,4 +13,5 @@ description = "On drink, roll 2d6: On 2-6:,-1 poison. On 7+, -3 poison."
 flavour_text = "So cute that it can even heal you!"
 cost = 4
 rarity = "C"
+jingle_id = 3
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

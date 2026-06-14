@@ -13,4 +13,5 @@ description = "On drink, pick a snake. Give that snake +2 strength permanently."
 flavour_text = "A handy pest-hunter commonly kept in gardens!"
 cost = 3
 rarity = "C"
+jingle_id = 4
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

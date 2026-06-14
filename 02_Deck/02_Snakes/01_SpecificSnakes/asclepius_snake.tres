@@ -13,4 +13,5 @@ description = "On drink, create an antidote."
 flavour_text = "The mythical snake of Asclepius, revered for reviving the dead. That doesn't mean it can't revive the living, though..."
 cost = 3
 rarity = "C"
+jingle_id = 1
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

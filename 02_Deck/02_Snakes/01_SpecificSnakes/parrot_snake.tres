@@ -12,4 +12,6 @@ snake_sprite = ExtResource("3_lethk")
 description = "Shares stats with all parrot snakes."
 flavour_text = "Parrot snakes share a hivemind-like consciousness!"
 cost = 4
+rarity = "C"
+jingle_id = 2
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

@@ -13,4 +13,5 @@ description = "On purchase, kill a snake permanently. Then, this snake gains its
 flavour_text = "The regal King Cobra enjoys a feast before it can rest."
 cost = 7
 rarity = "R"
+jingle_id = 11
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

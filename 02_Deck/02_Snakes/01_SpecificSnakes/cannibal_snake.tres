@@ -13,4 +13,5 @@ description = "On drink, kill a snake."
 flavour_text = "A king that eats its subjects... How regal."
 cost = 7
 rarity = "R"
+jingle_id = 12
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

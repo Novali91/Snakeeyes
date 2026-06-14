@@ -10,12 +10,16 @@ extends Node2D
 @onready var fall: AudioStreamPlayer = $Fall
 @onready var slide: AudioStreamPlayer = $Slide
 
+var jingles: Array[AudioStreamPlayer]
+
 var _bell_base_pitch: float
 @export var bell_pitch_step: float
 
 func _ready() -> void:
 	GS.sound_manager = self
 	_bell_base_pitch = bell.pitch_scale
+	for child in $Jingles.get_children():
+		jingles.append(child as AudioStreamPlayer)
 
 func play_clink() -> void:
 	clink.play(0.2)
@@ -41,3 +45,6 @@ func play_fall() -> void:
 
 func play_slide() -> void:
 	slide.play()
+
+func play_jingle(index: int) -> void:
+	jingles[index].play()
