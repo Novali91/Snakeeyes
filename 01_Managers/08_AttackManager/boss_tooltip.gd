@@ -29,13 +29,22 @@ func activate_boss_attack_tooltip(upcoming_index: int, turn_number: int) -> void
 	regular_sprite.visible = false
 	convo.visible = false
 	
-	attack_description.text = string_to_set
-	turn.text = "In "
-	turn.push_bold()
-	turn.push_font_size(40)
-	turn.text += str(turn_number)
-	turn.text += " turns..."
-	turn.pop_all()
+	
+	if turn_number != 0:
+		attack_description.text = string_to_set
+		turn.text = "In "
+		turn.push_bold()
+		turn.push_font_size(40)
+		turn.text += str(turn_number)
+		turn.text += " turns..."
+		turn.pop_all()
+	
+	else:
+		attack_description.text = string_to_set
+		turn.text = "This turn..."
+		turn.push_bold()
+		turn.push_font_size(40)
+		turn.pop_all()
 	
 	turn.visible = true
 	attack_sprite.visible = true
