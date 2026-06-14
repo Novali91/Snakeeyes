@@ -14,6 +14,8 @@ extends Resource
 @export var special_ability: int
 @export var cost: int
 
+var parent_snake: Snake
+
 @export var retain: bool = false
 
 # For tooltip

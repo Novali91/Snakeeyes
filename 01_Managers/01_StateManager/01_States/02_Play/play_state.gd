@@ -13,10 +13,10 @@ extends TopState
 ## All dice rolls -1
 
 const EXACT_SCORE: int = 1
-const DRINK_ALL_DRINKS_MINUS_STR: int = 2
-const SWAP_CHARM_STR: int = 3
-const DRINK_DRAW_ONE: int = 4
-const DRINK_SLIDE_BACK: int = 5
+const DRINK_ALL_DRINKS_MINUS_STR: int = 2 # X
+const SWAP_CHARM_STR: int = 3 # X
+const DRINK_DRAW_ONE: int = 4 # X
+const DRINK_SLIDE_BACK: int = 5 # X
 const END_KILL_SNAKES: int = 6
 const SWAP_POISON_CHARM: int = 7 # X
 const DRINK_SNAKE_ONE_POISON: int = 8
@@ -48,27 +48,24 @@ func physics_tick(_delta: float) -> void:
 
 func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkResource) -> void:
 	match GS.cur_attack_index:
-		0:
-			GS.set_poison(GS.get_poison() + drink.poison)
-			GS.set_strength(GS.get_strength() + drink.strength)
-			GS.set_charm(GS.get_charm() + drink.charm)
-		
 		SWAP_CHARM_STR:
 			GS.set_poison(GS.get_poison() + drink.poison)
 			GS.set_strength(GS.get_strength() + drink.charm)
 			GS.set_charm(GS.get_charm() + drink.strength)
+			sm.charm_overlay.gain_charm(drink.strength, drink_position)
 		
 		SWAP_POISON_CHARM:
 			GS.set_poison(GS.get_poison() + drink.charm)
 			GS.set_strength(GS.get_strength() + drink.strength)
 			GS.set_charm(GS.get_charm() + drink.poison)
-	
-	sm.charm_overlay.gain_charm(drink.charm, drink_position)
+			sm.charm_overlay.gain_charm(drink.poison, drink_position)
+		_:
+			GS.set_poison(GS.get_poison() + drink.poison)
+			GS.set_strength(GS.get_strength() + drink.strength)
+			GS.set_charm(GS.get_charm() + drink.charm)
+			sm.charm_overlay.gain_charm(drink.charm, drink_position)
 	
 	match GS.cur_attack_index:
-		0:
-			pass
-		
 		DRINK_ALL_DRINKS_MINUS_STR:
 			sm.hand_manager.ability_helper.change_str_values_in_hand(-1)
 			
@@ -83,6 +80,9 @@ func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkRes
 			sm.deck_manager.return_to_drawpile(drink_to_slide.attached_drink_resource, drink_to_slide.attached_drink)
 			
 			sm.overlay_manager.toggle_slide_back(false, 1)
+		
+		_:
+			pass
 	
 	sm.ability_helper.trigger_ability(drink.special_ability, drink_position, drink, og_drink)
 	
