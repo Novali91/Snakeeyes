@@ -35,7 +35,6 @@ Common:
 1 1 -1 Asclepius Snake (Gain an antidote)
 2 4 0 Cat Snake (Retain)
 1 -2 3 Tiger Keelback
-1 2 0 Python (1/2 charm for strength)
 1 0 1 Boa Constrictor (Draw 2)
 1 0 1 Scarlet Snake (All dice roll +1)
 0 0 1 Hognose Snake (Roll 2d6. 1-6: -1 poison, 7-12: -2 poison)
@@ -43,6 +42,7 @@ Common:
 
 Rare:
 3 4 0 Kingsnake (On drink, kill a snake)
+1 2 0 Python (1/2 charm for strength)
 1 2 0 Ball Python (Pick a snake then roll 2d6. 1-6: +1 strength, 7-12: +5 strength)
 1 0 2 Gorgon Snake (Retain, double target drinks strength)
 2 0 0 Black Mamba (Gain 1 strength per each card played this turn)
