@@ -144,7 +144,6 @@ unique_name_in_owner = true
 [node name="OverlayManager" parent="." unique_id=941339809 instance=ExtResource("25_gwsv7")]
 
 [node name="TitleScreenManager" parent="." unique_id=147652467 instance=ExtResource("27_u5576")]
-visible = false
 z_index = 2
 position = Vector2(2880, 540)
 
