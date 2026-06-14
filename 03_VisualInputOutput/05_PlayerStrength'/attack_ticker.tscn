@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bcdtsnxphyppk"]
 
-[ext_resource type="Texture2D" uid="uid://cos6eysksfv30" path="res://05_Assets/01_Art/03_UI_Sprites/Arrow.png" id="1_m1sco"]
+[ext_resource type="Texture2D" uid="uid://cos6eysksfv30" path="res://05_Assets/01_Art/03_UI_Sprites/left_arrow.png" id="1_m1sco"]
 
 [node name="AttackTicker" type="Node2D" unique_id=1270897173]
 

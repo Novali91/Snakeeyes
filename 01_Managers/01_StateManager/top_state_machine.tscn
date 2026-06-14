@@ -83,7 +83,6 @@ unique_name_in_owner = true
 [node name="ScoreBar" parent="." unique_id=292557974 instance=ExtResource("8_1tnha")]
 unique_name_in_owner = true
 position = Vector2(2880, 125)
-flash_goal_time = 2.0
 
 [node name="PlayerStrength" parent="." unique_id=940870006 instance=ExtResource("11_4aa5t")]
 unique_name_in_owner = true
@@ -126,6 +125,7 @@ unique_name_in_owner = true
 [node name="OverlayManager" parent="." unique_id=941339809 instance=ExtResource("25_gwsv7")]
 
 [node name="TitleScreenManager" parent="." unique_id=147652467 instance=ExtResource("27_u5576")]
+z_index = 2
 position = Vector2(2880, 540)
 
 [node name="SoundManager" parent="." unique_id=1682959940 instance=ExtResource("28_u5576")]
