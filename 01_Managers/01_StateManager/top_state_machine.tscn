@@ -29,10 +29,21 @@
 [ext_resource type="PackedScene" uid="uid://dcac3rjwq26kc" path="res://01_Managers/09_OverlayManager/overlay_manager.tscn" id="25_gwsv7"]
 [ext_resource type="PackedScene" uid="uid://dmqecy4uccb4k" path="res://01_Managers/10_TitleScreenManager/title_screen_manager.tscn" id="27_u5576"]
 [ext_resource type="PackedScene" uid="uid://dre8t8sp8st3f" path="res://01_Managers/11_SoundManager/sound_manager.tscn" id="28_u5576"]
+[ext_resource type="AudioStream" uid="uid://1isvfq1xksxj" path="res://05_Assets/03_SoundEffects/newsounds/drink.wav" id="30_dxdvi"]
+[ext_resource type="AudioStream" uid="uid://xuve1fgqx2i4" path="res://05_Assets/03_SoundEffects/newsounds/fill.wav" id="30_vijnp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2a4np"]
 font_size = 175
 font_color = Color(0.9856667, 1, 0.57, 1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ahk7q"]
+streams_count = 1
+stream_0/stream = ExtResource("30_vijnp")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vijnp"]
+random_pitch = 1.005793
+streams_count = 1
+stream_0/stream = ExtResource("30_dxdvi")
 
 [node name="TopStateMachine" type="Node" unique_id=741613550]
 script = ExtResource("1_brpme")
@@ -129,7 +140,18 @@ position = Vector2(3840, 0)
 
 [node name="AntidoteCount" parent="." unique_id=818012555 instance=ExtResource("12_mg5ld")]
 unique_name_in_owner = true
-position = Vector2(3583, 308)
+position = Vector2(3735, 819)
+scale = Vector2(1.5, 1.5)
+
+[node name="AntidoteCount2" parent="." unique_id=1943998165 instance=ExtResource("12_mg5ld")]
+unique_name_in_owner = true
+position = Vector2(5670, 950.00006)
+scale = Vector2(1.5, 1.5)
+
+[node name="AntidoteCount3" parent="." unique_id=1224250646 instance=ExtResource("12_mg5ld")]
+unique_name_in_owner = true
+position = Vector2(161, 924.00006)
+scale = Vector2(1.5, 1.5)
 
 [node name="TutorialManager" parent="." unique_id=1208958163 instance=ExtResource("24_dxdvi")]
 position = Vector2(3199, 227)
@@ -196,3 +218,9 @@ offset_right = 1128.0
 offset_bottom = 735.0
 theme_override_font_sizes/font_size = 48
 text = "Quit"
+
+[node name="Refill" type="AudioStreamPlayer" parent="." unique_id=1024073539]
+stream = SubResource("AudioStreamRandomizer_ahk7q")
+
+[node name="Drink" type="AudioStreamPlayer" parent="." unique_id=131081864]
+stream = SubResource("AudioStreamRandomizer_vijnp")

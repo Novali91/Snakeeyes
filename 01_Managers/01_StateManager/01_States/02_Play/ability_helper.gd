@@ -239,6 +239,7 @@ func draw_cards(num: int) -> void:
 	sm.camera_manager.unlock_camera()
 
 func _reshuffle_draw_pile() -> void:
+	sm.refill.play()
 	sm.deck_manager.reshuffle_drawpile()
 
 func remove_snake(start_screen: int) -> void:

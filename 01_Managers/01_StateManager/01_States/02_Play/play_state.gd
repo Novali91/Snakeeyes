@@ -68,6 +68,8 @@ func physics_tick(_delta: float) -> void:
 	pass
 
 func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkResource) -> void:
+	sm.drink.play()
+	
 	match GS.cur_attack_index:
 		SWAP_CHARM_STR:
 			GS.set_poison(GS.get_poison() + drink.poison)

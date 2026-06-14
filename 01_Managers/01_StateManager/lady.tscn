@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dt2r087yw7ejv" path="res://05_Assets/01_Art/02_Backgrounds/bar table sprite.png" id="6_i70d5"]
 [ext_resource type="Texture2D" uid="uid://dd6cfddfgpsll" path="res://05_Assets/01_Art/07_Boss_Sprites/armwrestle sprite.png" id="7_i70d5"]
 [ext_resource type="Texture2D" uid="uid://d02tlpr0vbcva" path="res://05_Assets/01_Art/07_Boss_Sprites/player hand.png" id="8_vyjo0"]
+[ext_resource type="AudioStream" uid="uid://uhokrv3nb74a" path="res://05_Assets/03_SoundEffects/newsounds/thump.wav" id="10_i70d5"]
 
 [sub_resource type="Animation" id="Animation_43gwr"]
 resource_name = "ArmWrestleDamage"
@@ -523,6 +524,11 @@ _data = {
 &"RESET": SubResource("Animation_ltiuq")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_43gwr"]
+random_pitch = 1.0028923
+streams_count = 1
+stream_0/stream = ExtResource("10_i70d5")
+
 [node name="Lady" type="Node2D" unique_id=827603467]
 script = ExtResource("1_ca7lb")
 
@@ -567,3 +573,6 @@ libraries/ = SubResource("AnimationLibrary_6mwh4")
 
 [node name="Table" type="Sprite2D" parent="." unique_id=1805799883]
 texture = ExtResource("6_i70d5")
+
+[node name="Thump" type="AudioStreamPlayer" parent="." unique_id=516152231]
+stream = SubResource("AudioStreamRandomizer_43gwr")

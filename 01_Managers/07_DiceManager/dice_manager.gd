@@ -46,6 +46,10 @@ func _ready() -> void:
 	visible = false
 	_use_antidote_button.pressed.connect(_antidote_pressed)
 	_continue_button.pressed.connect(_continue_pressed)
+	_use_antidote_button.mouse_entered.connect(_antidote_hovered)
+	_use_antidote_button.mouse_exited.connect(_antidote_unhovered)
+	_continue_button.mouse_entered.connect(_continue_hovered)
+	_continue_button.mouse_exited.connect(_continue_unhovered)
 
 func _process(delta: float) -> void:
 	antidote_flash_progress += delta
@@ -159,3 +163,15 @@ func _get_dice_faces(val: int) -> Array[int]:
 	var die2 = val - die1
 	
 	return [die1, die2]
+
+func _antidote_hovered() -> void:
+	_use_antidote_button.material.set_shader_parameter("alpha", 1.0)
+
+func _antidote_unhovered() -> void:
+	_use_antidote_button.material.set_shader_parameter("alpha", 0.0)
+
+func _continue_hovered() -> void:
+	_continue_button.material.set_shader_parameter("alpha", 1.0)
+
+func _continue_unhovered() -> void:
+	_continue_button.material.set_shader_parameter("alpha", 0.0)

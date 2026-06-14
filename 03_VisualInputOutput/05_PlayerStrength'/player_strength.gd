@@ -101,8 +101,11 @@ func set_value(_old_val: int, new_val: int) -> void:
 	_tween = create_tween().set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	_tween.tween_property(_ticker, "position:y", ticker_target, 1)
 	
+	clamped = clamp(new_val, 0, 1000)
+	ticker_target = get_height(clamped + 1)
+	
 	for attack_ticker in _attack_tickers:
 		attack_ticker.get_child(1).toggle_tint(ticker_target <= attack_ticker.position.y + _TICKER_Y_OFFSET)
 	
-	if _old_val != new_val && new_val > 0:
+	if _old_val != new_val && new_val >= 0:
 		GS.sound_manager.play_bell(new_val)

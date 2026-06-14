@@ -1,7 +1,7 @@
 class_name AntidoteCount
 extends Node2D
 
-@onready var _input: Label = $Input
+@onready var _input: Label = $Label
 
 func _ready() -> void:
 	GS.antidote_num_set.connect(set_value)

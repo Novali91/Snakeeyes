@@ -50,6 +50,9 @@ var current_state: int
 @onready var tutorial_manager: TutorialManager = $TutorialManager
 @onready var lady: Lady = $Lady
 
+@onready var refill: AudioStreamPlayer = $Refill
+@onready var drink: AudioStreamPlayer = $Drink
+
 
 func _ready() -> void:
 	win_close.pressed.connect(_quit)

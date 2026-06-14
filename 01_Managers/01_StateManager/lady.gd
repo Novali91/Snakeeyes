@@ -2,6 +2,7 @@ class_name Lady
 extends Node2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var thump: AudioStreamPlayer = $Thump
 
 signal finished()
 
@@ -16,6 +17,7 @@ func lose_armwrestle(damage: int) -> void:
 	animation_player.play("ArmWrestleStart")
 	await animation_player.animation_finished
 	for i in damage:
+		thump.play()
 		animation_player.play("ArmWrestleDamage")
 		await animation_player.animation_finished
 	finished.emit()

@@ -1,8 +1,46 @@
 [gd_scene format=3 uid="uid://bmyg1l3eqrxql"]
 
 [ext_resource type="Script" uid="uid://bm0r4ar0bjg1l" path="res://01_Managers/07_DiceManager/dice_manager.gd" id="1_2k3sa"]
+[ext_resource type="FontFile" uid="uid://c6xfa0o2h2ssc" path="res://05_Assets/05_Fonts/OldNewspaperTypes.ttf" id="2_l6sk2"]
 [ext_resource type="Texture2D" uid="uid://bnlh4t3t803a2" path="res://05_Assets/01_Art/03_UI_Sprites/dice spritesheet 150 by 150.png" id="2_o43fa"]
 [ext_resource type="Texture2D" uid="uid://44n8lq26nevn" path="res://05_Assets/01_Art/03_UI_Sprites/dice roll cup spritesheet 500 by 500.png" id="3_cvl4k"]
+[ext_resource type="Shader" uid="uid://0oonfw65mdnr" path="res://05_Assets/02_Shaders/outline.gdshader" id="3_jkwlg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u73lx"]
+shader = ExtResource("3_jkwlg")
+shader_parameter/sprite_alpha = 1.0
+shader_parameter/color = Color(1, 0.58000004, 0.909, 1)
+shader_parameter/alpha = 0.0
+shader_parameter/thickness = 0.002000000095
+shader_parameter/x_over_y = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q5jfh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gefl3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ksian"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tyl8d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_luswh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l6sk2"]
+shader = ExtResource("3_jkwlg")
+shader_parameter/sprite_alpha = 1.0
+shader_parameter/color = Color(1, 0.58000004, 0.85300004, 1)
+shader_parameter/alpha = 0.0
+shader_parameter/thickness = 0.002000000095
+shader_parameter/x_over_y = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rpom"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w8dio"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbq6a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sjddo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_twwdu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gefl3"]
 atlas = ExtResource("3_cvl4k")
@@ -151,6 +189,7 @@ offset_left = 763.0
 offset_top = 440.0
 offset_right = 944.0
 offset_bottom = 463.0
+theme_override_fonts/font = ExtResource("2_l6sk2")
 text = "Your roll:"
 horizontal_alignment = 1
 
@@ -160,6 +199,7 @@ offset_left = 4.0
 offset_top = 30.0
 offset_right = 170.0
 offset_bottom = 190.0
+theme_override_fonts/font = ExtResource("2_l6sk2")
 theme_override_font_sizes/font_size = 100
 text = "5"
 horizontal_alignment = 1
@@ -170,6 +210,7 @@ offset_left = 1008.0
 offset_top = 441.0
 offset_right = 1189.0
 offset_bottom = 464.0
+theme_override_fonts/font = ExtResource("2_l6sk2")
 text = "Your goal:"
 horizontal_alignment = 1
 
@@ -179,23 +220,40 @@ offset_left = 4.0
 offset_top = 30.0
 offset_right = 170.0
 offset_bottom = 190.0
+theme_override_fonts/font = ExtResource("2_l6sk2")
 theme_override_font_sizes/font_size = 100
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="UseAntidoteButton" type="Button" parent="." unique_id=1561089080]
-offset_left = 808.0
-offset_top = 636.0
-offset_right = 916.0
-offset_bottom = 667.0
+material = SubResource("ShaderMaterial_u73lx")
+offset_left = 618.0
+offset_top = 689.0
+offset_right = 816.0
+offset_bottom = 730.0
+theme_override_fonts/font = ExtResource("2_l6sk2")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q5jfh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gefl3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ksian")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tyl8d")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_luswh")
 text = "Use Antidote"
 
 [node name="ContinueButton" type="Button" parent="." unique_id=1599502528]
-offset_left = 1018.0
-offset_top = 643.0
-offset_right = 1097.0
-offset_bottom = 674.0
+material = SubResource("ShaderMaterial_l6sk2")
+offset_left = 1136.0
+offset_top = 685.0
+offset_right = 1270.0
+offset_bottom = 726.0
+theme_override_fonts/font = ExtResource("2_l6sk2")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8rpom")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w8dio")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_sbq6a")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sjddo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_twwdu")
 text = "Continue"
 
 [node name="Cup" type="AnimatedSprite2D" parent="." unique_id=885028806]
