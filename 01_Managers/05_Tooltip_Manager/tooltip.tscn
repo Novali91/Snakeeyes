@@ -1,26 +1,27 @@
 [gd_scene format=3 uid="uid://eg5ukadcklbv"]
 
 [ext_resource type="Script" uid="uid://40gxy6hwhljv" path="res://01_Managers/05_Tooltip_Manager/tooltip.gd" id="1_vrqg4"]
-
-[sub_resource type="Gradient" id="Gradient_vrqg4"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_o8cfu"]
-gradient = SubResource("Gradient_vrqg4")
-width = 300
-height = 375
+[ext_resource type="Texture2D" uid="uid://da8inywl70h1l" path="res://05_Assets/01_Art/03_UI_Sprites/tooltip background.png" id="2_7m7g2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8dqle"]
-font_size = 32
+font_size = 26
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_mnr5o"]
-font_size = 20
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ptalj"]
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="FontFile" id="FontFile_7m7g2"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_5gy0h"]
 resource_local_to_scene = true
@@ -34,72 +35,80 @@ font_color = Color(0, 0, 0, 1)
 resource_local_to_scene = true
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_p1mje"]
-font_size = 26
+[sub_resource type="LabelSettings" id="LabelSettings_ptalj"]
+font_size = 20
+font_color = Color(0.011764706, 0.007843138, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mnr5o"]
+font_size = 18
 font_color = Color(0, 0, 0, 1)
 
 [node name="Tooltip" type="Node2D" unique_id=1158809468]
-visible = false
 top_level = true
 script = ExtResource("1_vrqg4")
 metadata/_custom_type_script = "uid://40gxy6hwhljv"
 
 [node name="TooltipSprite" type="Sprite2D" parent="." unique_id=236172529]
-position = Vector2(125, 175)
-texture = SubResource("GradientTexture2D_o8cfu")
+position = Vector2(160, 195)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_7m7g2")
 
 [node name="Name" type="Label" parent="." unique_id=116263010]
-offset_right = 250.0
+offset_left = 25.0
+offset_top = 20.0
+offset_right = 295.0
 offset_bottom = 80.0
 label_settings = SubResource("LabelSettings_8dqle")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Label" parent="." unique_id=1310774327]
-offset_top = 110.0
-offset_right = 250.0
-offset_bottom = 225.0
-label_settings = SubResource("LabelSettings_mnr5o")
-autowrap_mode = 3
-
-[node name="FlavourText" type="Label" parent="." unique_id=1793526735]
-offset_top = 235.0
-offset_right = 250.0
-offset_bottom = 320.0
-label_settings = SubResource("LabelSettings_ptalj")
-autowrap_mode = 3
+[node name="Description" type="RichTextLabel" parent="." unique_id=1645975743]
+offset_left = 20.0
+offset_top = 140.0
+offset_right = 290.0
+offset_bottom = 348.0
+theme_override_fonts/normal_font = SubResource("FontFile_7m7g2")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/italics_font_size = 18
+bbcode_enabled = true
 
 [node name="Poison" type="Label" parent="." unique_id=666007147]
-offset_top = 80.0
-offset_right = 83.0
-offset_bottom = 110.0
+offset_left = 20.0
+offset_top = 110.0
+offset_right = 110.0
+offset_bottom = 140.0
 label_settings = SubResource("LabelSettings_5gy0h")
 
 [node name="Strength" type="Label" parent="." unique_id=2072668975]
-offset_left = 83.0
-offset_top = 80.0
-offset_right = 166.0
-offset_bottom = 110.0
+offset_left = 110.0
+offset_top = 110.0
+offset_right = 200.0
+offset_bottom = 140.0
 label_settings = SubResource("LabelSettings_7m7g2")
 
 [node name="Charm" type="Label" parent="." unique_id=1096266287]
-offset_left = 166.0
-offset_top = 80.0
-offset_right = 249.0
-offset_bottom = 110.0
+offset_left = 200.0
+offset_top = 110.0
+offset_right = 290.0
+offset_bottom = 140.0
 label_settings = SubResource("LabelSettings_wv1ln")
 
-[node name="Retain" type="Label" parent="." unique_id=1888864494]
-offset_top = 320.0
-offset_right = 220.0
-offset_bottom = 350.0
-text = "Stays on the table?:"
-label_settings = SubResource("LabelSettings_p1mje")
+[node name="Rarity" type="Label" parent="." unique_id=1417747819]
+offset_left = 20.0
+offset_top = 80.0
+offset_right = 290.0
+offset_bottom = 110.0
+label_settings = SubResource("LabelSettings_ptalj")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="RetainMark" type="CheckBox" parent="." unique_id=916894764]
-offset_left = 220.0
-offset_top = 320.0
-offset_right = 250.0
-offset_bottom = 350.0
-disabled = true
-button_mask = 0
+[node name="Retain" type="Label" parent="." unique_id=1943400394]
+visible = false
+offset_left = 25.0
+offset_top = 350.0
+offset_right = 285.0
+offset_bottom = 376.0
+text = "This drink stays on the table."
+label_settings = SubResource("LabelSettings_mnr5o")
+horizontal_alignment = 1
+vertical_alignment = 1

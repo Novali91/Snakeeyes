@@ -26,14 +26,16 @@ var sprite_size: Vector2 = Vector2(400, 450)
 
 ## References for instantiating values:
 @onready var name_label: Label = $Name
-@onready var desc_label: Label = $Description
-@onready var flavour_label: Label = $FlavourText
+@onready var desc_label: RichTextLabel = $Description
 @onready var poison_label: Label = $Poison
 @onready var strength_label: Label = $Strength
 @onready var charm_label: Label = $Charm
-
+@onready var retain_label: Label = $Retain
 ## Assuming viewport size does NOT change midgame (idk if it can or not)
 @onready var viewport_size: Vector2 = get_viewport_rect().size
+
+func _ready() -> void:
+	desc_label.add_theme_color_override("default_color", Color())
 
 func _physics_process(_delta: float) -> void:
 	# Not visible means it doesn't do stuff!
@@ -100,45 +102,38 @@ func deactivate() -> void:
 
 ## Used to instantiate the values in the tooltip descriptions using the drink/snake resource
 func instantiate_drink_values(info: DrinkResource, og_info: DrinkResource) -> void:
+	if info.retain: 
+		retain_label.visible = true
 	match info.special_ability:
 		14:
 			name_label.text = info.drink_name
-			desc_label.text = info.description + " (" + str(GS.get_antidote_num()) + ")."
-			flavour_label.text = info.flavour_text
+			desc_label.text = info.description + " (" + str(GS.get_antidote_num()) + ")." + "\n" + info.flavour_text
 		16:
 			name_label.text = info.drink_name
-			desc_label.text = info.description + " (" + str(GS.hand_manager.ability_helper.get_total_hand_str()) + ")."
-			flavour_label.text = info.flavour_text
-		20:
-			name_label.text = info.drink_name
-			desc_label.text = info.description + " (" + str(GS.hand_manager.drinks.size()) + ")."
-			flavour_label.text = info.flavour_text
+			desc_label.text = info.description + " (" + str(GS.hand_manager.ability_helper.get_total_hand_str()) + ")." + "\n" + info.flavour_text
 		21:
 			name_label.text = info.drink_name
-			desc_label.text = info.description + " (" + str(GS.get_charm()) + ")."
-			flavour_label.text = info.flavour_text
+			desc_label.text = info.description + " (" + str(GS.get_charm()) + ")." + "\n" + info.flavour_text
 		22:
 			name_label.text = info.drink_name
-			desc_label.text = info.description + " (" + str(info.strength/2.0) + ")."
-			flavour_label.text = info.flavour_text
+			desc_label.text = info.description + " (" + str(info.strength/2.0) + ")." + "\n" + info.flavour_text
 		_:
 			name_label.text = info.drink_name
-			desc_label.text = info.description
-			flavour_label.text = info.flavour_text
+			desc_label.text = info.description + "\n" + info.flavour_text
 	set_val(info.strength, og_info.strength, strength_label, "Strength: ")
 	set_psn_val(info.poison, og_info.poison, poison_label)
 	set_val(info.charm, og_info.charm, charm_label, "Charm: ")
 
 func instantiate_snake_values(info: SnakeResource, current_drink: DrinkResource) -> void:
+	if current_drink.retain: 
+		retain_label.visible = true
 	match current_drink.special_ability:
 		14:
 			name_label.text = info.snake_name
-			desc_label.text = info.description + " (" + str(GS.get_antidote_num()) + ")."
-			flavour_label.text = info.flavour_text
+			desc_label.text = info.description + " (" + str(GS.get_antidote_num()) + ")." + "\n" + info.flavour_text
 		_:
 			name_label.text = info.snake_name
-			desc_label.text = info.description
-			flavour_label.text = info.flavour_text
+			desc_label.text = info.description + "\n" + info.flavour_text
 	set_val(current_drink.strength, info.drink_resource.strength, strength_label, "Strength: ")
 	set_psn_val(current_drink.poison, info.drink_resource.poison, poison_label)
 	set_val(current_drink.charm, info.drink_resource.charm, charm_label, "Charm: ")
@@ -152,6 +147,19 @@ func set_val(val: int, og_val: int, label: Label, prefix: String) -> void:
 	else:
 		label.label_settings.font_color = Color(1.0, 0.3, 0.2)
 	pass
+
+func get_rarity(character: String) -> String:
+	var new_string: String
+	match character:
+		"L":
+			new_string = "Legendary"
+		"R":
+			new_string = "Rare"
+		"C":
+			new_string = "Common"
+		"S":
+			new_string = "Starter"
+	return new_string
 
 func set_psn_val(val: int, og_val: int, label: Label) -> void:
 	label.text = "Poison: " + str(val)

@@ -20,6 +20,8 @@ func _ready() -> void:
 	super._ready()
 	instantiate_tooltip()
 	set_texture()
+	attached_snake.flavour_text = "[i]" + attached_snake.flavour_text + "[/i]"
+	current_drink.flavour_text = "[i]" + current_drink.flavour_text + "[/i]"
 	pass
 
 func set_texture() -> void:
