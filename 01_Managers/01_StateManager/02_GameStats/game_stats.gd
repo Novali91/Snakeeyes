@@ -12,6 +12,8 @@ const RARITY_TO_COLOR: Dictionary[String, Color] = {
 	"L": Color(0.95, 1.0, 0.0, 1.0),
 }
 
+var in_tutorial: bool = true
+
 var turn_count: int = 0
 
 signal poison_set(old_val: int, new_val: int)

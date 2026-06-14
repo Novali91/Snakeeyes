@@ -7,14 +7,30 @@ func setup() -> void:
 func enter() -> void:
 	sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 	sm.camera_manager.lock_camera()
+	
 	_reset_stats()
+	
+	## boss drinks
+	if sm.attack_manager._current_attack == null or sm.attack_manager.get_attack().ability_index != 10:
+		sm.attack_manager.next_attack()
+	await get_tree().create_timer(1.0).timeout
+	
 	
 	sm.shop_manager.empty_shop()
 	sm.shop_manager.fill_shop()
 	sm.shop_manager.stock_antidote()
 	
-	if sm.attack_manager._current_attack == null or sm.attack_manager.get_attack().ability_index != 10:
-		sm.attack_manager.next_attack()
+	sm.camera_manager.switch_screen(sm.camera_manager.RIGHT, true)
+	
+	## wait a sec
+	await get_tree().create_timer(1.0).timeout
+	
+	## go back middle
+	sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
+	
+	## wait a sec
+	await get_tree().create_timer(1.0).timeout
+	
 	sm.score_bar.set_goal_value(sm.attack_manager.get_attack_goal())
 	sm.player_strength.place_attack_tickers(sm.attack_manager.get_attack().damage,sm.attack_manager._next_attack.damage)
 	GS.cur_attack_index = sm.attack_manager.get_attack().ability_index
