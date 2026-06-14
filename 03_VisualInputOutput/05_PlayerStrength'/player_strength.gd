@@ -1,6 +1,7 @@
 class_name PlayerStrength
 extends Node2D
 
+const _ATTACK_TICKER_SCENE = preload("res://03_VisualInputOutput/05_PlayerStrength'/attack_ticker.tscn")
 const _TICKER_Y_OFFSET = -200
 const _TICKER_VALUES = [
 	0,
@@ -29,22 +30,31 @@ const _TICKER_VALUES = [
 var _tween: Tween
 var _markers: Array[Marker2D]
 
+var _attack_tickers: Array[Node2D] = []
+
 func _ready() -> void:
 	GS.strength_set.connect(set_value)
 	
 	for m: Marker2D in _marker_node.get_children():
 		_markers.push_back(m)
 
-func set_value(_old_val: int, new_val: int) -> void:
-	_input.text = str(new_val)
-	
-	_custom_number.set_value(new_val)
-	
-	var clamped = clamp(new_val, 0, 1000)
+func place_attack_tickers(attacks: Array[int]) -> void:
+	for attack_ticker in _attack_tickers:
+		attack_ticker.queue_free()
+	_attack_tickers = []
+	var attack_total = 0
+	for attack in attacks:
+		attack_total += attack
+		var temp_attack_ticker = _ATTACK_TICKER_SCENE.instantiate()
+		add_child(temp_attack_ticker)
+		temp_attack_ticker.position.y = get_height(attack_total) - _TICKER_Y_OFFSET
+		_attack_tickers.append(temp_attack_ticker)
+
+func get_height(val: int) -> float:
 	var stop_ind: int
 	for i in range(1, _TICKER_VALUES.size()):
 		stop_ind = i
-		if _TICKER_VALUES[i] >= clamped: break
+		if _TICKER_VALUES[i] >= val: break
 	
 	var top_ticker = _TICKER_VALUES[stop_ind]
 	var bot_ticker = _TICKER_VALUES[stop_ind - 1]
@@ -52,9 +62,17 @@ func set_value(_old_val: int, new_val: int) -> void:
 	var top_pos = _markers[stop_ind].position.y
 	var bot_pos = _markers[stop_ind - 1].position.y
 	
-	var percent: float = (clamped - bot_ticker) / float(top_ticker - bot_ticker)
+	var percent: float = (val - bot_ticker) / float(top_ticker - bot_ticker)
 	
-	var ticker_target = _TICKER_Y_OFFSET + lerp(bot_pos, top_pos, percent)
+	return _TICKER_Y_OFFSET + lerp(bot_pos, top_pos, percent)
+
+func set_value(_old_val: int, new_val: int) -> void:
+	_input.text = str(new_val)
+	
+	_custom_number.set_value(new_val)
+	
+	var clamped = clamp(new_val, 0, 1000)
+	var ticker_target = get_height(clamped)
 	
 	if _tween: _tween.kill()
 	

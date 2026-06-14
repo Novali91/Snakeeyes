@@ -15,6 +15,7 @@ func enter() -> void:
 	
 	sm.attack_manager.next_attack()
 	sm.score_bar.set_goal_value(sm.attack_manager.get_attack_goal())
+	sm.player_strength.place_attack_tickers(sm.attack_manager.get_attack())
 	
 	GS.turn_count += 1
 	sm.score_bar.set_turn_value(GS.turn_count)
