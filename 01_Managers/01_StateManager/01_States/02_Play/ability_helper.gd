@@ -138,6 +138,9 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			sm.overlay_manager.toggle_slide_back(false,3)
 			quetzalcoatl_slide_back(chosen_drink)
 		GORGON_SNAKE:
+			if sm.hand_manager.get_num_drinks() == 0:
+				return
+			
 			sm.overlay_manager.toggle_retain_strength(true)
 			var chosen_drink: Drink = await pick_drink()
 			sm.overlay_manager.toggle_retain_strength(false)
@@ -176,7 +179,12 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 				draw_cards(4)
 		CORAL_SNAKE:
 			var val: int = await roll_dice()
-			GS.set_strength(GS.get_strength()+val)
+			if val < 7:
+				GS.set_strength(GS.get_strength()-2)
+				GS.set_charm(GS.get_charm()-2)
+			else:
+				GS.set_strength(GS.get_strength()+8)
+				GS.set_strength(GS.get_strength()+4)
 		CADUCEUS:
 			var val: int = await roll_dice()
 			if val < 7:

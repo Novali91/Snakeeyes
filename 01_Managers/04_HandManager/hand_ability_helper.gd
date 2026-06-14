@@ -24,10 +24,6 @@ func slide_drink_back(drink: Drink) -> void:
 
 func give_drink_retain(drink: Drink) -> void:
 	drink.attached_drink.retain = true
-	if drink.attached_drink.description == "No ability.":
-		drink.attached_drink.description = "Stays on the table between turns."
-	else: 
-		drink.attached_drink.description += " Stays on the table between turns."
 	
 	drink.instantiate_tooltip()
 	return
