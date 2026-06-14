@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://bummjw51ubqqw"]
 
-[ext_resource type="Texture2D" uid="uid://bh3ilsto1unwg" path="res://05_Assets/01_Art/01_DevArt/clairvoyant_snake_venom.png" id="1_skaqq"]
+[ext_resource type="Texture2D" uid="uid://dj164x55xnb1v" path="res://05_Assets/01_Art/05_Drinks/nidhogg drink.png" id="1_skaqq"]
 [ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="2_mdnvf"]
 
 [resource]

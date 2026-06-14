@@ -144,7 +144,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			chosen_drink.attached_drink.strength = chosen_drink.attached_drink.strength * 2
 			chosen_drink.instantiate_tooltip()
 		BLACK_MAMBA:
-			GS.set_strength(GS.get_strength() + sm.hand_manager.drinks.size())
+			sm.hand_manager.ability_helper.change_str_values_in_hand(2)
 		BASILISK: 
 			sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
 			sm.camera_manager.lock_camera()
@@ -161,7 +161,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			GS.set_charm(GS.get_charm() + floor((cur_drink.strength)/2.0))
 			sm.charm_overlay.gain_charm(floor((cur_drink.strength)/2.0), drink_position)
 		SCARLET_SNAKE:
-			pass
+			sm.dice_manager.num_scarlets += 1
 		HOGNOSE_SNAKE:
 			var val: int = await roll_dice()
 			if val < 7:

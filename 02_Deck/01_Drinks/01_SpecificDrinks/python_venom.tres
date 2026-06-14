@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://dpucaxbcj6te7"]
 
-[ext_resource type="Texture2D" uid="uid://cwkhdiiav0v4o" path="res://05_Assets/01_Art/01_DevArt/black_poison.png" id="1_5w42v"]
+[ext_resource type="Texture2D" uid="uid://c6n3wsok8q32s" path="res://05_Assets/01_Art/05_Drinks/python drink.png" id="1_5w42v"]
 [ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="2_76ofd"]
 
 [resource]

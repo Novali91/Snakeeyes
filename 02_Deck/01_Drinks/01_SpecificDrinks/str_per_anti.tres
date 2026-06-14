@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://cneu854lg52uh"]
 
-[ext_resource type="Texture2D" uid="uid://bks7wifrpp6up" path="res://05_Assets/01_Art/01_DevArt/Hydra_Snake.png" id="1_e8h17"]
+[ext_resource type="Texture2D" uid="uid://b5ocb5kv8g4lq" path="res://05_Assets/01_Art/05_Drinks/chimera drink.png" id="1_e8h17"]
 [ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_qa56a"]
 
 [resource]
@@ -11,4 +11,5 @@ poison = 1
 charm = 2
 special_ability = 14
 description = "Gain strength equal to your antidote"
+flavour_text = "A symbol for something unreachable, the Chimera's prowess is equally unmatched."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://bwh3t72aeod3n"]
 
-[ext_resource type="Texture2D" uid="uid://bks7wifrpp6up" path="res://05_Assets/01_Art/01_DevArt/Hydra_Snake.png" id="1_c0j25"]
+[ext_resource type="Texture2D" uid="uid://054ih7poucm3" path="res://05_Assets/01_Art/05_Drinks/rainboa drink.png" id="1_c0j25"]
 [ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_ofv00"]
 
 [resource]

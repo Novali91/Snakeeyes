@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://cuxmxsw7d3f14"]
 
 [ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_jghwj"]
-[ext_resource type="Texture2D" uid="uid://iydiawq3074m" path="res://icon.svg" id="1_yk3xa"]
+[ext_resource type="Texture2D" uid="uid://di8t8r4n556v" path="res://05_Assets/01_Art/05_Drinks/quetzalquatl drink.png" id="1_yk3xa"]
 
 [resource]
 script = ExtResource("1_jghwj")

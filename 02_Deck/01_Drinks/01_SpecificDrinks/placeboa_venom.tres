@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://cfot3d6qqevpy"]
 
-[ext_resource type="Texture2D" uid="uid://bavejx8kt1of8" path="res://05_Assets/01_Art/01_DevArt/pink_poison.png" id="1_v4r3m"]
+[ext_resource type="Texture2D" uid="uid://cth4s24ukmw53" path="res://05_Assets/01_Art/05_Drinks/plaeboa drink.png" id="1_v4r3m"]
 [ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="2_ku7r0"]
 
 [resource]

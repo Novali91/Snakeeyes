@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://cdke43o2o7247"]
 
-[ext_resource type="Texture2D" uid="uid://ulmcp8f4imxs" path="res://05_Assets/01_Art/01_DevArt/Cannibal_Snake.png" id="1_cs5qj"]
+[ext_resource type="Texture2D" uid="uid://dm3psb22jtfao" path="res://05_Assets/01_Art/05_Drinks/black mamba drink.png" id="1_cs5qj"]
 [ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_schk8"]
 
 [resource]
@@ -10,4 +10,5 @@ drink_sprite = ExtResource("1_cs5qj")
 poison = 1
 special_ability = 20
 description = "Give each drink on the table +2 strength."
+flavour_text = "The Black Mamba is the fastest living snake. Its blazingly quick reflexes and deadly venom make it a formidable foe."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

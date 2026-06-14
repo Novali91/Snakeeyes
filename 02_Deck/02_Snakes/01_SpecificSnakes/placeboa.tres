@@ -2,13 +2,13 @@
 
 [ext_resource type="Resource" uid="uid://cfot3d6qqevpy" path="res://02_Deck/01_Drinks/01_SpecificDrinks/placeboa_venom.tres" id="1_13wx1"]
 [ext_resource type="Script" uid="uid://6sj3dk6frj4" path="res://02_Deck/02_Snakes/snake_resource.gd" id="1_p3lbp"]
-[ext_resource type="Texture2D" uid="uid://b2kaubrwd6rlc" path="res://05_Assets/01_Art/01_DevArt/pink_snake.png" id="3_1jfp1"]
+[ext_resource type="Texture2D" uid="uid://djqijhcdycb67" path="res://05_Assets/01_Art/04_Snakes/placeboa spritesheet.png" id="3_13wx1"]
 
 [resource]
 script = ExtResource("1_p3lbp")
 snake_name = "Placeboa"
 drink_resource = ExtResource("1_13wx1")
-snake_sprite = ExtResource("3_1jfp1")
+snake_sprite = ExtResource("3_13wx1")
 description = "On drink, slide in 1 drink."
 flavour_text = "Victims of a Placeboa bite show symptoms of breathing normally afterwards."
 cost = 3

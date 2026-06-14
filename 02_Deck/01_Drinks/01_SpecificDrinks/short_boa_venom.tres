@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DrinkResource" format=3 uid="uid://dt8ojdis54yeq"]
 
 [ext_resource type="Script" uid="uid://cysm36u2jsf44" path="res://02_Deck/01_Drinks/drink_resource.gd" id="1_0wjna"]
-[ext_resource type="Texture2D" uid="uid://doxkmrgus0so0" path="res://05_Assets/01_Art/01_DevArt/short_boa_venom.png" id="1_t6ug0"]
+[ext_resource type="Texture2D" uid="uid://cwmmf1e44jh5o" path="res://05_Assets/01_Art/05_Drinks/boa constrictor drink.png" id="1_t6ug0"]
 
 [resource]
 script = ExtResource("1_0wjna")

@@ -6,11 +6,11 @@
 
 [resource]
 script = ExtResource("1_wgvlc")
-snake_name = "Kingsnake"
+snake_name = "Monarchsnake"
 drink_resource = ExtResource("1_aarbo")
 snake_sprite = ExtResource("3_6w75r")
 description = "On drink, kill a snake."
-flavour_text = "A king that eats its subjects... How regal."
+flavour_text = "A monarch that eats its subjects... How regal."
 cost = 7
 rarity = "R"
 jingle_id = 12
