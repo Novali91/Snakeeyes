@@ -1,28 +1,21 @@
 [gd_scene format=3 uid="uid://t1uyek6edv4h"]
 
-[ext_resource type="Shader" uid="uid://c5fr77lhtfjdc" path="res://05_Assets/02_Shaders/greyscale.gdshader" id="1_ersgq"]
-[ext_resource type="Texture2D" uid="uid://buaj133388e0p" path="res://05_Assets/01_Art/01_DevArt/charm_token.png" id="2_0skn1"]
+[ext_resource type="Texture2D" uid="uid://dfto07klgoug7" path="res://05_Assets/01_Art/03_UI_Sprites/charm afterimage sprite.png" id="2_0skn1"]
 [ext_resource type="Script" uid="uid://g8fmtb3qdnku" path="res://03_VisualInputOutput/02_CharmOverlay/charm_token_after.gd" id="3_0skn1"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fha1p"]
-resource_local_to_scene = true
-shader = ExtResource("1_ersgq")
-shader_parameter/strength = 0.0
-shader_parameter/alpha = 1.0
 
 [sub_resource type="Animation" id="Animation_0skn1"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/alpha")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.0]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_ersgq"]
@@ -30,14 +23,14 @@ resource_name = "default"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/alpha")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(2.857143, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [1.0, 0.0]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0skn1"]
@@ -47,8 +40,6 @@ _data = {
 }
 
 [node name="CharmTokenAfter" type="Sprite2D" unique_id=330577834]
-self_modulate = Color(18.187868, 18.187868, 18.187868, 1)
-material = SubResource("ShaderMaterial_fha1p")
 texture = ExtResource("2_0skn1")
 script = ExtResource("3_0skn1")
 
