@@ -8,6 +8,6 @@ script = ExtResource("1_7ffau")
 drink_name = "Cornsnake Venom"
 drink_sprite = ExtResource("1_8fr5m")
 poison = 1
-charm = 1
+charm = 999
 flavour_text = "The friendliest snake, corn snakes make great pets!"
 metadata/_custom_type_script = "uid://cysm36u2jsf44"
