@@ -1,8 +1,20 @@
 [gd_scene format=3 uid="uid://cagc2qc6xk32s"]
 
 [ext_resource type="Script" uid="uid://d0vxlqxubniex" path="res://02_Deck/01_Drinks/drink.gd" id="1_3sv11"]
+[ext_resource type="Shader" uid="uid://bhquntxn4j6eo" path="res://05_Assets/02_Shaders/shadow.gdshader" id="2_4xa7e"]
 [ext_resource type="PackedScene" uid="uid://eg5ukadcklbv" path="res://01_Managers/05_Tooltip_Manager/tooltip.tscn" id="2_kbsba"]
 [ext_resource type="Shader" uid="uid://0oonfw65mdnr" path="res://05_Assets/02_Shaders/outline.gdshader" id="2_mjnwm"]
+[ext_resource type="Texture2D" uid="uid://ceq6pvipkdxui" path="res://05_Assets/01_Art/05_Drinks/basilisk drink.png" id="3_ifok2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_in05i"]
+shader = ExtResource("2_4xa7e")
+
+[sub_resource type="Gradient" id="Gradient_4xa7e"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_in05i"]
+gradient = SubResource("Gradient_4xa7e")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbsba"]
 size = Vector2(128, 128)
@@ -56,14 +68,23 @@ _data = {
 script = ExtResource("1_3sv11")
 metadata/_custom_type_script = "uid://4lo1g706tbqt"
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1472301704]
+self_modulate = Color(0.14, 0.14, 0.14, 1)
+material = SubResource("ShaderMaterial_in05i")
+position = Vector2(-6.5000033, 77.5)
+scale = Vector2(2.015625, 0.890625)
+texture = SubResource("GradientTexture2D_in05i")
+
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1306363368]
 shape = SubResource("RectangleShape2D_kbsba")
 
 [node name="DrinkSprite" type="Sprite2D" parent="." unique_id=555956909]
 material = SubResource("ShaderMaterial_ifok2")
 scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_ifok2")
 
 [node name="Tooltip" parent="." unique_id=1158809468 instance=ExtResource("2_kbsba")]
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1447584224]
 libraries/ = SubResource("AnimationLibrary_4xa7e")
