@@ -35,6 +35,10 @@ func enter() -> void:
 		
 		var new_score = min(cur_score + 1, 6)
 		GS.set_score(new_score)
+		
+		if GS.cur_attack_index == 10:
+			sm.win()
+			return
 	
 	else:
 		sm.lady.lose_armwrestle(damage)
