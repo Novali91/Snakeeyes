@@ -85,6 +85,7 @@ _data = {
 }
 
 [node name="Tooltip" type="Node2D" unique_id=1158809468]
+visible = false
 top_level = true
 script = ExtResource("1_vrqg4")
 metadata/_custom_type_script = "uid://40gxy6hwhljv"
