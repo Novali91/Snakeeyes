@@ -1,6 +1,7 @@
 class_name AttackManager
 extends Node2D
 
+# -1 is start, 48 is end (sorry is bad)
 var _attack_ind: int = -1
 
 var _current_attack: BossAttack
@@ -10,7 +11,7 @@ var _next_attack: BossAttack
 @onready var area: Area2D = $Area
 
 var ATTACK_LIST: Array[BossAttack] = [
-	BossAttack.new([1], 0), # 1
+	BossAttack.new([5, 10, 15], 0), # 1
 	BossAttack.new([2], 0), # 2
 	BossAttack.new([1, 1], 0), # 3
 	BossAttack.new([2], 0), # 4
@@ -59,52 +60,9 @@ var ATTACK_LIST: Array[BossAttack] = [
 	BossAttack.new([10, 20, 40, 80], 0), # 47
 	BossAttack.new([15, 30, 60, 100], 0), # 48
 	BossAttack.new([20, 80, 120], 0), # 49
-	BossAttack.new([20, 40, 80, 120], 10), # 50
-	BossAttack.new([20, 40, 80, 120], 10), # 51!!!
+	BossAttack.new([5, 20, 40, 80, 999], 10), # 50
+	BossAttack.new([5, 20, 40, 80, 999], 10), # 51!!!
 ]
-
-#var attack_array: Array[PackedInt64Array] = [
-	#[1],
-	#[2],
-	#[1, 1],
-	#[2],
-	#[4],
-	#[1, 2],
-	#[5],
-	#[1, 1, 1],
-	#[1],
-	#[4, 1, 1],
-	#[1, 5],
-	#[3, 4],
-	#[2],
-	#[2, 2, 5],
-	#[4, 4, 1],
-	#[1, 1, 7],
-	#[5],
-	#[1, 1, 1, 1, 1, 1, 1, 1, 1],
-	#[10],
-	#[5, 5, 5],
-	#[4],
-	#[12, 2, 2],
-	#[8, 5],
-	#[14],
-	#[2],
-	#[5, 5, 5, 5, 5],
-	#[12],
-	#[2, 2, 12, 2],
-	#[99999999],
-	#[99999999],
-	#[99999999],
-	#[99999999],
-	#[99999999],
-	#[99999999],
-	#[99999999],
-	#[99999999],
-	#[99999999],
-	#[99999999],
-	#[99999999],
-	#[99999999]
-#]
 
 func _ready() -> void:
 	modulate.a = 0.0

@@ -14,13 +14,11 @@ func enter() -> void:
 	if GS.cur_attack_index == EXACT_SCORE:
 		for i: int in enemy_str:
 			if player_str == i:
-				player_str -= i
 				attacks_blocked += 1
 		pass
 	else:
 		for i: int in enemy_str:
 			if player_str >= i:
-				player_str -= i
 				attacks_blocked += 1
 		
 			else: break

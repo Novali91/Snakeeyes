@@ -8,12 +8,15 @@ var _sm: TopStateMachine
 
 func _ready() -> void:
 	_spawn_sm()
+	GS.sound_manager.play_menu()
 	await _title_screen_manager.play_clicked
 	_title_screen_manager.queue_free()
+	GS.sound_manager.play_game()
 	_sm.start_game()
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("end_turn"):
+		GS.in_tutorial = false
 		_restart()
 
 func _restart() -> void:

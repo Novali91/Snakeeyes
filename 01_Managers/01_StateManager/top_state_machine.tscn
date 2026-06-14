@@ -39,7 +39,7 @@ streams_count = 1
 stream_0/stream = ExtResource("30_vijnp")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vijnp"]
-random_pitch = 1.005793
+random_pitch = 1.0293022
 streams_count = 1
 stream_0/stream = ExtResource("30_dxdvi")
 
@@ -213,3 +213,5 @@ stream = SubResource("AudioStreamRandomizer_ahk7q")
 
 [node name="Drink" type="AudioStreamPlayer" parent="." unique_id=131081864]
 stream = SubResource("AudioStreamRandomizer_vijnp")
+volume_db = -10.0
+pitch_scale = 1.5

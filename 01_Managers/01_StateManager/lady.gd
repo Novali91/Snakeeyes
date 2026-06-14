@@ -20,6 +20,7 @@ func lose_armwrestle(damage: int) -> void:
 		thump.play()
 		animation_player.play("ArmWrestleDamage")
 		await animation_player.animation_finished
+		await get_tree().create_timer(0.5).timeout
 	finished.emit()
 
 func drink_poison() -> void:

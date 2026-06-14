@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://b6l5xioi16nd8"]
 
 [ext_resource type="Script" uid="uid://bsqqravlq1cew" path="res://01_Managers/06_CameraManager/camera_arrow.gd" id="1_wogym"]
+[ext_resource type="Shader" uid="uid://0oonfw65mdnr" path="res://05_Assets/02_Shaders/outline.gdshader" id="2_ca66i"]
+[ext_resource type="Texture2D" uid="uid://b0v5jle47guor" path="res://05_Assets/01_Art/03_UI_Sprites/left arrow page move.png" id="2_k56sr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wogym"]
 
@@ -11,6 +13,15 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ng36d"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vw0ja"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ng36d"]
+resource_local_to_scene = true
+shader = ExtResource("2_ca66i")
+shader_parameter/sprite_alpha = 1.0
+shader_parameter/color = Color(1, 0.26999998, 0.28216648, 1)
+shader_parameter/alpha = 0.0
+shader_parameter/thickness = 0.050000002375
+shader_parameter/x_over_y = 1.0
 
 [node name="CameraArrow" type="Button" unique_id=5611268]
 physics_interpolation_mode = 0
@@ -24,3 +35,10 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_ng36d")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vw0ja")
 script = ExtResource("1_wogym")
 metadata/_custom_type_script = "uid://bsqqravlq1cew"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1609662727]
+material = SubResource("ShaderMaterial_ng36d")
+position = Vector2(87, 48.000004)
+rotation = 3.1415927
+scale = Vector2(0.75, -0.75)
+texture = ExtResource("2_k56sr")

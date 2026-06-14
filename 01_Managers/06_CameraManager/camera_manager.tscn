@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://d30y0q47xsgt0" path="res://01_Managers/06_CameraManager/camera_manager.gd" id="1_5qfpc"]
 [ext_resource type="Shader" uid="uid://bdpwcu8ab33bh" path="res://01_Managers/06_CameraManager/full_screen_effects.gdshader" id="2_x2vs0"]
-[ext_resource type="Texture2D" uid="uid://b0v5jle47guor" path="res://05_Assets/01_Art/03_UI_Sprites/left arrow page move.png" id="3_spbah"]
 [ext_resource type="Shader" uid="uid://5vjet2vo8d7y" path="res://01_Managers/06_CameraManager/pass_out_effect.gdshader" id="3_tmo6x"]
 [ext_resource type="PackedScene" uid="uid://b6l5xioi16nd8" path="res://01_Managers/06_CameraManager/camera_arrow.tscn" id="4_46yof"]
 [ext_resource type="Texture2D" uid="uid://d0nhkp7uns2gg" path="res://05_Assets/01_Art/03_UI_Sprites/idk what this is for.png" id="4_abwj1"]
@@ -49,7 +48,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.49, 0.49, 0.49, 1)]
+"values": [Color(3.1681983, 3.1681983, 3.1681983, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_urxhq"]
@@ -70,58 +69,43 @@ metadata/_custom_type_script = "uid://d30y0q47xsgt0"
 [node name="Arrows" type="Node2D" parent="." unique_id=147608854]
 z_index = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Arrows" unique_id=1707713052]
-position = Vector2(1819, 546)
-rotation = 3.1415927
-scale = Vector2(0.75, -0.75)
-texture = ExtResource("3_spbah")
+[node name="CameraArrow" parent="Arrows" unique_id=5611268 instance=ExtResource("4_46yof")]
+offset_left = 1730.0
+offset_top = 490.0
+offset_right = 1930.0
+offset_bottom = 590.0
 
-[node name="CameraArrow" parent="Arrows/Sprite2D" unique_id=5611268 instance=ExtResource("4_46yof")]
-offset_left = -90.99999
-offset_top = -49.000008
-offset_right = 109.00001
-offset_bottom = 50.999992
-
-[node name="Sprite2D2" type="Sprite2D" parent="Arrows" unique_id=168460369]
-position = Vector2(2018, 550)
-scale = Vector2(0.75, -0.75)
-texture = ExtResource("3_spbah")
-
-[node name="CameraArrow" parent="Arrows/Sprite2D2" unique_id=15005950 instance=ExtResource("4_46yof")]
-offset_left = -90.99999
-offset_top = -49.000008
-offset_right = 109.00001
-offset_bottom = 50.999992
+[node name="CameraArrow2" parent="Arrows" unique_id=15005950 instance=ExtResource("4_46yof")]
+offset_left = 2110.0
+offset_top = 490.0
+offset_right = 2310.0
+offset_bottom = 590.0
+scale = Vector2(-1, 1)
 is_pointing_left = true
 
-[node name="Sprite2D3" type="Sprite2D" parent="Arrows" unique_id=627921010]
-position = Vector2(3940, 552)
-scale = Vector2(0.75, -0.75)
-texture = ExtResource("3_spbah")
+[node name="CameraArrow3" parent="Arrows" unique_id=1931537363 instance=ExtResource("4_46yof")]
+offset_left = 3650.0
+offset_top = 490.0
+offset_right = 3850.0
+offset_bottom = 590.0
 
-[node name="CameraArrow" parent="Arrows/Sprite2D3" unique_id=1931537363 instance=ExtResource("4_46yof")]
-offset_left = -90.99999
-offset_top = -49.000008
-offset_right = 109.00001
-offset_bottom = 50.999992
+[node name="CameraArrow4" parent="Arrows" unique_id=1570898919 instance=ExtResource("4_46yof")]
+offset_left = 4030.0
+offset_top = 490.0
+offset_right = 4230.0
+offset_bottom = 590.0
+scale = Vector2(-1, 1)
 is_pointing_left = true
-
-[node name="Sprite2D4" type="Sprite2D" parent="Arrows" unique_id=68184387]
-position = Vector2(3739, 550)
-rotation = 3.1415927
-scale = Vector2(0.75, -0.75)
-texture = ExtResource("3_spbah")
-
-[node name="CameraArrow" parent="Arrows/Sprite2D4" unique_id=1570898919 instance=ExtResource("4_46yof")]
-offset_left = -90.99999
-offset_top = -49.000008
-offset_right = 109.00001
-offset_bottom = 50.999992
 
 [node name="Notif" type="Sprite2D" parent="." unique_id=87971975]
 z_index = 1
-position = Vector2(3743.9998, 538)
+position = Vector2(3722.9998, 531.00006)
 scale = Vector2(1.25, 1.25)
+texture = ExtResource("4_abwj1")
+
+[node name="Notif" type="Sprite2D" parent="Notif" unique_id=1947247028]
+z_index = 1
+position = Vector2(17.6, 0)
 texture = ExtResource("4_abwj1")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=97266164]

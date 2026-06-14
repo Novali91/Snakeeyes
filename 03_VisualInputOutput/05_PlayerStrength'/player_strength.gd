@@ -51,7 +51,7 @@ func place_attack_tickers(attacks: Array[int], next_attacks: Array[int]) -> void
 	
 	var attack_total = 0
 	for next_attack in next_attacks:
-		attack_total += next_attack
+		attack_total = next_attack
 		var temp_next_attack_ticker = _NEXT_ATTACK_TICKER_SCENE.instantiate()
 		add_child(temp_next_attack_ticker)
 		temp_next_attack_ticker.get_child(1).set_value(attack_total)
@@ -60,7 +60,7 @@ func place_attack_tickers(attacks: Array[int], next_attacks: Array[int]) -> void
 	
 	attack_total = 0
 	for attack in attacks:
-		attack_total += attack
+		attack_total = attack
 		var temp_attack_ticker = _ATTACK_TICKER_SCENE.instantiate()
 		add_child(temp_attack_ticker)
 		temp_attack_ticker.get_child(1).set_value(attack_total)

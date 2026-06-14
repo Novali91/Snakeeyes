@@ -8,5 +8,5 @@ void fragment() {
 	circ_mask = smoothstep(0.3, 1., circ_mask);
 	circ_mask = 1. - circ_mask;
 	
-	COLOR.a = circ_mask;
+	COLOR.a = circ_mask * alpha;
 }

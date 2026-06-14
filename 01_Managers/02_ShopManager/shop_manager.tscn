@@ -411,10 +411,10 @@ position = Vector2(189, 180)
 texture = ExtResource("14_3r70o")
 
 [node name="RerollButton" type="Button" parent="." unique_id=1611665676]
-offset_left = 119.0
-offset_top = 65.0
-offset_right = 263.0
-offset_bottom = 128.0
+offset_left = 93.0
+offset_top = -169.0
+offset_right = 282.0
+offset_bottom = 354.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 0)

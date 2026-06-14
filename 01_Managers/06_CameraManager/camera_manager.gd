@@ -39,7 +39,7 @@ func _ready() -> void:
 	pass_out_effect.visible = false
 	
 	for a in _arrow_node.get_children():
-		a.get_child(0).arrow_pressed.connect(_handle_arrow_press)
+		a.arrow_pressed.connect(_handle_arrow_press)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("left"):
