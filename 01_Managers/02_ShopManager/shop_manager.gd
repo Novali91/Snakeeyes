@@ -21,17 +21,13 @@ var antidote_position: Vector2
 @onready var _open_sign: AnimatedSprite2D = $OpenSign
 
 @onready var _snake_scene: PackedScene = preload("res://02_Deck/02_Snakes/snake.tscn")
+@onready var _markers_node: Node2D = $Markers
+
 @onready var reroll_button: Button = $RerollButton
 
 var _actual_parrot: SnakeResource
 
-var _shop_positions: Array[Vector2] = [
-	Vector2(300, 1080 / 2.),
-	Vector2(600, 1080 / 2.),
-	Vector2(900, 1080 / 2.),
-	Vector2(1200, 1080 / 2.),
-	Vector2(1500, 1080 / 2.)
-]
+var _shop_positions: Array[Vector2]
 
 var _cur_snakes: Array[Snake] = []
 var _labels: Array[Label] = []
@@ -50,6 +46,10 @@ func _ready() -> void:
 	
 	var _parrot_resource: SnakeResource = load("res://02_Deck/02_Snakes/01_SpecificSnakes/parrot_snake.tres")
 	_actual_parrot = _parrot_resource.duplicate()
+	
+	_shop_positions = []
+	for m: Marker2D in _markers_node.get_children():
+		_shop_positions.push_back(m.position)
 
 func empty_shop() -> void:
 	var arr_copy = _cur_snakes.duplicate()

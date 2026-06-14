@@ -5,6 +5,11 @@
 [ext_resource type="Script" uid="uid://cimjodkpl2ahn" path="res://01_Managers/02_ShopManager/shop_ability_helper.gd" id="3_ah0kr"]
 [ext_resource type="Shader" uid="uid://csr6a823jullk" path="res://01_Managers/02_ShopManager/shop_darkness.gdshader" id="4_0hb6a"]
 [ext_resource type="Texture2D" uid="uid://bvgqs0gme8k7j" path="res://05_Assets/01_Art/03_UI_Sprites/closed and open shop sign spritesheet 400 by 400.png" id="5_mkdgh"]
+[ext_resource type="Texture2D" uid="uid://b7tye6xuywn0o" path="res://05_Assets/01_Art/02_Backgrounds/shop cage 1.png" id="6_oquer"]
+[ext_resource type="Texture2D" uid="uid://ptkmkh70gjsh" path="res://05_Assets/01_Art/02_Backgrounds/shop cage 2.png" id="7_tqajx"]
+[ext_resource type="Texture2D" uid="uid://0w7coxooxvh4" path="res://05_Assets/01_Art/02_Backgrounds/shop cage 3.png" id="8_8hme2"]
+[ext_resource type="Texture2D" uid="uid://bx1y1cdfklvpb" path="res://05_Assets/01_Art/02_Backgrounds/shop cage 4.png" id="9_w34qo"]
+[ext_resource type="Texture2D" uid="uid://dlbm7bch0l871" path="res://05_Assets/01_Art/02_Backgrounds/shop cage 5.png" id="10_3r70o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mkdgh"]
 shader = ExtResource("4_0hb6a")
@@ -41,6 +46,45 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
 
+[node name="Cages" type="Node2D" parent="." unique_id=578963602]
+
+[node name="Cage2" type="Sprite2D" parent="Cages" unique_id=268423436]
+position = Vector2(1485, 829)
+texture = ExtResource("7_tqajx")
+
+[node name="Cage1" type="Sprite2D" parent="Cages/Cage2" unique_id=1010915643]
+position = Vector2(76, -437)
+texture = ExtResource("6_oquer")
+
+[node name="Cage4" type="Sprite2D" parent="Cages" unique_id=558582703]
+position = Vector2(960, 786)
+texture = ExtResource("9_w34qo")
+
+[node name="Cage5" type="Sprite2D" parent="Cages" unique_id=1282667251]
+position = Vector2(502, 794)
+texture = ExtResource("10_3r70o")
+
+[node name="Cage3" type="Sprite2D" parent="Cages/Cage5" unique_id=2025332224]
+position = Vector2(-12, -381)
+texture = ExtResource("8_8hme2")
+
+[node name="Markers" type="Node2D" parent="." unique_id=2016532303]
+
+[node name="0" type="Marker2D" parent="Markers" unique_id=1035344354]
+position = Vector2(1539, 344)
+
+[node name="1" type="Marker2D" parent="Markers" unique_id=247314199]
+position = Vector2(1492, 747)
+
+[node name="2" type="Marker2D" parent="Markers" unique_id=238556468]
+position = Vector2(969, 775)
+
+[node name="3" type="Marker2D" parent="Markers" unique_id=1003581692]
+position = Vector2(504, 735)
+
+[node name="4" type="Marker2D" parent="Markers" unique_id=799608966]
+position = Vector2(495, 535)
+
 [node name="TooltipManager" type="Node2D" parent="." unique_id=653139634]
 script = ExtResource("2_8kjcj")
 metadata/_custom_type_script = "uid://6hd2b0wx5v7f"
@@ -48,10 +92,10 @@ metadata/_custom_type_script = "uid://6hd2b0wx5v7f"
 [node name="PriceLabels" type="Node2D" parent="." unique_id=450063478]
 
 [node name="Label" type="Label" parent="PriceLabels" unique_id=200667757]
-offset_left = 300.0
-offset_top = 675.0
-offset_right = 340.0
-offset_bottom = 698.0
+offset_left = 1355.0
+offset_top = 333.0
+offset_right = 1395.0
+offset_bottom = 356.0
 
 [node name="Label" type="Label" parent="PriceLabels/Label" unique_id=1453093933]
 layout_mode = 0
@@ -61,10 +105,10 @@ offset_bottom = 23.0
 text = "Charm cost: "
 
 [node name="Label2" type="Label" parent="PriceLabels" unique_id=1712400039]
-offset_left = 600.0
-offset_top = 675.0
-offset_right = 640.0
-offset_bottom = 698.0
+offset_left = 1408.0
+offset_top = 942.0
+offset_right = 1448.0
+offset_bottom = 965.0
 
 [node name="Label" type="Label" parent="PriceLabels/Label2" unique_id=813303544]
 layout_mode = 0
@@ -74,10 +118,10 @@ offset_bottom = 23.0
 text = "Charm cost: "
 
 [node name="Label3" type="Label" parent="PriceLabels" unique_id=1766833693]
-offset_left = 900.0
-offset_top = 675.0
-offset_right = 940.0
-offset_bottom = 698.0
+offset_left = 938.0
+offset_top = 941.0
+offset_right = 978.0
+offset_bottom = 964.0
 
 [node name="Label" type="Label" parent="PriceLabels/Label3" unique_id=1967914019]
 layout_mode = 0
@@ -87,10 +131,10 @@ offset_bottom = 23.0
 text = "Charm cost: "
 
 [node name="Label4" type="Label" parent="PriceLabels" unique_id=1404002869]
-offset_left = 1200.0
-offset_top = 675.0
-offset_right = 1240.0
-offset_bottom = 698.0
+offset_left = 507.0
+offset_top = 863.0
+offset_right = 547.0
+offset_bottom = 886.0
 
 [node name="Label" type="Label" parent="PriceLabels/Label4" unique_id=2005382811]
 layout_mode = 0
@@ -100,10 +144,10 @@ offset_bottom = 23.0
 text = "Charm cost: "
 
 [node name="Label5" type="Label" parent="PriceLabels" unique_id=1733416896]
-offset_left = 1500.0
-offset_top = 675.0
-offset_right = 1540.0
-offset_bottom = 698.0
+offset_left = 485.0
+offset_top = 416.0
+offset_right = 525.0
+offset_bottom = 439.0
 
 [node name="Label" type="Label" parent="PriceLabels/Label5" unique_id=275974070]
 layout_mode = 0
@@ -113,10 +157,10 @@ offset_bottom = 23.0
 text = "Charm cost: "
 
 [node name="AntidoteButton" type="Button" parent="." unique_id=1471729517]
-offset_left = 879.0
-offset_top = 829.0
-offset_right = 1067.0
-offset_bottom = 860.0
+offset_left = 881.0
+offset_top = 469.0
+offset_right = 1069.0
+offset_bottom = 500.0
 text = "Buy Antidote (2 Charm)"
 
 [node name="ShopAbilityHelper" type="Node" parent="." unique_id=1728054696]
@@ -124,10 +168,10 @@ script = ExtResource("3_ah0kr")
 metadata/_custom_type_script = "uid://cimjodkpl2ahn"
 
 [node name="RerollButton" type="Button" parent="." unique_id=1611665676]
-offset_left = 1738.0
-offset_top = 519.0
-offset_right = 1814.0
-offset_bottom = 550.0
+offset_left = 914.0
+offset_top = 391.0
+offset_right = 990.0
+offset_bottom = 422.0
 text = "REROLL: "
 
 [node name="OpenSign" type="AnimatedSprite2D" parent="." unique_id=1509979121]
