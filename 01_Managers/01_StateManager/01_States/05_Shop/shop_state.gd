@@ -66,17 +66,9 @@ func _reroll_pressed() -> void:
 	GS.set_charm(GS.get_charm() - _reroll_cost)
 	sm.charm_overlay.spend_charm(_reroll_cost, sm.shop_manager.reroll_button.global_position)
 	
-	sm.camera_manager.lock_camera()
-	sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
-	
 	_reroll_cost += 1
 	sm.shop_manager.update_reroll(_reroll_cost)
 	
 	sm.shop_manager.empty_shop()
 	sm.shop_manager.fill_shop()
-	
-	await get_tree().create_timer(0.65).timeout
-	
-	sm.camera_manager.switch_screen(sm.camera_manager.RIGHT, true)
-	sm.camera_manager.unlock_camera()
 	
