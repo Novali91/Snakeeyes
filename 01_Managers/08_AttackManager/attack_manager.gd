@@ -19,27 +19,27 @@ var ATTACK_LIST: Array[BossAttack] = [
 	BossAttack.new([5], 0), # 7
 	BossAttack.new([1, 1, 1], 0), # 8
 	BossAttack.new([1], 0), # 9
-	BossAttack.new([1, 1, 4], 3), # 10
+	BossAttack.new([1, 1, 4], 3), # 10 
 	BossAttack.new([1, 5], 0), # 11
 	BossAttack.new([2, 4], 0), # 12
 	BossAttack.new([2], 0), # 13
 	BossAttack.new([2, 3, 5], 0), # 14
-	BossAttack.new([2, 3, 5], 2), # 15
+	BossAttack.new([1, 2, 3], 2), # 15 -strength
 	BossAttack.new([1, 2, 3, 4], 0), # 16
 	BossAttack.new([12], 0), # 17
 	BossAttack.new([1, 3, 5], 0), # 18
 	BossAttack.new([2, 5], 0), # 19
-	BossAttack.new([2, 3, 4, 5], 4), # 20
-	BossAttack.new([8, 8], 0), # 21
-	BossAttack.new([1, 1, 1, 1, 1, 1, 1], 0), # 22
+	BossAttack.new([2, 3, 4, 6], 4), # 20 draw on drinks played, crazy attack numbers
+	BossAttack.new([6, 7], 0), # 21
+	BossAttack.new([1, 1, 1, 1, 1, 2, 2], 0), # 22
 	BossAttack.new([2, 2, 5], 0), # 23
-	BossAttack.new([1, 1, 1, 1, 1, 1, 1, 1], 0), # 24
-	BossAttack.new([3, 3, 7], 5), # 25
+	BossAttack.new([3, 3, 3, 3, 3], 0), # 24
+	BossAttack.new([3, 3, 7], 5), # 25 slide back
 	BossAttack.new([4, 4], 0), # 26
 	BossAttack.new([2, 8, 8], 0), # 27
 	BossAttack.new([2, 2, 8, 8], 0), # 28
 	BossAttack.new([1, 1, 1, 7], 0), # 29
-	BossAttack.new([7, 7, 7], 6), # 30
+	BossAttack.new([7, 7, 7], 0), # 30 index 6 for round behavior, but it crashes
 	BossAttack.new([4, 4, 4, 4], 0), # 31
 	BossAttack.new([2, 2, 12], 0), # 32
 	BossAttack.new([3, 3, 11], 0), # 33
@@ -58,7 +58,7 @@ var ATTACK_LIST: Array[BossAttack] = [
 	BossAttack.new([2, 2, 5], 0), # 46
 	BossAttack.new([2, 2, 5], 0), # 47
 	BossAttack.new([2, 2, 5], 0), # 48
-	BossAttack.new([2, 2, 5], 0), # 49
+	BossAttack.new([15, 35], 0), # 49
 	BossAttack.new([20, 40, 80, 120], 10), # 50
 	BossAttack.new([20, 40, 80, 120], 10) # 51!!!
 ]
