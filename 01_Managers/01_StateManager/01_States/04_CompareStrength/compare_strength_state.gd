@@ -6,7 +6,7 @@ func setup() -> void:
 
 func enter() -> void:
 	var player_str = GS.get_strength()
-	var enemy_str = sm.attack_manager.get_attack()
+	var enemy_str = sm.attack_manager.get_attack().damage
 	
 	var attacks_blocked = 0
 	for i: int in enemy_str:

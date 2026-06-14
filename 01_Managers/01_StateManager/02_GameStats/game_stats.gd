@@ -29,6 +29,8 @@ var _score: int
 signal antidote_num_set(old_val: int, new_val: int)
 var _antidote_num: int
 
+var cur_attack_index: int = 0
+
 func set_poison(val: int) -> void:
 	poison_set.emit(_poison, val)
 	_poison = val

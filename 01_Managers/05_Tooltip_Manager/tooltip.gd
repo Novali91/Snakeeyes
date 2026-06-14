@@ -17,12 +17,14 @@ const BOTTOM_LEFT: int = 3
 
 var is_active: bool = false
 
+var flavour_text_colour: Color = Color(214/255, 214/255, 214/255)
+
 # Math stuff
 ## Question: Does tooltip appearing over sprite seem bad? Should buffer always push it off?
-var buffer: Vector2 = Vector2(120, 0)
+var buffer: Vector2 = Vector2(20, 20)
 
 ## Set this when we get actual sprite size for the tooltip (currently placeholder)
-var sprite_size: Vector2 = Vector2(400, 450)
+var sprite_size: Vector2 = Vector2(300, 375)
 
 ## References for instantiating values:
 @onready var name_label: Label = $Name
@@ -107,19 +109,19 @@ func instantiate_drink_values(info: DrinkResource, og_info: DrinkResource) -> vo
 	match info.special_ability:
 		14:
 			name_label.text = info.drink_name
-			desc_label.text = info.description + " (" + str(GS.get_antidote_num()) + ")." + "\n" + info.flavour_text
+			desc_label.text = info.description + " (" + str(GS.get_antidote_num()) + ")." + "\n" + "\n" + "[color=\"686868\"]" + info.flavour_text
 		16:
 			name_label.text = info.drink_name
-			desc_label.text = info.description + " (" + str(GS.hand_manager.ability_helper.get_total_hand_str()) + ")." + "\n" + info.flavour_text
+			desc_label.text = info.description + " (" + str(GS.hand_manager.ability_helper.get_total_hand_str()) + ")." + "\n" + "[color=\"#686868\"]" + info.flavour_text
 		21:
 			name_label.text = info.drink_name
-			desc_label.text = info.description + " (" + str(GS.get_charm()) + ")." + "\n" + info.flavour_text
+			desc_label.text = info.description + " (" + str(GS.get_charm()) + ")." + "\n" + "\n" + "[color=\"#686868\"]" + info.flavour_text
 		22:
 			name_label.text = info.drink_name
-			desc_label.text = info.description + " (" + str(info.strength/2.0) + ")." + "\n" + info.flavour_text
+			desc_label.text = info.description + " (" + str(info.strength/2.0) + ")." + "\n" + "\n" + "[color=\"#686868\"]" + info.flavour_text
 		_:
 			name_label.text = info.drink_name
-			desc_label.text = info.description + "\n" + info.flavour_text
+			desc_label.text = info.description + "\n" + "\n" + "[color=\"#686868\"]" + info.flavour_text
 	set_val(info.strength, og_info.strength, strength_label, "Strength: ")
 	set_psn_val(info.poison, og_info.poison, poison_label)
 	set_val(info.charm, og_info.charm, charm_label, "Charm: ")
@@ -130,10 +132,10 @@ func instantiate_snake_values(info: SnakeResource, current_drink: DrinkResource)
 	match current_drink.special_ability:
 		14:
 			name_label.text = info.snake_name
-			desc_label.text = info.description + " (" + str(GS.get_antidote_num()) + ")." + "\n" + info.flavour_text
+			desc_label.text = info.description + " (" + str(GS.get_antidote_num()) + ")." + "\n" + "\n" + "[color=\"#686868\"]" + info.flavour_text
 		_:
 			name_label.text = info.snake_name
-			desc_label.text = info.description + "\n" + info.flavour_text
+			desc_label.text = info.description + "\n" + "\n" + "[color=\"#686868\"]" + info.flavour_text
 	set_val(current_drink.strength, info.drink_resource.strength, strength_label, "Strength: ")
 	set_psn_val(current_drink.poison, info.drink_resource.poison, poison_label)
 	set_val(current_drink.charm, info.drink_resource.charm, charm_label, "Charm: ")

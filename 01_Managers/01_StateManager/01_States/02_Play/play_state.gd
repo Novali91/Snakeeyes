@@ -1,6 +1,28 @@
 class_name PlayState
 extends TopState
 
+## Drinking a drink gives all drinks -1 str - HandManager - 2
+## Swap charm and strength - Play state - 3
+## Draw 1 on drink - Play state - 4
+## On drink, slide 1 back - Play state - 5
+## End of turn, kill each snakes for drink in hand - Hand Manager - 6
+## Swap poison and charm - 7
+## Round 5 - Meet this score exactly - 1
+## Final: If you don't beat this, redo the round - 10
+## On drink, give its snake +1 poison - 8
+## All dice rolls -1
+
+const EXACT_SCORE: int = 1
+const DRINK_ALL_DRINKS_MINUS_STR: int = 2
+const SWAP_CHARM_STR: int = 3
+const DRINK_DRAW_ONE: int = 4
+const DRINK_SLIDE_BACK: int = 5
+const END_KILL_SNAKES: int = 6
+const SWAP_POISON_CHARM: int = 7 # X
+const DRINK_SNAKE_ONE_POISON: int = 8
+const DICE_ROLLS_MINUS_ONE: int = 9 # X
+const WIN_ROUND: int = 10 # X
+
 func setup() -> void:
 	sm.end_turn_button.pressed.connect(_end_turn)
 	sm.hand_manager.drink_drank.connect(play_card)
@@ -11,6 +33,9 @@ func enter() -> void:
 	sm.end_turn_button.make_pressable()
 	sm.camera_manager.unlock_camera()
 	sm.score_bar.toggle_flash_goal(false)
+	
+	if GS.cur_attack_index == DICE_ROLLS_MINUS_ONE:
+		sm.dice_manager.num_scarlets -= 1
 
 func exit() -> void:
 	sm.end_turn_button.stop_pressable()
@@ -22,11 +47,42 @@ func physics_tick(_delta: float) -> void:
 	pass
 
 func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkResource) -> void:
-	GS.set_poison(GS.get_poison() + drink.poison)
-	GS.set_strength(GS.get_strength() + drink.strength)
-	GS.set_charm(GS.get_charm() + drink.charm)
+	match GS.cur_attack_index:
+		0:
+			GS.set_poison(GS.get_poison() + drink.poison)
+			GS.set_strength(GS.get_strength() + drink.strength)
+			GS.set_charm(GS.get_charm() + drink.charm)
+		
+		SWAP_CHARM_STR:
+			GS.set_poison(GS.get_poison() + drink.poison)
+			GS.set_strength(GS.get_strength() + drink.charm)
+			GS.set_charm(GS.get_charm() + drink.strength)
+		
+		SWAP_POISON_CHARM:
+			GS.set_poison(GS.get_poison() + drink.charm)
+			GS.set_strength(GS.get_strength() + drink.strength)
+			GS.set_charm(GS.get_charm() + drink.poison)
 	
 	sm.charm_overlay.gain_charm(drink.charm, drink_position)
+	
+	match GS.cur_attack_index:
+		0:
+			pass
+		
+		DRINK_ALL_DRINKS_MINUS_STR:
+			sm.hand_manager.ability_helper.change_str_values_in_hand(-1)
+			
+		DRINK_DRAW_ONE:
+			sm.ability_helper.draw_cards(1)
+			
+		DRINK_SLIDE_BACK:
+			sm.overlay_manager.toggle_slide_back(true, 1)
+			
+			var drink_to_slide: Drink = await sm.ability_helper.pick_drink()
+			sm.hand_manager.ability_helper.slide_drink_back(drink_to_slide)
+			sm.deck_manager.return_to_drawpile(drink_to_slide.attached_drink_resource, drink_to_slide.attached_drink)
+			
+			sm.overlay_manager.toggle_slide_back(false, 1)
 	
 	sm.ability_helper.trigger_ability(drink.special_ability, drink_position, drink, og_drink)
 	

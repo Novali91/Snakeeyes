@@ -11,6 +11,6 @@ drink_resource = ExtResource("1_jqc6o")
 snake_sprite = ExtResource("3_jqc6o")
 description = "On drink, pick a snake. Remove all of your charm and give that snake strength equal to that charm"
 flavour_text = "The cunning basilisk, known for its silver tongue and its lethal gaze."
-cost = 7
+cost = 8
 rarity = "R"
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

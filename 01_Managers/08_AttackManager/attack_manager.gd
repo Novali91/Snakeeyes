@@ -3,8 +3,8 @@ extends Node2D
 
 var _attack_ind: int = -1
 
-var _current_attack: Array[int]
-var _next_attack: Array[int]
+var _current_attack: BossAttack
+var _next_attack: BossAttack
 
 @onready var _input_cur: Label = $Label/InputCur
 @onready var _input_next: Label = $Label2/InputNext
@@ -60,6 +60,7 @@ var ATTACK_LIST: Array[BossAttack] = [
 	BossAttack.new([2, 2, 5], 0), # 48
 	BossAttack.new([2, 2, 5], 0), # 49
 	BossAttack.new([2, 2, 5], 10), # 50
+	BossAttack.new([2, 2, 5], 10) # 51!!!
 ]
 
 #var attack_array: Array[PackedInt64Array] = [
@@ -107,23 +108,20 @@ var ATTACK_LIST: Array[BossAttack] = [
 
 func next_attack() -> void:
 	_attack_ind += 1
-	_current_attack.assign(GS.attack_array[_attack_ind])
-	_next_attack.assign(GS.attack_array[_attack_ind + 1])
+	_current_attack = ATTACK_LIST[_attack_ind]
+	_next_attack = ATTACK_LIST[_attack_ind + 1]
 	
-	_input_cur.text = str(_current_attack)
-	_input_next.text = str(_next_attack)
+	_input_cur.text = str(_current_attack.damage)
+	_input_next.text = str(_next_attack.damage)
 
-func get_attack() -> Array[int]:
+func get_attack() -> BossAttack:
 	return _current_attack
 
 func get_attack_goal() -> int:
 	var out = 0
-	for i in _current_attack:
+	for i in _current_attack.damage:
 		out += i
 	return out
-
-func activate_boss_ability(index: int) -> void:
-	pass
 
 ## Drinking a drink gives all drinks -1 str - HandManager
 ## Swap charm and strength - Play state

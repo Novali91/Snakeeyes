@@ -7,7 +7,7 @@ func setup() -> void:
 	pass
 
 func enter() -> void:
-	var damage = sm.attack_manager.get_attack().size()
+	var damage = sm.attack_manager.get_attack().damage.size()
 	GS.set_score(GS.get_score() - damage)
 	sm.camera_manager.start_pass_out()
 	await(sm.camera_manager.pass_out_complete)
