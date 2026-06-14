@@ -48,7 +48,7 @@ func _click_drink(drink: Drink) -> void:
 
 func _delete_drink(drink: Drink) -> void:
 	remove_drink(drink)
-	tooltip_manager.remove_item(drink, false)
+	tooltip_manager.remove_item(drink, true)
 
 func remove_drink(drink_to_remove: Drink) -> void:
 	for i: int in range(drinks.size()):

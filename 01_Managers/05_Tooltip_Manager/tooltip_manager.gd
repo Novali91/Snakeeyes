@@ -57,10 +57,17 @@ func remove_item(item: DeckItem, kill: bool) -> void:
 	item.hovered.disconnect(child_hovered)
 	item.unhovered.disconnect(child_unhovered)
 	item.clicked.disconnect(child_clicked)
-	remove_child(item)
+	
 	
 	if kill:
-		item.queue_free()
+		if item is Snake: 
+			item.delete_snake()
+		
+		elif item is Drink:
+			item.delete_drink()
+	
+	else:
+		remove_child(item)
 	pass
 
 ## This function activates whenever any child is hovered.

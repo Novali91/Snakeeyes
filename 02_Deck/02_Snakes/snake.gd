@@ -45,3 +45,8 @@ func deactivate_tooltip() -> void:
 	snake_sprite.material.set_shader_parameter("alpha", 0.0)
 	
 	_animation_player.play("RESET")
+
+func delete_snake() -> void:
+	_animation_player.play("fade")
+	await _animation_player.animation_finished
+	queue_free()

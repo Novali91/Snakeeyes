@@ -14,6 +14,7 @@ var attached_drink_resource: DrinkResource
 var attached_drink: DrinkResource
 
 @onready var drink_sprite: Sprite2D = $DrinkSprite
+@onready var _animation_player: AnimationPlayer = $AnimationPlayer
 
 enum {
 	EASE_IN,
@@ -62,3 +63,8 @@ func deactivate_tooltip() -> void:
 func instantiate_tooltip() -> void:
 	tooltip.instantiate_drink_values(attached_drink, attached_drink_resource)
 	return
+
+func delete_drink() -> void:
+	_animation_player.play("fade")
+	await _animation_player.animation_finished
+	queue_free()
