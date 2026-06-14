@@ -12,10 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://bx1y1cdfklvpb" path="res://05_Assets/01_Art/02_Backgrounds/shop cage 4.png" id="9_w34qo"]
 [ext_resource type="Texture2D" uid="uid://dlbm7bch0l871" path="res://05_Assets/01_Art/02_Backgrounds/shop cage 5.png" id="10_3r70o"]
 [ext_resource type="Shader" uid="uid://0oonfw65mdnr" path="res://05_Assets/02_Shaders/outline.gdshader" id="10_tqajx"]
+[ext_resource type="Script" uid="uid://cfqx3dcaojqrs" path="res://03_VisualInputOutput/01_ScoreBar/custom_number.gd" id="13_w34qo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mkdgh"]
 shader = ExtResource("4_0hb6a")
 shader_parameter/alpha = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_w34qo"]
+font_size = 32
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8hme2"]
 shader = ExtResource("10_tqajx")
@@ -157,27 +161,48 @@ mouse_filter = 2
 
 [node name="Cages" type="Node2D" parent="." unique_id=578963602]
 
+[node name="Pricetag2" type="Sprite2D" parent="Cages" unique_id=1109490697]
+position = Vector2(1273, 640.9999)
+rotation = 2.738327
+scale = Vector2(1, -1)
+texture = ExtResource("5_8hme2")
+
 [node name="Cage2" type="Sprite2D" parent="Cages" unique_id=268423436]
 position = Vector2(1560, 829)
 texture = ExtResource("7_tqajx")
+
+[node name="Pricetag1" type="Sprite2D" parent="Cages/Cage2" unique_id=347831644]
+position = Vector2(224, -501)
+rotation = 0.27892712
+texture = ExtResource("5_8hme2")
 
 [node name="Cage1" type="Sprite2D" parent="Cages/Cage2" unique_id=1010915643]
 position = Vector2(76, -437)
 texture = ExtResource("6_oquer")
 
-[node name="Pricetag1" type="Sprite2D" parent="Cages/Cage2" unique_id=347831644]
-position = Vector2(-92, -558)
-rotation = -0.12839502
-scale = Vector2(-1, 1)
-texture = ExtResource("5_8hme2")
-
 [node name="Cage4" type="Sprite2D" parent="Cages" unique_id=558582703]
 position = Vector2(960, 786)
 texture = ExtResource("9_w34qo")
 
+[node name="Pricetag4" type="Sprite2D" parent="Cages/Cage4" unique_id=353089858]
+position = Vector2(-224, 150)
+rotation = 2.0220072
+scale = Vector2(0.99999994, -0.99999994)
+texture = ExtResource("5_8hme2")
+
+[node name="Pricetag5" type="Sprite2D" parent="Cages" unique_id=1294208258]
+position = Vector2(204, 747)
+scale = Vector2(-1, 1)
+texture = ExtResource("5_8hme2")
+
 [node name="Cage5" type="Sprite2D" parent="Cages" unique_id=1282667251]
 position = Vector2(402, 794)
 texture = ExtResource("10_3r70o")
+
+[node name="Pricetag3" type="Sprite2D" parent="Cages/Cage5" unique_id=554698894]
+position = Vector2(195, -243)
+rotation = 0.21287183
+texture = ExtResource("5_8hme2")
 
 [node name="Cage3" type="Sprite2D" parent="Cages/Cage5" unique_id=2025332224]
 position = Vector2(-12, -381)
@@ -189,7 +214,7 @@ texture = ExtResource("8_8hme2")
 position = Vector2(1614, 344)
 
 [node name="1" type="Marker2D" parent="Markers" unique_id=247314199]
-position = Vector2(1614, 747)
+position = Vector2(1552, 747)
 
 [node name="2" type="Marker2D" parent="Markers" unique_id=238556468]
 position = Vector2(969, 775)
@@ -207,69 +232,69 @@ metadata/_custom_type_script = "uid://6hd2b0wx5v7f"
 [node name="PriceLabels" type="Node2D" parent="." unique_id=450063478]
 
 [node name="Label" type="Label" parent="PriceLabels" unique_id=200667757]
-offset_left = 1355.0
-offset_top = 333.0
-offset_right = 1395.0
-offset_bottom = 356.0
+self_modulate = Color(0.25, 0, 0.24583328, 1)
+custom_minimum_size = Vector2(100, 100)
+offset_left = 1733.9998
+offset_top = 286.0
+offset_right = 1833.9998
+offset_bottom = 386.0
+rotation = -0.4838344
+text = "0"
+label_settings = SubResource("LabelSettings_w34qo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label" type="Label" parent="PriceLabels/Label" unique_id=1453093933]
-layout_mode = 0
-offset_left = -104.0
-offset_right = -7.0
-offset_bottom = 23.0
-text = "Charm cost: "
+[node name="Label2" type="Label" parent="PriceLabels" unique_id=2079012493]
+self_modulate = Color(0.25, 0, 0.24583328, 1)
+custom_minimum_size = Vector2(100, 100)
+offset_left = 1223.0
+offset_top = 560.0
+offset_right = 1323.0
+offset_bottom = 660.0
+rotation = 0.3582345
+text = "0"
+label_settings = SubResource("LabelSettings_w34qo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="PriceLabels" unique_id=1712400039]
-offset_left = 1408.0
-offset_top = 942.0
-offset_right = 1448.0
-offset_bottom = 965.0
+[node name="Label3" type="Label" parent="PriceLabels" unique_id=1316056408]
+self_modulate = Color(0.25, 0, 0.24583328, 1)
+custom_minimum_size = Vector2(100, 100)
+offset_left = 649.0
+offset_top = 900.0
+offset_right = 749.0
+offset_bottom = 1000.0
+rotation = -0.32519692
+text = "0"
+label_settings = SubResource("LabelSettings_w34qo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label" type="Label" parent="PriceLabels/Label2" unique_id=813303544]
-layout_mode = 0
-offset_left = -104.0
-offset_right = -7.0
-offset_bottom = 23.0
-text = "Charm cost: "
+[node name="Label4" type="Label" parent="PriceLabels" unique_id=966955462]
+self_modulate = Color(0.25, 0, 0.24583328, 1)
+custom_minimum_size = Vector2(100, 100)
+offset_left = 196.00002
+offset_top = 651.00006
+offset_right = 296.0
+offset_bottom = 751.00006
+rotation = 0.7960738
+text = "0"
+label_settings = SubResource("LabelSettings_w34qo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="PriceLabels" unique_id=1766833693]
-offset_left = 938.0
-offset_top = 941.0
-offset_right = 978.0
-offset_bottom = 964.0
-
-[node name="Label" type="Label" parent="PriceLabels/Label3" unique_id=1967914019]
-layout_mode = 0
-offset_left = -104.0
-offset_right = -7.0
-offset_bottom = 23.0
-text = "Charm cost: "
-
-[node name="Label4" type="Label" parent="PriceLabels" unique_id=1404002869]
-offset_left = 507.0
-offset_top = 863.0
-offset_right = 547.0
-offset_bottom = 886.0
-
-[node name="Label" type="Label" parent="PriceLabels/Label4" unique_id=2005382811]
-layout_mode = 0
-offset_left = -104.0
-offset_right = -7.0
-offset_bottom = 23.0
-text = "Charm cost: "
-
-[node name="Label5" type="Label" parent="PriceLabels" unique_id=1733416896]
-offset_left = 485.0
-offset_top = 416.0
-offset_right = 525.0
-offset_bottom = 439.0
-
-[node name="Label" type="Label" parent="PriceLabels/Label5" unique_id=275974070]
-layout_mode = 0
-offset_left = -104.0
-offset_right = -7.0
-offset_bottom = 23.0
-text = "Charm cost: "
+[node name="Label5" type="Label" parent="PriceLabels" unique_id=1644990908]
+self_modulate = Color(0.25, 0, 0.24583328, 1)
+custom_minimum_size = Vector2(100, 100)
+offset_left = 544.0
+offset_top = 509.99997
+offset_right = 644.0
+offset_bottom = 610.0
+rotation = -0.48723418
+text = "0"
+label_settings = SubResource("LabelSettings_w34qo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AntidoteButton" type="Button" parent="." unique_id=1471729517]
 offset_left = 881.0
@@ -308,3 +333,9 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_r3vpm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1720443799]
 libraries/ = SubResource("AnimationLibrary_8hme2")
+
+[node name="CustomNumber" type="Node2D" parent="." unique_id=1561330167]
+script = ExtResource("13_w34qo")
+digits = 2
+digit_spacing = -23.0
+metadata/_custom_type_script = "uid://cfqx3dcaojqrs"

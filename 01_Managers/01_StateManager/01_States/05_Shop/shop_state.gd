@@ -33,9 +33,6 @@ func _check_snake(snake: Snake) -> void:
 		GS.set_charm(GS.get_charm() - snake.attached_snake.cost)
 		sm.charm_overlay.spend_charm(snake.attached_snake.cost, snake.global_position)
 		
-		var snake_copy = sm.shop_manager.create_snake(snake.attached_snake)
-		await sm.shop_manager.ability_helper.buy_snake(snake_copy)
-		
 		if sm.deck_manager.snake_deck.size() >= 24:
 			sm.overlay_manager.toggle_kill(true)
 			
@@ -45,6 +42,9 @@ func _check_snake(snake: Snake) -> void:
 		
 		#var snake_copy = sm.shop_manager.create_snake(snake.attached_snake)
 		#await sm.shop_manager.ability_helper.buy_snake(snake_copy)
+		var snake_copy = sm.shop_manager.create_snake(snake.attached_snake)
+		await sm.shop_manager.ability_helper.buy_snake(snake_copy)
+		
 		sm.deck_manager.add_snake(snake_copy)
 		sm.shop_manager.purchase_snake(snake)
 		GS.sound_manager.play_jingle(snake.attached_snake.jingle_id)

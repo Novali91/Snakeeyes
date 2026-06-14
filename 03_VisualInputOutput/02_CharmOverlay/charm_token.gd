@@ -17,15 +17,18 @@ var is_fake: bool = false
 var has_reached_bundle: bool = false
 
 @onready var _sprite: Sprite2D = $Sprite
+@onready var good_texture: Texture = load("res://05_Assets/01_Art/03_UI_Sprites/charm sprite.png")
+@onready var evil_texture: Texture = load("res://05_Assets/01_Art/03_UI_Sprites/EVIL charm sprite.png")
 
 func _ready() -> void:
 	area_entered.connect(_evil_collided_with_other)
 	
 	if evil:
-		_sprite.material.set_shader_parameter("strength", 1.)
+		_sprite.texture = evil_texture
 		set_collision_mask_value(5, true)
 	
 	else:
+		_sprite.texture = good_texture
 		set_collision_layer_value(5, true)
 
 func send_to(pos: Vector2) -> void:

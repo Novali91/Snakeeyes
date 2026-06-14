@@ -72,8 +72,6 @@ func _process(delta: float) -> void:
 				t.after_timer = 0.05
 				var new_after: Sprite2D = _token_after_scene.instantiate()
 				new_after.global_position = t.global_position
-				if t.evil:
-					new_after.material.set_shader_parameter("strength", 1.)
 				_afters_node.add_child(new_after)
 			t.after_timer -= delta
 
@@ -85,7 +83,7 @@ func gain_charm(val: int, pos: Vector2) -> void:
 	_count_label.text = str(GS.get_charm())
 	var abs_val = abs(val)
 	
-	var wait_time = _TOTAL_SPAWN_TIME / (val)
+	var wait_time = _TOTAL_SPAWN_TIME / (abs_val)
 	
 	for i in abs_val:
 		var new_token: CharmToken = _token_scene.instantiate()

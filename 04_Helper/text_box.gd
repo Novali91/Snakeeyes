@@ -12,6 +12,7 @@ const _WAIT_TIME: float = 0.1
 
 @onready var _text_label: RichTextLabel = $ColorRect/Text
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
+@onready var _arrow: Sprite2D = $Arrow
 
 var _tween: Tween
 var _wait_timer: float = 0
@@ -21,6 +22,7 @@ var _typing_timer: float = 0
 var _opening: bool = true
 
 func _ready() -> void:
+	_arrow.visible = false
 	_animation_player.play("open")
 	await _animation_player.animation_finished
 	_opening = false
@@ -49,6 +51,7 @@ func _process(delta: float) -> void:
 	
 	if not _waiting and _typing_timer <= 0:
 		_waiting = true
+		_arrow.visible = true
 		
 		if _text_ind >= text_array.size() - 1:
 			done_typing.emit()
@@ -68,6 +71,8 @@ func set_text_array(arr: Array[String]) -> void:
 	_text_ind = 0
 
 func _reveal_text() -> void:
+	_arrow.visible = false
+	
 	var text = text_array[_text_ind]
 	
 	_text_label.visible_ratio = 0
@@ -83,4 +88,5 @@ func _reveal_text() -> void:
 func _skip_text() -> void:
 	_tween.kill()
 	_waiting = true
+	_arrow.visible = true
 	_text_label.visible_ratio = 1.0
