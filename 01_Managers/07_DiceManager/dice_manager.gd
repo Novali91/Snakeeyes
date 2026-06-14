@@ -33,7 +33,8 @@ var _current_value: int
 var num_scarlets: int
 
 var poison: int
-var show_poison: bool
+
+var roll_is_for_poison: bool
 
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -56,9 +57,8 @@ func _process(delta: float) -> void:
 				_dice2.visible = true
 				_p_res.visible = true
 				_p_res_input.visible = true
-				if show_poison:
-					_p_lvl.visible = true
-					_p_lvl_input.visible = true
+				_p_lvl.visible = true
+				_p_lvl_input.visible = true
 				_p_res.position.y = _label_loc.position.y + 1080 - 1080 * _ease_out_0_1((_animation_progress-text_appear_time)/(bonus_appear_time-text_appear_time))
 				_p_lvl.position.y = _p_res.position.y
 			else:
@@ -66,10 +66,10 @@ func _process(delta: float) -> void:
 				_bonus.visible = true
 				_bonus.position.y = _label_loc.position.y + 100 - 30 * _ease_out_0_1((_animation_progress-bonus_appear_time)/(animation_time-bonus_appear_time))
 				_continue_button.visible = true
-				_use_antidote_button.visible = true
-				if show_poison and _current_value <= poison:
-					#show antidote button in red somehow
-					pass
+				if roll_is_for_poison and _current_value >= poison:
+					_use_antidote_button.visible = false
+				else:
+					_use_antidote_button.visible = true
 	else:
 		_bonus.visible = false
 	_cup.position.y = _cup_loc.position.y - 1080 + _ease_out_0_1(_animation_progress/cup_lower_time) * 1080
@@ -81,11 +81,10 @@ func set_poison(p: int) -> void:
 func _ease_out_0_1(x: float) -> float:
 	return sin(clamp(x,0,1) * PI / 2)
 
-func start_roll(lower_cup: bool, show_p: bool) -> void:
+func start_roll(lower_cup: bool, is_poison: bool) -> void:
 	visible = true
+	roll_is_for_poison = is_poison
 	_animation_player.play("open")
-	
-	show_poison = show_p
 	if lower_cup:
 		_animation_progress = 0.0
 	else:
@@ -130,7 +129,7 @@ func _antidote_pressed() -> void:
 		_reroll()
 
 func _reroll() -> void:
-	start_roll(false,show_poison)
+	start_roll(false,roll_is_for_poison)
 
 func _continue_pressed() -> void:
 	number_accepted.emit(_current_value)

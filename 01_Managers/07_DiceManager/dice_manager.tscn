@@ -169,7 +169,7 @@ offset_left = 1008.0
 offset_top = 441.0
 offset_right = 1189.0
 offset_bottom = 464.0
-text = "Your poison:"
+text = "Your goal:"
 horizontal_alignment = 1
 
 [node name="Input" type="Label" parent="PoisonLevel" unique_id=607230635]
