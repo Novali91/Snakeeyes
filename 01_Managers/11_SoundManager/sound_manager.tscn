@@ -23,6 +23,9 @@
 [ext_resource type="AudioStream" uid="uid://bdxrmigw23q5f" path="res://05_Assets/03_SoundEffects/jingles/rare_kingcobra.wav" id="21_7fogv"]
 [ext_resource type="AudioStream" uid="uid://s2c7cst1kbrd" path="res://05_Assets/03_SoundEffects/jingles/rare_kingsnake.wav" id="22_3qiuh"]
 [ext_resource type="AudioStream" uid="uid://chnfwfva5d48r" path="res://05_Assets/03_SoundEffects/jingles/rare_rainboa.wav" id="23_j8sid"]
+[ext_resource type="AudioStream" uid="uid://do43spqka1i2p" path="res://05_Assets/04_Music/snakegameloop.wav" id="24_74l0r"]
+[ext_resource type="AudioStream" uid="uid://peovgrjb1tmh" path="res://05_Assets/04_Music/snakememnuloop.wav" id="25_sjc11"]
+[ext_resource type="AudioStream" uid="uid://b5neblweebsv6" path="res://05_Assets/04_Music/trapbeat.wav" id="26_vgbr3"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8gqlx"]
 random_pitch = 1.1863941
@@ -51,6 +54,8 @@ stream_0/stream = ExtResource("9_rbmre")
 [node name="SoundManager" type="Node2D" unique_id=1682959940]
 script = ExtResource("1_aw07p")
 bell_pitch_step = 0.1
+transition_time = 2.0
+music_vol = -20.0
 
 [node name="Clink" type="AudioStreamPlayer" parent="." unique_id=546941583]
 stream = SubResource("AudioStreamRandomizer_8gqlx")
@@ -144,3 +149,14 @@ volume_db = -15.0
 [node name="RareRainboa" type="AudioStreamPlayer" parent="Jingles" unique_id=483698032]
 stream = ExtResource("23_j8sid")
 volume_db = -15.0
+
+[node name="Music" type="Node" parent="." unique_id=1665266457]
+
+[node name="Game" type="AudioStreamPlayer" parent="Music" unique_id=2137989531]
+stream = ExtResource("24_74l0r")
+
+[node name="Menu" type="AudioStreamPlayer" parent="Music" unique_id=1444008615]
+stream = ExtResource("25_sjc11")
+
+[node name="Trap" type="AudioStreamPlayer" parent="Music" unique_id=673697668]
+stream = ExtResource("26_vgbr3")
