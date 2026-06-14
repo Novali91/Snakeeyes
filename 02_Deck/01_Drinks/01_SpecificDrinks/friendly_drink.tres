@@ -11,6 +11,6 @@ poison = 4
 strength = 2
 special_ability = 9
 cost = 8
-description = "Reduce the poison of all drinks in your hand by 1."
+description = "Reduce the poison of all drinks on the table by 1."
 flavour_text = "The Pit Viper is an incredibly venomous, and yet is widely used for its medicinal properties."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

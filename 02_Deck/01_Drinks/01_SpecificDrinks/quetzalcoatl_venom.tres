@@ -11,6 +11,6 @@ poison = 1
 strength = 2
 charm = 2
 special_ability = 18
-description = "Draw 3, then give 3 drinks -1/+1/+1 and slide them back."
+description = "Slide in 3 drinks, then give 3 drinks -1/+1/+1 and slide them back."
 flavour_text = "The Aztec God of wind and wisdom, the knowledge he bestows is mighty fleeting."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"
