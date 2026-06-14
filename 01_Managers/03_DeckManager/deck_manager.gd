@@ -77,8 +77,12 @@ func create_drink(drink_resource: DrinkResource, og_drink_resource: DrinkResourc
 	var new_drink: Drink = _drink_scene.instantiate()
 	new_drink.attached_drink = drink_resource.duplicate()
 	new_drink.attached_drink_resource = og_drink_resource
-	new_drink.global_position = snake.global_position + Vector2(0, 100)
-	new_drink.attached_drink.parent_snake = snake
+	if snake != null:
+		new_drink.global_position = snake.global_position + Vector2(0, 100)
+		new_drink.attached_drink.parent_snake = snake
+	else:
+		new_drink.global_position = Vector2(500, 500)
+		new_drink.attached_drink.parent_snake = null
 	return new_drink
 
 ## Not sure how removing snakes will work
