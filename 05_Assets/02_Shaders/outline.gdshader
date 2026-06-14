@@ -3,7 +3,7 @@ shader_type canvas_item;
 uniform float sprite_alpha: hint_range(0.0, 1.0, 0.1) = 1.;
 uniform vec3 color: source_color = vec3(1);
 uniform float alpha: hint_range(0.0, 1.0, 0.1) = 1.;
-uniform float thickness: hint_range(0.0, 0.2, 0.01) = 0.05;
+uniform float thickness: hint_range(0.0, 0.2, 0.001) = 0.05;
 uniform float x_over_y = 1.0;
 
 const vec2 DIRECTIONS[] = {

@@ -9,8 +9,9 @@
 shader = ExtResource("3_37l6j")
 shader_parameter/sprite_alpha = 1.0
 shader_parameter/color = Color(0.857, 0.33999997, 1, 1)
-shader_parameter/alpha = 1.0
-shader_parameter/thickness = 0.00999999977648
+shader_parameter/alpha = 0.0
+shader_parameter/thickness = 0.0050000002375
+shader_parameter/x_over_y = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kcsrw"]
 radius = 459.0011

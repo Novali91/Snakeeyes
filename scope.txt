@@ -67,35 +67,35 @@ Caduceus (Roll 2d6. 1-6: Gain 1 antidote. 7-12: Double your antidote)
 
 
 to do:
-rerolls in shop
+/ rerolls in shop
 attacks
 affordable snakes should look different
 
 avery:
 refill animation
 tutorial
-add left / right buttons
-color outlines based on rarity
-snakes in shop
-snakes in deck
+/ add left / right buttons
+/ color outlines based on rarity
+/ snakes in shop
+/ snakes in deck
 
 other stuff:
 score bar is confusing, goal? score?
-shop darken needs to fade in
-shop darken needs to not include snakes
-shop darken should be a little less
-poison bar should have that back wave it had before (going opposite way?)
+/ shop darken needs to fade in
+/ shop darken needs to not include snakes
+/ shop darken should be a little less
+/ poison bar should have that back wave it had before (going opposite way?)
 poison bar should be transparent instead of darker green
 shouldnt be able to switch screens while drawing cards
 picking a drink with no drinks is a softlock
-change retain to tickbox
-poison bar is full when poison is negative
+/ change retain to tickbox
+/ poison bar is full when poison is negative
 
 black mamba needs to change (switch to buffing hand or buffing self based on hand)
 
-max hand size enforced
+/ max hand size enforced
 max snake remove snake
-min snakes well
+min snakes
 
 visual things:
 score board diff
