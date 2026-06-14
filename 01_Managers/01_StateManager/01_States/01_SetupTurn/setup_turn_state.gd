@@ -22,7 +22,6 @@ func enter() -> void:
 	sm.shop_manager.fill_shop()
 	sm.shop_manager.stock_antidote()
 	
-	sm.score_bar.set_goal_value(sm.attack_manager.get_attack_goal())
 	sm.player_strength.place_attack_tickers(sm.attack_manager.get_attack().damage,sm.attack_manager._next_attack.damage)
 	GS.cur_attack_index = sm.attack_manager.get_attack().ability_index
 	

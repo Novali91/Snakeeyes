@@ -44,7 +44,6 @@ func enter() -> void:
 	sm.hand_manager.drinks_drinkable = true
 	sm.end_turn_button.make_pressable()
 	sm.camera_manager.unlock_camera()
-	sm.score_bar.toggle_flash_goal(false)
 	
 	if GS.cur_attack_index == DICE_ROLLS_MINUS_ONE:
 		sm.dice_manager.num_scarlets -= 1

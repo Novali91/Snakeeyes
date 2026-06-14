@@ -4,6 +4,7 @@ extends Node
 const HAND_SIZE: int = 500
 const SCREEN_SIZE: Vector2 = Vector2(1920, 1080)
 const ANTIDOTE_COST: int = 2
+const MAX_LIVES: int = 6
 
 const RARITY_TO_COLOR: Dictionary[String, Color] = {
 	"S": Color(1.0, 0.83, 0.83, 1.0),

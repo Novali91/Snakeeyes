@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dhidk03elcsg1" path="res://03_VisualInputOutput/01_ScoreBar/score_bar.gd" id="1_frerc"]
 [ext_resource type="Texture2D" uid="uid://bgv6r34qfw61j" path="res://05_Assets/01_Art/03_UI_Sprites/scoreboard sprite.png" id="2_01k1c"]
 [ext_resource type="Script" uid="uid://cfqx3dcaojqrs" path="res://03_VisualInputOutput/01_ScoreBar/custom_number.gd" id="3_44rer"]
+[ext_resource type="Texture2D" uid="uid://dcdtu0k5sbdup" path="res://05_Assets/01_Art/03_UI_Sprites/lives for the scoreboard.png" id="4_bfhbu"]
 
 [node name="ScoreBar" type="Node2D" unique_id=958898566]
 script = ExtResource("1_frerc")
@@ -11,26 +12,50 @@ metadata/_custom_type_script = "uid://dhidk03elcsg1"
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1128272843]
 texture = ExtResource("2_01k1c")
 
-[node name="Score" type="Node2D" parent="." unique_id=1998445763]
-position = Vector2(21.999996, 9.000003)
-rotation = 0.08726646
-scale = Vector2(0.9, 0.9)
-script = ExtResource("3_44rer")
-digits = 1
-metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
-
-[node name="Goal" type="Node2D" parent="." unique_id=36648135]
-position = Vector2(-92, 39.000004)
-scale = Vector2(0.65, 0.65)
-script = ExtResource("3_44rer")
-digits = 4
-digit_spacing = -20.0
-metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
-
-[node name="Turn" type="Node2D" parent="." unique_id=2070661474]
-position = Vector2(118, 71)
+[node name="Turn" type="Node2D" parent="." unique_id=36648135]
+position = Vector2(-24.000002, -10.000001)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("3_44rer")
 digits = 2
 digit_spacing = -20.0
 metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
+
+[node name="TotalTurns" type="Node2D" parent="." unique_id=2070661474]
+position = Vector2(71, -13)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("3_44rer")
+digits = 2
+digit_spacing = -20.0
+metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
+
+[node name="Lives" type="Node2D" parent="." unique_id=2061481716]
+
+[node name="0" type="Sprite2D" parent="Lives" unique_id=748541863]
+position = Vector2(-33, 48)
+texture = ExtResource("4_bfhbu")
+hframes = 2
+
+[node name="1" type="Sprite2D" parent="Lives" unique_id=624810141]
+position = Vector2(-1, 48)
+texture = ExtResource("4_bfhbu")
+hframes = 2
+
+[node name="2" type="Sprite2D" parent="Lives" unique_id=1530630673]
+position = Vector2(32, 48)
+texture = ExtResource("4_bfhbu")
+hframes = 2
+
+[node name="3" type="Sprite2D" parent="Lives" unique_id=324528949]
+position = Vector2(64, 48)
+texture = ExtResource("4_bfhbu")
+hframes = 2
+
+[node name="4" type="Sprite2D" parent="Lives" unique_id=1586858517]
+position = Vector2(96, 48)
+texture = ExtResource("4_bfhbu")
+hframes = 2
+
+[node name="5" type="Sprite2D" parent="Lives" unique_id=92232718]
+position = Vector2(128, 48)
+texture = ExtResource("4_bfhbu")
+hframes = 2

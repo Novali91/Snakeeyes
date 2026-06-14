@@ -29,10 +29,19 @@ func enter() -> void:
 	
 	var damage = enemy_str.size() - attacks_blocked
 	if damage == 0:
-		GS.set_score(cur_score + 1)
+		var new_score = max(cur_score + 1, 6)
+		GS.set_score(new_score)
 	
 	else:
 		GS.set_score(cur_score - damage)
+		
+		if GS.get_score() <= 0:
+			
+			sm.camera_manager.start_pass_out()
+			await(sm.camera_manager.pass_out_complete)
+			GS.sound_manager.play_fall()
+			sm.lose()
+			return
 	
 	sm.switch_state(sm.States.SHOP)
 

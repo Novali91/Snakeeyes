@@ -43,9 +43,16 @@ var current_state: int
 @onready var ability_helper: AbilityHelper = $AbilityHelper
 @onready var overlay_manager: OverlayManager = $OverlayManager
 @onready var title_screen_manager: TitleScreenManager = $TitleScreenManager
+@onready var win_screen: Node2D = $WinScreen
+@onready var win_close: Button = $WinScreen/WinClose
+@onready var lose_screen: Node2D = $LoseScreen
+@onready var lose_close: Button = $LoseScreen/LoseClose
 
 
 func _ready() -> void:
+	win_close.pressed.connect(_quit)
+	lose_close.pressed.connect(_quit)
+	
 	for state: TopState in _state_logic_dict.values():
 		state.sm = self
 		state.setup()
@@ -74,9 +81,22 @@ func switch_state(new_state: int) -> void:
 
 func _set_start_values() -> void:
 	GS.set_antidote_num(1)
-	GS.set_score(2)
+	GS.set_score(3)
 	
 	var starting_snakes = shop_manager.get_starting_snakes()
 	
 	for s: Snake in starting_snakes:
 		deck_manager.add_snake(s)
+
+func lose() -> void:
+	camera_manager.lock_camera()
+	camera_manager.switch_screen(camera_manager.MIDDLE, true)
+	lose_screen.visible = true
+
+func win() -> void:
+	camera_manager.lock_camera()
+	camera_manager.switch_screen(camera_manager.MIDDLE, true)
+	win_screen.visible = true
+
+func _quit() -> void:
+	get_tree().quit()

@@ -28,6 +28,10 @@
 [ext_resource type="PackedScene" uid="uid://dmqecy4uccb4k" path="res://01_Managers/10_TitleScreenManager/title_screen_manager.tscn" id="27_u5576"]
 [ext_resource type="PackedScene" uid="uid://dre8t8sp8st3f" path="res://01_Managers/11_SoundManager/sound_manager.tscn" id="28_u5576"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_2a4np"]
+font_size = 175
+font_color = Color(0.9856667, 1, 0.57, 1)
+
 [node name="TopStateMachine" type="Node" unique_id=741613550]
 script = ExtResource("1_brpme")
 metadata/_custom_type_script = "uid://dx0ujiglfqi5e"
@@ -135,3 +139,51 @@ z_index = 2
 position = Vector2(2880, 540)
 
 [node name="SoundManager" parent="." unique_id=1682959940 instance=ExtResource("28_u5576")]
+
+[node name="WinScreen" type="Node2D" parent="." unique_id=1073840593]
+visible = false
+position = Vector2(1920, 0)
+
+[node name="Label" type="Label" parent="WinScreen" unique_id=520517411]
+custom_minimum_size = Vector2(1000, 500)
+offset_left = 460.0
+offset_top = 216.0
+offset_right = 1460.0
+offset_bottom = 716.0
+theme_override_font_sizes/font_size = 64
+text = "YOU WIN!"
+label_settings = SubResource("LabelSettings_2a4np")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinClose" type="Button" parent="WinScreen" unique_id=782502272]
+offset_left = 860.0
+offset_top = 635.0
+offset_right = 1128.0
+offset_bottom = 735.0
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+
+[node name="LoseScreen" type="Node2D" parent="." unique_id=498121600]
+visible = false
+position = Vector2(1920, 0)
+
+[node name="Label" type="Label" parent="LoseScreen" unique_id=275040537]
+custom_minimum_size = Vector2(1000, 500)
+offset_left = 460.0
+offset_top = 216.0
+offset_right = 1460.0
+offset_bottom = 716.0
+theme_override_font_sizes/font_size = 64
+text = "YOU LOSE!"
+label_settings = SubResource("LabelSettings_2a4np")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoseClose" type="Button" parent="LoseScreen" unique_id=191026611]
+offset_left = 860.0
+offset_top = 635.0
+offset_right = 1128.0
+offset_bottom = 735.0
+theme_override_font_sizes/font_size = 48
+text = "Quit"

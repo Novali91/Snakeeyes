@@ -12,6 +12,11 @@ func enter() -> void:
 	sm.camera_manager.start_pass_out()
 	await(sm.camera_manager.pass_out_complete)
 	GS.sound_manager.play_fall()
+	
+	if GS.get_score() <= 0:
+		sm.lose()
+		return
+	
 	sm.switch_state(sm.States.SETUP_TURN)
 	
 
