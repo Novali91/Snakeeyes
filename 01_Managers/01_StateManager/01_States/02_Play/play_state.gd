@@ -10,6 +10,7 @@ func enter() -> void:
 	sm.hand_manager.drinks_drinkable = true
 	sm.end_turn_button.make_pressable()
 	sm.camera_manager.unlock_camera()
+	sm.score_bar.toggle_flash_goal(false)
 
 func exit() -> void:
 	sm.end_turn_button.stop_pressable()
@@ -28,6 +29,8 @@ func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkRes
 	sm.charm_overlay.gain_charm(drink.charm, drink_position)
 	
 	sm.ability_helper.trigger_ability(drink.special_ability, drink_position, drink, og_drink)
+	
+	sm.score_bar.toggle_flash_goal(GS.get_strength() >= sm.attack_manager.get_attack_goal())
 	
 	if GS.get_poison() >= 12:
 		sm.hand_manager.drinks_drinkable = false

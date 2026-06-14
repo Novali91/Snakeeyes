@@ -83,6 +83,7 @@ unique_name_in_owner = true
 [node name="ScoreBar" parent="." unique_id=292557974 instance=ExtResource("8_1tnha")]
 unique_name_in_owner = true
 position = Vector2(2880, 125)
+flash_goal_time = 2.0
 
 [node name="PlayerStrength" parent="." unique_id=940870006 instance=ExtResource("11_4aa5t")]
 unique_name_in_owner = true
