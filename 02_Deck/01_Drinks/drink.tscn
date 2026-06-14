@@ -13,7 +13,7 @@ shader = ExtResource("2_mjnwm")
 shader_parameter/sprite_alpha = 1.0
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/alpha = 0.0
-shader_parameter/thickness = 0.05
+shader_parameter/thickness = 0.01999999955296
 shader_parameter/x_over_y = 1.0
 
 [node name="Drink" type="Area2D" unique_id=66274034]
