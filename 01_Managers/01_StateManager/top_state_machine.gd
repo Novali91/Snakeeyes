@@ -1,8 +1,9 @@
 class_name TopStateMachine
-extends Node
+extends Node2D
+
+signal restart()
 
 enum States {
-	TITLE_SCREEN,
 	SETUP_TURN,
 	PLAY,
 	POISON_ROLL,
@@ -15,7 +16,6 @@ enum States {
 var current_state: int
 
 @onready var _state_logic_dict: Dictionary[int, TopState] = {
-	States.TITLE_SCREEN: $States/TitleScreenState,
 	States.SETUP_TURN: $States/SetupTurnState,
 	States.PLAY: $States/PlayState,
 	States.POISON_ROLL: $States/PoisonRollState,
@@ -42,7 +42,6 @@ var current_state: int
 @onready var shop_manager: ShopManager = %ShopManager
 @onready var ability_helper: AbilityHelper = $AbilityHelper
 @onready var overlay_manager: OverlayManager = $OverlayManager
-@onready var title_screen_manager: TitleScreenManager = $TitleScreenManager
 @onready var win_screen: Node2D = $WinScreen
 @onready var win_close: Button = $WinScreen/WinClose
 @onready var lose_screen: Node2D = $LoseScreen
@@ -57,7 +56,9 @@ var current_state: int
 func _ready() -> void:
 	win_close.pressed.connect(_quit)
 	lose_close.pressed.connect(_quit)
-	
+	_set_start_values()
+
+func start_game() -> void:
 	for state: TopState in _state_logic_dict.values():
 		state.sm = self
 		state.setup()
@@ -66,9 +67,7 @@ func _ready() -> void:
 	shop_manager.ability_helper.top_ability_helper = ability_helper
 	ability_helper.play_state = _state_logic_dict[States.PLAY]
 	GS.hand_manager = hand_manager
-	switch_state(States.TITLE_SCREEN)
-	
-	_set_start_values()
+	switch_state(States.SETUP_TURN)
 
 func _process(delta: float) -> void:
 	_current_state_logic.process_tick(delta)
@@ -87,6 +86,8 @@ func switch_state(new_state: int) -> void:
 func _set_start_values() -> void:
 	GS.set_antidote_num(1)
 	GS.set_score(3)
+	GS.turn_count = 0
+	score_bar.set_turn_value(0)
 	
 	var starting_snakes = shop_manager.get_starting_snakes()
 	
@@ -105,3 +106,6 @@ func win() -> void:
 
 func _quit() -> void:
 	get_tree().quit()
+
+func _restart() -> void:
+	pass

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cdg8f86muxjgc"]
+
+[ext_resource type="Script" uid="uid://dh7k7d6o5qqa4" path="res://01_Managers/01_StateManager/root.gd" id="1_a4yqp"]
+[ext_resource type="PackedScene" uid="uid://dmqecy4uccb4k" path="res://01_Managers/10_TitleScreenManager/title_screen_manager.tscn" id="2_n20y2"]
+
+[node name="Root" type="Node" unique_id=1745907344]
+script = ExtResource("1_a4yqp")
+
+[node name="TitleScreenManager" parent="." unique_id=147652467 instance=ExtResource("2_n20y2")]
+z_index = 2
+position = Vector2(960, 540)
