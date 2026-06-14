@@ -14,7 +14,7 @@ var ATTACK_LIST: Array[BossAttack] = [
 	BossAttack.new([2], 0), # 2
 	BossAttack.new([1, 1], 0), # 3
 	BossAttack.new([2], 0), # 4
-	BossAttack.new([4], 1), # 5
+	BossAttack.new([4], 1), # 5 meet the score perfectly
 	BossAttack.new([1, 3], 0), # 6
 	BossAttack.new([5], 0), # 7
 	BossAttack.new([1, 1, 1], 0), # 8
