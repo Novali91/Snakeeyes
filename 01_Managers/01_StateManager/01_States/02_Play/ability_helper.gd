@@ -118,6 +118,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			var str_inc: int = GS.get_antidote_num() # Right now it is  str per antidote
 			GS.set_strength(GS.get_strength() + str_inc)
 			GS.set_charm(GS.get_charm() + str_inc)
+			sm.charm_overlay.gain_charm(str_inc, drink_position)
 		JORMUNGANDR: 
 			var total: int = sm.hand_manager.ability_helper.get_total_hand_str()-cur_drink.strength
 			GS.set_strength(GS.get_strength() + total)
@@ -184,9 +185,11 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			if val < 7:
 				GS.set_strength(GS.get_strength()-2)
 				GS.set_charm(GS.get_charm()-2)
+				sm.charm_overlay.gain_charm(-2, drink_position)
 			else:
 				GS.set_strength(GS.get_strength()+8)
 				GS.set_charm(GS.get_charm()+4)
+				sm.charm_overlay.gain_charm(4, drink_position)
 		CADUCEUS:
 			var val: int = await roll_dice()
 			if val < 7:
