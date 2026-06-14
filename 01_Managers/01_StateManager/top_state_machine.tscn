@@ -108,10 +108,6 @@ offset_bottom = 1080.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.078431375)
 
-[node name="HandManager" parent="." unique_id=1877513829 instance=ExtResource("21_ffq48")]
-unique_name_in_owner = true
-position = Vector2(1920, 0)
-
 [node name="AttackManager" parent="." unique_id=1488456757 instance=ExtResource("20_n6io1")]
 unique_name_in_owner = true
 position = Vector2(3201, 228)
@@ -123,6 +119,10 @@ position = Vector2(3380, 714)
 [node name="PoisonBar" parent="." unique_id=674401828 instance=ExtResource("10_v5tm5")]
 unique_name_in_owner = true
 position = Vector2(3519, 398)
+
+[node name="HandManager" parent="." unique_id=1877513829 instance=ExtResource("21_ffq48")]
+unique_name_in_owner = true
+position = Vector2(1920, 0)
 
 [node name="ShopManager" parent="." unique_id=690115681 instance=ExtResource("23_5mt65")]
 unique_name_in_owner = true

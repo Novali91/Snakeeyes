@@ -162,3 +162,7 @@ antidote button art
 
 on reroll shop swap off and swap back
 little wait between drinking drinks
+
+ketsa cant get eaten by nidhog
+nidhog disapeared on 5 somehow
+passing out doesnt work

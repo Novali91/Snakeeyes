@@ -5,10 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://cyngu0oorn3g1" path="res://05_Assets/01_Art/03_UI_Sprites/strength scaler sprite.png" id="3_xi3mp"]
 [ext_resource type="Script" uid="uid://cfqx3dcaojqrs" path="res://03_VisualInputOutput/01_ScoreBar/custom_number.gd" id="4_xi3mp"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_xi3mp"]
-font_size = 20
-font_color = Color(1, 0.87, 0.48000002, 1)
-
 [node name="PlayerStrength" type="Node2D" unique_id=1002047189]
 script = ExtResource("1_wxbxo")
 metadata/_custom_type_script = "uid://blafpy8fea7fb"
@@ -21,19 +17,7 @@ texture = ExtResource("2_gujg7")
 position = Vector2(0, -210)
 texture = ExtResource("3_xi3mp")
 
-[node name="Input" type="Label" parent="Ticker" unique_id=1917306564]
-custom_minimum_size = Vector2(100, 100)
-offset_left = -59.0
-offset_top = 148.0
-offset_right = 41.0
-offset_bottom = 248.0
-text = "0"
-label_settings = SubResource("LabelSettings_xi3mp")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="CustomNumber" type="Node2D" parent="Ticker" unique_id=1417211364]
-visible = false
 position = Vector2(-9, 199)
 scale = Vector2(0.3, 0.3)
 script = ExtResource("4_xi3mp")

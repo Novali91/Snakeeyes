@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://b76upqy4dk5el"]
 
 [ext_resource type="Texture2D" uid="uid://bd6wqeww3v5ap" path="res://05_Assets/01_Art/03_UI_Sprites/right_arrow.png" id="1_tuk5u"]
+[ext_resource type="Script" uid="uid://8nbgqkirdghj" path="res://03_VisualInputOutput/05_PlayerStrength'/next_attack_ticker.gd" id="1_yub7o"]
 [ext_resource type="Script" uid="uid://cfqx3dcaojqrs" path="res://03_VisualInputOutput/01_ScoreBar/custom_number.gd" id="2_yub7o"]
 
 [node name="NextAttackTicker" type="Node2D" unique_id=1270897173]
+modulate = Color(0.52, 1, 0.832, 0.45882353)
+script = ExtResource("1_yub7o")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=896992753]
 position = Vector2(-114, 0.19531345)

@@ -90,8 +90,4 @@ func get_description(upcoming: int) -> String:
 func pick_convo_string() -> String:
 	if GS.turn_count == 0: return "Hover here to see an upcoming attack..."
 	
-	var random_num: int = randi_range(1, 6)
-	if random_num == 5:
-		random_num = randi_range(1, 6)
-	
-	return array_of_convo[random_num]
+	return array_of_convo.pick_random()

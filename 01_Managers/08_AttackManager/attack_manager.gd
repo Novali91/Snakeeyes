@@ -10,7 +10,7 @@ var _next_attack: BossAttack
 @onready var area: Area2D = $Area
 
 var ATTACK_LIST: Array[BossAttack] = [
-	BossAttack.new([2], 0), # 1
+	BossAttack.new([10, 10, 10], 0), # 1
 	BossAttack.new([2], 0), # 2
 	BossAttack.new([1, 1], 0), # 3
 	BossAttack.new([2], 0), # 4
@@ -117,6 +117,7 @@ func next_attack() -> void:
 	_current_attack = ATTACK_LIST[_attack_ind]
 	_next_attack = ATTACK_LIST[_attack_ind + 1]
 	boss_tooltip.cur_string = boss_tooltip.pick_convo_string()
+	boss_tooltip.convo.text = boss_tooltip.cur_string
 
 func get_attack() -> BossAttack:
 	return _current_attack

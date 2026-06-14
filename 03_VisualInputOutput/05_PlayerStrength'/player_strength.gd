@@ -23,7 +23,6 @@ const _TICKER_VALUES = [
 	1000
 ]
 
-@onready var _input: Label = $Ticker/Input
 @onready var _custom_number: CustomNumber = $Ticker/CustomNumber
 @onready var _ticker: Sprite2D = $Ticker
 @onready var _marker_node = $Markers
@@ -43,10 +42,13 @@ func _ready() -> void:
 func place_attack_tickers(attacks: Array[int], next_attacks: Array[int]) -> void:
 	for attack_ticker in _attack_tickers:
 		attack_ticker.queue_free()
+	
 	for next_attack_ticker in _next_attack_tickers:
 		next_attack_ticker.queue_free()
+	
 	_attack_tickers = []
 	_next_attack_tickers = []
+	
 	var attack_total = 0
 	for attack in attacks:
 		attack_total += attack
@@ -55,6 +57,9 @@ func place_attack_tickers(attacks: Array[int], next_attacks: Array[int]) -> void
 		temp_attack_ticker.get_child(1).set_value(attack_total)
 		temp_attack_ticker.position.y = get_height(attack_total) - _TICKER_Y_OFFSET
 		_attack_tickers.append(temp_attack_ticker)
+	
+	_attack_tickers[-1].set_top()
+	
 	attack_total = 0
 	for next_attack in next_attacks:
 		attack_total += next_attack
@@ -65,6 +70,9 @@ func place_attack_tickers(attacks: Array[int], next_attacks: Array[int]) -> void
 		temp_next_attack_ticker.get_child(1).tint_col = Color.from_rgba8(30,30,30,255)
 		temp_next_attack_ticker.get_child(1).toggle_tint(true)
 		_next_attack_tickers.append(temp_next_attack_ticker)
+	
+	_next_attack_tickers[-1].set_top()
+	
 
 func get_height(val: int) -> float:
 	var stop_ind: int
@@ -83,8 +91,6 @@ func get_height(val: int) -> float:
 	return _TICKER_Y_OFFSET + lerp(bot_pos, top_pos, percent)
 
 func set_value(_old_val: int, new_val: int) -> void:
-	_input.text = str(new_val)
-	
 	_custom_number.set_value(new_val)
 	
 	var clamped = clamp(new_val, 0, 1000)
