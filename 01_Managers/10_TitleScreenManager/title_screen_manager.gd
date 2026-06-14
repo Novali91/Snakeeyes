@@ -7,15 +7,21 @@ signal play_clicked()
 @onready var _bubble: Sprite2D = $Bubble
 @onready var _collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
+@onready var _text_box: TextBox = $TextBox
 
 var _clicked: bool = false
+var _waiting: bool = true
 
 func _ready() -> void:
+	_text_box.clicked_close.connect(_text_closed)
 	_area.mouse_entered.connect(_mouse_entered)
 	_area.mouse_exited.connect(_mouse_exited)
 
 func _process(_delta: float) -> void:
-	if _clicked: return
+	if Input.is_action_just_pressed("ui_accept"):
+		play_clicked.emit()
+	
+	if _clicked or _waiting: return
 	
 	if Input.is_action_just_pressed("click"):
 		var dist = get_local_mouse_position().length()
@@ -26,6 +32,13 @@ func _process(_delta: float) -> void:
 			_animation_player.play("fade_out")
 			await _animation_player.animation_finished
 			play_clicked.emit()
+
+func _text_closed() -> void:
+	_text_box.close()
+	await _text_box.finished_closing
+	_animation_player.play("intro")
+	await _animation_player.animation_finished
+	_waiting = false
 
 func _mouse_entered() -> void:
 	_bubble.material.set_shader_parameter("alpha", 1)

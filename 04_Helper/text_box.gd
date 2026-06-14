@@ -8,7 +8,7 @@ signal finished_closing()
 const _PER_CHARACTER_SPEED: float = 0.1
 const _WAIT_TIME: float = 0.1
 
-var _text_array: Array[String]
+@export var text_array: Array[String]
 
 @onready var _text_label: RichTextLabel = $ColorRect/Text
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
@@ -23,7 +23,6 @@ var _opening: bool = true
 func _ready() -> void:
 	_animation_player.play("open")
 	await _animation_player.animation_finished
-	set_text_array(["Hi!", "nfirjspfnprgnpsngpinr"])
 	_opening = false
 	_reveal_text()
 
@@ -32,7 +31,7 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("click"):
 		if _waiting:
-			if _text_ind >= _text_array.size() - 1:
+			if _text_ind >= text_array.size() - 1:
 				clicked_close.emit()
 			
 			else:
@@ -45,30 +44,31 @@ func _process(delta: float) -> void:
 			if _wait_timer <= 0:
 				_skip_text()
 				
-				if _text_ind >= _text_array.size() - 1:
+				if _text_ind >= text_array.size() - 1:
 					done_typing.emit()
 	
 	if not _waiting and _typing_timer <= 0:
 		_waiting = true
 		
-		if _text_ind >= _text_array.size() - 1:
+		if _text_ind >= text_array.size() - 1:
 			done_typing.emit()
 	
 	_wait_timer -= delta
 	_typing_timer -= delta
 
 func close() -> void:
+	_text_label.text = ""
 	_animation_player.play("close")
 	await _animation_player.animation_finished
 	finished_closing.emit()
 	queue_free()
 
 func set_text_array(arr: Array[String]) -> void:
-	_text_array = arr
+	text_array = arr
 	_text_ind = 0
 
 func _reveal_text() -> void:
-	var text = _text_array[_text_ind]
+	var text = text_array[_text_ind]
 	
 	_text_label.visible_ratio = 0
 	_text_label.text = text

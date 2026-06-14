@@ -2,19 +2,60 @@
 
 [ext_resource type="Script" uid="uid://ogt7rvwqqrmu" path="res://04_Helper/text_box.gd" id="1_k3i5s"]
 
+[sub_resource type="Animation" id="Animation_fvj50"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_ppwx1"]
 resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_k3i5s"]
 resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ppwx1"]
 _data = {
+&"RESET": SubResource("Animation_fvj50"),
 &"close": SubResource("Animation_ppwx1"),
 &"open": SubResource("Animation_k3i5s")
 }
 
 [node name="TextBox" type="Node2D" unique_id=215385471]
+modulate = Color(1, 1, 1, 0)
 script = ExtResource("1_k3i5s")
 metadata/_custom_type_script = "uid://ogt7rvwqqrmu"
 
@@ -35,11 +76,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "Sssssnake eyesss...."
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=571918502]
 libraries/ = SubResource("AnimationLibrary_ppwx1")
+speed_scale = 4.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2115322998]

@@ -110,3 +110,52 @@ need to win 36 rounds
 
 bugs:
 pass out if milk snake brings you to max poison
+
+
+
+
+
+
+tutorial
+intro animation
+boss current attack visuals
+boss next attack visuals
+boss special abilities
+update chimera
+add title music
+add main loop music
+add special attack music
+make pass out more feathered
+make drinks more visual
+add ticks back to poison bar
+make poison bar have a better number
+change side arrow visuals
+refill animation in deck
+put drinks in correct places in deck
+pause screen
+volume bar
+reset button
+win screen
+lose screen
+lives
+tooltip sprites
+fonts everywhere
+more sound effects?
+dice plus / minus visible
+
+whenever you gain charm, gain that much poison
+whenever you play a drink give its snake +1 poison
+no poison this round
+no drawing cards this round
+add some bad drinks to your deck
+whenever you roll the dice, gain that much strength
+
+
+sound on pick drink for effect
+flavor text less visible, rules text more
+
+bowl for charm
+cobra text needs to say 2
+parrot has red tooltip
+reroll button art
+antidote button art

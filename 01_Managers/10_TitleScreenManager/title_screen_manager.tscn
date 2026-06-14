@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://5rq7dg3hbajb" path="res://05_Assets/01_Art/02_Backgrounds/begin game background.png" id="2_ke0wo"]
 [ext_resource type="Shader" uid="uid://0oonfw65mdnr" path="res://05_Assets/02_Shaders/outline.gdshader" id="3_37l6j"]
 [ext_resource type="Texture2D" uid="uid://ced2yvvgoiqf0" path="res://05_Assets/01_Art/03_UI_Sprites/begin game sprite.png" id="4_cybs7"]
+[ext_resource type="PackedScene" uid="uid://b6sevij1iobuf" path="res://04_Helper/text_box.tscn" id="5_37l6j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vwu47"]
 shader = ExtResource("3_37l6j")
@@ -42,6 +43,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [1.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fade:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_37l6j"]
 resource_name = "fade_out"
@@ -70,10 +83,26 @@ tracks/1/keys = {
 "values": [1.0, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_cybs7"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cybs7"]
 _data = {
 &"RESET": SubResource("Animation_ke0wo"),
-&"fade_out": SubResource("Animation_37l6j")
+&"fade_out": SubResource("Animation_37l6j"),
+&"intro": SubResource("Animation_cybs7")
 }
 
 [node name="TitleScreenManager" type="Node2D" unique_id=147652467]
@@ -95,3 +124,14 @@ shape = SubResource("CircleShape2D_kcsrw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=216579778]
 libraries/ = SubResource("AnimationLibrary_cybs7")
+
+[node name="Fade" type="ColorRect" parent="." unique_id=1254174732]
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextBox" parent="." unique_id=215385471 instance=ExtResource("5_37l6j")]
+text_array = Array[String](["THIS IS THE INTRO", "BOOM"])
