@@ -1,5 +1,7 @@
 shader_type canvas_item;
 
+uniform float alpha = 1.0;
+
 void fragment() {
 	vec2 norm_uv = UV * 2. - 1.;
 	float circ_mask = length(norm_uv) - 0.1;
