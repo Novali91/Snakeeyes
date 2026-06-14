@@ -74,7 +74,7 @@ func create_drink(drink_resource: DrinkResource, og_drink_resource: DrinkResourc
 	var new_drink: Drink = _drink_scene.instantiate()
 	new_drink.attached_drink = drink_resource.duplicate()
 	new_drink.attached_drink_resource = og_drink_resource
-	new_drink.global_position = Vector2(200 + drink_drawpile.size() * 50, 800)
+	new_drink.global_position = snake.global_position + Vector2(0, 128)
 	new_drink.attached_drink.parent_snake = snake
 	return new_drink
 
