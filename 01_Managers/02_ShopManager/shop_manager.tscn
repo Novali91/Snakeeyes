@@ -18,6 +18,9 @@
 shader = ExtResource("4_0hb6a")
 shader_parameter/alpha = 1.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_w34qo"]
+font_size = 32
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8hme2"]
 shader = ExtResource("10_tqajx")
 shader_parameter/sprite_alpha = 1.0
@@ -229,34 +232,69 @@ metadata/_custom_type_script = "uid://6hd2b0wx5v7f"
 [node name="PriceLabels" type="Node2D" parent="." unique_id=450063478]
 
 [node name="Label" type="Label" parent="PriceLabels" unique_id=200667757]
-offset_left = 1355.0
-offset_top = 333.0
-offset_right = 1395.0
-offset_bottom = 356.0
+self_modulate = Color(0.25, 0, 0.24583328, 1)
+custom_minimum_size = Vector2(100, 100)
+offset_left = 1733.9998
+offset_top = 286.0
+offset_right = 1833.9998
+offset_bottom = 386.0
+rotation = -0.4838344
+text = "0"
+label_settings = SubResource("LabelSettings_w34qo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="PriceLabels" unique_id=1712400039]
-offset_left = 1408.0
-offset_top = 942.0
-offset_right = 1448.0
-offset_bottom = 965.0
+[node name="Label2" type="Label" parent="PriceLabels" unique_id=2079012493]
+self_modulate = Color(0.25, 0, 0.24583328, 1)
+custom_minimum_size = Vector2(100, 100)
+offset_left = 1223.0
+offset_top = 560.0
+offset_right = 1323.0
+offset_bottom = 660.0
+rotation = 0.3582345
+text = "0"
+label_settings = SubResource("LabelSettings_w34qo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="PriceLabels" unique_id=1766833693]
-offset_left = 938.0
-offset_top = 941.0
-offset_right = 978.0
-offset_bottom = 964.0
+[node name="Label3" type="Label" parent="PriceLabels" unique_id=1316056408]
+self_modulate = Color(0.25, 0, 0.24583328, 1)
+custom_minimum_size = Vector2(100, 100)
+offset_left = 649.0
+offset_top = 900.0
+offset_right = 749.0
+offset_bottom = 1000.0
+rotation = -0.32519692
+text = "0"
+label_settings = SubResource("LabelSettings_w34qo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label4" type="Label" parent="PriceLabels" unique_id=1404002869]
-offset_left = 507.0
-offset_top = 863.0
-offset_right = 547.0
-offset_bottom = 886.0
+[node name="Label4" type="Label" parent="PriceLabels" unique_id=966955462]
+self_modulate = Color(0.25, 0, 0.24583328, 1)
+custom_minimum_size = Vector2(100, 100)
+offset_left = 196.00002
+offset_top = 651.00006
+offset_right = 296.0
+offset_bottom = 751.00006
+rotation = 0.7960738
+text = "0"
+label_settings = SubResource("LabelSettings_w34qo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label5" type="Label" parent="PriceLabels" unique_id=1733416896]
-offset_left = 485.0
-offset_top = 416.0
-offset_right = 525.0
-offset_bottom = 439.0
+[node name="Label5" type="Label" parent="PriceLabels" unique_id=1644990908]
+self_modulate = Color(0.25, 0, 0.24583328, 1)
+custom_minimum_size = Vector2(100, 100)
+offset_left = 544.0
+offset_top = 509.99997
+offset_right = 644.0
+offset_bottom = 610.0
+rotation = -0.48723418
+text = "0"
+label_settings = SubResource("LabelSettings_w34qo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AntidoteButton" type="Button" parent="." unique_id=1471729517]
 offset_left = 881.0
