@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://6hd2b0wx5v7f" path="res://01_Managers/05_Tooltip_Manager/tooltip_manager.gd" id="2_8kjcj"]
 [ext_resource type="Script" uid="uid://cimjodkpl2ahn" path="res://01_Managers/02_ShopManager/shop_ability_helper.gd" id="3_ah0kr"]
 [ext_resource type="Shader" uid="uid://csr6a823jullk" path="res://01_Managers/02_ShopManager/shop_darkness.gdshader" id="4_0hb6a"]
+[ext_resource type="Texture2D" uid="uid://blu6wivcgvkds" path="res://05_Assets/01_Art/03_UI_Sprites/snake pricetag.png" id="5_8hme2"]
 [ext_resource type="Texture2D" uid="uid://bvgqs0gme8k7j" path="res://05_Assets/01_Art/03_UI_Sprites/closed and open shop sign spritesheet 400 by 400.png" id="5_mkdgh"]
 [ext_resource type="Texture2D" uid="uid://b7tye6xuywn0o" path="res://05_Assets/01_Art/02_Backgrounds/shop cage 1.png" id="6_oquer"]
 [ext_resource type="Texture2D" uid="uid://ptkmkh70gjsh" path="res://05_Assets/01_Art/02_Backgrounds/shop cage 2.png" id="7_tqajx"]
@@ -157,19 +158,25 @@ mouse_filter = 2
 [node name="Cages" type="Node2D" parent="." unique_id=578963602]
 
 [node name="Cage2" type="Sprite2D" parent="Cages" unique_id=268423436]
-position = Vector2(1485, 829)
+position = Vector2(1560, 829)
 texture = ExtResource("7_tqajx")
 
 [node name="Cage1" type="Sprite2D" parent="Cages/Cage2" unique_id=1010915643]
 position = Vector2(76, -437)
 texture = ExtResource("6_oquer")
 
+[node name="Pricetag1" type="Sprite2D" parent="Cages/Cage2" unique_id=347831644]
+position = Vector2(-92, -558)
+rotation = -0.12839502
+scale = Vector2(-1, 1)
+texture = ExtResource("5_8hme2")
+
 [node name="Cage4" type="Sprite2D" parent="Cages" unique_id=558582703]
 position = Vector2(960, 786)
 texture = ExtResource("9_w34qo")
 
 [node name="Cage5" type="Sprite2D" parent="Cages" unique_id=1282667251]
-position = Vector2(502, 794)
+position = Vector2(402, 794)
 texture = ExtResource("10_3r70o")
 
 [node name="Cage3" type="Sprite2D" parent="Cages/Cage5" unique_id=2025332224]
@@ -179,19 +186,19 @@ texture = ExtResource("8_8hme2")
 [node name="Markers" type="Node2D" parent="." unique_id=2016532303]
 
 [node name="0" type="Marker2D" parent="Markers" unique_id=1035344354]
-position = Vector2(1539, 344)
+position = Vector2(1614, 344)
 
 [node name="1" type="Marker2D" parent="Markers" unique_id=247314199]
-position = Vector2(1492, 747)
+position = Vector2(1614, 747)
 
 [node name="2" type="Marker2D" parent="Markers" unique_id=238556468]
 position = Vector2(969, 775)
 
 [node name="3" type="Marker2D" parent="Markers" unique_id=1003581692]
-position = Vector2(504, 735)
+position = Vector2(404, 735)
 
 [node name="4" type="Marker2D" parent="Markers" unique_id=799608966]
-position = Vector2(495, 535)
+position = Vector2(404, 535)
 
 [node name="TooltipManager" type="Node2D" parent="." unique_id=653139634]
 script = ExtResource("2_8kjcj")
