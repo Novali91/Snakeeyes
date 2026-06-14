@@ -92,6 +92,12 @@ position = Vector2(2118, 709)
 position = Vector2(2880, 540)
 texture = ExtResource("11_gwsv7")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=116598250]
+offset_right = 5760.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.078431375)
+
 [node name="HandManager" parent="." unique_id=1877513829 instance=ExtResource("21_ffq48")]
 unique_name_in_owner = true
 position = Vector2(1920, 0)
