@@ -229,17 +229,12 @@ func draw_cards(num: int) -> void:
 		sm.hand_manager.draw_drinks(drinks)
 		
 		if draw_remaining > 0:
-			await get_tree().create_timer(0.5).timeout
-			await _reshuffle_draw_pile()
-			await get_tree().create_timer(0.5).timeout
+			_reshuffle_draw_pile()
 	
 	sm.camera_manager.unlock_camera()
 
 func _reshuffle_draw_pile() -> void:
-	sm.camera_manager.switch_screen(sm.camera_manager.LEFT, true)
 	sm.deck_manager.reshuffle_drawpile()
-	await get_tree().create_timer(1.0).timeout
-	sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 
 func remove_snake(start_screen: int) -> void:
 	if sm.deck_manager.snake_deck.size() <= 5:

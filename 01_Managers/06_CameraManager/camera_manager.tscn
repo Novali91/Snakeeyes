@@ -6,6 +6,11 @@
 [ext_resource type="Shader" uid="uid://5vjet2vo8d7y" path="res://01_Managers/06_CameraManager/pass_out_effect.gdshader" id="3_tmo6x"]
 [ext_resource type="PackedScene" uid="uid://b6l5xioi16nd8" path="res://01_Managers/06_CameraManager/camera_arrow.tscn" id="4_46yof"]
 
+[sub_resource type="Gradient" id="Gradient_spbah"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_abwj1"]
+gradient = SubResource("Gradient_spbah")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tmo6x"]
 shader = ExtResource("2_x2vs0")
 shader_parameter/fisheye_intensity = 0.0
@@ -20,6 +25,43 @@ shader_parameter/flutter_speed = 7.0
 shader_parameter/fall_dist = 0.5
 shader_parameter/awake_time = 4.5
 
+[sub_resource type="Animation" id="Animation_spbah"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Notif:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_abwj1"]
+resource_name = "default"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Notif:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.49, 0.49, 0.49, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_urxhq"]
+_data = {
+&"RESET": SubResource("Animation_spbah"),
+&"default": SubResource("Animation_abwj1")
+}
+
 [node name="CameraManager" type="Node2D" unique_id=1135895677]
 script = ExtResource("1_5qfpc")
 poison_effect_change_speed = 3.0
@@ -32,55 +74,63 @@ metadata/_custom_type_script = "uid://d30y0q47xsgt0"
 [node name="Arrows" type="Node2D" parent="." unique_id=147608854]
 z_index = 1
 
-[node name="CameraArrow" parent="Arrows" unique_id=5611268 instance=ExtResource("4_46yof")]
-offset_left = 1770.0
-offset_top = 390.0
-offset_right = 1870.0
-offset_bottom = 690.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Arrows/CameraArrow" unique_id=1707713052]
-position = Vector2(49, 156)
-scale = Vector2(-0.58, -0.58)
+[node name="Sprite2D" type="Sprite2D" parent="Arrows" unique_id=1707713052]
+position = Vector2(1819, 546)
+rotation = 3.1415927
+scale = Vector2(0.75, -0.75)
 texture = ExtResource("3_spbah")
 
-[node name="CameraArrow3" parent="Arrows" unique_id=1395568430 instance=ExtResource("4_46yof")]
-offset_left = 1970.0
-offset_top = 390.0
-offset_right = 2070.0
-offset_bottom = 690.0
+[node name="CameraArrow" parent="Arrows/Sprite2D" unique_id=5611268 instance=ExtResource("4_46yof")]
+offset_left = -90.99999
+offset_top = -49.000008
+offset_right = 109.00001
+offset_bottom = 50.999992
+
+[node name="Sprite2D2" type="Sprite2D" parent="Arrows" unique_id=168460369]
+position = Vector2(2018, 550)
+scale = Vector2(0.75, -0.75)
+texture = ExtResource("3_spbah")
+
+[node name="CameraArrow" parent="Arrows/Sprite2D2" unique_id=15005950 instance=ExtResource("4_46yof")]
+offset_left = -90.99999
+offset_top = -49.000008
+offset_right = 109.00001
+offset_bottom = 50.999992
 is_pointing_left = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Arrows/CameraArrow3" unique_id=168460369]
-position = Vector2(47.999992, 160)
-scale = Vector2(0.58, 0.58)
+[node name="Sprite2D3" type="Sprite2D" parent="Arrows" unique_id=627921010]
+position = Vector2(3940, 552)
+scale = Vector2(0.75, -0.75)
 texture = ExtResource("3_spbah")
 
-[node name="CameraArrow4" parent="Arrows" unique_id=398782690 instance=ExtResource("4_46yof")]
-offset_left = 3890.0
-offset_top = 390.0
-offset_right = 3990.0
-offset_bottom = 690.0
+[node name="CameraArrow" parent="Arrows/Sprite2D3" unique_id=1931537363 instance=ExtResource("4_46yof")]
+offset_left = -90.99999
+offset_top = -49.000008
+offset_right = 109.00001
+offset_bottom = 50.999992
 is_pointing_left = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Arrows/CameraArrow4" unique_id=627921010]
-position = Vector2(49.999973, 162)
-scale = Vector2(0.58, 0.58)
+[node name="Sprite2D4" type="Sprite2D" parent="Arrows" unique_id=68184387]
+position = Vector2(3739, 550)
+rotation = 3.1415927
+scale = Vector2(0.75, -0.75)
 texture = ExtResource("3_spbah")
 
-[node name="CameraArrow2" parent="Arrows" unique_id=1094459711 instance=ExtResource("4_46yof")]
-offset_left = 3690.0
-offset_top = 390.0
-offset_right = 3790.0
-offset_bottom = 690.0
+[node name="CameraArrow" parent="Arrows/Sprite2D4" unique_id=1570898919 instance=ExtResource("4_46yof")]
+offset_left = -90.99999
+offset_top = -49.000008
+offset_right = 109.00001
+offset_bottom = 50.999992
 
-[node name="Sprite2D" type="Sprite2D" parent="Arrows/CameraArrow2" unique_id=68184387]
-position = Vector2(49.00009, 160.00002)
-scale = Vector2(-0.5801825, -0.5801825)
-texture = ExtResource("3_spbah")
+[node name="Notif" type="Sprite2D" parent="." unique_id=87971975]
+z_index = 1
+position = Vector2(3706, 511)
+texture = SubResource("GradientTexture2D_abwj1")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=97266164]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=1147795827]
+visible = false
 offset = Vector2(960, 540)
 transform = Transform2D(1, 0, 0, 1, 960, 540)
 
@@ -99,3 +149,7 @@ offset_top = -540.0
 offset_right = 960.0
 offset_bottom = 540.0
 mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2139901080]
+libraries/ = SubResource("AnimationLibrary_urxhq")
+autoplay = &"default"

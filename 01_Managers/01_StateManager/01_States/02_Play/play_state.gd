@@ -28,7 +28,19 @@ func setup() -> void:
 	sm.hand_manager.drink_drank.connect(play_card)
 
 func enter() -> void:
-	await sm.ability_helper.draw_cards(5)
+	if GS.in_tutorial:
+		await get_tree().create_timer(1.0).timeout
+		sm.camera_manager.switch_screen(sm.camera_manager.LEFT, true) 
+		
+		# refill animation
+		await get_tree().create_timer(5.0).timeout
+		
+		sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true) 
+		
+		await get_tree().create_timer(2.0).timeout
+	
+	sm.ability_helper.draw_cards(5)
+	
 	sm.hand_manager.drinks_drinkable = true
 	sm.end_turn_button.make_pressable()
 	sm.camera_manager.unlock_camera()
