@@ -12,14 +12,14 @@ extends TopState
 ## On drink, give its snake +1 poison - 8
 ## All dice rolls -1
 
-const EXACT_SCORE: int = 1
+const EXACT_SCORE: int = 1 # X
 const DRINK_ALL_DRINKS_MINUS_STR: int = 2 # X
 const SWAP_CHARM_STR: int = 3 # X
 const DRINK_DRAW_ONE: int = 4 # X
 const DRINK_SLIDE_BACK: int = 5 # X
-const END_KILL_SNAKES: int = 6
+const END_KILL_SNAKES: int = 6 # X
 const SWAP_POISON_CHARM: int = 7 # X
-const DRINK_SNAKE_ONE_POISON: int = 8
+const DRINK_SNAKE_ONE_POISON: int = 8  # X
 const DICE_ROLLS_MINUS_ONE: int = 9 # X
 const WIN_ROUND: int = 10 # X
 
@@ -59,6 +59,7 @@ func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkRes
 			GS.set_strength(GS.get_strength() + drink.strength)
 			GS.set_charm(GS.get_charm() + drink.poison)
 			sm.charm_overlay.gain_charm(drink.poison, drink_position)
+		
 		_:
 			GS.set_poison(GS.get_poison() + drink.poison)
 			GS.set_strength(GS.get_strength() + drink.strength)
@@ -81,6 +82,10 @@ func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkRes
 			
 			sm.overlay_manager.toggle_slide_back(false, 1)
 		
+		DRINK_SNAKE_ONE_POISON:
+			drink.parent_snake.current_drink.poison += 1
+		
+		
 		_:
 			pass
 	
@@ -95,5 +100,11 @@ func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkRes
 
 func _end_turn() -> void:
 	sm.hand_manager.drinks_drinkable = false
+	if GS.cur_attack_index == END_KILL_SNAKES:
+		sm.camera_manager.lock_camera()
+		sm.camera_manager.switch_screen(sm.camera_manager.LEFT, true)
+		for drink: Drink in sm.hand_manager.drinks:
+			sm.deck_manager.remove_snake(drink.attached_drink.parent_snake)
+		await get_tree().create_timer(1).timeout
 	sm.hand_manager.end_turn_discard()
 	sm.switch_state(sm.States.POISON_ROLL)

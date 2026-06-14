@@ -116,6 +116,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 		STR_PER_ANTI:
 			var str_inc: int = GS.get_antidote_num() # Right now it is  str per antidote
 			GS.set_strength(GS.get_strength() + str_inc)
+			GS.set_strength(GS.get_charm() + str_inc)
 		JORMUNGANDR: 
 			var total: int = sm.hand_manager.ability_helper.get_total_hand_str()-cur_drink.strength
 			GS.set_strength(GS.get_strength() + total)

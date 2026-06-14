@@ -31,7 +31,7 @@ func get_clairvoyant_drink(snake: Snake) -> Drink:
 	var temp_drink: DrinkResource = snake.current_drink.duplicate()
 	var og_temp_drink: DrinkResource = snake.current_drink
 	temp_drink.poison = 0
-	var temp: Drink = _dm.create_drink(temp_drink, og_temp_drink)
+	var temp: Drink = _dm.create_drink(temp_drink, og_temp_drink, snake)
 	return temp
 
 func increment_familiar_snakes(value: int) -> void:

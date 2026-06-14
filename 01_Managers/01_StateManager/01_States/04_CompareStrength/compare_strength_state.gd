@@ -1,6 +1,8 @@
 class_name CompareStrengthState
 extends TopState
 
+const EXACT_SCORE: int = 6 
+
 func setup() -> void:
 	pass
 
@@ -9,12 +11,19 @@ func enter() -> void:
 	var enemy_str = sm.attack_manager.get_attack().damage
 	
 	var attacks_blocked = 0
-	for i: int in enemy_str:
-		if player_str >= i:
-			player_str -= i
-			attacks_blocked += 1
+	if GS.cur_attack_index == EXACT_SCORE:
+		for i: int in enemy_str:
+			if player_str == i:
+				player_str -= i
+				attacks_blocked += 1
+		pass
+	else:
+		for i: int in enemy_str:
+			if player_str >= i:
+				player_str -= i
+				attacks_blocked += 1
 		
-		else: break
+			else: break
 	
 	var cur_score = GS.get_score()
 	

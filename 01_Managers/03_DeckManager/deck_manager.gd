@@ -63,18 +63,19 @@ func reshuffle_drawpile() -> void:
 	# Maybe this is where we put the animation for refilling the drinks if we want one?
 	for snake: Snake in snake_deck:
 		for num_drink: int in snake.num_drinks:
-			var new_drink: Drink = create_drink(snake.current_drink, snake.attached_snake.drink_resource)
+			var new_drink: Drink = create_drink(snake.current_drink, snake.attached_snake.drink_resource, snake)
 			drink_drawpile.push_back(new_drink)
 			tooltip_manager.add_item(new_drink)
 	
 	shuffle_drawpile()
 	pass
 
-func create_drink(drink_resource: DrinkResource, og_drink_resource: DrinkResource) -> Drink:
+func create_drink(drink_resource: DrinkResource, og_drink_resource: DrinkResource, snake: Snake) -> Drink:
 	var new_drink: Drink = _drink_scene.instantiate()
 	new_drink.attached_drink = drink_resource.duplicate()
 	new_drink.attached_drink_resource = og_drink_resource
 	new_drink.global_position = Vector2(200 + drink_drawpile.size() * 50, 800)
+	new_drink.attached_drink.parent_snake = snake
 	return new_drink
 
 ## Not sure how removing snakes will work
@@ -105,7 +106,7 @@ func shuffle_drawpile() -> void:
 	pass
 
 func return_to_drawpile(og_drink: DrinkResource, cur_drink: DrinkResource):
-	var new_drink: Drink = create_drink(cur_drink, og_drink)
+	var new_drink: Drink = create_drink(cur_drink, og_drink, cur_drink.parent_snake)
 	drink_drawpile.push_back(new_drink)
 	tooltip_manager.add_item(new_drink)
 	shuffle_drawpile()

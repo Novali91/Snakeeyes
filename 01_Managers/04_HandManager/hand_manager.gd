@@ -59,6 +59,8 @@ func remove_drink(drink_to_remove: Drink) -> void:
 
 func end_turn_discard() -> void:
 	var temp_drink: Drink
+	var kill_snake: bool = false
+	
 	for i: int in range(drinks.size()):
 		if drinks[i] is Drink:
 			temp_drink = drinks[i]
