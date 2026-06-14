@@ -12,8 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://bx1y1cdfklvpb" path="res://05_Assets/01_Art/02_Backgrounds/shop cage 4.png" id="9_w34qo"]
 [ext_resource type="Texture2D" uid="uid://dlbm7bch0l871" path="res://05_Assets/01_Art/02_Backgrounds/shop cage 5.png" id="10_3r70o"]
 [ext_resource type="Shader" uid="uid://0oonfw65mdnr" path="res://05_Assets/02_Shaders/outline.gdshader" id="10_tqajx"]
+[ext_resource type="Texture2D" uid="uid://jpcy57wa8geh" path="res://05_Assets/01_Art/03_UI_Sprites/antidote.png" id="12_i28nj"]
 [ext_resource type="Script" uid="uid://cfqx3dcaojqrs" path="res://03_VisualInputOutput/01_ScoreBar/custom_number.gd" id="13_w34qo"]
 [ext_resource type="Texture2D" uid="uid://co48g34ruwdwd" path="res://05_Assets/01_Art/03_UI_Sprites/reroll shop rope.png" id="14_3r70o"]
+[ext_resource type="FontFile" uid="uid://c6xfa0o2h2ssc" path="res://05_Assets/05_Fonts/OldNewspaperTypes.ttf" id="15_r3vpm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mkdgh"]
 shader = ExtResource("4_0hb6a")
@@ -21,6 +23,24 @@ shader_parameter/alpha = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_w34qo"]
 font_size = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_67dir"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mtcna"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1atgo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4kr7o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kejl4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_es2n7"]
+shader = ExtResource("10_tqajx")
+shader_parameter/sprite_alpha = 1.0
+shader_parameter/color = Color(1, 0.58000004, 0.9790001, 1)
+shader_parameter/alpha = 1.0
+shader_parameter/thickness = 0.02000000095
+shader_parameter/x_over_y = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8hme2"]
 shader = ExtResource("10_tqajx")
@@ -151,8 +171,12 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3r70o"]
-
-[sub_resource type="SystemFont" id="SystemFont_3r70o"]
+shader = ExtResource("10_tqajx")
+shader_parameter/sprite_alpha = 1.0
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/alpha = 1.0
+shader_parameter/thickness = 0.010000000475
+shader_parameter/x_over_y = 0.5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3vpm"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -256,6 +280,7 @@ offset_top = 286.0
 offset_right = 1833.9998
 offset_bottom = 386.0
 rotation = -0.4838344
+theme_override_fonts/font = ExtResource("15_r3vpm")
 text = "0"
 label_settings = SubResource("LabelSettings_w34qo")
 horizontal_alignment = 1
@@ -269,6 +294,7 @@ offset_top = 560.0
 offset_right = 1323.0
 offset_bottom = 660.0
 rotation = 0.3582345
+theme_override_fonts/font = ExtResource("15_r3vpm")
 text = "0"
 label_settings = SubResource("LabelSettings_w34qo")
 horizontal_alignment = 1
@@ -282,6 +308,7 @@ offset_top = 900.0
 offset_right = 749.0
 offset_bottom = 1000.0
 rotation = -0.32519692
+theme_override_fonts/font = ExtResource("15_r3vpm")
 text = "0"
 label_settings = SubResource("LabelSettings_w34qo")
 horizontal_alignment = 1
@@ -295,6 +322,7 @@ offset_top = 651.00006
 offset_right = 296.0
 offset_bottom = 751.00006
 rotation = 0.7960738
+theme_override_fonts/font = ExtResource("15_r3vpm")
 text = "0"
 label_settings = SubResource("LabelSettings_w34qo")
 horizontal_alignment = 1
@@ -308,17 +336,45 @@ offset_top = 509.99997
 offset_right = 644.0
 offset_bottom = 610.0
 rotation = -0.48723418
+theme_override_fonts/font = ExtResource("15_r3vpm")
 text = "0"
 label_settings = SubResource("LabelSettings_w34qo")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AntidoteButton" type="Button" parent="." unique_id=1471729517]
-offset_left = 881.0
-offset_top = 469.0
-offset_right = 1069.0
-offset_bottom = 500.0
-text = "Buy Antidote (2 Charm)"
+offset_left = 877.0
+offset_top = 425.0
+offset_right = 1065.0
+offset_bottom = 598.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_67dir")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mtcna")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1atgo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4kr7o")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kejl4")
+
+[node name="Antidote" type="Sprite2D" parent="." unique_id=362054988]
+material = SubResource("ShaderMaterial_es2n7")
+position = Vector2(969, 515)
+texture = ExtResource("12_i28nj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Antidote" unique_id=97536992]
+position = Vector2(78, -50)
+texture = ExtResource("5_8hme2")
+
+[node name="Label" type="Label" parent="Antidote/Sprite2D" unique_id=712191112]
+self_modulate = Color(0.25, 0, 0.24583328, 1)
+custom_minimum_size = Vector2(100, 100)
+offset_left = -57.0
+offset_top = -34.0
+offset_right = 43.0
+offset_bottom = 66.0
+rotation = -0.6626996
+theme_override_fonts/font = ExtResource("15_r3vpm")
+text = "2"
+label_settings = SubResource("LabelSettings_w34qo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ShopAbilityHelper" type="Node" parent="." unique_id=1728054696]
 script = ExtResource("3_ah0kr")
@@ -364,10 +420,10 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 0)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("SystemFont_3r70o")
+theme_override_fonts/font = ExtResource("15_r3vpm")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_r3vpm")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_67dir")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3r70o")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_i28nj")
-text = "Reroll:"
+text = "Reroll"

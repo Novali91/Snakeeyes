@@ -27,6 +27,7 @@ var antidote_position: Vector2
 @onready var _markers_node: Node2D = $Markers
 
 @onready var reroll_button: Button = $RerollButton
+@onready var antidote: Sprite2D = $Antidote
 
 var _actual_parrot: SnakeResource
 
@@ -44,8 +45,12 @@ func _ready() -> void:
 	_exit_button.mouse_entered.connect(_hover_open_sign)
 	_exit_button.mouse_exited.connect(_unhover_open_sign)
 	reroll_button.pressed.connect(_reroll_pressed)
-	#reroll_button.mouse_entered.connect(_hover_reroll)
-	#reroll_button.mouse_exited.connect(_unhover_reroll)
+	reroll_button.mouse_entered.connect(_reroll_hovered)
+	reroll_button.mouse_exited.connect(_reroll_unhovered)
+	_antidote_button.mouse_entered.connect(_antidote_hovered)
+	_antidote_button.mouse_exited.connect(_antidote_unhovered)
+	
+	_reroll_sign.material.set_shader_parameter("color", Color(1.0, 0.5, 0.65, 1.0))
 	
 	for l: Label in _labels_node.get_children():
 		_labels.push_back(l)
@@ -84,6 +89,7 @@ func toggle_open(open: bool) -> void:
 
 func stock_antidote() -> void:
 	antidote_stock = 1
+	antidote.visible = true
 
 func get_starting_snakes() -> Array[Snake]:
 	var snake_arr: Array[Snake] = []
@@ -108,6 +114,8 @@ func purchase_snake(snake: Snake) -> void:
 
 func purchase_antidote() -> void:
 	antidote_stock -= 1
+	if antidote_stock <= 0:
+		antidote.visible = false
 
 func _get_snakes(num: int) -> Array[SnakeResource]:
 	var arr: Array[SnakeResource] = []
@@ -169,4 +177,16 @@ func _reroll_pressed() -> void:
 	reroll_clicked.emit()
 
 func update_reroll(cost: int) -> void:
-	reroll_button.text = "Reroll: " + str(cost)
+	reroll_button.text = "Reroll (" + str(cost) + ")"
+
+func _reroll_hovered() -> void:
+	_reroll_sign.material.set_shader_parameter("color", Color(1.0, 0.921, 0.41, 1.0))
+
+func _reroll_unhovered() -> void:
+	_reroll_sign.material.set_shader_parameter("color", Color(1.0, 0.5, 0.65, 1.0))
+
+func _antidote_hovered() -> void:
+	antidote.material.set_shader_parameter("color", Color(1.0, 0.921, 0.41, 1.0))
+
+func _antidote_unhovered() -> void:
+	antidote.material.set_shader_parameter("color", Color("ff94fa"))

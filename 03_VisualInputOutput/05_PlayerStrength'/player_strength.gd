@@ -50,6 +50,15 @@ func place_attack_tickers(attacks: Array[int], next_attacks: Array[int]) -> void
 	_next_attack_tickers = []
 	
 	var attack_total = 0
+	for next_attack in next_attacks:
+		attack_total += next_attack
+		var temp_next_attack_ticker = _NEXT_ATTACK_TICKER_SCENE.instantiate()
+		add_child(temp_next_attack_ticker)
+		temp_next_attack_ticker.get_child(1).set_value(attack_total)
+		temp_next_attack_ticker.position.y = get_height(attack_total) - _TICKER_Y_OFFSET
+		_next_attack_tickers.append(temp_next_attack_ticker)
+	
+	attack_total = 0
 	for attack in attacks:
 		attack_total += attack
 		var temp_attack_ticker = _ATTACK_TICKER_SCENE.instantiate()
@@ -60,14 +69,7 @@ func place_attack_tickers(attacks: Array[int], next_attacks: Array[int]) -> void
 	
 	_attack_tickers[-1].set_top()
 	
-	attack_total = 0
-	for next_attack in next_attacks:
-		attack_total += next_attack
-		var temp_next_attack_ticker = _NEXT_ATTACK_TICKER_SCENE.instantiate()
-		add_child(temp_next_attack_ticker)
-		temp_next_attack_ticker.get_child(1).set_value(attack_total)
-		temp_next_attack_ticker.position.y = get_height(attack_total) - _TICKER_Y_OFFSET
-		_next_attack_tickers.append(temp_next_attack_ticker)
+	
 	
 	_next_attack_tickers[-1].set_top()
 	

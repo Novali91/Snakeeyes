@@ -13,7 +13,7 @@ position = Vector2(171, -14)
 texture = ExtResource("2_48fu6")
 
 [node name="CustomNumber" type="Node2D" parent="." unique_id=779192552]
-position = Vector2(-94, 1.5)
+position = Vector2(172, -3)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("2_yub7o")
 digits = 3
