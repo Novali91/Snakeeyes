@@ -134,4 +134,4 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="TextBox" parent="." unique_id=215385471 instance=ExtResource("5_37l6j")]
-text_array = Array[String](["THIS IS THE INTRO", "BOOM"])
+text_array = Array[String](["Oh, you want a cure for your poison?", "But you only just got here", "It'd be rude to take what you need and leave so quickly", "Let's play a game, if you win I'll give you the cure"])
