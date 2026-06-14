@@ -134,4 +134,4 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="TextBox" parent="." unique_id=215385471 instance=ExtResource("5_37l6j")]
-text_array = Array[String](["Oh, you want a cure for your poison?", "But you only just got here", "It'd be rude to take what you need and leave so quickly", "Let's play a game, if you win I'll give you the cure"])
+text_array = Array[String](["You've been poisoned, unless my eyes deceive me. Death's embrace cold", "Come inside my shop, I will help you ", "I'm glad you see reason, your will to live outweighs your fear", "...", "Welcome, don't be alarmed by my many snakes", "Nobody trusts snake oil merchants anymore, 'real' medicine blinds them from the truth", "Practitioners of health simply must reside near death", "You must know, my snake venom can even make you grower stronger", "...", "Oh, you want a cure for your poison?", "But you only just got here", "It'd be rude to leave so quickly", "Let's play a game, if you win I'll give you the cure"])
