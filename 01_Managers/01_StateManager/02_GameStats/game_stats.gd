@@ -5,6 +5,13 @@ const HAND_SIZE: int = 30
 const SCREEN_SIZE: Vector2 = Vector2(1920, 1080)
 const ANTIDOTE_COST: int = 2
 
+const RARITY_TO_COLOR: Dictionary[String, Color] = {
+	"S": Color(1.0, 0.83, 0.83, 1.0),
+	"C": Color(1.0, 0.83, 0.83, 1.0),
+	"R": Color(0.46, 0.973, 1.0, 1.0),
+	"L": Color(0.95, 1.0, 0.0, 1.0),
+}
+
 var turn_count: int = 0
 
 signal poison_set(old_val: int, new_val: int)

@@ -19,3 +19,4 @@ extends Resource
 # For tooltip
 @export var description: String = "No ability."
 @export var flavour_text: String
+@export var rarity: String

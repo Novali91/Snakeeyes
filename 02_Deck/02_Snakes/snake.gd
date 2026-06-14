@@ -20,13 +20,14 @@ func _ready() -> void:
 	super._ready()
 	instantiate_tooltip()
 	set_texture()
+	current_drink.rarity = attached_snake.rarity
 	attached_snake.flavour_text = "[i]" + attached_snake.flavour_text + "[/i]"
 	current_drink.flavour_text = "[i]" + current_drink.flavour_text + "[/i]"
 	pass
 
 func set_texture() -> void:
 	snake_sprite.texture = attached_snake.snake_sprite
-	pass
+	snake_sprite.material.set_shader_parameter("color", GS.RARITY_TO_COLOR[attached_snake.rarity])
 
 func instantiate_tooltip() -> void:
 	tooltip.instantiate_snake_values(attached_snake, current_drink)

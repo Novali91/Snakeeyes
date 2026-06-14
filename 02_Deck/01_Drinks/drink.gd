@@ -34,6 +34,7 @@ func _ready() -> void:
 	super._ready()
 	instantiate_tooltip()
 	set_texture()
+	drink_sprite.material.set_shader_parameter("color", GS.RARITY_TO_COLOR[attached_drink.rarity])
 	pass
 
 func set_texture() -> void:

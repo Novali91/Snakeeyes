@@ -77,7 +77,6 @@ func toggle_open(open: bool) -> void:
 		_animation_player.play("brighten")
 	
 	else:
-		_open_sign.material.set_shader_parameter("alpha", 0.0)
 		_animation_player.play("darken")
 
 func stock_antidote() -> void:
@@ -144,11 +143,10 @@ func _remove_snake(snake: Snake) -> void:
 
 func _hover_open_sign() -> void:
 	if not can_buy: return
-	_open_sign.material.set_shader_parameter("alpha", 1.0)
+	_open_sign.material.set_shader_parameter("color", Color(1.0, 0.921, 0.41, 1.0))
 
 func _unhover_open_sign() -> void:
-	if not can_buy: return
-	_open_sign.material.set_shader_parameter("alpha", 0.0)
+	_open_sign.material.set_shader_parameter("color", Color(1.0, 0.5, 0.65, 1.0))
 
 func _click_open_sign() -> void:
 	if not can_buy: return

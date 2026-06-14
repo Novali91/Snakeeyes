@@ -14,6 +14,7 @@ shader_parameter/sprite_alpha = 1.0
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/alpha = 0.0
 shader_parameter/thickness = 0.05
+shader_parameter/x_over_y = 1.0
 
 [node name="Drink" type="Area2D" unique_id=66274034]
 script = ExtResource("1_3sv11")
@@ -24,5 +25,6 @@ shape = SubResource("RectangleShape2D_kbsba")
 
 [node name="DrinkSprite" type="Sprite2D" parent="." unique_id=555956909]
 material = SubResource("ShaderMaterial_ifok2")
+scale = Vector2(1.5, 1.5)
 
 [node name="Tooltip" parent="." unique_id=1158809468 instance=ExtResource("2_kbsba")]
