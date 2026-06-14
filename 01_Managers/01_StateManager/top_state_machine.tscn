@@ -116,6 +116,10 @@ position = Vector2(1920, 0)
 unique_name_in_owner = true
 position = Vector2(1920, 0)
 
+[node name="EndTurnButton" parent="." unique_id=462742653 instance=ExtResource("13_8sj7b")]
+unique_name_in_owner = true
+position = Vector2(3462, 757)
+
 [node name="PoisonBar" parent="." unique_id=674401828 instance=ExtResource("10_v5tm5")]
 unique_name_in_owner = true
 position = Vector2(3519, 398)
@@ -127,10 +131,6 @@ position = Vector2(3840, 0)
 [node name="AntidoteCount" parent="." unique_id=818012555 instance=ExtResource("12_mg5ld")]
 unique_name_in_owner = true
 position = Vector2(3583, 308)
-
-[node name="EndTurnButton" parent="." unique_id=462742653 instance=ExtResource("13_8sj7b")]
-unique_name_in_owner = true
-position = Vector2(3521, 906)
 
 [node name="TutorialManager" parent="." unique_id=1208958163 instance=ExtResource("24_dxdvi")]
 position = Vector2(3199, 227)
@@ -144,6 +144,7 @@ unique_name_in_owner = true
 [node name="OverlayManager" parent="." unique_id=941339809 instance=ExtResource("25_gwsv7")]
 
 [node name="TitleScreenManager" parent="." unique_id=147652467 instance=ExtResource("27_u5576")]
+visible = false
 z_index = 2
 position = Vector2(2880, 540)
 
