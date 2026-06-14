@@ -108,8 +108,6 @@ func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkRes
 			pass
 	
 	sm.ability_helper.trigger_ability(drink.special_ability, drink_position, drink, og_drink)
-	
-	sm.score_bar.toggle_flash_goal(GS.get_strength() >= sm.attack_manager.get_attack_goal())
 
 func _end_turn() -> void:
 	sm.hand_manager.drinks_drinkable = false
