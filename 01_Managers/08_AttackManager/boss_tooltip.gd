@@ -26,11 +26,11 @@ func activate_boss_attack_tooltip(upcoming_index: int, turn_number: int) -> void
 	convo.visible = false
 	
 	attack_description.text = string_to_set
-	turn.text = "On turn "
+	turn.text = "In "
 	turn.push_bold()
 	turn.push_font_size(40)
 	turn.text += str(turn_number)
-	turn.text += ":"
+	turn.text += " turns..."
 	turn.pop_all()
 	
 	turn.visible = true
@@ -88,6 +88,8 @@ func get_description(upcoming: int) -> String:
 
 ## Each turn it will pick a random one of these, maybe at start of turn?
 func pick_convo_string() -> String:
+	if GS.turn_count == 0: return "Hover here to see an upcoming attack..."
+	
 	var random_num: int = randi_range(1, 6)
 	if random_num == 5:
 		random_num = randi_range(1, 6)

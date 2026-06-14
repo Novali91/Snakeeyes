@@ -28,6 +28,8 @@ func setup() -> void:
 	sm.hand_manager.drink_drank.connect(play_card)
 
 func enter() -> void:
+	sm.hand_manager.drinks_drinkable = false
+	
 	if GS.in_tutorial:
 		await get_tree().create_timer(1.0).timeout
 		sm.camera_manager.switch_screen(sm.camera_manager.LEFT, true) 
@@ -45,6 +47,9 @@ func enter() -> void:
 		sm.tutorial_manager.start_tutorial()
 		await sm.tutorial_manager.done
 		await get_tree().create_timer(0.5).timeout
+	
+	var t = create_tween()
+	t.tween_property(sm.attack_manager, "modulate:a", 1.0, 1.0)
 	
 	sm.hand_manager.drinks_drinkable = true
 	sm.end_turn_button.make_pressable()

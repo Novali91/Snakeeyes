@@ -78,6 +78,8 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			sm.hand_manager.drinks_drank += 1
 			if sm.deck_manager.snake_deck.size() > 5:
 				sm.deck_manager.remove_snake(snake)
+			
+			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 			sm.camera_manager.unlock_camera()
 		CANNIBAL_SNAKE:
 			sm.overlay_manager.toggle_kill(true)

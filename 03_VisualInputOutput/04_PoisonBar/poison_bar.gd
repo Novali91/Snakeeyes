@@ -1,7 +1,8 @@
 class_name PoisonBar
 extends Node2D
 
-@onready var _input: Label = $Input
+@onready var custom_number: CustomNumber = $CustomNumber
+
 @onready var _liquid: ColorRect = $Liquid
 var _change_progress: float = -1.0
 @export var change_speed: float;
@@ -14,7 +15,7 @@ func _ready() -> void:
 	GS.poison_set.connect(set_value)
 
 func set_value(old_val: int, new_val: int) -> void:
-	_input.text = str(new_val)
+	custom_number.set_value(new_val)
 	_change_progress = 0.0
 	_old_level = old_val
 	_new_level = new_val

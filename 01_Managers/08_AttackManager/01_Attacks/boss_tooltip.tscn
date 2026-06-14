@@ -1,63 +1,52 @@
 [gd_scene format=3 uid="uid://btp46ahrlgj6r"]
 
 [ext_resource type="Script" uid="uid://cy8c2pgxbb3fl" path="res://01_Managers/08_AttackManager/boss_tooltip.gd" id="1_i1iio"]
-
-[sub_resource type="Gradient" id="Gradient_i1iio"]
-offsets = PackedFloat32Array(0.68779343)
-colors = PackedColorArray(1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_4mqee"]
-gradient = SubResource("Gradient_i1iio")
-
-[sub_resource type="Gradient" id="Gradient_4mqee"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8q4pg"]
-gradient = SubResource("Gradient_4mqee")
-width = 300
-height = 375
+[ext_resource type="Texture2D" uid="uid://br34g5natnbnl" path="res://05_Assets/01_Art/03_UI_Sprites/speech bubblw.png" id="2_4mqee"]
+[ext_resource type="FontFile" uid="uid://c6xfa0o2h2ssc" path="res://05_Assets/05_Fonts/OldNewspaperTypes.ttf" id="3_8q4pg"]
 
 [node name="BossTooltip" type="Node2D" unique_id=1495842046]
 script = ExtResource("1_i1iio")
 metadata/_custom_type_script = "uid://cy8c2pgxbb3fl"
 
 [node name="AttackSprite" type="Sprite2D" parent="." unique_id=483182062]
-visible = false
-position = Vector2(207, 80.5)
-scale = Vector2(6.59375, 2.546875)
-texture = SubResource("GradientTexture2D_4mqee")
+modulate = Color(0.58000004, 1, 0.923, 1)
+texture = ExtResource("2_4mqee")
 
 [node name="AttackDescription" type="RichTextLabel" parent="." unique_id=164947998]
-visible = false
-offset_top = 50.0
-offset_right = 410.0
-offset_bottom = 170.0
+offset_left = -115.0
+offset_top = -65.0
+offset_right = 295.0
+offset_bottom = 55.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0.003921569, 0.007843138, 0.019607844, 1)
+theme_override_fonts/normal_font = ExtResource("3_8q4pg")
 theme_override_font_sizes/normal_font_size = 20
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Turn" type="RichTextLabel" parent="." unique_id=980557040]
-visible = false
-offset_left = 4.0
-offset_right = 409.0
-offset_bottom = 50.0
+offset_left = -117.0
+offset_top = -150.0
+offset_right = 288.0
+offset_bottom = -100.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0.007843138, 0.007843138, 1)
+theme_override_fonts/normal_font = ExtResource("3_8q4pg")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RegularSprite" type="Sprite2D" parent="." unique_id=1192296145]
-visible = false
-position = Vector2(205, 86.25)
-scale = Vector2(1.3666667, 0.484)
-texture = SubResource("GradientTexture2D_8q4pg")
+texture = ExtResource("2_4mqee")
 
 [node name="Convo" type="RichTextLabel" parent="." unique_id=536095540]
-visible = false
-offset_right = 409.0
-offset_bottom = 171.0
+offset_left = -99.0
+offset_top = -131.0
+offset_right = 269.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_8q4pg")
+theme_override_font_sizes/normal_font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1

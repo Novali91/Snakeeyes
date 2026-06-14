@@ -114,11 +114,11 @@ position = Vector2(1920, 0)
 
 [node name="AttackManager" parent="." unique_id=1488456757 instance=ExtResource("20_n6io1")]
 unique_name_in_owner = true
-position = Vector2(1920, 0)
+position = Vector2(3201, 228)
 
 [node name="EndTurnButton" parent="." unique_id=462742653 instance=ExtResource("13_8sj7b")]
 unique_name_in_owner = true
-position = Vector2(3462, 757)
+position = Vector2(3380, 714)
 
 [node name="PoisonBar" parent="." unique_id=674401828 instance=ExtResource("10_v5tm5")]
 unique_name_in_owner = true
