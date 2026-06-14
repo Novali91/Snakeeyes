@@ -7,6 +7,16 @@ extends Node2D
 @onready var convo: RichTextLabel = $Convo
 @onready var attack_sprite: Sprite2D = $AttackSprite
 
+## Used for random conversation
+var array_of_convo: Array[String] = [
+	"SSSNAKE BINGO!",
+	"...",
+	"I love my sssnakesss...",
+	"I will CRUSH you! Like a boa...",
+	"A cccircccle? Ohhh... You mean a pi-thon...",
+	"How absssolutely venomousss...."
+]
+
 var cur_string: String
 ## I imagine attack_manager will call this on the drink being hovered?
 func activate_boss_attack_tooltip(upcoming_index: int, turn_number: int) -> void:
@@ -78,4 +88,8 @@ func get_description(upcoming: int) -> String:
 
 ## Each turn it will pick a random one of these, maybe at start of turn?
 func pick_convo_string() -> String:
-	return ""
+	var random_num: int = randi_range(1, 6)
+	if random_num == 5:
+		random_num = randi_range(1, 6)
+	
+	return array_of_convo[random_num]

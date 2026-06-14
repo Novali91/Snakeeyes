@@ -76,7 +76,8 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			var clairvoyant_drink: Drink = sm.deck_manager.ability_helper.get_clairvoyant_drink(snake)
 			play_state.play_card(clairvoyant_drink.attached_drink, drink_position, clairvoyant_drink.attached_drink_resource)
 			sm.hand_manager.drinks_drank += 1
-			sm.deck_manager.remove_snake(snake)
+			if sm.deck_manager.snake_deck.size() > 5:
+				sm.deck_manager.remove_snake(snake)
 			sm.camera_manager.unlock_camera()
 		CANNIBAL_SNAKE:
 			sm.overlay_manager.toggle_kill(true)
@@ -185,7 +186,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 				GS.set_charm(GS.get_charm()-2)
 			else:
 				GS.set_strength(GS.get_strength()+8)
-				GS.set_strength(GS.get_strength()+4)
+				GS.set_charm(GS.get_charm()+4)
 		CADUCEUS:
 			var val: int = await roll_dice()
 			if val < 7:
@@ -241,6 +242,8 @@ func _reshuffle_draw_pile() -> void:
 	sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 
 func remove_snake(start_screen: int) -> void:
+	if sm.deck_manager.snake_deck.size() <= 5:
+		return
 	sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
 	sm.camera_manager.lock_camera()
 	var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
