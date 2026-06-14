@@ -37,7 +37,7 @@ scale = Vector2(0.93475, 0.9347499)
 texture = ExtResource("4_nx6sn")
 
 [node name="CustomNumber" type="Node2D" parent="." unique_id=154074204]
-modulate = Color(1, 0.6392157, 0.6392157, 1)
+modulate = Color(1, 0.57, 0.8853334, 1)
 position = Vector2(42, -94)
 scale = Vector2(0.75, 0.75)
 script = ExtResource("5_2k8qc")
