@@ -12,9 +12,13 @@ var array_of_convo: Array[String] = [
 	"SSSNAKE BINGO!",
 	"...",
 	"I love my sssnakesss...",
-	"I will CRUSH you! Like a boa...",
+	"Prepare for defeat...",
 	"A cccircccle? Ohhh... You mean a pi-thon...",
-	"How absssolutely venomousss...."
+	"How absssolutely venomousss....",
+	"Where is everyone? Ssssnake bingo?",
+	"Have you met my friendssss yet?",
+	"If you pay the price, I shall show you new wares.",
+	"Conniving I may be, but I fight fair."
 ]
 
 var cur_string: String
