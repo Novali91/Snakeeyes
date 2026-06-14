@@ -16,7 +16,7 @@ func enter() -> void:
 	if sm.attack_manager._current_attack == null or sm.attack_manager.get_attack().ability_index != 10:
 		sm.attack_manager.next_attack()
 	sm.score_bar.set_goal_value(sm.attack_manager.get_attack_goal())
-	sm.player_strength.place_attack_tickers(sm.attack_manager.get_attack().damage)
+	sm.player_strength.place_attack_tickers(sm.attack_manager.get_attack().damage,sm.attack_manager._next_attack.damage)
 	GS.cur_attack_index = sm.attack_manager.get_attack().ability_index
 	
 	GS.turn_count += 1
