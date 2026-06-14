@@ -25,7 +25,7 @@ color = Color(0, 0, 0, 0.18039216)
 layout_mode = 0
 offset_right = 300.0
 offset_bottom = 150.0
-text = "Pick a drink to make last until next round."
+text = "Pick a drink to make stay on the table until next round."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -111,7 +111,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="RetainStrength" type="ColorRect" parent="." unique_id=15305774]
+[node name="DoubleStrength" type="ColorRect" parent="." unique_id=15305774]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -127,11 +127,11 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.18039216)
 
-[node name="Label" type="Label" parent="RetainStrength" unique_id=92888571]
+[node name="Label" type="Label" parent="DoubleStrength" unique_id=92888571]
 layout_mode = 0
 offset_right = 300.0
 offset_bottom = 150.0
-text = "Pick a drink to make last until next round and double its strength."
+text = "Pick a drink to double its strength."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -156,7 +156,7 @@ color = Color(0, 0, 0, 0.18039216)
 layout_mode = 0
 offset_right = 300.0
 offset_bottom = 150.0
-text = "Pick a snake to instantly drink their venom with double poison."
+text = "Pick a snake to instantly kill and drink their drink."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

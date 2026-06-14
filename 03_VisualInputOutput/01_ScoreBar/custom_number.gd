@@ -11,7 +11,7 @@ var _spritesheet: Texture = load("res://05_Assets/01_Art/03_UI_Sprites/numbers s
 var _sprites: Array[Sprite2D] = []
 
 var tint_on: bool = false
-var _tint_col: Color = Color.GREEN
+var tint_col: Color = Color.GREEN
 
 func _ready() -> void:
 	_init_sprites()
@@ -47,7 +47,7 @@ func toggle_tint(on: bool) -> void:
 	tint_on = on
 	if tint_on:
 		for sprite in _sprites:
-			sprite.modulate = _tint_col
+			sprite.modulate = tint_col
 	else:
 		for sprite in _sprites:
 			sprite.modulate = Color.WHITE

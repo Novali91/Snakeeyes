@@ -106,7 +106,7 @@ func shuffle_drawpile() -> void:
 	pass
 
 func return_to_drawpile(og_drink: DrinkResource, cur_drink: DrinkResource):
-	var new_drink: Drink = create_drink(cur_drink, og_drink, cur_drink.parent_snake)
+	var new_drink: Drink = create_drink(cur_drink, og_drink, null)
 	drink_drawpile.push_back(new_drink)
 	tooltip_manager.add_item(new_drink)
 	shuffle_drawpile()

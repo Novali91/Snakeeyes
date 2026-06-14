@@ -79,15 +79,12 @@ func _process(delta: float) -> void:
 				_continue_button.visible = true
 				_use_antidote_button.modulate = Color.WHITE
 				antidote_flashing = false
-				if roll_is_for_poison:
-					if _current_value >= poison:
-						_use_antidote_button.visible = false
-					else:
-						_use_antidote_button.visible = true
-						antidote_flashing = true
-						_use_antidote_button.modulate = Color.RED
+				if _current_value >= poison:
+					_use_antidote_button.visible = false
 				else:
 					_use_antidote_button.visible = true
+					antidote_flashing = true
+					_use_antidote_button.modulate = Color.RED
 	else:
 		_bonus.visible = false
 	_cup.position.y = _cup_loc.position.y - 1080 + _ease_out_0_1(_animation_progress/cup_lower_time) * 1080
@@ -102,6 +99,8 @@ func _ease_out_0_1(x: float) -> float:
 func start_roll(lower_cup: bool, is_poison: bool) -> void:
 	visible = true
 	roll_is_for_poison = is_poison
+	if !roll_is_for_poison:
+		set_poison(7)
 	_animation_player.play("open")
 	if lower_cup:
 		_animation_progress = 0.0
@@ -135,7 +134,10 @@ func _roll() -> void:
 	if num_scarlets == 0:
 		_bonus.text = ""
 	else:
-		_bonus.text = "+" + str(num_scarlets)
+		if num_scarlets > 0:
+			_bonus.text = "+" + str(num_scarlets)
+		else:
+			_bonus.text = str(num_scarlets)
 	number_rolled.emit(_current_value)
 	_dice1.frame = d1val-1
 	_dice2.frame = d2val-1

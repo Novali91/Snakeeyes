@@ -89,7 +89,8 @@ func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkRes
 			sm.overlay_manager.toggle_slide_back(false, 1)
 		
 		DRINK_SNAKE_ONE_POISON:
-			drink.parent_snake.current_drink.poison += 1
+			if drink.parent_snake != null:
+				drink.parent_snake.current_drink.poison += 1
 		
 		
 		_:
@@ -105,7 +106,8 @@ func _end_turn() -> void:
 		sm.camera_manager.lock_camera()
 		sm.camera_manager.switch_screen(sm.camera_manager.LEFT, true)
 		for drink: Drink in sm.hand_manager.drinks:
-			sm.deck_manager.remove_snake(drink.attached_drink.parent_snake)
+			if drink.attached_drink.parent_snake != null:
+				sm.deck_manager.remove_snake(drink.attached_drink.parent_snake)
 		await get_tree().create_timer(1).timeout
 	sm.hand_manager.end_turn_discard()
 	sm.switch_state(sm.States.POISON_ROLL)
