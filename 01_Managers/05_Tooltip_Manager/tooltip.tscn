@@ -8,6 +8,9 @@ font_size = 26
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="FontFile" id="FontFile_7m7g2"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -44,6 +47,7 @@ font_size = 18
 font_color = Color(0, 0, 0, 1)
 
 [node name="Tooltip" type="Node2D" unique_id=1158809468]
+visible = false
 top_level = true
 script = ExtResource("1_vrqg4")
 metadata/_custom_type_script = "uid://40gxy6hwhljv"
