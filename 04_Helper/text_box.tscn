@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b6sevij1iobuf"]
 
 [ext_resource type="Script" uid="uid://ogt7rvwqqrmu" path="res://04_Helper/text_box.gd" id="1_k3i5s"]
+[ext_resource type="Texture2D" uid="uid://cos6eysksfv30" path="res://05_Assets/01_Art/03_UI_Sprites/left_arrow.png" id="2_ppwx1"]
 
 [sub_resource type="Animation" id="Animation_fvj50"]
 length = 0.001
@@ -54,6 +55,43 @@ _data = {
 &"open": SubResource("Animation_k3i5s")
 }
 
+[sub_resource type="Animation" id="Animation_gqwg2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(319, 52)]
+}
+
+[sub_resource type="Animation" id="Animation_lorbo"]
+resource_name = "bob"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.857143, 1),
+"update": 0,
+"values": [Vector2(350, 63.999996), Vector2(350, 92)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rx5q3"]
+_data = {
+&"RESET": SubResource("Animation_gqwg2"),
+&"bob": SubResource("Animation_lorbo")
+}
+
 [node name="TextBox" type="Node2D" unique_id=215385471]
 modulate = Color(1, 1, 1, 0)
 script = ExtResource("1_k3i5s")
@@ -84,3 +122,14 @@ libraries/ = SubResource("AnimationLibrary_ppwx1")
 speed_scale = 4.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2115322998]
+
+[node name="Arrow" type="Sprite2D" parent="." unique_id=864107638]
+position = Vector2(319, 52)
+rotation = -1.5707964
+scale = Vector2(0.1, 0.075)
+texture = ExtResource("2_ppwx1")
+
+[node name="ArrowAnimationPlayer" type="AnimationPlayer" parent="Arrow" unique_id=259304576]
+libraries/ = SubResource("AnimationLibrary_rx5q3")
+autoplay = &"bob"
+speed_scale = 3.0
