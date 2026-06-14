@@ -29,7 +29,7 @@ func enter() -> void:
 	
 	var damage = enemy_str.size() - attacks_blocked
 	if damage == 0:
-		var new_score = max(cur_score + 1, 6)
+		var new_score = min(cur_score + 1, 6)
 		GS.set_score(new_score)
 	
 	else:
