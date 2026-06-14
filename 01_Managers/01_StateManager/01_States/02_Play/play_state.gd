@@ -66,6 +66,12 @@ func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkRes
 			GS.set_charm(GS.get_charm() + drink.charm)
 			sm.charm_overlay.gain_charm(drink.charm, drink_position)
 	
+	if GS.get_poison() >= 12:
+		sm.hand_manager.drinks_drinkable = false
+		sm.hand_manager.end_turn_discard()
+		sm.switch_state(sm.States.PASS_OUT)
+		return
+	
 	match GS.cur_attack_index:
 		DRINK_ALL_DRINKS_MINUS_STR:
 			sm.hand_manager.ability_helper.change_str_values_in_hand(-1)
@@ -92,11 +98,6 @@ func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkRes
 	sm.ability_helper.trigger_ability(drink.special_ability, drink_position, drink, og_drink)
 	
 	sm.score_bar.toggle_flash_goal(GS.get_strength() >= sm.attack_manager.get_attack_goal())
-	
-	if GS.get_poison() >= 12:
-		sm.hand_manager.drinks_drinkable = false
-		sm.hand_manager.end_turn_discard()
-		sm.switch_state(sm.States.PASS_OUT)
 
 func _end_turn() -> void:
 	sm.hand_manager.drinks_drinkable = false
