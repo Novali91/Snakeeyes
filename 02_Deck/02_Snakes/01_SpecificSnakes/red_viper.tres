@@ -13,4 +13,5 @@ description = "No ability."
 flavour_text = "The Puffy Adder uses tradititional camouflage as well as a complete camouflage of scent to strike down prey."
 cost = 2
 rarity = "S"
+poison_color = Color(1, 0.7101667, 0.53, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

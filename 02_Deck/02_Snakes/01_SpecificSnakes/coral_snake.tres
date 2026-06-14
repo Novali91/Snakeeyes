@@ -14,4 +14,5 @@ flavour_text = "\"Red on yellow, kill a fellow.\""
 cost = 7
 rarity = "R"
 jingle_id = 20
+poison_color = Color(1, 0.25, 0.25, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

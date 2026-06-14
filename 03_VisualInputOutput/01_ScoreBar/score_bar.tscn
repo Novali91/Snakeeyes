@@ -16,7 +16,7 @@ texture = ExtResource("2_01k1c")
 position = Vector2(-24.000002, -10.000001)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("3_44rer")
-digits = 2
+min_digits = 2
 digit_spacing = -20.0
 metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
 
@@ -24,7 +24,7 @@ metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
 position = Vector2(71, -13)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("3_44rer")
-digits = 2
+min_digits = 2
 digit_spacing = -20.0
 metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
 

@@ -14,4 +14,5 @@ flavour_text = "A symbol for something unreachable, the Chimera's prowess is equ
 cost = 7
 rarity = "R"
 jingle_id = 17
+poison_color = Color(0.29695994, 0.87, 0.2088, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

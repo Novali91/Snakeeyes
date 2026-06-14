@@ -5,8 +5,8 @@ signal clicked_close()
 signal done_typing()
 signal finished_closing()
 
-const _PER_CHARACTER_SPEED: float = 0.1
-const _WAIT_TIME: float = 0.1
+const _PER_CHARACTER_SPEED: float = 0.06
+const _WAIT_TIME: float = 0.05
 
 @export var text_array: Array[String]
 

@@ -402,7 +402,6 @@ libraries/ = SubResource("AnimationLibrary_8hme2")
 
 [node name="CustomNumber" type="Node2D" parent="." unique_id=1561330167]
 script = ExtResource("13_w34qo")
-digits = 2
 digit_spacing = -23.0
 metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
 

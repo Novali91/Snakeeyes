@@ -14,4 +14,5 @@ flavour_text = "Knows ball."
 cost = 7
 rarity = "R"
 jingle_id = 9
+poison_color = Color(0.58410007, 0.99, 0.99, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

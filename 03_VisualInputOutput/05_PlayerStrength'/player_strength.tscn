@@ -21,7 +21,7 @@ texture = ExtResource("3_xi3mp")
 position = Vector2(-9, 199)
 scale = Vector2(0.3, 0.3)
 script = ExtResource("4_xi3mp")
-digits = 4
+min_digits = 1
 digit_spacing = -20.0
 metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
 

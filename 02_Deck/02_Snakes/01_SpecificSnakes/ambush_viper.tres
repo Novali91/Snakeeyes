@@ -14,4 +14,5 @@ flavour_text = "Ever lying in wait, the cat snake pounces on its prey at the mos
 cost = 4
 rarity = "C"
 jingle_id = 6
+poison_color = Color(0.79, 0.70770836, 0.59250003, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

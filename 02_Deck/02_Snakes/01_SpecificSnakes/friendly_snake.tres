@@ -14,4 +14,5 @@ flavour_text = "The Pit Viper is an incredibly venomous, and yet is widely used 
 cost = 8
 rarity = "R"
 jingle_id = 16
+poison_color = Color(0.32999998, 1, 0.9218334, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

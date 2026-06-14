@@ -9,13 +9,13 @@ modulate = Color(0.52, 1, 0.832, 0.45882353)
 script = ExtResource("1_yub7o")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=896992753]
-position = Vector2(171, -14)
+position = Vector2(216, -14)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_48fu6")
 
 [node name="CustomNumber" type="Node2D" parent="." unique_id=779192552]
-position = Vector2(172, -3)
-scale = Vector2(0.5, 0.5)
+position = Vector2(217, -3)
+scale = Vector2(0.6, 0.6)
 script = ExtResource("2_yub7o")
-digits = 3
 digit_spacing = -23.0
 metadata/_custom_type_script = "uid://cfqx3dcaojqrs"

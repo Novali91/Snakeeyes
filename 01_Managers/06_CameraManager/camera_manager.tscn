@@ -127,7 +127,6 @@ texture = ExtResource("4_abwj1")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=97266164]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=1147795827]
-visible = false
 offset = Vector2(960, 540)
 transform = Transform2D(1, 0, 0, 1, 960, 540)
 

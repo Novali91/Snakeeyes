@@ -14,4 +14,5 @@ flavour_text = "A monarch that eats its subjects... How regal."
 cost = 7
 rarity = "R"
 jingle_id = 12
+poison_color = Color(0.92, 0.26680002, 0.26680002, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

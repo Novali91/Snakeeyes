@@ -35,15 +35,18 @@ var _antidote_num: int
 var cur_attack_index: int = 0
 
 func set_poison(val: int) -> void:
-	poison_set.emit(_poison, val)
-	_poison = val
+	var clamped = clamp(val, 1, 13)
+	_poison = clamped
+	poison_set.emit(_poison, clamped)
+	
 
 func get_poison() -> int:
 	return _poison
 
 func set_strength(val: int) -> void:
-	strength_set.emit(_strength, val)
-	_strength = val
+	var clamped = clamp(val, 0, 999)
+	_strength = clamped
+	strength_set.emit(_strength, clamped)
 
 func get_strength() -> int:
 	return _strength

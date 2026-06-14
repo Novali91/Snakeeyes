@@ -221,6 +221,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 
 func draw_cards(num: int) -> void:
 	sm.camera_manager.lock_camera()
+	sm.hand_manager.drinks_drinkable = false
 	
 	var num_drinks = sm.hand_manager.get_num_drinks()
 	var drinks_remaining = GS.HAND_SIZE - num_drinks
@@ -234,13 +235,20 @@ func draw_cards(num: int) -> void:
 		sm.hand_manager.draw_drinks(drinks)
 		
 		if draw_remaining > 0:
-			_reshuffle_draw_pile()
+			await _reshuffle_draw_pile()
 	
+	sm.hand_manager.drinks_drinkable = true
 	sm.camera_manager.unlock_camera()
 
 func _reshuffle_draw_pile() -> void:
+	sm.camera_manager.switch_screen(sm.camera_manager.LEFT, true)
+	await get_tree().create_timer(0.5).timeout
+	
 	sm.refill.play()
-	sm.deck_manager.reshuffle_drawpile()
+	await sm.deck_manager.reshuffle_drawpile()
+	
+	sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
+	await get_tree().create_timer(0.5).timeout
 
 func remove_snake(start_screen: int) -> void:
 	if sm.deck_manager.snake_deck.size() <= 5:

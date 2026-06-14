@@ -14,4 +14,5 @@ flavour_text = "To make up for their lack of venom, pythons harbour immense stre
 cost = 7
 rarity = "R"
 jingle_id = 19
+poison_color = Color(0.69776005, 0.89, 0.4094, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

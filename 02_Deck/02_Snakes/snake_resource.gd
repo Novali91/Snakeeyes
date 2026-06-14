@@ -15,3 +15,4 @@ class_name SnakeResource
 @export var num_drinks: int = 1
 
 @export var jingle_id: int
+@export var poison_color: Color

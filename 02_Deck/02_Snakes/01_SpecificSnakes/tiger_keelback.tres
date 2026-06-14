@@ -14,4 +14,5 @@ flavour_text = "Tiger Keelbacks are known for releasing the poison ingested from
 cost = 3
 rarity = "C"
 jingle_id = 7
+poison_color = Color(0.81, 0.435645, 0.33210003, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

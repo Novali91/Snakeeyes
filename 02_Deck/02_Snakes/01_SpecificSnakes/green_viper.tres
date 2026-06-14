@@ -13,4 +13,5 @@ description = "No ability."
 flavour_text = "The friendliest snake, corn snakes make great pets!"
 cost = 2
 rarity = "S"
+poison_color = Color(0.5742399, 0.5032, 0.74, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

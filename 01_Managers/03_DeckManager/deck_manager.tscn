@@ -20,6 +20,8 @@ metadata/_custom_type_script = "uid://cu4y6m6v62a87"
 position = Vector2(965, 540)
 texture = ExtResource("4_ckda5")
 
+[node name="VenomDrops" type="Node2D" parent="." unique_id=218992087]
+
 [node name="TooltipManager" type="Node2D" parent="." unique_id=731468120]
 script = ExtResource("2_quqkg")
 x_sort = true

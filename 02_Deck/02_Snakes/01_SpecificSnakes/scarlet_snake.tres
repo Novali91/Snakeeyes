@@ -14,4 +14,5 @@ flavour_text = "\"Red on black, friend of Jack.\""
 cost = 4
 rarity = "C"
 jingle_id = 8
+poison_color = Color(0.82, 0.32799998, 0.32799998, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

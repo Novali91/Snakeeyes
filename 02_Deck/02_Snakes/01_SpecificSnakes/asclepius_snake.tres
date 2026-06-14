@@ -14,4 +14,5 @@ flavour_text = "The mythical snake of Asclepius, revered for reviving the dead. 
 cost = 3
 rarity = "C"
 jingle_id = 1
+poison_color = Color(0.9573333, 1, 0.68, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

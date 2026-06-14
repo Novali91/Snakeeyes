@@ -35,14 +35,14 @@ func instantiate_tooltip() -> void:
 
 func activate_tooltip() -> void:
 	super()
-	snake_sprite.material.set_shader_parameter("alpha", 1.0)
+	snake_sprite.material.set_shader_parameter("thickness", 0.015)
 	_animation_player.play("default")
 	
 	tooltip.instantiate_snake_values(attached_snake, current_drink)
 
 func deactivate_tooltip() -> void:
 	super()
-	snake_sprite.material.set_shader_parameter("alpha", 0.0)
+	snake_sprite.material.set_shader_parameter("thickness", 0.01)
 	
 	_animation_player.play("RESET")
 

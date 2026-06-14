@@ -14,4 +14,5 @@ flavour_text = "Translating to Malice Striker, Nidhogg is known for eating away 
 cost = 12
 rarity = "L"
 jingle_id = 24
+poison_color = Color(0.1932, 0.48426017, 0.84, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

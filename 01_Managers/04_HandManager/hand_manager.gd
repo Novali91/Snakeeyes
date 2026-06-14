@@ -1,6 +1,10 @@
 class_name HandManager
 extends Node2D
 
+const _SPAM_TIMEOUT: float = 0.05
+
+var _spam_timer: float = 0
+
 var drinks: Array[Drink]
 
 @onready var tooltip_manager: TooltipManager = $TooltipManager
@@ -20,6 +24,8 @@ func _ready() -> void:
 	tooltip_manager.child_was_clicked.connect(_click_drink)
 	slide_manager.delete_after_slide.connect(_delete_drink)
 
+func _process(delta: float) -> void: _spam_timer -= delta
+
 func get_num_drinks() -> int:
 	return drinks.size()
 
@@ -33,9 +39,14 @@ func draw_drinks(new_drinks: Array[Drink]) -> void:
 	slide_manager.slide_drinks(new_drinks)
 
 func _click_drink(drink: Drink) -> void:
+	if _spam_timer > 0: return
+	
 	if !drinks_drinkable:
 		drink_chosen.emit(drink)
 		return
+	
+	_spam_timer = _SPAM_TIMEOUT
+	
 	remove_drink(drink)
 	GS.sound_manager.play_gulp()
 	drink_drank.emit(drink.attached_drink, drink.global_position, drink.attached_drink_resource)

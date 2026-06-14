@@ -14,4 +14,5 @@ flavour_text = "The Aztec God of wind and wisdom, the knowledge he bestows is mi
 cost = 12
 rarity = "L"
 jingle_id = 26
+poison_color = Color(0.17160001, 0.78, 0.5062201, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

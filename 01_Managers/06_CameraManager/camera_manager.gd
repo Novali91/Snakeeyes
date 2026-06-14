@@ -54,6 +54,7 @@ func _process(_delta: float) -> void:
 		pass_out_started_time = -1
 
 func start_pass_out() -> void:
+	print("!")
 	pass_out_effect.material.set_shader_parameter("start_time",Time.get_ticks_msec()/1000.0)
 	pass_out_effect.material.set_shader_parameter("close_time",pass_out_fall_time)
 	pass_out_effect.visible = true

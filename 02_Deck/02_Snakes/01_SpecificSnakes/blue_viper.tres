@@ -12,4 +12,5 @@ snake_sprite = ExtResource("3_ow5d2")
 description = "On drink, choose a drink. The chosen drink stays on the table between rounds."
 flavour_text = "The milksnake thrives as a supportive snake. It's too timid to enjoy the spotlight."
 rarity = "S"
+poison_color = Color(0.87, 0.7656, 0.7656, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

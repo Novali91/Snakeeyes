@@ -14,4 +14,5 @@ flavour_text = "The eternal symbol of renewal, representations of the Ouroboros 
 cost = 12
 rarity = "L"
 jingle_id = 25
+poison_color = Color(0.17359999, 0.62, 0.27776, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

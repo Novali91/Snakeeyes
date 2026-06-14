@@ -13,4 +13,5 @@ description = "On drink, slide in 1 drink."
 flavour_text = "Victims of a Placeboa bite show symptoms of breathing normally afterwards."
 cost = 3
 rarity = "C"
+poison_color = Color(0.47693002, 0.74, 0.1554, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

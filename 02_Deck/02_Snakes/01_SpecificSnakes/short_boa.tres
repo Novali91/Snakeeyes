@@ -14,4 +14,5 @@ flavour_text = "The Boa Constrictor is a fearsome snake, often coaxing prey. Des
 cost = 4
 rarity = "C"
 jingle_id = 5
+poison_color = Color(0.73127997, 0.5368, 0.88, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

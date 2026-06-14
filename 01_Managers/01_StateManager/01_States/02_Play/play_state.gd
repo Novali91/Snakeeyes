@@ -34,8 +34,10 @@ func enter() -> void:
 		await get_tree().create_timer(1.0).timeout
 		sm.camera_manager.switch_screen(sm.camera_manager.LEFT, true) 
 		
-		# refill animation
-		await get_tree().create_timer(5.0).timeout
+		await get_tree().create_timer(1.0).timeout
+		sm.refill.play()
+		await sm.deck_manager.reshuffle_drawpile()
+		await get_tree().create_timer(1.0).timeout
 		
 		sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true) 
 		

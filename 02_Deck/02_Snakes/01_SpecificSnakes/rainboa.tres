@@ -14,4 +14,5 @@ flavour_text = "The Rainboa is distinctified by its rainbow sheen, caused by the
 cost = 7
 rarity = "R"
 jingle_id = 13
+poison_color = Color(1, 0.47000003, 0.65549994, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

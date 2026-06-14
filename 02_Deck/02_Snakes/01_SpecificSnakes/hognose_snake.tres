@@ -14,4 +14,5 @@ flavour_text = "So cute that it can even heal you!"
 cost = 4
 rarity = "C"
 jingle_id = 3
+poison_color = Color(1, 0.43, 0.9050001, 1)
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

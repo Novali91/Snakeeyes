@@ -30,7 +30,8 @@ signal snake_chosen(snake: Snake)
 var _all_slots: Array[Vector2]
 var _open_slot_inds: Array[int]
 
-
+@onready var _venom_drop_texture: Texture = preload("res://05_Assets/01_Art/03_UI_Sprites/poison drop for refill.png")
+@onready var _venom_drops: Node2D = $VenomDrops
 
 func _ready() -> void:
 	_all_slots = []
@@ -61,6 +62,8 @@ func draw(amt: int) -> Array[Drink]:
 
 func reshuffle_drawpile() -> void:
 	# Maybe this is where we put the animation for refilling the drinks if we want one?
+	await _refill_animation()
+	
 	for snake: Snake in snake_deck:
 		for num_drink: int in snake.num_drinks:
 			var new_drink: Drink = create_drink(snake.current_drink, snake.attached_snake.drink_resource, snake)
@@ -74,7 +77,7 @@ func create_drink(drink_resource: DrinkResource, og_drink_resource: DrinkResourc
 	var new_drink: Drink = _drink_scene.instantiate()
 	new_drink.attached_drink = drink_resource.duplicate()
 	new_drink.attached_drink_resource = og_drink_resource
-	new_drink.global_position = snake.global_position + Vector2(0, 128)
+	new_drink.global_position = snake.global_position + Vector2(0, 100)
 	new_drink.attached_drink.parent_snake = snake
 	return new_drink
 
@@ -116,3 +119,20 @@ func _child_clicked(child: DeckItem) -> void:
 	if child is Snake:
 		snake_chosen.emit(child)
 	return
+
+func _refill_animation() -> void:
+	var t = create_tween().set_parallel().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	
+	for s: Snake in snake_deck:
+		var new_drop = Sprite2D.new()
+		new_drop.texture = _venom_drop_texture
+		new_drop.modulate = s.attached_snake.poison_color
+		new_drop.position = s.position + Vector2(0, 50)
+		new_drop.scale = Vector2.ONE * 1.75
+		_venom_drops.add_child(new_drop)
+		var end_location = s.position + Vector2(0, 150)
+		t.tween_property(new_drop, "position", end_location, 0.2)
+	
+	await t.finished
+	
+	for d in _venom_drops.get_children(): d.queue_free()
