@@ -10,7 +10,7 @@ const _WAIT_TIME: float = 0.1
 
 @export var text_array: Array[String]
 
-@onready var _text_label: RichTextLabel = $ColorRect/Text
+@onready var _text_label: RichTextLabel = $Sprite2D/Text
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 @onready var _arrow: Sprite2D = $Arrow
 

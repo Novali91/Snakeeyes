@@ -13,4 +13,5 @@ description = "On drink, gain charm equal to half of this snake's strength."
 flavour_text = "To make up for their lack of venom, pythons harbour immense strength, both of body, and of tongue."
 cost = 7
 rarity = "R"
+jingle_id = 19
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

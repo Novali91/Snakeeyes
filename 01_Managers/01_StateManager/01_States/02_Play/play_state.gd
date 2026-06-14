@@ -28,6 +28,8 @@ func setup() -> void:
 	sm.hand_manager.drink_drank.connect(play_card)
 
 func enter() -> void:
+	sm.hand_manager.drinks_drinkable = false
+	
 	if GS.in_tutorial:
 		await get_tree().create_timer(1.0).timeout
 		sm.camera_manager.switch_screen(sm.camera_manager.LEFT, true) 
@@ -40,6 +42,14 @@ func enter() -> void:
 		await get_tree().create_timer(2.0).timeout
 	
 	sm.ability_helper.draw_cards(5)
+	
+	if GS.in_tutorial:
+		sm.tutorial_manager.start_tutorial()
+		await sm.tutorial_manager.done
+		await get_tree().create_timer(0.5).timeout
+	
+	var t = create_tween()
+	t.tween_property(sm.attack_manager, "modulate:a", 1.0, 1.0)
 	
 	sm.hand_manager.drinks_drinkable = true
 	sm.end_turn_button.make_pressable()
@@ -77,7 +87,7 @@ func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkRes
 			GS.set_charm(GS.get_charm() + drink.charm)
 			sm.charm_overlay.gain_charm(drink.charm, drink_position)
 	
-	if GS.get_poison() >= 12:
+	if GS.get_poison() >= 13:
 		sm.hand_manager.drinks_drinkable = false
 		sm.hand_manager.end_turn_discard()
 		sm.switch_state(sm.States.PASS_OUT)

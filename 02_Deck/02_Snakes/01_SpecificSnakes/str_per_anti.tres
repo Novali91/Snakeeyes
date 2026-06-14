@@ -13,4 +13,5 @@ description = "On drink, gain strength and charm equal to your antidote"
 flavour_text = "A symbol for something unreachable, the Chimera's prowess is equally unmatched."
 cost = 7
 rarity = "R"
+jingle_id = 17
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

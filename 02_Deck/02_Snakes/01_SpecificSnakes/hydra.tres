@@ -14,4 +14,5 @@ flavour_text = "The mythical Hydra, known for its ability to... Give other snake
 cost = 12
 rarity = "L"
 num_drinks = 3
+jingle_id = 21
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

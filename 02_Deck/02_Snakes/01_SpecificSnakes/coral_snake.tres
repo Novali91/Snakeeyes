@@ -13,4 +13,5 @@ description = "On drink, roll 2d6: On 2-6, lose 2 strength and charm. On 7+, gai
 flavour_text = "\"Red on yellow, kill a fellow.\""
 cost = 7
 rarity = "R"
+jingle_id = 20
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

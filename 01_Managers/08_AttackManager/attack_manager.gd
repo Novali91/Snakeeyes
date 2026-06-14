@@ -6,8 +6,8 @@ var _attack_ind: int = -1
 var _current_attack: BossAttack
 var _next_attack: BossAttack
 
-@onready var _input_cur: Label = $Label/InputCur
-@onready var _input_next: Label = $Label2/InputNext
+@onready var boss_tooltip: BossTooltip = $BossTooltip
+@onready var area: Area2D = $Area
 
 var ATTACK_LIST: Array[BossAttack] = [
 	BossAttack.new([2], 0), # 1
@@ -106,13 +106,17 @@ var ATTACK_LIST: Array[BossAttack] = [
 	#[99999999]
 #]
 
+func _ready() -> void:
+	modulate.a = 0.0
+	
+	area.mouse_entered.connect(_attack_hovered)
+	area.mouse_exited.connect(_attack_unhovered)
+
 func next_attack() -> void:
 	_attack_ind += 1
 	_current_attack = ATTACK_LIST[_attack_ind]
 	_next_attack = ATTACK_LIST[_attack_ind + 1]
-	
-	_input_cur.text = str(_current_attack.damage)
-	_input_next.text = str(_next_attack.damage)
+	boss_tooltip.cur_string = boss_tooltip.pick_convo_string()
 
 func get_attack() -> BossAttack:
 	return _current_attack
@@ -122,6 +126,15 @@ func get_attack_goal() -> int:
 	for i in _current_attack.damage:
 		out += i
 	return out
+
+func _attack_hovered() -> void:
+	var n = _attack_ind + 1
+	while ATTACK_LIST[n].ability_index == 0: n += 1
+	
+	boss_tooltip.activate_boss_attack_tooltip(n, n - _attack_ind)
+
+func _attack_unhovered() -> void:
+	boss_tooltip.deactivate_boss_attack_tooltip()
 
 ## Drinking a drink gives all drinks -1 str - HandManager
 ## Swap charm and strength - Play state

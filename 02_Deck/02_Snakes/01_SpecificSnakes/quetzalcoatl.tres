@@ -13,4 +13,5 @@ description = "On drink, slide in 3 drinks, then pick 3 drinks to give them -1/+
 flavour_text = "The Aztec God of wind and wisdom, the knowledge he bestows is mighty fleeting."
 cost = 12
 rarity = "L"
+jingle_id = 26
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

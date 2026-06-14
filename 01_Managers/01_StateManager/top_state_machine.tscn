@@ -19,11 +19,13 @@
 [ext_resource type="PackedScene" uid="uid://cemkqlju26qyg" path="res://03_VisualInputOutput/06_AntidoteCount/antidote_count.tscn" id="12_mg5ld"]
 [ext_resource type="PackedScene" uid="uid://d35o5u7su4r12" path="res://03_VisualInputOutput/07_EndTurnButton/end_turn_button.tscn" id="13_8sj7b"]
 [ext_resource type="PackedScene" uid="uid://cbygupp4jpnp6" path="res://01_Managers/06_CameraManager/camera_manager.tscn" id="15_v5tm5"]
+[ext_resource type="Texture2D" uid="uid://cmak31j6wqvk2" path="res://05_Assets/01_Art/07_Boss_Sprites/normal.png" id="16_u5576"]
 [ext_resource type="PackedScene" uid="uid://bmyg1l3eqrxql" path="res://01_Managers/07_DiceManager/dice_manager.tscn" id="19_sa73t"]
 [ext_resource type="PackedScene" uid="uid://ct4847ie8iod" path="res://01_Managers/08_AttackManager/attack_manager.tscn" id="20_n6io1"]
 [ext_resource type="PackedScene" uid="uid://c3dy1ps3avrnp" path="res://01_Managers/04_HandManager/hand_manager.tscn" id="21_ffq48"]
 [ext_resource type="PackedScene" uid="uid://dhqysni4gdtju" path="res://01_Managers/03_DeckManager/deck_manager.tscn" id="22_lfho2"]
 [ext_resource type="PackedScene" uid="uid://bnjofbbb7q1gy" path="res://01_Managers/02_ShopManager/shop_manager.tscn" id="23_5mt65"]
+[ext_resource type="PackedScene" uid="uid://c6q0pm414jrde" path="res://01_Managers/12_TutorialManager/tutorial_manager.tscn" id="24_dxdvi"]
 [ext_resource type="PackedScene" uid="uid://dcac3rjwq26kc" path="res://01_Managers/09_OverlayManager/overlay_manager.tscn" id="25_gwsv7"]
 [ext_resource type="PackedScene" uid="uid://dmqecy4uccb4k" path="res://01_Managers/10_TitleScreenManager/title_screen_manager.tscn" id="27_u5576"]
 [ext_resource type="PackedScene" uid="uid://dre8t8sp8st3f" path="res://01_Managers/11_SoundManager/sound_manager.tscn" id="28_u5576"]
@@ -92,6 +94,10 @@ position = Vector2(2880, 125)
 unique_name_in_owner = true
 position = Vector2(2118, 709)
 
+[node name="Lady" type="Sprite2D" parent="." unique_id=578470036]
+position = Vector2(2880, 564)
+texture = ExtResource("16_u5576")
+
 [node name="Table" type="Sprite2D" parent="." unique_id=1744368899]
 position = Vector2(2880, 540)
 texture = ExtResource("11_gwsv7")
@@ -108,7 +114,11 @@ position = Vector2(1920, 0)
 
 [node name="AttackManager" parent="." unique_id=1488456757 instance=ExtResource("20_n6io1")]
 unique_name_in_owner = true
-position = Vector2(1920, 0)
+position = Vector2(3201, 228)
+
+[node name="EndTurnButton" parent="." unique_id=462742653 instance=ExtResource("13_8sj7b")]
+unique_name_in_owner = true
+position = Vector2(3380, 714)
 
 [node name="PoisonBar" parent="." unique_id=674401828 instance=ExtResource("10_v5tm5")]
 unique_name_in_owner = true
@@ -122,9 +132,8 @@ position = Vector2(3840, 0)
 unique_name_in_owner = true
 position = Vector2(3583, 308)
 
-[node name="EndTurnButton" parent="." unique_id=462742653 instance=ExtResource("13_8sj7b")]
-unique_name_in_owner = true
-position = Vector2(3521, 906)
+[node name="TutorialManager" parent="." unique_id=1208958163 instance=ExtResource("24_dxdvi")]
+position = Vector2(3199, 227)
 
 [node name="CharmOverlay" parent="." unique_id=1000792462 instance=ExtResource("9_tn0ij")]
 unique_name_in_owner = true
