@@ -187,7 +187,6 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Buff" type="ColorRect" parent="." unique_id=681962169]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -206,7 +205,7 @@ color = Color(0, 0, 0, 0.18039216)
 layout_mode = 0
 offset_right = 300.0
 offset_bottom = 150.0
-text = "Pick a snake to add 1 strength to."
+text = "Pick a snake to improve."
 horizontal_alignment = 1
 vertical_alignment = 1
 
