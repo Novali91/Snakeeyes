@@ -28,11 +28,18 @@ func enter() -> void:
 	var cur_score = GS.get_score()
 	
 	var damage = enemy_str.size() - attacks_blocked
+	
 	if damage == 0:
+		sm.lady.win_armwrestle()
+		await sm.lady.finished
+		
 		var new_score = min(cur_score + 1, 6)
 		GS.set_score(new_score)
 	
 	else:
+		sm.lady.lose_armwrestle(damage)
+		await sm.lady.finished
+		
 		GS.set_score(cur_score - damage)
 		
 		if GS.get_score() <= 0:
@@ -42,6 +49,10 @@ func enter() -> void:
 			GS.sound_manager.play_fall()
 			sm.lose()
 			return
+	
+	await get_tree().create_timer(1.5).timeout
+	
+	sm.lady.idle()
 	
 	sm.switch_state(sm.States.SHOP)
 

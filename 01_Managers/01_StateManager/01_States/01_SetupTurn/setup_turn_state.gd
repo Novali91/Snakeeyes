@@ -11,12 +11,17 @@ func enter() -> void:
 	
 	_reset_stats()
 	
+	sm.lady.drink_poison()
+	await sm.lady.finished
+	
 	## boss drinks
 	if sm.attack_manager._current_attack == null or sm.attack_manager.get_attack().ability_index != 10:
 		sm.attack_manager.next_attack()
 	
 	## wait a sec
 	await get_tree().create_timer(1.0).timeout
+	
+	sm.lady.idle()
 	
 	sm.shop_manager.empty_shop()
 	sm.shop_manager.fill_shop()

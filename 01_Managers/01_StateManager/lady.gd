@@ -1,0 +1,29 @@
+class_name Lady
+extends Node2D
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+signal finished()
+
+func win_armwrestle() -> void:
+	animation_player.play("ArmWrestleStart")
+	await animation_player.animation_finished
+	animation_player.play("ArmWrestleWin")
+	await animation_player.animation_finished
+	finished.emit()
+
+func lose_armwrestle(damage: int) -> void:
+	animation_player.play("ArmWrestleStart")
+	await animation_player.animation_finished
+	for i in damage:
+		animation_player.play("ArmWrestleDamage")
+		await animation_player.animation_finished
+	finished.emit()
+
+func drink_poison() -> void:
+	animation_player.play("Drink")
+	await animation_player.animation_finished
+	finished.emit()
+
+func idle() -> void:
+	animation_player.play("Idle")

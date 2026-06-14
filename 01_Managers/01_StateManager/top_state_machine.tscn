@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cemkqlju26qyg" path="res://03_VisualInputOutput/06_AntidoteCount/antidote_count.tscn" id="12_mg5ld"]
 [ext_resource type="PackedScene" uid="uid://d35o5u7su4r12" path="res://03_VisualInputOutput/07_EndTurnButton/end_turn_button.tscn" id="13_8sj7b"]
 [ext_resource type="PackedScene" uid="uid://cbygupp4jpnp6" path="res://01_Managers/06_CameraManager/camera_manager.tscn" id="15_v5tm5"]
-[ext_resource type="Texture2D" uid="uid://cmak31j6wqvk2" path="res://05_Assets/01_Art/07_Boss_Sprites/normal.png" id="16_u5576"]
+[ext_resource type="PackedScene" uid="uid://bcyqpse6xclfi" path="res://01_Managers/01_StateManager/lady.tscn" id="16_wgfe6"]
 [ext_resource type="PackedScene" uid="uid://bmyg1l3eqrxql" path="res://01_Managers/07_DiceManager/dice_manager.tscn" id="19_sa73t"]
 [ext_resource type="PackedScene" uid="uid://ct4847ie8iod" path="res://01_Managers/08_AttackManager/attack_manager.tscn" id="20_n6io1"]
 [ext_resource type="PackedScene" uid="uid://c3dy1ps3avrnp" path="res://01_Managers/04_HandManager/hand_manager.tscn" id="21_ffq48"]
@@ -94,9 +94,8 @@ position = Vector2(2880, 125)
 unique_name_in_owner = true
 position = Vector2(2118, 709)
 
-[node name="Lady" type="Sprite2D" parent="." unique_id=578470036]
+[node name="Lady" parent="." unique_id=827603467 instance=ExtResource("16_wgfe6")]
 position = Vector2(2880, 564)
-texture = ExtResource("16_u5576")
 
 [node name="Table" type="Sprite2D" parent="." unique_id=1744368899]
 position = Vector2(2880, 540)
@@ -144,6 +143,7 @@ unique_name_in_owner = true
 [node name="OverlayManager" parent="." unique_id=941339809 instance=ExtResource("25_gwsv7")]
 
 [node name="TitleScreenManager" parent="." unique_id=147652467 instance=ExtResource("27_u5576")]
+visible = false
 z_index = 2
 position = Vector2(2880, 540)
 
