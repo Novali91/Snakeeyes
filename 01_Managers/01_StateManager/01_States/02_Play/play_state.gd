@@ -28,7 +28,7 @@ func setup() -> void:
 	sm.hand_manager.drink_drank.connect(play_card)
 
 func enter() -> void:
-	sm.ability_helper.draw_cards(5)
+	await sm.ability_helper.draw_cards(5)
 	sm.hand_manager.drinks_drinkable = true
 	sm.end_turn_button.make_pressable()
 	sm.camera_manager.unlock_camera()
