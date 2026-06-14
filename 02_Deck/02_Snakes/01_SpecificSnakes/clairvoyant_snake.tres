@@ -13,4 +13,5 @@ description = "On drink, kill another snake, then immediately drink that snake's
 flavour_text = "Translating to Malice Striker, Nidhogg is known for eating away at the roots of the World Tree."
 cost = 12
 rarity = "L"
+jingle_id = 24
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

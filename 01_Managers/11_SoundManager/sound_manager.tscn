@@ -33,6 +33,12 @@
 [ext_resource type="AudioStream" uid="uid://ccfsqkw8sbd86" path="res://05_Assets/03_SoundEffects/jingles/rare_amphis.wav" id="28_tsmvf"]
 [ext_resource type="AudioStream" uid="uid://t8avhs6dois" path="res://05_Assets/03_SoundEffects/jingles/rare_python.wav" id="29_7fgcg"]
 [ext_resource type="AudioStream" uid="uid://dh2md4341oxw4" path="res://05_Assets/03_SoundEffects/jingles/rare_coralsnake.wav" id="30_fe5rw"]
+[ext_resource type="AudioStream" uid="uid://dq8qobmi3owjq" path="res://05_Assets/03_SoundEffects/jingles/leg_hydra.wav" id="31_fe5rw"]
+[ext_resource type="AudioStream" uid="uid://nxhmul4ybdfq" path="res://05_Assets/03_SoundEffects/jingles/leg_caduc.wav" id="32_2luq3"]
+[ext_resource type="AudioStream" uid="uid://bfnb07t6a5vnj" path="res://05_Assets/03_SoundEffects/jingles/leg_jorman.wav" id="33_2vqye"]
+[ext_resource type="AudioStream" uid="uid://b8l2mbxrme6bc" path="res://05_Assets/03_SoundEffects/jingles/leg_nidhogg.wav" id="34_f40i7"]
+[ext_resource type="AudioStream" uid="uid://b12bdu4rsol2u" path="res://05_Assets/03_SoundEffects/jingles/leg_oro.wav" id="35_tu55i"]
+[ext_resource type="AudioStream" uid="uid://yuoc57h8lfoj" path="res://05_Assets/03_SoundEffects/jingles/leg_quetz.wav" id="36_tgj5y"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8gqlx"]
 random_pitch = 1.1863941
@@ -179,16 +185,22 @@ stream = ExtResource("29_7fgcg")
 stream = ExtResource("30_fe5rw")
 
 [node name="LegHydra" type="AudioStreamPlayer" parent="Jingles" unique_id=1265586323]
+stream = ExtResource("31_fe5rw")
 
 [node name="LegCaduceus" type="AudioStreamPlayer" parent="Jingles" unique_id=2000599273]
+stream = ExtResource("32_2luq3")
 
 [node name="LegJormungandr" type="AudioStreamPlayer" parent="Jingles" unique_id=1975914039]
+stream = ExtResource("33_2vqye")
 
 [node name="LegNidhogg" type="AudioStreamPlayer" parent="Jingles" unique_id=1706596786]
+stream = ExtResource("34_f40i7")
 
 [node name="LegOuroboros" type="AudioStreamPlayer" parent="Jingles" unique_id=1497059139]
+stream = ExtResource("35_tu55i")
 
 [node name="LegQuetz" type="AudioStreamPlayer" parent="Jingles" unique_id=508323936]
+stream = ExtResource("36_tgj5y")
 
 [node name="Music" type="Node" parent="." unique_id=1665266457]
 

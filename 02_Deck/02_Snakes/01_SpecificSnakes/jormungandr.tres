@@ -13,4 +13,5 @@ description = "On drink, gain strength equal to the total strength of drinks in 
 flavour_text = "Known as the World Serpent, Jormungandr is said to encompass the Earth."
 cost = 12
 rarity = "L"
+jingle_id = 23
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

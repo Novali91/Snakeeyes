@@ -13,4 +13,5 @@ description = "On drink, slide this drink back."
 flavour_text = "The eternal symbol of renewal, representations of the Ouroboros existed everywhere."
 cost = 12
 rarity = "L"
+jingle_id = 25
 metadata/_custom_type_script = "uid://6sj3dk6frj4"
