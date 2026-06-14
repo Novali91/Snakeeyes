@@ -1,12 +1,45 @@
 [gd_scene format=3 uid="uid://d35o5u7su4r12"]
 
 [ext_resource type="Script" uid="uid://dtrgbb83biosd" path="res://03_VisualInputOutput/07_EndTurnButton/end_turn_button.gd" id="1_k3mef"]
+[ext_resource type="Texture2D" uid="uid://1nd8y0x6n03l" path="res://05_Assets/01_Art/03_UI_Sprites/end turn bell spritesheet 400 by 400.png" id="2_emw0a"]
+[ext_resource type="Shader" uid="uid://0oonfw65mdnr" path="res://05_Assets/02_Shaders/outline.gdshader" id="2_g77s8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_emw0a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g77s8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_orwsp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7c65d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cn0lp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_orwsp"]
+shader = ExtResource("2_g77s8")
+shader_parameter/sprite_alpha = 1.0
+shader_parameter/color = Color(1, 0.6175, 0.49, 1)
+shader_parameter/alpha = 1.0
+shader_parameter/thickness = 0.010000000475
+shader_parameter/x_over_y = 4.0
 
 [node name="EndTurnButton" type="Node2D" unique_id=1874088731]
 script = ExtResource("1_k3mef")
 metadata/_custom_type_script = "uid://dtrgbb83biosd"
 
 [node name="Button" type="Button" parent="." unique_id=260880145]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -105.0
+offset_top = -143.0
+offset_right = 90.0
+offset_bottom = 108.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_emw0a")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_g77s8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_orwsp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7c65d")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cn0lp")
 text = "End Turn"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=158398868]
+material = SubResource("ShaderMaterial_orwsp")
+texture = ExtResource("2_emw0a")
+hframes = 4
+frame = 1

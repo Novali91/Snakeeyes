@@ -41,6 +41,11 @@ func enter() -> void:
 	
 	sm.ability_helper.draw_cards(5)
 	
+	if GS.in_tutorial:
+		sm.tutorial_manager.start_tutorial()
+		await sm.tutorial_manager.done
+		await get_tree().create_timer(0.5).timeout
+	
 	sm.hand_manager.drinks_drinkable = true
 	sm.end_turn_button.make_pressable()
 	sm.camera_manager.unlock_camera()
@@ -77,7 +82,7 @@ func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkRes
 			GS.set_charm(GS.get_charm() + drink.charm)
 			sm.charm_overlay.gain_charm(drink.charm, drink_position)
 	
-	if GS.get_poison() >= 12:
+	if GS.get_poison() >= 13:
 		sm.hand_manager.drinks_drinkable = false
 		sm.hand_manager.end_turn_discard()
 		sm.switch_state(sm.States.PASS_OUT)

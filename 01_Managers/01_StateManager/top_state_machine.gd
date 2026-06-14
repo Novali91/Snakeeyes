@@ -47,6 +47,7 @@ var current_state: int
 @onready var win_close: Button = $WinScreen/WinClose
 @onready var lose_screen: Node2D = $LoseScreen
 @onready var lose_close: Button = $LoseScreen/LoseClose
+@onready var tutorial_manager: TutorialManager = $TutorialManager
 
 
 func _ready() -> void:
