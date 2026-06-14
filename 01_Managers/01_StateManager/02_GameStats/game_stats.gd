@@ -1,7 +1,7 @@
 class_name GameStats
 extends Node
 
-const HAND_SIZE: int = 30
+const HAND_SIZE: int = 500
 const SCREEN_SIZE: Vector2 = Vector2(1920, 1080)
 const ANTIDOTE_COST: int = 2
 

@@ -74,18 +74,18 @@ func _process(delta: float) -> void:
 		_bonus.visible = false
 	_cup.position.y = _cup_loc.position.y - 1080 + _ease_out_0_1(_animation_progress/cup_lower_time) * 1080
 
-func set_poison(poison: int) -> void:
-	self.poison = poison
+func set_poison(p: int) -> void:
+	poison = p
 	_p_lvl_input.text = str(poison)
 
 func _ease_out_0_1(x: float) -> float:
 	return sin(clamp(x,0,1) * PI / 2)
 
-func start_roll(lower_cup: bool, show_poison: bool) -> void:
+func start_roll(lower_cup: bool, show_p: bool) -> void:
 	visible = true
 	_animation_player.play("open")
 	
-	self.show_poison = show_poison
+	show_poison = show_p
 	if lower_cup:
 		_animation_progress = 0.0
 	else:

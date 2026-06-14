@@ -106,3 +106,7 @@ color outlines based on rarities
 start at 6 lives
 gain +1 on win
 need to win 36 rounds
+
+
+bugs:
+pass out if milk snake brings you to max poison

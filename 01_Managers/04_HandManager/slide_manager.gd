@@ -101,6 +101,9 @@ func _populate_endpoints() -> void:
 		Vector2(0.65, 0.3),
 	]
 	
+	for i in GS.HAND_SIZE:
+		_all_endpoints.push_back(Vector2(randf_range(0.1, 0.65), randf_range(0.1, 0.35)))
+	
 	_empty_endpoints = []
 	for e in _all_endpoints:
 		_empty_endpoints.push_back(true)
