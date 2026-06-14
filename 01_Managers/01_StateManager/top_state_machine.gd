@@ -33,7 +33,6 @@ var current_state: int
 @onready var player_strength: PlayerStrength = %PlayerStrength
 @onready var antidote_count: AntidoteCount = %AntidoteCount
 @onready var end_turn_button: EndTurnButton = %EndTurnButton
-@onready var exit_shop_button: ExitShopButton = %ExitShopButton
 
 @onready var camera_manager: CameraManager = %CameraManager
 @onready var dice_manager: DiceManager = %DiceManager

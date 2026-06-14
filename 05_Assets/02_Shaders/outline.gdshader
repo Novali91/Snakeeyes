@@ -4,6 +4,7 @@ uniform float sprite_alpha: hint_range(0.0, 1.0, 0.1) = 1.;
 uniform vec3 color: source_color = vec3(1);
 uniform float alpha: hint_range(0.0, 1.0, 0.1) = 1.;
 uniform float thickness: hint_range(0.0, 0.2, 0.01) = 0.05;
+uniform float x_over_y = 1.0;
 
 const vec2 DIRECTIONS[] = {
 	vec2(1, 0),
@@ -19,7 +20,7 @@ const vec2 DIRECTIONS[] = {
 void fragment() {
 	float alpha_mask = 0.;
 	for (int i = 0; i < 8; i++) {
-		vec2 cur_dir = DIRECTIONS[i];
+		vec2 cur_dir = DIRECTIONS[i] / vec2(x_over_y, 1);
 		float a = texture(TEXTURE, UV + cur_dir * thickness).a;
 		alpha_mask = max(alpha_mask, a);
 	}

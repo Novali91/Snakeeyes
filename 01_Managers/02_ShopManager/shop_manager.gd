@@ -9,6 +9,7 @@ const R_CHANCE_PER_SLOT: float = 0.27
 signal snake_clicked(snake: Snake)
 signal antidote_clicked()
 signal reroll_clicked()
+signal exit_shop_clicked()
 
 var can_buy: bool = false
 var antidote_position: Vector2
@@ -17,8 +18,9 @@ var antidote_position: Vector2
 @onready var ability_helper: ShopAbilityHelper = $ShopAbilityHelper
 @onready var _labels_node: Node2D = $PriceLabels
 @onready var _antidote_button: Button = $AntidoteButton
-@onready var _darkness: ColorRect = $Darkness
 @onready var _open_sign: AnimatedSprite2D = $OpenSign
+@onready var _animation_player: AnimationPlayer = $AnimationPlayer
+@onready var _exit_button: Button = $OpenSign/ExitButton
 
 @onready var _snake_scene: PackedScene = preload("res://02_Deck/02_Snakes/snake.tscn")
 @onready var _markers_node: Node2D = $Markers
@@ -37,6 +39,9 @@ func _ready() -> void:
 	ability_helper.shop_manager = self
 	_tooltip_manager.child_was_clicked.connect(_snake_clicked)
 	_antidote_button.pressed.connect(_antidote_clicked)
+	_exit_button.pressed.connect(_click_open_sign)
+	_exit_button.mouse_entered.connect(_hover_open_sign)
+	_exit_button.mouse_exited.connect(_unhover_open_sign)
 	reroll_button.pressed.connect(_reroll_pressed)
 	
 	for l: Label in _labels_node.get_children():
@@ -68,11 +73,12 @@ func fill_shop() -> void:
 
 func toggle_open(open: bool) -> void:
 	can_buy = open
-	_darkness.visible = !open
 	if open:
-		_open_sign.frame = 0
+		_animation_player.play("brighten")
+	
 	else:
-		_open_sign.frame = 1
+		_open_sign.material.set_shader_parameter("alpha", 0.0)
+		_animation_player.play("darken")
 
 func stock_antidote() -> void:
 	antidote_stock = 1
@@ -136,6 +142,17 @@ func _remove_snake(snake: Snake) -> void:
 	_cur_snakes.erase(snake)
 	_tooltip_manager.remove_item(snake, true)
 
+func _hover_open_sign() -> void:
+	if not can_buy: return
+	_open_sign.material.set_shader_parameter("alpha", 1.0)
+
+func _unhover_open_sign() -> void:
+	if not can_buy: return
+	_open_sign.material.set_shader_parameter("alpha", 0.0)
+
+func _click_open_sign() -> void:
+	if not can_buy: return
+	exit_shop_clicked.emit()
 
 ############ UGLY NEED FIX??
 

@@ -4,7 +4,7 @@ extends TopState
 var _reroll_cost: int = 1
 
 func setup() -> void:
-	sm.exit_shop_button.pressed.connect(_exit_shop)
+	sm.shop_manager.exit_shop_clicked.connect(_exit_shop)
 	sm.shop_manager.snake_clicked.connect(_check_snake)
 	sm.shop_manager.antidote_clicked.connect(_check_antidote)
 	sm.shop_manager.reroll_clicked.connect(_reroll_pressed)
@@ -15,13 +15,11 @@ func enter() -> void:
 	
 	sm.camera_manager.switch_screen(sm.camera_manager.RIGHT, true)
 	sm.camera_manager.unlock_camera()
-	sm.exit_shop_button.make_pressable()
 	
 	sm.shop_manager.toggle_open(true)
 	
 
 func exit() -> void:
-	sm.exit_shop_button.stop_pressable()
 	sm.shop_manager.toggle_open(false)
 
 func process_tick(_delta: float) -> void:
