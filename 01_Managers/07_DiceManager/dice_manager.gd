@@ -36,6 +36,10 @@ var poison: int
 
 var roll_is_for_poison: bool
 
+var antidote_flash_progress: float = 0.0
+@export var antidote_flash_time: float
+var antidote_flashing: bool = false
+
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
@@ -44,6 +48,13 @@ func _ready() -> void:
 	_continue_button.pressed.connect(_continue_pressed)
 
 func _process(delta: float) -> void:
+	antidote_flash_progress += delta
+	if antidote_flashing and antidote_flash_progress > antidote_flash_time:
+		antidote_flash_progress = 0.0
+		if _use_antidote_button.modulate == Color.RED:
+			_use_antidote_button.modulate = Color.WHITE
+		else:
+			_use_antidote_button.modulate = Color.RED
 	if _animation_progress >= 0 and _animation_progress < animation_time:
 		_animation_progress += delta
 		if _animation_progress > cup_lower_time:
@@ -66,8 +77,15 @@ func _process(delta: float) -> void:
 				_bonus.visible = true
 				_bonus.position.y = _label_loc.position.y + 100 - 30 * _ease_out_0_1((_animation_progress-bonus_appear_time)/(animation_time-bonus_appear_time))
 				_continue_button.visible = true
-				if roll_is_for_poison and _current_value >= poison:
-					_use_antidote_button.visible = false
+				_use_antidote_button.modulate = Color.WHITE
+				antidote_flashing = false
+				if roll_is_for_poison:
+					if _current_value >= poison:
+						_use_antidote_button.visible = false
+					else:
+						_use_antidote_button.visible = true
+						antidote_flashing = true
+						_use_antidote_button.modulate = Color.RED
 				else:
 					_use_antidote_button.visible = true
 	else:
