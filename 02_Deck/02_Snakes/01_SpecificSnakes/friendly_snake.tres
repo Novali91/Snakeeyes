@@ -13,4 +13,5 @@ description = "When drank, reduce the poison of all drinks in your hand by 1."
 flavour_text = "The Pit Viper is an incredibly venomous, and yet is widely used for its medicinal properties."
 cost = 8
 rarity = "R"
+jingle_id = 16
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

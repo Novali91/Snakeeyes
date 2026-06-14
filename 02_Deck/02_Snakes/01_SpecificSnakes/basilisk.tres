@@ -13,4 +13,5 @@ description = "On drink, pick a snake. Remove all of your charm and give that sn
 flavour_text = "The cunning basilisk, known for its silver tongue and its lethal gaze."
 cost = 8
 rarity = "R"
+jingle_id = 15
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

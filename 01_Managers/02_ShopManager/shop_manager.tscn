@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dlbm7bch0l871" path="res://05_Assets/01_Art/02_Backgrounds/shop cage 5.png" id="10_3r70o"]
 [ext_resource type="Shader" uid="uid://0oonfw65mdnr" path="res://05_Assets/02_Shaders/outline.gdshader" id="10_tqajx"]
 [ext_resource type="Script" uid="uid://cfqx3dcaojqrs" path="res://03_VisualInputOutput/01_ScoreBar/custom_number.gd" id="13_w34qo"]
+[ext_resource type="Texture2D" uid="uid://co48g34ruwdwd" path="res://05_Assets/01_Art/03_UI_Sprites/reroll shop rope.png" id="14_3r70o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mkdgh"]
 shader = ExtResource("4_0hb6a")
@@ -148,6 +149,22 @@ _data = {
 &"brighten": SubResource("Animation_oquer"),
 &"darken": SubResource("Animation_tqajx")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3r70o"]
+
+[sub_resource type="SystemFont" id="SystemFont_3r70o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3vpm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_67dir"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3r70o"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i28nj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="ShopManager" type="Node2D" unique_id=690115681]
 script = ExtResource("1_oeh5l")
@@ -307,13 +324,6 @@ text = "Buy Antidote (2 Charm)"
 script = ExtResource("3_ah0kr")
 metadata/_custom_type_script = "uid://cimjodkpl2ahn"
 
-[node name="RerollButton" type="Button" parent="." unique_id=1611665676]
-offset_left = 914.0
-offset_top = 391.0
-offset_right = 990.0
-offset_bottom = 422.0
-text = "REROLL: "
-
 [node name="OpenSign" type="AnimatedSprite2D" parent="." unique_id=1509979121]
 material = SubResource("ShaderMaterial_8hme2")
 position = Vector2(960, 97)
@@ -339,3 +349,25 @@ script = ExtResource("13_w34qo")
 digits = 2
 digit_spacing = -23.0
 metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
+
+[node name="Reroll" type="Sprite2D" parent="." unique_id=1065255251]
+material = SubResource("ShaderMaterial_3r70o")
+position = Vector2(189, 180)
+texture = ExtResource("14_3r70o")
+
+[node name="RerollButton" type="Button" parent="." unique_id=1611665676]
+offset_left = 119.0
+offset_top = 65.0
+offset_right = 263.0
+offset_bottom = 128.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_3r70o")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_r3vpm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_67dir")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3r70o")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_i28nj")
+text = "Reroll:"

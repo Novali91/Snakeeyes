@@ -23,9 +23,16 @@
 [ext_resource type="AudioStream" uid="uid://bdxrmigw23q5f" path="res://05_Assets/03_SoundEffects/jingles/rare_kingcobra.wav" id="21_7fogv"]
 [ext_resource type="AudioStream" uid="uid://s2c7cst1kbrd" path="res://05_Assets/03_SoundEffects/jingles/rare_kingsnake.wav" id="22_3qiuh"]
 [ext_resource type="AudioStream" uid="uid://chnfwfva5d48r" path="res://05_Assets/03_SoundEffects/jingles/rare_rainboa.wav" id="23_j8sid"]
+[ext_resource type="AudioStream" uid="uid://hgjhf5ce2nms" path="res://05_Assets/03_SoundEffects/jingles/rare_blackmamba.wav" id="24_6itj8"]
 [ext_resource type="AudioStream" uid="uid://do43spqka1i2p" path="res://05_Assets/04_Music/snakegameloop.wav" id="24_74l0r"]
+[ext_resource type="AudioStream" uid="uid://da5hta7kac67p" path="res://05_Assets/03_SoundEffects/jingles/rare_basilisk.wav" id="25_7fogv"]
 [ext_resource type="AudioStream" uid="uid://peovgrjb1tmh" path="res://05_Assets/04_Music/snakememnuloop.wav" id="25_sjc11"]
+[ext_resource type="AudioStream" uid="uid://c3b561bgbgops" path="res://05_Assets/03_SoundEffects/jingles/rare_pitviper.wav" id="26_3qiuh"]
 [ext_resource type="AudioStream" uid="uid://b5neblweebsv6" path="res://05_Assets/04_Music/trapbeat.wav" id="26_vgbr3"]
+[ext_resource type="AudioStream" uid="uid://fy0ql3a2it3d" path="res://05_Assets/03_SoundEffects/jingles/rare_chimera.wav" id="27_j8sid"]
+[ext_resource type="AudioStream" uid="uid://ccfsqkw8sbd86" path="res://05_Assets/03_SoundEffects/jingles/rare_amphis.wav" id="28_tsmvf"]
+[ext_resource type="AudioStream" uid="uid://t8avhs6dois" path="res://05_Assets/03_SoundEffects/jingles/rare_python.wav" id="29_7fgcg"]
+[ext_resource type="AudioStream" uid="uid://dh2md4341oxw4" path="res://05_Assets/03_SoundEffects/jingles/rare_coralsnake.wav" id="30_fe5rw"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8gqlx"]
 random_pitch = 1.1863941
@@ -149,6 +156,39 @@ volume_db = -15.0
 [node name="RareRainboa" type="AudioStreamPlayer" parent="Jingles" unique_id=483698032]
 stream = ExtResource("23_j8sid")
 volume_db = -15.0
+
+[node name="RareBlackMamba" type="AudioStreamPlayer" parent="Jingles" unique_id=227157462]
+stream = ExtResource("24_6itj8")
+
+[node name="RareBasilisk" type="AudioStreamPlayer" parent="Jingles" unique_id=2045939013]
+stream = ExtResource("25_7fogv")
+
+[node name="RarePitViper" type="AudioStreamPlayer" parent="Jingles" unique_id=1345932204]
+stream = ExtResource("26_3qiuh")
+
+[node name="RareChimera" type="AudioStreamPlayer" parent="Jingles" unique_id=1052589280]
+stream = ExtResource("27_j8sid")
+
+[node name="RareAmphis" type="AudioStreamPlayer" parent="Jingles" unique_id=2127031668]
+stream = ExtResource("28_tsmvf")
+
+[node name="RarePython" type="AudioStreamPlayer" parent="Jingles" unique_id=278929979]
+stream = ExtResource("29_7fgcg")
+
+[node name="RareCoralsnake" type="AudioStreamPlayer" parent="Jingles" unique_id=1933099566]
+stream = ExtResource("30_fe5rw")
+
+[node name="LegHydra" type="AudioStreamPlayer" parent="Jingles" unique_id=1265586323]
+
+[node name="LegCaduceus" type="AudioStreamPlayer" parent="Jingles" unique_id=2000599273]
+
+[node name="LegJormungandr" type="AudioStreamPlayer" parent="Jingles" unique_id=1975914039]
+
+[node name="LegNidhogg" type="AudioStreamPlayer" parent="Jingles" unique_id=1706596786]
+
+[node name="LegOuroboros" type="AudioStreamPlayer" parent="Jingles" unique_id=1497059139]
+
+[node name="LegQuetz" type="AudioStreamPlayer" parent="Jingles" unique_id=508323936]
 
 [node name="Music" type="Node" parent="." unique_id=1665266457]
 

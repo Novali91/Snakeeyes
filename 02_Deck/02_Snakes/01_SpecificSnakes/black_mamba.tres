@@ -13,4 +13,5 @@ description = "On drink, give each drink on the table +2 strength."
 flavour_text = "The Black Mamba is the fastest living snake. Its blazingly quick reflexes and deadly venom make it a formidable foe."
 cost = 7
 rarity = "R"
+jingle_id = 14
 metadata/_custom_type_script = "uid://6sj3dk6frj4"

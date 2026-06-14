@@ -21,6 +21,7 @@ var antidote_position: Vector2
 @onready var _open_sign: AnimatedSprite2D = $OpenSign
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 @onready var _exit_button: Button = $OpenSign/ExitButton
+@onready var _reroll_sign: Sprite2D = $Reroll
 
 @onready var _snake_scene: PackedScene = preload("res://02_Deck/02_Snakes/snake.tscn")
 @onready var _markers_node: Node2D = $Markers
@@ -43,6 +44,8 @@ func _ready() -> void:
 	_exit_button.mouse_entered.connect(_hover_open_sign)
 	_exit_button.mouse_exited.connect(_unhover_open_sign)
 	reroll_button.pressed.connect(_reroll_pressed)
+	#reroll_button.mouse_entered.connect(_hover_reroll)
+	#reroll_button.mouse_exited.connect(_unhover_reroll)
 	
 	for l: Label in _labels_node.get_children():
 		_labels.push_back(l)
@@ -152,6 +155,13 @@ func _click_open_sign() -> void:
 	if not can_buy: return
 	exit_shop_clicked.emit()
 
+#func _hover_reroll() -> void:
+	#if not can_buy: return
+	#_reroll_sign.material.set_shader_parameter("color", Color(1.0, 0.921, 0.41, 1.0))
+#
+#func _unhover_reroll() -> void:
+	#_reroll_sign.set_shader_parameter("color", Color(1.0, 0.5, 0.65, 1.0))
+
 ############ UGLY NEED FIX??
 
 func _reroll_pressed() -> void:
@@ -159,4 +169,4 @@ func _reroll_pressed() -> void:
 	reroll_clicked.emit()
 
 func update_reroll(cost: int) -> void:
-	reroll_button.text = "REROLL: " + str(cost)
+	reroll_button.text = "Reroll: " + str(cost)
