@@ -19,7 +19,7 @@ class_name DeckManager
 @onready var ability_helper: DeckAbilityHelper = $DeckAbilityHelper
 
 @onready var _markers_node: Node2D = $Markers
-@onready var _current_count: Label = $CurrentCount
+@onready var _current_count: CustomNumber = $CurrentCount
 
 signal snake_chosen(snake: Snake)
 
@@ -34,6 +34,7 @@ var _open_slot_inds: Array[int]
 @onready var _venom_drops: Node2D = $VenomDrops
 
 func _ready() -> void:
+	
 	_all_slots = []
 	_open_slot_inds = []
 	
@@ -91,7 +92,7 @@ func remove_snake(snake: Snake) -> void:
 	tooltip_manager.remove_item(snake, true)
 	_open_slot_inds.push_back(snake.deck_index)
 	
-	_current_count.text = str(snake_deck.size())
+	_current_count.set_value(snake_deck.size())
 
 ## Idk where we want the animation to be placed (if we have one?)
 func add_snake(new_snake: Snake) -> void:
@@ -105,7 +106,7 @@ func add_snake(new_snake: Snake) -> void:
 	
 	tooltip_manager.add_item(new_snake)
 	
-	_current_count.text = str(snake_deck.size())
+	_current_count.set_value(snake_deck.size())
 	pass
 
 func shuffle_drawpile() -> void:

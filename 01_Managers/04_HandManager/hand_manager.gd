@@ -62,22 +62,21 @@ func _delete_drink(drink: Drink) -> void:
 	tooltip_manager.remove_item(drink, true)
 
 func remove_drink(drink_to_remove: Drink) -> void:
-	for i: int in range(drinks.size()):
-		if drinks[i] == drink_to_remove:
-			slide_manager.free_endpoint(drinks[i])
-			drinks.remove_at(i)
-			break
+	slide_manager.free_endpoint(drink_to_remove)
+	drinks.erase(drink_to_remove)
 
 func end_turn_discard() -> void:
 	var temp_drink: Drink
 	var kill_snake: bool = false
 	
-	for i: int in range(drinks.size()):
+	for i: int in range(drinks.size() -1, -1, -1):
 		if drinks[i] is Drink:
 			temp_drink = drinks[i]
 			if temp_drink.attached_drink.retain == false: ## Test retain
+				slide_manager.free_endpoint(temp_drink)
 				tooltip_manager.remove_item(temp_drink, true)
-	_clear_drinks()
+				drinks.erase(temp_drink)
+	
 	drinks_drank = 0
 
 func _clear_drinks() -> void:

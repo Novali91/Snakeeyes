@@ -34,7 +34,7 @@ var _actual_parrot: SnakeResource
 var _shop_positions: Array[Vector2]
 
 var _cur_snakes: Array[Snake] = []
-var _labels: Array[Label] = []
+var _labels: Array[CustomNumber] = []
 var antidote_stock: int = 0
 
 func _ready() -> void:
@@ -52,7 +52,7 @@ func _ready() -> void:
 	
 	_reroll_sign.material.set_shader_parameter("color", Color(1.0, 0.5, 0.65, 1.0))
 	
-	for l: Label in _labels_node.get_children():
+	for l: CustomNumber in _labels_node.get_children():
 		_labels.push_back(l)
 	
 	antidote_position = _antidote_button.global_position + Vector2(188 / 2., 0)
@@ -76,7 +76,7 @@ func fill_shop() -> void:
 	
 	for i in SHOP_SIZE:
 		_cur_snakes[i].position = _shop_positions[i]
-		_labels[i].text = str(_cur_snakes[i].attached_snake.cost)
+		_labels[i].set_value(_cur_snakes[i].attached_snake.cost)
 		_tooltip_manager.add_item(_cur_snakes[i])
 
 func toggle_open(open: bool) -> void:

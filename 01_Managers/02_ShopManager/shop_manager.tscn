@@ -21,9 +21,6 @@
 shader = ExtResource("4_0hb6a")
 shader_parameter/alpha = 1.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_w34qo"]
-font_size = 32
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_67dir"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mtcna"]
@@ -41,6 +38,9 @@ shader_parameter/color = Color(1, 0.58000004, 0.9790001, 1)
 shader_parameter/alpha = 1.0
 shader_parameter/thickness = 0.02000000095
 shader_parameter/x_over_y = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_w34qo"]
+font_size = 32
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8hme2"]
 shader = ExtResource("10_tqajx")
@@ -272,75 +272,55 @@ metadata/_custom_type_script = "uid://6hd2b0wx5v7f"
 
 [node name="PriceLabels" type="Node2D" parent="." unique_id=450063478]
 
-[node name="Label" type="Label" parent="PriceLabels" unique_id=200667757]
-self_modulate = Color(0.25, 0, 0.24583328, 1)
-custom_minimum_size = Vector2(100, 100)
-offset_left = 1733.9998
-offset_top = 286.0
-offset_right = 1833.9998
-offset_bottom = 386.0
+[node name="Label" type="Node2D" parent="PriceLabels" unique_id=455932466]
+modulate = Color(0.9, 0.531, 0.8938499, 1)
+position = Vector2(1804.0002, 308.99997)
 rotation = -0.4838344
-theme_override_fonts/font = ExtResource("15_r3vpm")
-text = "0"
-label_settings = SubResource("LabelSettings_w34qo")
-horizontal_alignment = 1
-vertical_alignment = 1
+scale = Vector2(0.75, 0.75)
+script = ExtResource("13_w34qo")
+min_digits = 1
+digit_spacing = -23.0
+metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
 
-[node name="Label2" type="Label" parent="PriceLabels" unique_id=2079012493]
-self_modulate = Color(0.25, 0, 0.24583328, 1)
-custom_minimum_size = Vector2(100, 100)
-offset_left = 1223.0
-offset_top = 560.0
-offset_right = 1323.0
-offset_bottom = 660.0
+[node name="Label2" type="Node2D" parent="PriceLabels" unique_id=611059326]
+modulate = Color(0.9, 0.531, 0.8938499, 1)
+position = Vector2(1251, 624)
 rotation = 0.3582345
-theme_override_fonts/font = ExtResource("15_r3vpm")
-text = "0"
-label_settings = SubResource("LabelSettings_w34qo")
-horizontal_alignment = 1
-vertical_alignment = 1
+scale = Vector2(0.75, 0.75)
+script = ExtResource("13_w34qo")
+min_digits = 1
+digit_spacing = -23.0
+metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
 
-[node name="Label3" type="Label" parent="PriceLabels" unique_id=1316056408]
-self_modulate = Color(0.25, 0, 0.24583328, 1)
-custom_minimum_size = Vector2(100, 100)
-offset_left = 649.0
-offset_top = 900.0
-offset_right = 749.0
-offset_bottom = 1000.0
+[node name="Label3" type="Node2D" parent="PriceLabels" unique_id=1571572993]
+modulate = Color(0.9, 0.531, 0.8938499, 1)
+position = Vector2(709, 936)
 rotation = -0.32519692
-theme_override_fonts/font = ExtResource("15_r3vpm")
-text = "0"
-label_settings = SubResource("LabelSettings_w34qo")
-horizontal_alignment = 1
-vertical_alignment = 1
+scale = Vector2(0.75, 0.75)
+script = ExtResource("13_w34qo")
+min_digits = 1
+digit_spacing = -23.0
+metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
 
-[node name="Label4" type="Label" parent="PriceLabels" unique_id=966955462]
-self_modulate = Color(0.25, 0, 0.24583328, 1)
-custom_minimum_size = Vector2(100, 100)
-offset_left = 196.00002
-offset_top = 651.00006
-offset_right = 296.0
-offset_bottom = 751.00006
+[node name="Label4" type="Node2D" parent="PriceLabels" unique_id=1124682134]
+modulate = Color(0.9, 0.531, 0.8938499, 1)
+position = Vector2(193.00003, 721.00006)
 rotation = 0.7960738
-theme_override_fonts/font = ExtResource("15_r3vpm")
-text = "0"
-label_settings = SubResource("LabelSettings_w34qo")
-horizontal_alignment = 1
-vertical_alignment = 1
+scale = Vector2(0.75, 0.75)
+script = ExtResource("13_w34qo")
+min_digits = 1
+digit_spacing = -23.0
+metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
 
-[node name="Label5" type="Label" parent="PriceLabels" unique_id=1644990908]
-self_modulate = Color(0.25, 0, 0.24583328, 1)
-custom_minimum_size = Vector2(100, 100)
-offset_left = 544.0
-offset_top = 509.99997
-offset_right = 644.0
-offset_bottom = 610.0
+[node name="Label5" type="Node2D" parent="PriceLabels" unique_id=110960008]
+modulate = Color(0.9, 0.531, 0.8938499, 1)
+position = Vector2(614, 533)
 rotation = -0.48723418
-theme_override_fonts/font = ExtResource("15_r3vpm")
-text = "0"
-label_settings = SubResource("LabelSettings_w34qo")
-horizontal_alignment = 1
-vertical_alignment = 1
+scale = Vector2(0.75, 0.75)
+script = ExtResource("13_w34qo")
+min_digits = 1
+digit_spacing = -23.0
+metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
 
 [node name="AntidoteButton" type="Button" parent="." unique_id=1471729517]
 offset_left = 877.0

@@ -4,8 +4,11 @@
 [ext_resource type="Script" uid="uid://6hd2b0wx5v7f" path="res://01_Managers/05_Tooltip_Manager/tooltip_manager.gd" id="2_quqkg"]
 [ext_resource type="Script" uid="uid://cu4y6m6v62a87" path="res://01_Managers/03_DeckManager/deck_ability_helper.gd" id="3_8iinh"]
 [ext_resource type="Texture2D" uid="uid://q10a3yaatp0q" path="res://05_Assets/01_Art/02_Backgrounds/snake box sprite.png" id="4_ckda5"]
+[ext_resource type="Script" uid="uid://cfqx3dcaojqrs" path="res://03_VisualInputOutput/01_ScoreBar/custom_number.gd" id="5_8adeo"]
+[ext_resource type="FontFile" uid="uid://c6xfa0o2h2ssc" path="res://05_Assets/05_Fonts/OldNewspaperTypes.ttf" id="5_hi3y2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ckda5"]
+font = ExtResource("5_hi3y2")
 font_size = 48
 
 [node name="DeckManager" type="Node2D" unique_id=1886334080]
@@ -102,34 +105,32 @@ position = Vector2(1377, 729)
 position = Vector2(1644, 735)
 
 [node name="Slash" type="Label" parent="." unique_id=1010463254]
+visible = false
 custom_minimum_size = Vector2(50, 50)
-offset_left = 987.0
-offset_top = 62.0
-offset_right = 1037.0
-offset_bottom = 129.0
+offset_left = 986.0
+offset_top = 59.0
+offset_right = 1036.0
+offset_bottom = 126.0
 text = "/"
 label_settings = SubResource("LabelSettings_ckda5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CurrentCount" type="Label" parent="." unique_id=546527665]
-custom_minimum_size = Vector2(100, 50)
-offset_left = 892.0
-offset_top = 62.0
-offset_right = 992.0
-offset_bottom = 129.0
-text = "0"
-label_settings = SubResource("LabelSettings_ckda5")
-horizontal_alignment = 2
-vertical_alignment = 1
+[node name="CurrentCount" type="Node2D" parent="." unique_id=772377091]
+visible = false
+position = Vector2(954, 94)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("5_8adeo")
+min_digits = 2
+digit_spacing = -20.0
+metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
 
-[node name="MaxCount" type="Label" parent="." unique_id=440124151]
-custom_minimum_size = Vector2(100, 50)
-offset_left = 1009.0
-offset_top = 62.0
-offset_right = 1109.0
-offset_bottom = 129.0
-text = "24"
-label_settings = SubResource("LabelSettings_ckda5")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="MaxCount" type="Node2D" parent="." unique_id=31603312]
+visible = false
+position = Vector2(1066, 94)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("5_8adeo")
+starting_number = 24
+min_digits = 2
+digit_spacing = -20.0
+metadata/_custom_type_script = "uid://cfqx3dcaojqrs"

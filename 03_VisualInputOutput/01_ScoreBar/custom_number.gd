@@ -3,6 +3,7 @@ extends Node2D
 
 const _SPRITE_SIZE: float = 60
 
+@export var starting_number: int
 @export var min_digits: int
 @export var digit_spacing: float
 
@@ -18,6 +19,7 @@ var _digits: int
 func _ready() -> void:
 	_digits = min_digits
 	_init_sprites()
+	set_value(starting_number)
 
 func set_value(val: int) -> void:
 	var clamped_val = max(val, 0)
