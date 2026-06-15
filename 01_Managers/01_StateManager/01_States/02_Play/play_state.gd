@@ -62,6 +62,7 @@ func enter() -> void:
 
 func exit() -> void:
 	sm.end_turn_button.stop_pressable()
+	sm.hand_manager.drinks_drinkable = false
 
 func process_tick(_delta: float) -> void:
 	pass

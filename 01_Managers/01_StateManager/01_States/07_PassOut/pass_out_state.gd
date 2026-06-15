@@ -17,7 +17,7 @@ func enter() -> void:
 		sm.lose()
 		return
 	
-	sm.switch_state(sm.States.SETUP_TURN)
+	sm.switch_state(sm.States.END_TURN)
 	
 
 func exit() -> void:

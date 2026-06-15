@@ -55,7 +55,7 @@ func slide_drinks(drinks: Array[Drink]) -> void:
 	drinks.sort_custom(_sort_drink_far_slide)
 	
 	for d: Drink in drinks:
-		if d == null: continue
+		if not is_instance_valid(d): continue
 		
 		d.visible = true
 		
@@ -74,6 +74,7 @@ func slide_back(drink: Drink) -> void:
 		_active_drinks.push_back(drink)
 
 func free_endpoint(drink: Drink) -> void:
+	
 	if drink in _active_drinks:
 		_active_drinks.erase(drink)
 	

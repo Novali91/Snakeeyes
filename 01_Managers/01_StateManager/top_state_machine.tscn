@@ -87,6 +87,7 @@ texture = ExtResource("10_3t4mq")
 
 [node name="CameraManager" parent="." unique_id=634864132 instance=ExtResource("15_v5tm5")]
 unique_name_in_owner = true
+poison_effect_begin_level = 8
 
 [node name="DeckManager" parent="." unique_id=1886334080 instance=ExtResource("22_lfho2")]
 unique_name_in_owner = true
