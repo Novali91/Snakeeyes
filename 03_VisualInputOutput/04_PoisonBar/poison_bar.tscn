@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dhaorlne6wb00" path="res://05_Assets/01_Art/03_UI_Sprites/poison scale mask.png" id="3_1jv14"]
 [ext_resource type="Texture2D" uid="uid://nhvr7gys1jdf" path="res://05_Assets/01_Art/03_UI_Sprites/poison meter.png" id="4_nx6sn"]
 [ext_resource type="Script" uid="uid://cfqx3dcaojqrs" path="res://03_VisualInputOutput/01_ScoreBar/custom_number.gd" id="5_2k8qc"]
+[ext_resource type="Shader" uid="uid://0oonfw65mdnr" path="res://05_Assets/02_Shaders/outline.gdshader" id="6_rdkas"]
+[ext_resource type="FontFile" uid="uid://c6xfa0o2h2ssc" path="res://05_Assets/05_Fonts/OldNewspaperTypes.ttf" id="7_7sqa1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_03wfj"]
 shader = ExtResource("2_03wfj")
@@ -18,6 +20,19 @@ shader_parameter/wave_length = 0.2
 shader_parameter/mask = ExtResource("3_1jv14")
 shader_parameter/mask_shift = Vector2(-0.28, -0.34)
 shader_parameter/mask_scale = 2.41
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t2jg8"]
+shader = ExtResource("6_rdkas")
+shader_parameter/sprite_alpha = 1.0
+shader_parameter/color = Color(0.16, 0.1312, 0.1312, 1)
+shader_parameter/alpha = 1.0
+shader_parameter/thickness = 0.006000000285
+shader_parameter/x_over_y = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_11tah"]
+font = ExtResource("7_7sqa1")
+font_size = 40
+font_color = Color(1, 0.64750004, 0.55, 1)
 
 [node name="PoisonBar" type="Node2D" unique_id=1869495971]
 script = ExtResource("1_mq5yv")
@@ -37,10 +52,22 @@ scale = Vector2(0.93475, 0.9347499)
 texture = ExtResource("4_nx6sn")
 
 [node name="CustomNumber" type="Node2D" parent="." unique_id=154074204]
-modulate = Color(1, 0.57, 0.8853334, 1)
-position = Vector2(42, -94)
+modulate = Color(1, 0.64705884, 0.54901963, 1)
+position = Vector2(43, -94)
 scale = Vector2(0.75, 0.75)
 script = ExtResource("5_2k8qc")
-min_digits = 2
+min_digits = 1
 digit_spacing = -23.0
 metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
+
+[node name="Label" type="Label" parent="." unique_id=1518765094]
+material = SubResource("ShaderMaterial_t2jg8")
+custom_minimum_size = Vector2(300, 100)
+offset_left = -104.0
+offset_top = -213.0
+offset_right = 196.0
+offset_bottom = -113.0
+text = "Poison:"
+label_settings = SubResource("LabelSettings_11tah")
+horizontal_alignment = 1
+vertical_alignment = 1

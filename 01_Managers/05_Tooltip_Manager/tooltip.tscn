@@ -98,9 +98,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Description" type="RichTextLabel" parent="." unique_id=1645975743]
-offset_left = 34.0
+offset_left = 41.0
 offset_top = 208.0
-offset_right = 361.0
+offset_right = 368.0
 offset_bottom = 436.0
 theme_override_colors/default_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
 theme_override_fonts/normal_font = ExtResource("3_mnr5o")

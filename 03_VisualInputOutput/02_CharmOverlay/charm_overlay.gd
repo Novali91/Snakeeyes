@@ -83,25 +83,36 @@ func gain_charm(val: int, pos: Vector2) -> void:
 	_count_label.text = str(GS.get_charm())
 	var abs_val = abs(val)
 	
+	var fake_count = 0
+	
 	var wait_time = _TOTAL_SPAWN_TIME / (abs_val)
 	
 	for i in abs_val:
+		
+		var fake = false
+		var same_dir = (_current_charm_count > 0 and not is_neg) or (_current_charm_count < 0 and is_neg)
+		if same_dir and ((_current_charm_count >= _MAX_TOKENS_SHOWN) or (_current_charm_count <= -_MAX_TOKENS_SHOWN)):
+			fake = true
+			fake_count += 1
+		elif not same_dir and ((_current_charm_count > _MAX_TOKENS_SHOWN) or (_current_charm_count < -_MAX_TOKENS_SHOWN)):
+			fake = true
+			fake_count += 1
+		
+		if fake and fake_count > _MAX_TOKENS_SHOWN: 
+			_current_charm_count += -1 if is_neg else 1
+			continue
+		
 		var new_token: CharmToken = _token_scene.instantiate()
 		new_token.evil_collided.connect(_evil_collision)
 		new_token.evil = is_neg
 		new_token.global_position = pos
 		new_token.wait_timer = i * wait_time
 		new_token.after_timer = randf_range(0., 0.05)
+		new_token.is_fake = fake
 		if i > 0:
 			new_token.visible = false
 		
-		var same_dir = (_current_charm_count > 0 and not is_neg) or (_current_charm_count < 0 and is_neg)
-		if same_dir and ((_current_charm_count >= _MAX_TOKENS_SHOWN) or (_current_charm_count <= -_MAX_TOKENS_SHOWN)):
-			new_token.is_fake = true
-		elif not same_dir and ((_current_charm_count > _MAX_TOKENS_SHOWN) or (_current_charm_count < -_MAX_TOKENS_SHOWN)):
-			new_token.is_fake = true
-		
-		else:
+		if not new_token.is_fake:
 			_tokens.push_back(new_token)
 		
 		_current_charm_count += -1 if is_neg else 1
@@ -111,6 +122,8 @@ func gain_charm(val: int, pos: Vector2) -> void:
 
 func spend_charm(val: int, pos: Vector2) -> void:
 	if val == 0: return
+	
+	var fake_count = 0
 	
 	_reveal_timer = 1
 	_count_label.text = str(GS.get_charm())
@@ -126,10 +139,14 @@ func spend_charm(val: int, pos: Vector2) -> void:
 			spent_token = _tokens.pop_front()
 		
 		else:
+			if fake_count > _MAX_TOKENS_SHOWN: continue
+			
 			spent_token = _token_scene.instantiate()
 			spent_token.global_position = _bundle.global_position
 			_all_tokens.push_back(spent_token)
 			_tokens_node.add_child(spent_token)
+			
+			fake_count += 1
 		
 		spent_token.spent = true
 		spent_token.send_to(pos)

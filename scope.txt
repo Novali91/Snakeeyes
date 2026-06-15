@@ -10,7 +10,6 @@ end turn bell
 
 implementation:
 full tutorial with spotlight effect and multiple rounds
-drink / snake tooltips formatting
 dice roll animation polish
 antidote stock display
 shop vibe cleanup
@@ -26,10 +25,13 @@ polish ideas:
 affordable snakes look different
 shop tags use custom number
 buying king cobra on 24 snakes will remove only 2 snakes
+ribbon for retain
 
 bugs - (?) means I am unsure if it can still happen:
 ketsa cant get eaten by nidhog (?)
 nidhog disapeared on 5 somehow (?)
+send 1 back boss attack soft locks
+/ spawning a lot of charm all at once lags, need fake fake charm
 
 
 
@@ -38,7 +40,7 @@ antidote color:
 [color="#8c00ff"]Antidote[/color]
 
 roll the dice: 
-[color="#7d1b41"]Roll The Dice.[/color][br]2 - 6: [br]7 - 12:
+[color="#7d1b41"]Roll The Dice:[/color][br]2 - 6: [br]7 - 12:
 
 strength:
 [color="#8f1e0d"]Strength[/color]
@@ -54,3 +56,12 @@ kill:
 
 poison:
 [color="#069c10"]Poison[/color]
+
+slides back:
+[color="#078c60"]Slides Back[/color]
+
+slide in:
+[color="#2225d6"]Slide In[/color]
+
+purchased:
+[color="#7ca803"]When Purchased:[/color]

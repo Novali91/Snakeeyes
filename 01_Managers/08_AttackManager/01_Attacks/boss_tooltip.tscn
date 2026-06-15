@@ -2,7 +2,75 @@
 
 [ext_resource type="Script" uid="uid://cy8c2pgxbb3fl" path="res://01_Managers/08_AttackManager/boss_tooltip.gd" id="1_i1iio"]
 [ext_resource type="Texture2D" uid="uid://br34g5natnbnl" path="res://05_Assets/01_Art/03_UI_Sprites/speech bubblw.png" id="2_4mqee"]
+[ext_resource type="Shader" uid="uid://wnq1o5fl25kf" path="res://05_Assets/02_Shaders/speech_bubble.gdshader" id="2_egs2w"]
 [ext_resource type="FontFile" uid="uid://c6xfa0o2h2ssc" path="res://05_Assets/05_Fonts/OldNewspaperTypes.ttf" id="3_8q4pg"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ttus6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2uxyt"]
+width = 100
+height = 100
+noise = SubResource("FastNoiseLite_ttus6")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_888j7"]
+shader = ExtResource("2_egs2w")
+shader_parameter/noise = SubResource("NoiseTexture2D_2uxyt")
+shader_parameter/strength = 0.05
+shader_parameter/speed = 0.1
+shader_parameter/color = Color(0.5803922, 1, 0.92156863, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_egs2w"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ttus6"]
+width = 100
+height = 100
+noise = SubResource("FastNoiseLite_egs2w")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2uxyt"]
+shader = ExtResource("2_egs2w")
+shader_parameter/noise = SubResource("NoiseTexture2D_ttus6")
+shader_parameter/strength = 0.012
+shader_parameter/speed = 0.2
+shader_parameter/color = Color(0.003921569, 0.007843138, 0.019607844, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_egs2w"]
+shader = ExtResource("2_egs2w")
+shader_parameter/noise = SubResource("NoiseTexture2D_ttus6")
+shader_parameter/strength = 0.015
+shader_parameter/speed = 0.2
+shader_parameter/color = Color(0.003921569, 0.007843138, 0.019607844, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_888j7"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_444tb"]
+width = 100
+height = 100
+noise = SubResource("FastNoiseLite_888j7")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tlws6"]
+shader = ExtResource("2_egs2w")
+shader_parameter/noise = SubResource("NoiseTexture2D_444tb")
+shader_parameter/strength = 0.05
+shader_parameter/speed = 0.1
+shader_parameter/color = Color(1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2uxyt"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_888j7"]
+width = 100
+height = 100
+noise = SubResource("FastNoiseLite_2uxyt")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_444tb"]
+shader = ExtResource("2_egs2w")
+shader_parameter/noise = SubResource("NoiseTexture2D_888j7")
+shader_parameter/strength = 0.012
+shader_parameter/speed = 0.2
+shader_parameter/color = Color(0.003921569, 0.007843138, 0.019607844, 1)
 
 [node name="BossTooltip" type="Node2D" unique_id=1495842046]
 script = ExtResource("1_i1iio")
@@ -10,9 +78,11 @@ metadata/_custom_type_script = "uid://cy8c2pgxbb3fl"
 
 [node name="AttackSprite" type="Sprite2D" parent="." unique_id=483182062]
 modulate = Color(0.58000004, 1, 0.923, 1)
+material = SubResource("ShaderMaterial_888j7")
 texture = ExtResource("2_4mqee")
 
 [node name="AttackDescription" type="RichTextLabel" parent="." unique_id=164947998]
+material = SubResource("ShaderMaterial_2uxyt")
 offset_left = -115.0
 offset_top = -65.0
 offset_right = 295.0
@@ -21,9 +91,11 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(0.003921569, 0.007843138, 0.019607844, 1)
 theme_override_fonts/normal_font = ExtResource("3_8q4pg")
 theme_override_font_sizes/normal_font_size = 20
+text = "DJPAJOEFJ"
 horizontal_alignment = 1
 
 [node name="Turn" type="RichTextLabel" parent="." unique_id=980557040]
+material = SubResource("ShaderMaterial_egs2w")
 offset_left = -117.0
 offset_top = -150.0
 offset_right = 288.0
@@ -33,13 +105,17 @@ theme_override_colors/default_color = Color(0, 0.007843138, 0.007843138, 1)
 theme_override_fonts/normal_font = ExtResource("3_8q4pg")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
+text = "elmf'amf"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RegularSprite" type="Sprite2D" parent="." unique_id=1192296145]
+visible = false
+material = SubResource("ShaderMaterial_tlws6")
 texture = ExtResource("2_4mqee")
 
 [node name="Convo" type="RichTextLabel" parent="." unique_id=536095540]
+material = SubResource("ShaderMaterial_444tb")
 offset_left = -99.0
 offset_top = -131.0
 offset_right = 269.0
@@ -48,5 +124,6 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_8q4pg")
 theme_override_font_sizes/normal_font_size = 20
+text = "rgddawdaw"
 horizontal_alignment = 1
 vertical_alignment = 1

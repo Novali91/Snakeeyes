@@ -98,7 +98,7 @@ position = Vector2(2880, 125)
 
 [node name="PlayerStrength" parent="." unique_id=940870006 instance=ExtResource("11_4aa5t")]
 unique_name_in_owner = true
-position = Vector2(2118, 709)
+position = Vector2(2257, 709)
 
 [node name="Lady" parent="." unique_id=827603467 instance=ExtResource("16_wgfe6")]
 position = Vector2(2880, 564)
@@ -112,10 +112,11 @@ offset_right = 5760.0
 offset_bottom = 1080.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.078431375)
+metadata/_edit_lock_ = true
 
 [node name="AttackManager" parent="." unique_id=1488456757 instance=ExtResource("20_n6io1")]
 unique_name_in_owner = true
-position = Vector2(3201, 228)
+position = Vector2(3198, 208)
 
 [node name="EndTurnButton" parent="." unique_id=462742653 instance=ExtResource("13_8sj7b")]
 unique_name_in_owner = true
@@ -123,7 +124,7 @@ position = Vector2(3380, 714)
 
 [node name="PoisonBar" parent="." unique_id=674401828 instance=ExtResource("10_v5tm5")]
 unique_name_in_owner = true
-position = Vector2(3519, 398)
+position = Vector2(3481, 398)
 
 [node name="HandManager" parent="." unique_id=1877513829 instance=ExtResource("21_ffq48")]
 unique_name_in_owner = true
@@ -135,7 +136,7 @@ position = Vector2(3840, 0)
 
 [node name="AntidoteCount" parent="." unique_id=818012555 instance=ExtResource("12_mg5ld")]
 unique_name_in_owner = true
-position = Vector2(3735, 819)
+position = Vector2(3742, 1164)
 scale = Vector2(1.5, 1.5)
 
 [node name="AntidoteCount2" parent="." unique_id=1943998165 instance=ExtResource("12_mg5ld")]
@@ -149,7 +150,7 @@ position = Vector2(161, 924.00006)
 scale = Vector2(1.5, 1.5)
 
 [node name="TutorialManager" parent="." unique_id=1208958163 instance=ExtResource("24_dxdvi")]
-position = Vector2(3199, 227)
+position = Vector2(3199, 193)
 
 [node name="CharmOverlay" parent="." unique_id=1000792462 instance=ExtResource("9_tn0ij")]
 unique_name_in_owner = true
