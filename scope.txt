@@ -1,168 +1,32 @@
-card effects:
-
-slide back to deck (done)
-draw cards (done)
-buff cards in hand (done)
-buff snakes in deck (done)
-strength carries over to next round
-all dice rolls end with x number
-add 1 to all dice rolls
-roll dice make decision (done)
-gain value based on other value (done)
-can buy multiple antidotes
-retain
-select snake from deck (remove or buff) (done)
-select snake and play effect (done)
-need to select drink in hand (done)
-get copy of drink in hand
-value for cards played this turn
-need to roll 1 or 2 dice
-strength equal to total in hand
-shop is 50% off
-buy effects
-snake makes multiple drinks (?) (AWESOME!!!!)
-gain value next turn
-
-Starter:
-Need 3
-charm is corn snake 
-strength is puff adder
-blue is milk snake
-
-Common:
-0 0 1 Placeboa (Draw 1)
-1 2 0 Garden Snake (Pick a snake. It gains 2 strength)
-1 1 -1 Asclepius Snake (Gain an antidote)
-2 4 0 Cat Snake (Retain)
-1 -2 3 Tiger Keelback
-1 0 1 Boa Constrictor (Draw 2)
-1 0 1 Scarlet Snake (All dice roll +1)
-0 0 1 Hognose Snake (Roll 2d6. 1-6: -1 poison, 7-12: -2 poison)
-1 1 1 Parrot Snake (Shares stats)
-
-Rare:
-3 4 0 Kingsnake (On drink, kill a snake)
-1 2 0 Python (1/2 charm for strength)
-1 2 0 Ball Python (Pick a snake then roll 2d6. 1-6: +1 strength, 7-12: +5 strength)
-1 0 2 Gorgon Snake (Retain, double target drinks strength)
-2 0 0 Black Mamba (Gain 1 strength per each card played this turn)
-1 0 1 Rainboa (Roll 2d6. 1-6: Draw 1, 7-12: Draw 4)
-2 2 0 Basilisk (Lose all charm, target snake gains that much strength)
-1 0 0 Coral Snake (Roll 2d6. Gain that strength) 
-1 2 0 King Cobra (On buy: Kill a snake. Gain its strength and charm permanently)
--1 0 1 Amphisbaena (Can buy 2 more antidote this turn)
-4 2 0 Pit Viper (-1 poison to all drinks in hand)
-1 0 1 Chimera Tail (Gain strength equal to your antidote count)
-
-Legendary:
-Hydra (Roll 2d6. 2-6 double its poison, 7-12 double its strength)
-Ouroboros (When you drink it, slide it back)
-Jormungandr (Gain strength equal to the total combined strength of drinks in your hand)
-Quetzalcoatl (Draw 3, slide back 3, and give those drinks -1,+1,+1)
-Nidhogg (On drink, kill another snake. Drink its drink)
-Caduceus (Roll 2d6. 1-6: Gain 1 antidote. 7-12: Double your antidote)
-
-
-
-
-
-to do:
-/ rerolls in shop
-attacks
-affordable snakes should look different
-
-avery:
-refill animation
-tutorial
-/ add left / right buttons
-/ color outlines based on rarity
-/ snakes in shop
-/ snakes in deck
-
-other stuff:
-score bar is confusing, goal? score?
-/ shop darken needs to fade in
-/ shop darken needs to not include snakes
-/ shop darken should be a little less
-/ poison bar should have that back wave it had before (going opposite way?)
-poison bar should be transparent instead of darker green
-shouldnt be able to switch screens while drawing cards
-picking a drink with no drinks is a softlock
-/ change retain to tickbox
-/ poison bar is full when poison is negative
-
-black mamba needs to change (switch to buffing hand or buffing self based on hand)
-
-/ max hand size enforced
-max snake remove snake
-min snakes
-
-visual things:
-score board diff
-add back tick marks but no numbers
-
-color outlines based on rarities
-
-start at 6 lives
-gain +1 on win
-need to win 36 rounds
-
-
-bugs:
-pass out if milk snake brings you to max poison
-
-
-
-
-
-
-tutorial
-intro animation
-boss current attack visuals
-boss next attack visuals
-boss special abilities
-update chimera
-add title music
-add main loop music
-add special attack music
-make pass out more feathered
-make drinks more visual
-add ticks back to poison bar
-make poison bar have a better number
-change side arrow visuals
-refill animation in deck
-put drinks in correct places in deck
-pause screen
-volume bar
-reset button
+art:
+need smaller ticker sprites
 win screen
 lose screen
-lives
-tooltip sprites
-fonts everywhere
-more sound effects?
-dice plus / minus visible
+pause screen
+title screen w title
 
-whenever you gain charm, gain that much poison
-whenever you play a drink give its snake +1 poison
-no poison this round
-no drawing cards this round
-add some bad drinks to your deck
-whenever you roll the dice, gain that much strength
+sounds:
+end turn bell
 
+implementation:
+full tutorial with spotlight effect and multiple rounds
+drink / snake tooltips formatting
+dice roll animation polish
+antidote stock display
+shop vibe cleanup
+switch exit to restart
+boss incoming special attack / dialogue rework
+homeless drink display
+min deck size popup on remove
+trap beat
+audio balancing
+pause screen with audio slider
 
-sound on pick drink for effect
-flavor text less visible, rules text more
+polish ideas:
+affordable snakes look different
+shop tags use custom number
+buying king cobra on 24 snakes will remove only 2 snakes
 
-bowl for charm
-cobra text needs to say 2
-parrot has red tooltip
-reroll button art
-antidote button art
-
-on reroll shop swap off and swap back
-little wait between drinking drinks
-
-ketsa cant get eaten by nidhog
-nidhog disapeared on 5 somehow
-passing out doesnt work
+bugs - (?) means I am unsure if it can still happen:
+ketsa cant get eaten by nidhog (?)
+nidhog disapeared on 5 somehow (?)
