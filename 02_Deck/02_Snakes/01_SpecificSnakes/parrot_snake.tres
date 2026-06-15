@@ -9,7 +9,7 @@ script = ExtResource("1_qt25q")
 snake_name = "Parrot Snake"
 drink_resource = ExtResource("1_lethk")
 snake_sprite = ExtResource("3_lethk")
-description = "Shares stats with all parrot snakes."
+description = "All Parrot Snakes have the same [color=\"#069c10\"]Poison[/color], [color=\"#8f1e0d\"]Strength[/color], and [color=\"#b32295\"]Charm[/color]."
 flavour_text = "Parrot snakes share a hivemind-like consciousness!"
 cost = 4
 rarity = "C"

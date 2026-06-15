@@ -11,6 +11,6 @@ poison = 1
 strength = 3
 charm = 2
 special_ability = 17
-description = "Slide this drink back."
+description = "Instead of being consumed, this drink [color=\"#078c60\"]Slides Back[/color]."
 flavour_text = "The eternal symbol of renewal, representations of the Ouroboros existed everywhere."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

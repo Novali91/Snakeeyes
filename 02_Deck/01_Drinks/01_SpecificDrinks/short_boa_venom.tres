@@ -11,6 +11,6 @@ poison = 1
 charm = 2
 special_ability = 3
 cost = 4
-description = "Slide in 2 drinks."
+description = "[color=\"#2225d6\"]Slide In[/color] 2 drinks."
 flavour_text = "The Boa Constrictor is a fearsome snake, often coaxing prey. Despite this, they are a common and friendly pet."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

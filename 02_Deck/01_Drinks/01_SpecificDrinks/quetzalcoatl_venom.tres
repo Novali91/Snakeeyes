@@ -11,6 +11,6 @@ poison = 1
 strength = 2
 charm = 2
 special_ability = 18
-description = "Slide in 3 drinks, then give 3 drinks -1/+1/+1 and slide them back."
+description = "[color=\"#2225d6\"]Slide In[/color] 3 drinks.[br]Then [color=\"#078c60\"]Slide Back[/color] 3 drinks.[br]The slid back drinks gain 1 [color=\"#b32295\"]Charm[/color] and [color=\"#8f1e0d\"]Strength[/color], and lose 1 [color=\"#069c10\"]Poison[/color]."
 flavour_text = "The Aztec God of wind and wisdom, the knowledge he bestows is mighty fleeting."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

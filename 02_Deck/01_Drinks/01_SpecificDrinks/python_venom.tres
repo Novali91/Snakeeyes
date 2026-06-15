@@ -11,6 +11,6 @@ poison = 1
 strength = 4
 special_ability = 22
 cost = 7
-description = "Gain charm equal to half of this snake's strength"
+description = "Gain [color=\"#b32295\"]Charm[/color] equal to half of this snake's [color=\"#8f1e0d\"]Strength[/color]"
 flavour_text = "To make up for their lack of venom, pythons harbour immense strength, both of body, and of tongue."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

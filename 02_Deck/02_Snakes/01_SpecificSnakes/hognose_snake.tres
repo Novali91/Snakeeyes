@@ -9,7 +9,7 @@ script = ExtResource("1_vitel")
 snake_name = "Hognose Snake"
 drink_resource = ExtResource("1_ttyuh")
 snake_sprite = ExtResource("3_ttyuh")
-description = "On drink, roll 2d6: On 2-6:,-1 poison. On 7+, -3 poison."
+description = "[color=\"#7d1b41\"]Roll The Dice:[/color][br]2 - 6: Lower your [color=\"#069c10\"]Poison[/color] by 1.[br]7 - 12: Lower your [color=\"#069c10\"]Poison[/color] by 3."
 flavour_text = "So cute that it can even heal you!"
 cost = 4
 rarity = "C"

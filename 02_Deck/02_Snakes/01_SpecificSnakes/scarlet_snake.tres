@@ -9,7 +9,7 @@ script = ExtResource("1_l8q0y")
 snake_name = "Scarlet Snake"
 drink_resource = ExtResource("1_6770r")
 snake_sprite = ExtResource("3_6770r")
-description = "All dice rolls this turn roll +1."
+description = "Everytime you [color=\"#7d1b41\"]Roll The Dice[/color] this turn, add +1 to the result."
 flavour_text = "\"Red on black, friend of Jack.\""
 cost = 4
 rarity = "C"

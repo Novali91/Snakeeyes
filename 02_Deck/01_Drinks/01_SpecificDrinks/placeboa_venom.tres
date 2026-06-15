@@ -10,6 +10,6 @@ drink_sprite = ExtResource("1_v4r3m")
 charm = 1
 special_ability = 2
 cost = 3
-description = "Slide in 1 drink."
+description = "[color=\"#2225d6\"]Slide In[/color] 1 drink."
 flavour_text = "Victims of a Placeboa bite show symptoms of breathing normally afterwards."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

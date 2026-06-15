@@ -9,7 +9,7 @@ script = ExtResource("1_wgvlc")
 snake_name = "Monarchsnake"
 drink_resource = ExtResource("1_aarbo")
 snake_sprite = ExtResource("3_6w75r")
-description = "On drink, kill a snake."
+description = "Pick a snake in your collection.[br][color=\"#d90000\"]Kill[/color] it."
 flavour_text = "A monarch that eats its subjects... How regal."
 cost = 7
 rarity = "R"

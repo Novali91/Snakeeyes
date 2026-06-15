@@ -11,6 +11,6 @@ poison = 1
 charm = 2
 special_ability = 5
 cost = 3
-description = "Pick a snake. Give that snake +2 strength permanently."
+description = "Pick a snake in your collection.[br]Give it +2 [color=\"#8f1e0d\"]Strength[/color]."
 flavour_text = "A handy pest-hunter commonly kept in gardens!"
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

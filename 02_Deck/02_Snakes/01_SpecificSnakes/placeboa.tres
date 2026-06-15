@@ -9,7 +9,7 @@ script = ExtResource("1_p3lbp")
 snake_name = "Placeboa"
 drink_resource = ExtResource("1_13wx1")
 snake_sprite = ExtResource("3_13wx1")
-description = "On drink, slide in 1 drink."
+description = "[color=\"#2225d6\"]Slide In[/color] 1 drink."
 flavour_text = "Victims of a Placeboa bite show symptoms of breathing normally afterwards."
 cost = 3
 rarity = "C"

@@ -24,10 +24,10 @@ var flavour_text_colour: Color = Color(214/255, 214/255, 214/255)
 var buffer: Vector2 = Vector2(20, 20)
 
 ## Set this when we get actual sprite size for the tooltip (currently placeholder)
-var sprite_size: Vector2 = Vector2(300, 375)
+var sprite_size: Vector2 = Vector2(410, 515)
 
 ## References for instantiating values:
-@onready var name_label: Label = $Name
+@onready var name_label: RichTextLabel = $Name
 @onready var desc_label: RichTextLabel = $Description
 @onready var poison_label: Label = $Poison
 @onready var strength_label: Label = $Strength
@@ -154,27 +154,25 @@ func instantiate_snake_values(info: SnakeResource, current_drink: DrinkResource)
 func set_val(val: int, og_val: int, label: Label) -> void:
 	label.text = str(val)
 	if val == og_val:
-		label.label_settings.font_color = Color(0, 0, 0)
+		label.label_settings.font_color = Color("1f1f1fff")
 	elif val > og_val:
-		label.label_settings.font_color = Color(0.05, 1.0, 0.5)
+		label.label_settings.font_color = Color(0.28, 1.0, 0.64, 1.0)
 	else:
-		label.label_settings.font_color = Color(1.0, 0.3, 0.2)
+		label.label_settings.font_color = Color(1.0, 0.2, 0.2, 1.0)
 	pass
 
 func get_rarity(character: String) -> void:
 	match character:
 		"S":
 			rarity_sprite.texture = rarities.get(0)
-			rarity_sprite.position = Vector2(155, 70)
+			rarity_sprite.position = Vector2(197, 100)
 		"C":
 			rarity_sprite.texture = rarities.get(0)
-			rarity_sprite.position = Vector2(155, 70)
+			rarity_sprite.position = Vector2(197, 100)
 		"R":
 			rarity_sprite.texture = rarities.get(1)
-			rarity_sprite.position = Vector2(150, 70)
+			rarity_sprite.position = Vector2(197, 105)
 		"L":
-			ap.play("new_animation")
-			ap.get_animation("new_animation").loop_mode = Animation.LOOP_LINEAR
 			legendary_sprite.visible = true
 			return
 	rarity_sprite.visible = true

@@ -9,7 +9,7 @@ script = ExtResource("1_pim2i")
 snake_name = "Snake of Asclepius"
 drink_resource = ExtResource("1_uj4i7")
 snake_sprite = ExtResource("3_mjmcx")
-description = "On drink, create an antidote."
+description = "Gain an [color=\"#8c00ff\"]Antidote[/color]."
 flavour_text = "The mythical snake of Asclepius, revered for reviving the dead. That doesn't mean it can't revive the living, though..."
 cost = 3
 rarity = "C"

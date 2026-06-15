@@ -9,7 +9,7 @@ script = ExtResource("1_t47ay")
 snake_name = "Jormungandr"
 drink_resource = ExtResource("1_12ggr")
 snake_sprite = ExtResource("3_12ggr")
-description = "On drink, gain strength equal to the total strength of drinks in your hand."
+description = "Gain [color=\"#8f1e0d\"]Strength[/color] equal to the total [color=\"#8f1e0d\"]Strength[/color] of drinks on the table."
 flavour_text = "Known as the World Serpent, Jormungandr is said to encompass the Earth."
 cost = 12
 rarity = "L"

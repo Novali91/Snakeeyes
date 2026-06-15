@@ -9,7 +9,7 @@ script = ExtResource("1_g5tcr")
 snake_name = "Nidhogg"
 drink_resource = ExtResource("1_n8dnk")
 snake_sprite = ExtResource("3_n8dnk")
-description = "On drink, kill another snake, then immediately drink that snake's venom for no poison."
+description = "Pick a snake in your collection.[br]Immediately drink its venom, then [color=\"#d90000\"]Kill[/color] it."
 flavour_text = "Translating to Malice Striker, Nidhogg is known for eating away at the roots of the World Tree."
 cost = 12
 rarity = "L"

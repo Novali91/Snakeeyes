@@ -9,7 +9,7 @@ script = ExtResource("1_flc0q")
 snake_name = "Basilisk"
 drink_resource = ExtResource("1_jqc6o")
 snake_sprite = ExtResource("3_jqc6o")
-description = "On drink, pick a snake. Remove all of your charm and give that snake strength equal to that charm"
+description = "Pick a snake in your collection.[br]Spend all your [color=\"#b32295\"]Charm[/color] to give it that much [color=\"#8f1e0d\"]Strength[/color]."
 flavour_text = "The cunning basilisk, known for its silver tongue and its lethal gaze."
 cost = 8
 rarity = "R"

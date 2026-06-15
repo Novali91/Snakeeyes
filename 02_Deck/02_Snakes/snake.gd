@@ -23,6 +23,20 @@ func _ready() -> void:
 	current_drink.rarity = attached_snake.rarity
 	attached_snake.flavour_text = "[i]" + attached_snake.flavour_text + "[/i]"
 	current_drink.flavour_text = "[i]" + current_drink.flavour_text + "[/i]"
+	
+	match current_drink.rarity:
+		"R":
+			attached_snake.snake_name = "[color=#1f5782]" + attached_snake.snake_name
+			current_drink.drink_name = "[color=#1f5782]" + current_drink.drink_name
+		
+		"L":
+			attached_snake.snake_name = "[wave amp=50.0 freq=5.0 connected=1][rainbow freq=2.0 sat=1.0 val=0.725 speed=0.8]" + attached_snake.snake_name
+			current_drink.drink_name = "[wave amp=50.0 freq=5.0 connected=1][rainbow freq=2.0 sat=1.0 val=0.725 speed=0.8]" + current_drink.drink_name
+	
+	if current_drink.special_ability == 26:
+		attached_snake.snake_name = "[rainbow freq=3.0 sat=1.0 val=0.725 speed=0.2]" + attached_snake.snake_name
+		current_drink.drink_name = "[rainbow freq=3.0 sat=1.0 val=0.725 speed=0.2]" + current_drink.drink_name
+	
 	pass
 
 func set_texture() -> void:

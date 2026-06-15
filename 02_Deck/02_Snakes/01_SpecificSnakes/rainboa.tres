@@ -9,7 +9,7 @@ script = ExtResource("1_lqkas")
 snake_name = "Rainboa"
 drink_resource = ExtResource("1_8udjw")
 snake_sprite = ExtResource("3_8udjw")
-description = "On drink, roll 2d6: On 1-6, slide in 1 drink. On 7-12: slide in 4 drinks."
+description = "[color=\"#7d1b41\"]Roll The Dice:[/color][br]2 - 6: [color=\"#2225d6\"]Slide In[/color] 1 drink.[br]7 - 12: [color=\"#2225d6\"]Slide In[/color] 4 drinks."
 flavour_text = "The Rainboa is distinctified by its rainbow sheen, caused by the microscopic structure of their skin."
 cost = 7
 rarity = "R"

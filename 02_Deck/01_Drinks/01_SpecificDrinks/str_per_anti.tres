@@ -9,6 +9,6 @@ drink_name = "Chimera Venom"
 drink_sprite = ExtResource("1_e8h17")
 poison = 1
 special_ability = 14
-description = "Gain strength and charm equal to your antidote"
+description = "Gain [color=\"#8f1e0d\"]Strength[/color] and [color=\"#b32295\"]Charm[/color] equal to your [color=\"#8c00ff\"]Antidote[/color]"
 flavour_text = "A symbol for something unreachable, the Chimera's prowess is equally unmatched."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

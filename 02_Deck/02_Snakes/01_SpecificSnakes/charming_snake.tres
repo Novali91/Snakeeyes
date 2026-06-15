@@ -9,7 +9,7 @@ script = ExtResource("1_yidwo")
 snake_name = "Amphisbaena"
 drink_resource = ExtResource("1_fiks4")
 snake_sprite = ExtResource("3_r27wn")
-description = "On drink, you may buy two additional antidotes this round."
+description = "You may buy two additional [color=\"#8c00ff\"]Antidote[/color] this round."
 flavour_text = "The Amphisbaena is said to have spawned from Medusa's blood. It is also said to have medicinal venom."
 cost = 6
 rarity = "R"

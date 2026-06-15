@@ -9,6 +9,6 @@ drink_name = "Scarlet Venom"
 drink_sprite = ExtResource("1_b1c1w")
 charm = 2
 special_ability = 24
-description = "All dice rolls this turn roll +1."
+description = "Everytime you [color=\"#7d1b41\"]Roll The Dice[/color] this turn, add +1 to the result."
 flavour_text = "\"Red on black, friend of Jack.\""
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

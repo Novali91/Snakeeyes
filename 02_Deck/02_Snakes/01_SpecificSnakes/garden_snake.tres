@@ -9,7 +9,7 @@ script = ExtResource("1_jlr6f")
 snake_name = "Garden Snake"
 drink_resource = ExtResource("1_uedf5")
 snake_sprite = ExtResource("3_uedf5")
-description = "On drink, pick a snake. Give that snake +2 strength permanently."
+description = "Pick a snake in your collection.[br]Give it +2 [color=\"#8f1e0d\"]Strength[/color]."
 flavour_text = "A handy pest-hunter commonly kept in gardens!"
 cost = 3
 rarity = "C"

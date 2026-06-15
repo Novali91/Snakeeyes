@@ -10,6 +10,6 @@ drink_sprite = ExtResource("1_1ot5m")
 poison = 1
 strength = 2
 special_ability = 15
-description = "Choose a snake. Roll 2d6: On 2-6, give it +2 strength. On 7+, give it +5 strength."
+description = "Pick a snake in your collection and [color=\"#7d1b41\"]Roll The Dice:[/color][br]2 - 6: Give it +2 [color=\"#8f1e0d\"]Strength[/color].[br]7 - 12: Give it +5 [color=\"#8f1e0d\"]Strength[/color]."
 flavour_text = "Knows ball."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

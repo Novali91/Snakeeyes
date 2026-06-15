@@ -9,7 +9,7 @@ script = ExtResource("1_lsosv")
 snake_name = "Cat Snake"
 drink_resource = ExtResource("1_on5dn")
 snake_sprite = ExtResource("3_on5dn")
-description = "No ability."
+description = "This snake's venom [color=\"#0e90b0\"]stays on the table[/color] between rounds."
 flavour_text = "Ever lying in wait, the cat snake pounces on its prey at the most opportune moment. Its venom tastes oddly of drool..."
 cost = 4
 rarity = "C"

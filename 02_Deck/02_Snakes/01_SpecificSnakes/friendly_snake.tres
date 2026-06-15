@@ -9,7 +9,7 @@ script = ExtResource("1_oqrdi")
 snake_name = "Pit Viper"
 drink_resource = ExtResource("1_c4g1r")
 snake_sprite = ExtResource("3_c4g1r")
-description = "When drank, reduce the poison of all drinks in your hand by 1."
+description = "Reduce the [color=\"#069c10\"]Poison[/color] of each drink on the table by 1."
 flavour_text = "The Pit Viper is an incredibly venomous, and yet is widely used for its medicinal properties."
 cost = 8
 rarity = "R"

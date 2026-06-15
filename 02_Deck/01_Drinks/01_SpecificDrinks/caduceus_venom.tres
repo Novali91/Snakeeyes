@@ -10,6 +10,6 @@ drink_sprite = ExtResource("1_j8vcd")
 poison = 2
 charm = 2
 special_ability = 28
-description = "Roll 2d6: On 2-6, gain 1 antidote. On 7+, double your antidote."
+description = "[color=\"#7d1b41\"]Roll The Dice:[/color][br]2 - 6: Gain an [color=\"#8c00ff\"]Antidote[/color].[br]7 - 12: Double your [color=\"#8c00ff\"]Antidote[/color]."
 flavour_text = "Originally enrapt in combat, these snakes are now heralds of peace after Hermes stopped them."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

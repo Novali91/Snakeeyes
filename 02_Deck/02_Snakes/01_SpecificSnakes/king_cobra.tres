@@ -9,7 +9,7 @@ script = ExtResource("1_yas5o")
 snake_name = "King Cobra"
 drink_resource = ExtResource("1_3v756")
 snake_sprite = ExtResource("3_ejmbg")
-description = "On purchase, kill 2 snake permanently. Then, this snake gains their strength and charm permanently."
+description = "[color=\"#c41854\"]When Purchased:[/color][br]Pick two snakes in your collection and [color=\"#d90000\"]Kill[/color] them.[br]This snake gains their  [color=\"#8f1e0d\"]Strength[/color] and [color=\"#b32295\"]Charm[/color]."
 flavour_text = "The regal King Cobra enjoys a feast before it can rest."
 cost = 7
 rarity = "R"

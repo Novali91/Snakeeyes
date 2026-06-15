@@ -11,6 +11,6 @@ poison = 3
 strength = 4
 special_ability = 7
 cost = 7
-description = "Kill a snake."
+description = "Pick a snake in your collection.[br][color=\"#d90000\"]Kill[/color] it."
 flavour_text = "A king that eats its subjects... How regal."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

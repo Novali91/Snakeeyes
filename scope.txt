@@ -30,3 +30,27 @@ buying king cobra on 24 snakes will remove only 2 snakes
 bugs - (?) means I am unsure if it can still happen:
 ketsa cant get eaten by nidhog (?)
 nidhog disapeared on 5 somehow (?)
+
+
+
+Colors:
+antidote color: 
+[color="#8c00ff"]Antidote[/color]
+
+roll the dice: 
+[color="#7d1b41"]Roll The Dice.[/color][br]2 - 6: [br]7 - 12:
+
+strength:
+[color="#8f1e0d"]Strength[/color]
+
+charm:
+[color="#b32295"]Charm[/color]
+
+stays on the table:
+[color="#0e90b0"]stays on the table[/color]
+
+kill:
+[color="#d90000"]Kill[/color]
+
+poison:
+[color="#069c10"]Poison[/color]

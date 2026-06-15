@@ -6,10 +6,10 @@
 
 [resource]
 script = ExtResource("1_ladcy")
-snake_name = "Caduceus Snake"
+snake_name = "[wave amp=20.0 freq=5.0 connected=1][pulse freq=1.0 color=#ffffffff ease=-2.0]Caduceus Snake"
 drink_resource = ExtResource("1_poddx")
 snake_sprite = ExtResource("3_poddx")
-description = "On drink, roll 2d6: On 2-6, gain 1 antidote. On 7+, double your antidote."
+description = "[color=\"#7d1b41\"]Roll The Dice:[/color][br]2 - 6: Gain an [color=\"#8c00ff\"]Antidote[/color].[br]7 - 12: Double your [color=\"#8c00ff\"]Antidote[/color]."
 flavour_text = "Originally enrapt in combat, these snakes are now heralds of peace after Hermes stopped them."
 cost = 12
 rarity = "L"
