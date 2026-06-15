@@ -19,7 +19,7 @@ shader_parameter/fade_time = 0.6
 shader_parameter/flutter_speed = 7.0
 shader_parameter/fall_dist = 0.5
 shader_parameter/awake_time = 4.5
-shader_parameter/time_test = 3.415
+shader_parameter/time_test = 5.0
 
 [sub_resource type="Animation" id="Animation_spbah"]
 length = 0.001
@@ -63,7 +63,7 @@ script = ExtResource("1_5qfpc")
 poison_effect_change_speed = 3.0
 poison_fish_eye_intensity = 0.003
 poison_effect_begin_level = 6
-pass_out_time = 4.0
+pass_out_time = 5.0
 pass_out_fall_time = 2.5
 metadata/_custom_type_script = "uid://d30y0q47xsgt0"
 
