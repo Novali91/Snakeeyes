@@ -8,7 +8,6 @@ script = ExtResource("1_wre0m")
 drink_name = "Cat Snake Venom"
 drink_sprite = ExtResource("1_axjnp")
 poison = 2
-strength = 4
 cost = 4
 retain = true
 description = "This drink [color=\"#0e90b0\"]stays on the table[/color] between rounds."

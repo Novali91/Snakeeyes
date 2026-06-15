@@ -3,7 +3,21 @@
 [ext_resource type="Script" uid="uid://blafpy8fea7fb" path="res://03_VisualInputOutput/05_PlayerStrength'/player_strength.gd" id="1_wxbxo"]
 [ext_resource type="Texture2D" uid="uid://dyvrfcxwvyws8" path="res://05_Assets/01_Art/03_UI_Sprites/strength board sprite.png" id="2_gujg7"]
 [ext_resource type="Texture2D" uid="uid://cyngu0oorn3g1" path="res://05_Assets/01_Art/03_UI_Sprites/strength scaler sprite.png" id="3_xi3mp"]
-[ext_resource type="Script" uid="uid://cfqx3dcaojqrs" path="res://03_VisualInputOutput/01_ScoreBar/custom_number.gd" id="4_xi3mp"]
+[ext_resource type="Shader" uid="uid://jn4jbiwqebtr" path="res://05_Assets/02_Shaders/oval.gdshader" id="4_ysxh5"]
+[ext_resource type="FontFile" uid="uid://c6xfa0o2h2ssc" path="res://05_Assets/05_Fonts/OldNewspaperTypes.ttf" id="5_sh6bl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e48x0"]
+shader = ExtResource("4_ysxh5")
+
+[sub_resource type="Gradient" id="Gradient_0o7wh"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.18, 0.0828, 0.0828, 0.6627451)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0odts"]
+gradient = SubResource("Gradient_0o7wh")
+
+[sub_resource type="LabelSettings" id="LabelSettings_2y4xl"]
+font_size = 32
 
 [node name="PlayerStrength" type="Node2D" unique_id=1002047189]
 script = ExtResource("1_wxbxo")
@@ -14,21 +28,32 @@ position = Vector2(0, -322)
 texture = ExtResource("2_gujg7")
 
 [node name="Ticker" type="Sprite2D" parent="." unique_id=449204062]
-position = Vector2(0, -210)
+position = Vector2(5, -198)
 texture = ExtResource("3_xi3mp")
 
-[node name="CustomNumber" type="Node2D" parent="Ticker" unique_id=1417211364]
-position = Vector2(-9, 199)
-scale = Vector2(0.3, 0.3)
-script = ExtResource("4_xi3mp")
-min_digits = 1
-digit_spacing = -20.0
-metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
+[node name="Sprite2D" type="Sprite2D" parent="Ticker" unique_id=1817864914]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_e48x0")
+position = Vector2(-7.9999995, 196)
+scale = Vector2(1.4687499, 1.21875)
+texture = SubResource("GradientTexture2D_0odts")
+
+[node name="CountLabel" type="Label" parent="Ticker" unique_id=1235435124]
+custom_minimum_size = Vector2(150, 150)
+offset_left = -84.0
+offset_top = 122.0
+offset_right = 66.0
+offset_bottom = 272.0
+theme_override_fonts/font = ExtResource("5_sh6bl")
+text = "999k"
+label_settings = SubResource("LabelSettings_2y4xl")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Markers" type="Node2D" parent="." unique_id=1820616886]
 
 [node name="0" type="Marker2D" parent="Markers" unique_id=1627163282]
-position = Vector2(45.166748, -12.277771)
+position = Vector2(45, -12)
 
 [node name="1" type="Marker2D" parent="Markers" unique_id=262518696]
 position = Vector2(45.166748, -27.277771)
@@ -72,5 +97,5 @@ position = Vector2(45.166748, -451.27777)
 [node name="120" type="Marker2D" parent="Markers" unique_id=1563711177]
 position = Vector2(45.166748, -486.27777)
 
-[node name="1000" type="Marker2D" parent="Markers" unique_id=1342284570]
-position = Vector2(45.166748, -556.2778)
+[node name="999" type="Marker2D" parent="Markers" unique_id=1342284570]
+position = Vector2(45.166748, -551.2778)

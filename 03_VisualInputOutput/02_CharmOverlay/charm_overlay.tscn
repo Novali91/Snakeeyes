@@ -1,15 +1,25 @@
 [gd_scene format=3 uid="uid://5odvimgwfuy1"]
 
 [ext_resource type="Script" uid="uid://dkn3vaawwn56" path="res://03_VisualInputOutput/02_CharmOverlay/charm_overlay.gd" id="1_sy3cc"]
-[ext_resource type="Texture2D" uid="uid://dtkn6qd6b6f86" path="res://05_Assets/01_Art/03_UI_Sprites/charm sprite.png" id="2_ox1nn"]
+[ext_resource type="Shader" uid="uid://jn4jbiwqebtr" path="res://05_Assets/02_Shaders/oval.gdshader" id="2_ox1nn"]
 [ext_resource type="FontFile" uid="uid://c6xfa0o2h2ssc" path="res://05_Assets/05_Fonts/OldNewspaperTypes.ttf" id="3_ox1nn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tl6ep"]
 radius = 97.04638
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b24kd"]
+shader = ExtResource("2_ox1nn")
+
+[sub_resource type="Gradient" id="Gradient_0o7wh"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.1425, 0, 0.19, 0.52156866)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_powbj"]
+gradient = SubResource("Gradient_0o7wh")
+
 [sub_resource type="LabelSettings" id="LabelSettings_b24kd"]
-font_size = 32
-font_color = Color(0.91666675, 1, 0, 1)
+font_size = 46
+font_color = Color(1, 0.81, 0.98416674, 1)
 
 [node name="CharmOverlay" type="Node2D" unique_id=213505803]
 script = ExtResource("1_sy3cc")
@@ -25,19 +35,18 @@ metadata/_custom_type_script = "uid://dkn3vaawwn56"
 shape = SubResource("CircleShape2D_tl6ep")
 
 [node name="Sprite2D" type="Sprite2D" parent="Bundle" unique_id=1980796388]
-modulate = Color(1.3913506, 0.5710556, 0.5006565, 1)
-position = Vector2(23, -28)
-scale = Vector2(2, 2)
-texture = ExtResource("2_ox1nn")
+material = SubResource("ShaderMaterial_b24kd")
+scale = Vector2(2.2, 2.2)
+texture = SubResource("GradientTexture2D_powbj")
 
 [node name="CountLabel" type="Label" parent="Bundle" unique_id=402591746]
-custom_minimum_size = Vector2(100, 100)
-offset_left = -49.0
-offset_top = -49.0
-offset_right = 51.0
-offset_bottom = 51.0
+custom_minimum_size = Vector2(150, 150)
+offset_left = -73.0
+offset_top = -75.0
+offset_right = 77.0
+offset_bottom = 75.0
 theme_override_fonts/font = ExtResource("3_ox1nn")
-text = "0"
+text = "999"
 label_settings = SubResource("LabelSettings_b24kd")
 horizontal_alignment = 1
 vertical_alignment = 1

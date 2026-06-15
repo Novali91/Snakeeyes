@@ -20,10 +20,10 @@ const _TICKER_VALUES = [
 	60,
 	80,
 	120,
-	1000
+	999
 ]
 
-@onready var _custom_number: CustomNumber = $Ticker/CustomNumber
+@onready var _count_label: Label = $Ticker/CountLabel
 @onready var _ticker: Sprite2D = $Ticker
 @onready var _marker_node = $Markers
 
@@ -91,18 +91,15 @@ func get_height(val: int) -> float:
 	return _TICKER_Y_OFFSET + lerp(bot_pos, top_pos, percent)
 
 func set_value(_old_val: int, new_val: int) -> void:
-	_custom_number.set_value(new_val)
+	_count_label.text = GS.format_number(new_val)
 	
-	var clamped = clamp(new_val, 0, 1000)
+	var clamped = clamp(new_val, 0, 999)
 	var ticker_target = get_height(clamped)
 	
 	if _tween: _tween.kill()
 	
 	_tween = create_tween().set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	_tween.tween_property(_ticker, "position:y", ticker_target, 1)
-	
-	clamped = clamp(new_val, 0, 1000)
-	ticker_target = get_height(clamped + 1)
 	
 	for attack_ticker in _attack_tickers:
 		attack_ticker.get_child(1).toggle_tint(ticker_target <= attack_ticker.position.y + _TICKER_Y_OFFSET)

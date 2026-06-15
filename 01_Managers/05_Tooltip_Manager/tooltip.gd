@@ -152,7 +152,7 @@ func instantiate_snake_values(info: SnakeResource, current_drink: DrinkResource)
 	get_rarity(info.rarity)
 
 func set_val(val: int, og_val: int, label: Label) -> void:
-	label.text = str(val)
+	label.text = GS.format_number(val)
 	if val == og_val:
 		label.label_settings.font_color = Color("1f1f1fff")
 	elif val > og_val:
@@ -165,13 +165,13 @@ func get_rarity(character: String) -> void:
 	match character:
 		"S":
 			rarity_sprite.texture = rarities.get(0)
-			rarity_sprite.position = Vector2(197, 100)
+			rarity_sprite.position = Vector2(197, 90)
 		"C":
 			rarity_sprite.texture = rarities.get(0)
-			rarity_sprite.position = Vector2(197, 100)
+			rarity_sprite.position = Vector2(197, 90)
 		"R":
 			rarity_sprite.texture = rarities.get(1)
-			rarity_sprite.position = Vector2(197, 105)
+			rarity_sprite.position = Vector2(197, 99)
 		"L":
 			legendary_sprite.visible = true
 			return
@@ -179,7 +179,7 @@ func get_rarity(character: String) -> void:
 	return
 
 func set_psn_val(val: int, og_val: int, label: Label) -> void:
-	label.text = str(val)
+	label.text = GS.format_number(val)
 	if val == og_val:
 		label.label_settings.font_color = Color(0, 0, 0)
 	elif val < og_val:

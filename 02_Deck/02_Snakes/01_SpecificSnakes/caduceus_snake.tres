@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_ladcy")
-snake_name = "[wave amp=20.0 freq=5.0 connected=1][pulse freq=1.0 color=#ffffffff ease=-2.0]Caduceus Snake"
+snake_name = "Caduceus Snake"
 drink_resource = ExtResource("1_poddx")
 snake_sprite = ExtResource("3_poddx")
 description = "[color=\"#7d1b41\"]Roll The Dice:[/color][br]2 - 6: Gain an [color=\"#8c00ff\"]Antidote[/color].[br]7 - 12: Double your [color=\"#8c00ff\"]Antidote[/color]."

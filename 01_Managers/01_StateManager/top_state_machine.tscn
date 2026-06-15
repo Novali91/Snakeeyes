@@ -106,6 +106,7 @@ position = Vector2(2880, 564)
 [node name="Table" type="Sprite2D" parent="." unique_id=1744368899]
 position = Vector2(2880, 540)
 texture = ExtResource("11_gwsv7")
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=116598250]
 offset_right = 5760.0
@@ -116,15 +117,15 @@ metadata/_edit_lock_ = true
 
 [node name="AttackManager" parent="." unique_id=1488456757 instance=ExtResource("20_n6io1")]
 unique_name_in_owner = true
-position = Vector2(3198, 208)
-
-[node name="EndTurnButton" parent="." unique_id=462742653 instance=ExtResource("13_8sj7b")]
-unique_name_in_owner = true
-position = Vector2(3380, 714)
+position = Vector2(2760, 596)
 
 [node name="PoisonBar" parent="." unique_id=674401828 instance=ExtResource("10_v5tm5")]
 unique_name_in_owner = true
-position = Vector2(3481, 398)
+position = Vector2(3348, 415)
+
+[node name="EndTurnButton" parent="." unique_id=462742653 instance=ExtResource("13_8sj7b")]
+unique_name_in_owner = true
+position = Vector2(3585, 814)
 
 [node name="HandManager" parent="." unique_id=1877513829 instance=ExtResource("21_ffq48")]
 unique_name_in_owner = true
@@ -136,7 +137,7 @@ position = Vector2(3840, 0)
 
 [node name="AntidoteCount" parent="." unique_id=818012555 instance=ExtResource("12_mg5ld")]
 unique_name_in_owner = true
-position = Vector2(3742, 1164)
+position = Vector2(3537.0002, 1296)
 scale = Vector2(1.5, 1.5)
 
 [node name="AntidoteCount2" parent="." unique_id=1943998165 instance=ExtResource("12_mg5ld")]

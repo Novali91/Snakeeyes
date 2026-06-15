@@ -44,9 +44,8 @@ func get_poison() -> int:
 	return _poison
 
 func set_strength(val: int) -> void:
-	var clamped = clamp(val, 0, 999)
-	_strength = clamped
-	strength_set.emit(_strength, clamped)
+	_strength = val
+	strength_set.emit(_strength, val)
 
 func get_strength() -> int:
 	return _strength
@@ -126,3 +125,37 @@ var legendary_snakes: Array[SnakeResource] = [
 ]
 
 var sound_manager: SoundManager
+
+func format_number(val: int) -> String:
+	var output = ""
+	
+	if val < 0:
+		output += "-"
+	
+	var symbols = ["k", "m", "b", "t"]
+	
+	var abs_val = abs(val)
+	
+	if abs_val >= pow(10, 15):
+		var e_val = floor(log(abs_val + 0.5) / log(10))
+		output += str(int(floor((abs_val + 0.5) / pow(10, e_val))))
+		output += "e"
+		output += str(int(e_val))
+	
+	elif abs_val >= 1000:
+		var e_val = (log(abs_val + 0.5) / log(10))
+		var letter_ind = floor(e_val / 3.) - 1
+		var inner_ind = int(e_val) % 3
+		
+		if inner_ind == 0:
+			output += str(abs_val / float(pow(10.0, (letter_ind + 1) * 3))).pad_decimals(1)
+		
+		else:
+			output += str(int(abs_val / pow(10, (letter_ind + 1) * 3)))
+		
+		output += symbols[letter_ind]
+	
+	else:
+		output += str(val)
+	
+	return output

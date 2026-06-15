@@ -80,7 +80,9 @@ func gain_charm(val: int, pos: Vector2) -> void:
 	
 	var is_neg = val < 0
 	_reveal_timer = 1
-	_count_label.text = str(GS.get_charm())
+	
+	_count_label.text = GS.format_number(GS.get_charm())
+	
 	var abs_val = abs(val)
 	
 	var fake_count = 0
@@ -126,7 +128,7 @@ func spend_charm(val: int, pos: Vector2) -> void:
 	var fake_count = 0
 	
 	_reveal_timer = 1
-	_count_label.text = str(GS.get_charm())
+	_count_label.text = GS.format_number(GS.get_charm())
 	
 	var wait_time = _TOTAL_SPAWN_TIME / (val)
 	
@@ -161,7 +163,7 @@ func clear_charm() -> void:
 	_tokens = []
 	_current_charm_count = 0
 	
-	_count_label.text = str(GS.get_charm())
+	_count_label.text = GS.format_number(GS.get_charm())
 
 func _evil_collision(me: CharmToken, other: CharmToken) -> void:
 	if me.deleted or other.deleted: return

@@ -4,9 +4,11 @@ win screen
 lose screen
 pause screen
 title screen w title
+new text box
 
 sounds:
 end turn bell
+choose drink sound
 
 implementation:
 full tutorial with spotlight effect and multiple rounds
@@ -20,19 +22,30 @@ min deck size popup on remove
 trap beat
 audio balancing
 pause screen with audio slider
+player strength bar rework
 
 polish ideas:
 affordable snakes look different
 shop tags use custom number
 buying king cobra on 24 snakes will remove only 2 snakes
 ribbon for retain
+lives look cramped
 
 bugs - (?) means I am unsure if it can still happen:
 ketsa cant get eaten by nidhog (?)
 nidhog disapeared on 5 somehow (?)
 send 1 back boss attack soft locks
 / spawning a lot of charm all at once lags, need fake fake charm
+can move screen while refilling
 
+
+
+
+boss tooltip rework:
+speech bubble should be smaller and positioned differently
+dark semi transparent background with white text
+hover the score board to fade in the upcoming attack (more transparent)
+when it is the turn of an attack, the text box types in, you can't hover
 
 
 Colors:
