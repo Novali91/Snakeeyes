@@ -35,7 +35,7 @@ var _antidote_num: int
 var cur_attack_index: int = 0
 
 func set_poison(val: int) -> void:
-	var clamped = clamp(val, 1, 13)
+	var clamped = clamp(val, 0, 13)
 	_poison = clamped
 	poison_set.emit(_poison, clamped)
 	
@@ -156,6 +156,6 @@ func format_number(val: int) -> String:
 		output += symbols[letter_ind]
 	
 	else:
-		output += str(val)
+		output += str(abs_val)
 	
 	return output

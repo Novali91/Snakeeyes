@@ -9,6 +9,7 @@ new text box
 sounds:
 end turn bell
 choose drink sound
+camera move sound (?)
 
 implementation:
 full tutorial with spotlight effect and multiple rounds
@@ -26,7 +27,6 @@ player strength bar rework
 
 polish ideas:
 affordable snakes look different
-shop tags use custom number
 buying king cobra on 24 snakes will remove only 2 snakes
 ribbon for retain
 lives look cramped
