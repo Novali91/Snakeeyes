@@ -219,7 +219,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 		_:
 			return
 
-func draw_cards(num: int) -> void:
+func draw_cards(num: int, unlock_after: bool = true) -> void:
 	sm.camera_manager.lock_camera()
 	sm.hand_manager.drinks_drinkable = false
 	
@@ -238,7 +238,9 @@ func draw_cards(num: int) -> void:
 			await _reshuffle_draw_pile()
 	
 	sm.hand_manager.drinks_drinkable = true
-	sm.camera_manager.unlock_camera()
+	
+	if unlock_after:
+		sm.camera_manager.unlock_camera()
 
 func _reshuffle_draw_pile() -> void:
 	sm.camera_manager.switch_screen(sm.camera_manager.LEFT, true)
@@ -299,7 +301,7 @@ func quetzalcoatl_slide_back(drink: Drink) -> void:
 	sm.deck_manager.return_to_drawpile(drink.attached_drink_resource, drink.attached_drink)
 
 func roll_dice() -> int:
-	sm.dice_manager.start_roll(false,false)
+	sm.dice_manager.roll_the_dice(false)
 	var num: int = await sm.dice_manager.number_accepted
 	sm.dice_manager.close()
 	await sm.dice_manager.closed

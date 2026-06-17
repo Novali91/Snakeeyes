@@ -42,6 +42,8 @@ var antidote_flashing: bool = false
 
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 
+var _tutorial_has_rerolled: bool = false
+
 func _ready() -> void:
 	visible = false
 	_use_antidote_button.pressed.connect(_antidote_pressed)
@@ -100,12 +102,17 @@ func set_poison(p: int) -> void:
 func _ease_out_0_1(x: float) -> float:
 	return sin(clamp(x,0,1) * PI / 2)
 
+func roll_the_dice(is_poison: bool) -> void:
+	visible = true
+	_animation_player.play("open")
+	await _animation_player.animation_finished
+	start_roll(is_poison, is_poison)
+
 func start_roll(lower_cup: bool, is_poison: bool) -> void:
 	visible = true
 	roll_is_for_poison = is_poison
 	if !roll_is_for_poison:
 		set_poison(7)
-	_animation_player.play("open")
 	if lower_cup:
 		_animation_progress = 0.0
 	else:
@@ -131,6 +138,20 @@ func close() -> void:
 func _roll() -> void:
 	var d1val = randi_range(1,6)
 	var d2val = randi_range(1,6)
+	
+	if GS.tutorial_index == GS.Tutorial.START and not _tutorial_has_rerolled:
+		d1val = 1
+		d2val = 1
+		_tutorial_has_rerolled = true
+	elif GS.tutorial_index == GS.Tutorial.START and _tutorial_has_rerolled:
+		d1val = 2
+		d2val = 4
+		_tutorial_has_rerolled = false
+	elif GS.tutorial_index == GS.Tutorial.NEXT_TURN and not _tutorial_has_rerolled:
+		d1val = 6
+		d2val = 2
+		_tutorial_has_rerolled = true
+	
 	var value_rolled = d1val + d2val
 	
 	_current_value = value_rolled + num_scarlets
@@ -157,12 +178,6 @@ func _reroll() -> void:
 
 func _continue_pressed() -> void:
 	number_accepted.emit(_current_value)
-
-func _get_dice_faces(val: int) -> Array[int]:
-	var die1 = randi_range(1, val-1)
-	var die2 = val - die1
-	
-	return [die1, die2]
 
 func _antidote_hovered() -> void:
 	_use_antidote_button.material.set_shader_parameter("alpha", 1.0)

@@ -5,6 +5,7 @@ func setup() -> void:
 	pass
 
 func enter() -> void:
+	
 	sm.camera_manager.make_notif()
 	sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 	sm.camera_manager.lock_camera()
@@ -17,6 +18,16 @@ func enter() -> void:
 	## boss drinks
 	if sm.attack_manager._current_attack == null or sm.attack_manager.get_attack().ability_index != 10:
 		sm.attack_manager.next_attack()
+	
+	if GS.tutorial_index == GS.Tutorial.NONE:
+		if GS.turn_count == 0:
+			GS.tutorial_index = GS.Tutorial.START
+		elif GS.turn_count == 1:
+			GS.tutorial_index = GS.Tutorial.NEXT_TURN
+		elif sm.attack_manager.get_attack().ability_index != 0:
+			GS.tutorial_index = GS.Tutorial.SPECIAL_GOAL
+		elif sm.attack_manager.get_attack().damage.size() > 1:
+			GS.tutorial_index = GS.Tutorial.MULTI_GOAL
 	
 	## wait a sec
 	await get_tree().create_timer(1.0).timeout

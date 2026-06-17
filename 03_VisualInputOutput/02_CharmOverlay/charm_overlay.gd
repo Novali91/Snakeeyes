@@ -88,6 +88,8 @@ func gain_charm(val: int, pos: Vector2) -> void:
 	var fake_count = 0
 	
 	var wait_time = _TOTAL_SPAWN_TIME / (abs_val)
+	if abs_val > _MAX_TOKENS_SHOWN:
+		wait_time = _TOTAL_SPAWN_TIME / (_MAX_TOKENS_SHOWN)
 	
 	for i in abs_val:
 		
@@ -131,6 +133,8 @@ func spend_charm(val: int, pos: Vector2) -> void:
 	_count_label.text = GS.format_number(GS.get_charm())
 	
 	var wait_time = _TOTAL_SPAWN_TIME / (val)
+	if val > _MAX_TOKENS_SHOWN:
+		wait_time = _TOTAL_SPAWN_TIME / (_MAX_TOKENS_SHOWN)
 	
 	for i in val:
 		_current_charm_count -= 1

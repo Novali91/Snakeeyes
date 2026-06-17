@@ -7,8 +7,12 @@ func setup() -> void:
 	pass
 
 func enter() -> void:
-	var damage = sm.attack_manager.get_attack().damage.size()
-	GS.set_score(GS.get_score() - damage)
+	GS.set_charm(0)
+	sm.charm_overlay.clear_charm()
+	
+	GS.set_strength(0)
+	GS.set_poison(0)
+	
 	sm.camera_manager.start_pass_out()
 	await(sm.camera_manager.pass_out_complete)
 	GS.sound_manager.play_fall()
@@ -17,7 +21,7 @@ func enter() -> void:
 		sm.lose()
 		return
 	
-	sm.switch_state(sm.States.END_TURN)
+	sm.switch_state(sm.States.COMPARE_STRENGTH)
 	
 
 func exit() -> void:

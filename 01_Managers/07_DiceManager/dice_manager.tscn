@@ -1,10 +1,36 @@
 [gd_scene format=3 uid="uid://bmyg1l3eqrxql"]
 
 [ext_resource type="Script" uid="uid://bm0r4ar0bjg1l" path="res://01_Managers/07_DiceManager/dice_manager.gd" id="1_2k3sa"]
+[ext_resource type="Shader" uid="uid://c4bb8wrsmi7q7" path="res://05_Assets/02_Shaders/spotlight.gdshader" id="2_jkwlg"]
 [ext_resource type="FontFile" uid="uid://c6xfa0o2h2ssc" path="res://05_Assets/05_Fonts/OldNewspaperTypes.ttf" id="2_l6sk2"]
 [ext_resource type="Texture2D" uid="uid://bnlh4t3t803a2" path="res://05_Assets/01_Art/03_UI_Sprites/dice spritesheet 150 by 150.png" id="2_o43fa"]
 [ext_resource type="Texture2D" uid="uid://44n8lq26nevn" path="res://05_Assets/01_Art/03_UI_Sprites/dice roll cup spritesheet 500 by 500.png" id="3_cvl4k"]
 [ext_resource type="Shader" uid="uid://0oonfw65mdnr" path="res://05_Assets/02_Shaders/outline.gdshader" id="3_jkwlg"]
+[ext_resource type="Shader" uid="uid://jn4jbiwqebtr" path="res://05_Assets/02_Shaders/oval.gdshader" id="3_u73lx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q5jfh"]
+shader = ExtResource("2_jkwlg")
+shader_parameter/position = Vector2(0, 0)
+shader_parameter/size = 425.0
+shader_parameter/res = Vector2(1920, 1080)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u73lx"]
+font_size = 48
+font_color = Color(1, 0.7411765, 0.9254902, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gefl3"]
+shader = ExtResource("3_u73lx")
+
+[sub_resource type="Gradient" id="Gradient_ksian"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tyl8d"]
+gradient = SubResource("Gradient_ksian")
+
+[sub_resource type="LabelSettings" id="LabelSettings_q5jfh"]
+font_size = 48
+font_color = Color(1, 0.7411765, 0.9254902, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u73lx"]
 shader = ExtResource("3_jkwlg")
@@ -141,7 +167,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(0.35, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0.26666668), Color(0, 0, 0, 0)]
+"values": [Color(0, 0, 0, 0.61960787), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_l6sk2"]
@@ -156,7 +182,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(0.35, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.26666668)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.61960787)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jkwlg"]
@@ -179,6 +205,7 @@ antidote_flash_time = 0.25
 metadata/_custom_type_script = "uid://bm0r4ar0bjg1l"
 
 [node name="Cover" type="ColorRect" parent="." unique_id=563285309]
+material = SubResource("ShaderMaterial_q5jfh")
 custom_minimum_size = Vector2(1920, 1080)
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -188,9 +215,10 @@ color = Color(0, 0, 0, 0)
 offset_left = 763.0
 offset_top = 440.0
 offset_right = 944.0
-offset_bottom = 463.0
+offset_bottom = 510.0
 theme_override_fonts/font = ExtResource("2_l6sk2")
-text = "Your roll:"
+text = "Total:"
+label_settings = SubResource("LabelSettings_u73lx")
 horizontal_alignment = 1
 
 [node name="Input" type="Label" parent="PoisonRes" unique_id=383974154]
@@ -199,19 +227,29 @@ offset_left = 4.0
 offset_top = 30.0
 offset_right = 170.0
 offset_bottom = 190.0
+theme_override_colors/font_color = Color(1, 0.7411765, 0.9254902, 1)
 theme_override_fonts/font = ExtResource("2_l6sk2")
 theme_override_font_sizes/font_size = 100
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Sprite2D" type="Sprite2D" parent="PoisonRes" unique_id=1923457534]
+self_modulate = Color(0.1254902, 0.039215688, 0.12941177, 0.7372549)
+show_behind_parent = true
+material = SubResource("ShaderMaterial_gefl3")
+position = Vector2(87, 78)
+scale = Vector2(3.5, 3.5)
+texture = SubResource("GradientTexture2D_tyl8d")
+
 [node name="PoisonLevel" type="Label" parent="." unique_id=1724037662]
 offset_left = 1008.0
 offset_top = 441.0
 offset_right = 1189.0
-offset_bottom = 464.0
+offset_bottom = 511.0
 theme_override_fonts/font = ExtResource("2_l6sk2")
-text = "Your goal:"
+text = "Goal:"
+label_settings = SubResource("LabelSettings_q5jfh")
 horizontal_alignment = 1
 
 [node name="Input" type="Label" parent="PoisonLevel" unique_id=607230635]
@@ -220,11 +258,20 @@ offset_left = 4.0
 offset_top = 30.0
 offset_right = 170.0
 offset_bottom = 190.0
+theme_override_colors/font_color = Color(1, 0.7411765, 0.9254902, 1)
 theme_override_fonts/font = ExtResource("2_l6sk2")
 theme_override_font_sizes/font_size = 100
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="PoisonLevel" unique_id=756145814]
+self_modulate = Color(0.1254902, 0.039215688, 0.12941177, 0.7372549)
+show_behind_parent = true
+material = SubResource("ShaderMaterial_gefl3")
+position = Vector2(87, 78)
+scale = Vector2(3.5, 3.5)
+texture = SubResource("GradientTexture2D_tyl8d")
 
 [node name="UseAntidoteButton" type="Button" parent="." unique_id=1561089080]
 material = SubResource("ShaderMaterial_u73lx")

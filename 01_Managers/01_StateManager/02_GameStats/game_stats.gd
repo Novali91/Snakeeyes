@@ -13,7 +13,16 @@ const RARITY_TO_COLOR: Dictionary[String, Color] = {
 	"L": Color(0.95, 1.0, 0.0, 1.0),
 }
 
-var in_tutorial: bool = true
+enum Tutorial {
+	SKIPPED,
+	NONE,
+	START,
+	NEXT_TURN,
+	MULTI_GOAL,
+	SPECIAL_GOAL
+}
+
+var tutorial_index: int = Tutorial.NONE
 
 var turn_count: int = 0
 
@@ -76,14 +85,18 @@ var hand_manager: HandManager
 
 ################################################################################
 
+# order matters for tutorial draw
 var starting_snakes: Array[SnakeResource] = [
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/red_viper.tres"),
-	load("res://02_Deck/02_Snakes/01_SpecificSnakes/red_viper.tres"),
 	load("res://02_Deck/02_Snakes/01_SpecificSnakes/blue_viper.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/red_viper.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/red_viper.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
+	load("res://02_Deck/02_Snakes/01_SpecificSnakes/green_viper.tres"),
+	
+	
+	
 ]
 
 var common_snakes: Array[SnakeResource] = [

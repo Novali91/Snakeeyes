@@ -117,6 +117,7 @@ metadata/_edit_lock_ = true
 
 [node name="AttackManager" parent="." unique_id=1488456757 instance=ExtResource("20_n6io1")]
 unique_name_in_owner = true
+visible = false
 position = Vector2(2760, 596)
 
 [node name="PoisonBar" parent="." unique_id=674401828 instance=ExtResource("10_v5tm5")]
@@ -151,7 +152,6 @@ position = Vector2(161, 924.00006)
 scale = Vector2(1.5, 1.5)
 
 [node name="TutorialManager" parent="." unique_id=1208958163 instance=ExtResource("24_dxdvi")]
-position = Vector2(3199, 193)
 
 [node name="CharmOverlay" parent="." unique_id=1000792462 instance=ExtResource("9_tn0ij")]
 unique_name_in_owner = true

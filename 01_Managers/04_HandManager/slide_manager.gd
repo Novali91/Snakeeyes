@@ -18,12 +18,28 @@ var _all_endpoints: Array[Vector2]
 var _empty_endpoints: Array[bool]
 
 var _active_drinks: Array[Drink]
+var _drinks_to_slide: Array[Drink]
+
+var _slide_timer: float = 0
 
 func _ready() -> void:
 	_populate_endpoints()
 
 func _process(delta: float) -> void:
+	if _drinks_to_slide:
+		if _slide_timer <= 0:
+			var d = _drinks_to_slide.pop_front()
+			
+			d.visible = true
+			
+			_active_drinks.push_back(d)
+			GS.sound_manager.play_slide()
+			
+			_slide_timer = _WAIT_TIME
+	
 	_update_slide(delta)
+	
+	_slide_timer -= delta
 
 func slide_drinks(drinks: Array[Drink]) -> void:
 	var checked_index = 0
@@ -55,13 +71,7 @@ func slide_drinks(drinks: Array[Drink]) -> void:
 	drinks.sort_custom(_sort_drink_far_slide)
 	
 	for d: Drink in drinks:
-		if not is_instance_valid(d): continue
-		
-		d.visible = true
-		
-		_active_drinks.push_back(d)
-		GS.sound_manager.play_slide()
-		await get_tree().create_timer(_WAIT_TIME).timeout
+		_drinks_to_slide.push_back(d)
 
 func slide_back(drink: Drink) -> void:
 	drink.slide_start = drink.position
@@ -74,9 +84,11 @@ func slide_back(drink: Drink) -> void:
 		_active_drinks.push_back(drink)
 
 func free_endpoint(drink: Drink) -> void:
-	
 	if drink in _active_drinks:
 		_active_drinks.erase(drink)
+	
+	if drink in _drinks_to_slide:
+		_drinks_to_slide.erase(drink)
 	
 	_empty_endpoints[drink.slide_ind] = true
 

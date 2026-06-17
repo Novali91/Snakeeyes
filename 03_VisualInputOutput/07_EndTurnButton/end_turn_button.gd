@@ -22,6 +22,7 @@ func _button_pressed() -> void:
 		_animation_player.play("press")
 
 func _button_hover() -> void:
+	if not _pressable: return
 	sprite.material.set_shader_parameter("color", Color(1.0, 0.685, 0.37, 1.0))
 
 func _button_unhover() -> void:

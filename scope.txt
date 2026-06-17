@@ -30,6 +30,9 @@ affordable snakes look different
 buying king cobra on 24 snakes will remove only 2 snakes
 ribbon for retain
 lives look cramped
+pass out goes to arm wrestle after pass out
+click to skip dice roll and arm wrestle
+
 
 bugs - (?) means I am unsure if it can still happen:
 ketsa cant get eaten by nidhog (?)
@@ -37,7 +40,7 @@ nidhog disapeared on 5 somehow (?)
 send 1 back boss attack soft locks
 / spawning a lot of charm all at once lags, need fake fake charm
 can move screen while refilling
-
+quetzl has charm before strength in text
 
 
 
@@ -46,6 +49,73 @@ speech bubble should be smaller and positioned differently
 dark semi transparent background with white text
 hover the score board to fade in the upcoming attack (more transparent)
 when it is the turn of an attack, the text box types in, you can't hover
+
+
+tutorial:
+intro plays, player clicks play, comes up from behind counter
+she drinks her drink and sets the score, player watches the refill animation
+player draws their hand of 4 charm 1 strength
+
+(freeze everything)
+this is a simple drinking game
+(spotlight strength meter)
+every round I will set a strength score
+(spot light lives)
+if you do not reach it, I will subtract one of your lives
+if you do reach it, I will give you one back
+(spotlight strength drink)
+drink the puff adder's venom, it will give you its strength
+(wait for player to drink strength)
+good, now drink two more drinks, they will give you charm
+(wait for player to drink 2 drinks)
+(spotlight poison meter)
+consuming venom has a cost, this meter shows your odds of passing out at the end of the turn
+(spotlight bell)
+now ring the bell to end your turn so we can roll the dice
+(wait for player to ring bell)
+(dice are rolled and show a failing score)
+since you rolled lower than your poison, you will pass out, losing all your stength and charm
+luckily you start with an antidote which you can use to reroll
+(wait for player to press antidote)
+(dice roll successful score)
+very good! now lets compare our strength
+(player presses continue, arm wrestle happens, player wins, screen goes to shop)
+(shop has garden snake and black mamba)
+you may spend your charm to grow your collection,
+but first you should understand the difference between snakes and drinks
+(spotlight garden snake)
+changing a snakes stats will change the stats of drinks it makes in the future
+(spotlight black mamba)
+changing a drinks stats will only last until it is consumed or cleared
+(spotlight antidote)
+since you only have 2 charm this turn, you should buy another antidote
+(wait for player to buy antidote)
+(spotlight leave shop)
+you are out of charm, exit the shop so that the next round can begin
+(wait for player to leave shop)
+
+next turn
+after player draws
+(spotlight right arrow)
+you can check the shop whenever you want
+I would make a habit of looking there at the start of the round
+(spotlight left arrow)
+you can also check your collection of snakes
+(unspotlight)
+you can also use A and D to switch screens and SPACE to end your turn
+
+on special attack turn:
+(spotlight special attack)
+this turn I will set a special goal, I will do this every 5 rounds
+(spotlight scoreboard)
+in the the future you can hover the score board to see the upcoming attack
+
+
+on multi attack turn:
+(spotlight score tracker)
+this turn I have set a multi score
+instead of losing one life for not reaching the top goal
+you will lose one life for each goal you do not reach
 
 
 Colors:

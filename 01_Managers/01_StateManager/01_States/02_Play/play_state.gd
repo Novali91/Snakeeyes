@@ -24,36 +24,41 @@ const DICE_ROLLS_MINUS_ONE: int = 9 # X
 const WIN_ROUND: int = 10 # X
 
 func setup() -> void:
-	sm.end_turn_button.pressed.connect(_end_turn)
+	sm.end_turn_button.pressed.connect(_end_pressed)
 	sm.hand_manager.drink_drank.connect(play_card)
 
 func enter() -> void:
 	sm.hand_manager.drinks_drinkable = false
 	
-	if GS.in_tutorial:
-		await get_tree().create_timer(1.0).timeout
-		sm.camera_manager.switch_screen(sm.camera_manager.LEFT, true) 
-		
-		await get_tree().create_timer(1.0).timeout
-		sm.refill.play()
-		await sm.deck_manager.reshuffle_drawpile()
-		await get_tree().create_timer(1.0).timeout
-		
-		sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true) 
-		
-		await get_tree().create_timer(2.0).timeout
+	await sm.ability_helper.draw_cards(5, false)
 	
-	sm.ability_helper.draw_cards(5)
-	
-	if GS.in_tutorial:
-		sm.tutorial_manager.start_tutorial()
-		await sm.tutorial_manager.done
+	if GS.tutorial_index == GS.Tutorial.START:
 		await get_tree().create_timer(0.5).timeout
+		await sm.tutorial_manager.start_of_turn_one()
 	
-	var t = create_tween()
-	t.tween_property(sm.attack_manager, "modulate:a", 1.0, 1.0)
+	if GS.tutorial_index == GS.Tutorial.NEXT_TURN:
+		await get_tree().create_timer(0.5).timeout
+		await sm.tutorial_manager.start_of_turn_two()
+	
+	#var t = create_tween()
+	#t.tween_property(sm.attack_manager, "modulate:a", 1.0, 1.0)
+	
+	if GS.tutorial_index == GS.Tutorial.MULTI_GOAL:
+		await get_tree().create_timer(0.5).timeout
+		await sm.tutorial_manager.multi_attack()
+	
+	if GS.tutorial_index == GS.Tutorial.SPECIAL_GOAL:
+		await get_tree().create_timer(0.5).timeout
+		await sm.tutorial_manager.special_attack()
+	
+	
 	
 	sm.hand_manager.drinks_drinkable = true
+	
+	if GS.tutorial_index == GS.Tutorial.START:
+		await sm.hand_manager.hand_empty
+		await sm.tutorial_manager.drinks_drunk()
+	
 	sm.end_turn_button.make_pressable()
 	sm.camera_manager.unlock_camera()
 	
@@ -61,8 +66,7 @@ func enter() -> void:
 		sm.dice_manager.num_scarlets -= 1
 
 func exit() -> void:
-	sm.end_turn_button.stop_pressable()
-	sm.hand_manager.drinks_drinkable = false
+	pass
 
 func process_tick(_delta: float) -> void:
 	pass
@@ -93,8 +97,7 @@ func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkRes
 			sm.charm_overlay.gain_charm(drink.charm, drink_position)
 	
 	if GS.get_poison() >= 13:
-		sm.hand_manager.drinks_drinkable = false
-		sm.hand_manager.end_turn_discard()
+		await _end_turn()
 		sm.switch_state(sm.States.PASS_OUT)
 		return
 	
@@ -124,8 +127,14 @@ func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkRes
 	
 	sm.ability_helper.trigger_ability(drink.special_ability, drink_position, drink, og_drink)
 
+func _end_pressed() -> void:
+	await _end_turn()
+	sm.switch_state(sm.States.POISON_ROLL)
+
 func _end_turn() -> void:
+	sm.end_turn_button.stop_pressable()
 	sm.hand_manager.drinks_drinkable = false
+	
 	if GS.cur_attack_index == END_KILL_SNAKES:
 		sm.camera_manager.lock_camera()
 		sm.camera_manager.switch_screen(sm.camera_manager.LEFT, true)
@@ -133,5 +142,5 @@ func _end_turn() -> void:
 			if drink.attached_drink.parent_snake != null:
 				sm.deck_manager.remove_snake(drink.attached_drink.parent_snake)
 		await get_tree().create_timer(1).timeout
+	
 	sm.hand_manager.end_turn_discard()
-	sm.switch_state(sm.States.POISON_ROLL)

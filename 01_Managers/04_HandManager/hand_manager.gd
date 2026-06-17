@@ -3,6 +3,8 @@ extends Node2D
 
 const _SPAM_TIMEOUT: float = 0.05
 
+signal hand_empty()
+
 var _spam_timer: float = 0
 
 var drinks: Array[Drink]
@@ -56,6 +58,8 @@ func _click_drink(drink: Drink) -> void:
 		tooltip_manager.remove_item(drink, true)
 	else:
 		ability_helper.slide_drink_back(drink)
+	
+	if drinks.size() == 0: hand_empty.emit()
 
 func _delete_drink(drink: Drink) -> void:
 	remove_drink(drink)

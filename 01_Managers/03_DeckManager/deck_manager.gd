@@ -71,7 +71,8 @@ func reshuffle_drawpile() -> void:
 			drink_drawpile.push_back(new_drink)
 			tooltip_manager.add_item(new_drink)
 	
-	shuffle_drawpile()
+	if GS.tutorial_index != GS.Tutorial.START:
+		shuffle_drawpile()
 	pass
 
 func create_drink(drink_resource: DrinkResource, og_drink_resource: DrinkResource, snake: Snake) -> Drink:
