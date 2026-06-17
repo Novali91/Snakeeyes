@@ -30,6 +30,13 @@ signal snake_chosen(snake: Snake)
 var _all_slots: Array[Vector2]
 var _open_slot_inds: Array[int]
 
+## How this works: HomelessPair is a pair of a homeless drink as well as an index
+## This index corresponds to an index in _open_homeless_ind, which in itself corresponds-
+## -to an index of _homeless_slots, which is full of hardcoded positions
+var _homeless_drinks: Dictionary[Drink, int]
+var _homeless_slots: Array[Vector2]
+var _open_homeless_inds: Array[int]
+
 @onready var _venom_drop_texture: Texture = preload("res://05_Assets/01_Art/03_UI_Sprites/poison drop for refill.png")
 @onready var _venom_drops: Node2D = $VenomDrops
 
@@ -38,12 +45,22 @@ func _ready() -> void:
 	_all_slots = []
 	_open_slot_inds = []
 	
+	_homeless_drinks = {}
+	_homeless_slots = []
+	_open_homeless_inds = []
+	const HOMELESS_ARRAY_SIZE: int = 24
+	
 	var i = 0
 	for m: Marker2D in _markers_node.get_children():
 		_all_slots.push_back(m.position)
 		_open_slot_inds.push_back(i)
 		
 		i += 1
+	
+	for index: int in range(HOMELESS_ARRAY_SIZE):
+		_homeless_slots.push_back(Vector2((250+index*68), 1020))
+		_open_homeless_inds.push_back(index)
+		pass
 	
 	tooltip_manager.child_was_clicked.connect(_child_clicked)
 
@@ -52,6 +69,8 @@ func draw(amt: int) -> Array[Drink]:
 	var temp_drink: Drink
 	for i in range(amt):
 		temp_drink = drink_drawpile.pop_back()
+		if _homeless_drinks.has(temp_drink):
+			_remove_homeless_drink(temp_drink)
 		# If the drawpile is empty:
 		if temp_drink == null:
 			return new_array
@@ -115,10 +134,24 @@ func shuffle_drawpile() -> void:
 	pass
 
 func return_to_drawpile(og_drink: DrinkResource, cur_drink: DrinkResource):
-	var new_drink: Drink = create_drink(cur_drink, og_drink, null)
+	var new_drink: Drink = create_drink(cur_drink, og_drink, cur_drink.parent_snake)
+	## Return to drawpile logic
 	drink_drawpile.push_back(new_drink)
 	tooltip_manager.add_item(new_drink)
 	shuffle_drawpile()
+	
+	## Homeless logic - You could check if the snake is null here if you wanted to return it to the snake
+	if _open_homeless_inds.size() == 0:
+		## If there are no slots open at the bottom, it will go to a random position
+		## Note - this drink will NOT be in _homeless_drinks. I don't think this is-
+		## -a problem, but it may be in the future
+		new_drink.position = Vector2(randf_range(220, 1900), 1020)
+	
+	var index: int = _open_homeless_inds.pick_random()
+	
+	_open_homeless_inds.erase(index)
+	_homeless_drinks.get_or_add(new_drink, index)
+	new_drink.position = _homeless_slots.get(index)
 	pass
 
 func _child_clicked(child: DeckItem) -> void:
@@ -142,3 +175,10 @@ func _refill_animation() -> void:
 	await t.finished
 	
 	for d in _venom_drops.get_children(): d.queue_free()
+
+func _remove_homeless_drink(drink: Drink) -> void:
+	var index: int = _homeless_drinks.get(drink)
+	_open_homeless_inds.push_back(index)
+	
+	_homeless_drinks.erase(drink)
+	return
