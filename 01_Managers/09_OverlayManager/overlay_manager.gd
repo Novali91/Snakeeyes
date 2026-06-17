@@ -6,6 +6,7 @@ extends Node2D
 @onready var kill = $Kill
 @onready var dbl_poison = $DoublePoison
 @onready var dbl_strength = $DoubleStrength
+@onready var _slide_back = $SlideBack
 @onready var slide_back_1 = $SlideBack1
 @onready var slide_back_2 = $SlideBack2
 @onready var slide_back_3 = $SlideBack3
@@ -29,6 +30,8 @@ func toggle_dbl_strength(vis) -> void:
 func toggle_slide_back(vis, num) -> void:
 	var slide_back
 	match num:
+		0:
+			slide_back = _slide_back
 		1:
 			slide_back = slide_back_1
 		2:

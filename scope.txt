@@ -18,7 +18,7 @@ antidote stock display
 shop vibe cleanup
 switch exit to restart
 boss incoming special attack / dialogue rework
-homeless drink display
+homeless drink display - Done?
 min deck size popup on remove
 trap beat
 audio balancing
@@ -43,6 +43,8 @@ send 1 back boss attack soft locks
 / spawning a lot of charm all at once lags, need fake fake charm
 can move screen while refilling
 quetzl has charm before strength in text
+
+
 
 
 

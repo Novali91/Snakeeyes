@@ -1,7 +1,7 @@
 class_name CompareStrengthState
 extends TopState
 
-const EXACT_SCORE: int = 6 
+const EXACT_SCORE: int = 1
 
 func setup() -> void:
 	pass

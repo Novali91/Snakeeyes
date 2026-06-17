@@ -12,15 +12,15 @@ extends TopState
 ## On drink, give its snake +1 poison - 8
 ## All dice rolls -1
 
-const EXACT_SCORE: int = 1 # X
-const DRINK_ALL_DRINKS_MINUS_STR: int = 2 # X
-const SWAP_CHARM_STR: int = 3 # X
-const DRINK_DRAW_ONE: int = 4 # X
-const DRINK_SLIDE_BACK: int = 5 # X
-const END_KILL_SNAKES: int = 6 # X
-const SWAP_POISON_CHARM: int = 7 # X
-const DRINK_SNAKE_ONE_POISON: int = 8  # X
-const DICE_ROLLS_MINUS_ONE: int = 9 # X
+const EXACT_SCORE: int = 1 # X Good
+const DRINK_ALL_DRINKS_MINUS_STR: int = 2 # X Good
+const SWAP_CHARM_STR: int = 3 # X Good
+const DRINK_DRAW_ONE: int = 4 # X Good
+const DRINK_SLIDE_BACK: int = 5 # X Good - Change overlay
+const END_KILL_SNAKES: int = 6 # X  Bugged - Needs to move you back to the main screen - Good now maybe?
+const SWAP_POISON_CHARM: int = 7 # X Good
+const DRINK_SNAKE_ONE_POISON: int = 8  # X Good but I think a cat lost its parent?
+const DICE_ROLLS_MINUS_ONE: int = 9 # X Good
 const WIN_ROUND: int = 10 # X
 
 func setup() -> void:
@@ -109,13 +109,14 @@ func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkRes
 			sm.ability_helper.draw_cards(1)
 			
 		DRINK_SLIDE_BACK:
-			sm.overlay_manager.toggle_slide_back(true, 1)
-			
-			var drink_to_slide: Drink = await sm.ability_helper.pick_drink()
-			sm.hand_manager.ability_helper.slide_drink_back(drink_to_slide)
-			sm.deck_manager.return_to_drawpile(drink_to_slide.attached_drink_resource, drink_to_slide.attached_drink)
-			
-			sm.overlay_manager.toggle_slide_back(false, 1)
+			if sm.hand_manager.drinks.size() > 1:
+				sm.overlay_manager.toggle_slide_back(true, 0)
+				
+				var drink_to_slide: Drink = await sm.ability_helper.pick_drink()
+				sm.hand_manager.ability_helper.slide_drink_back(drink_to_slide)
+				sm.deck_manager.return_to_drawpile(drink_to_slide.attached_drink_resource, drink_to_slide.attached_drink)
+				
+				sm.overlay_manager.toggle_slide_back(false, 0)
 		
 		DRINK_SNAKE_ONE_POISON:
 			if drink.parent_snake != null:
@@ -142,5 +143,9 @@ func _end_turn() -> void:
 			if drink.attached_drink.parent_snake != null:
 				sm.deck_manager.remove_snake(drink.attached_drink.parent_snake)
 		await get_tree().create_timer(1).timeout
+		
+		sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
+		sm.camera_manager.unlock_camera()
+		await get_tree().create_timer(1.5).timeout
 	
 	sm.hand_manager.end_turn_discard()
