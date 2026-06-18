@@ -35,7 +35,7 @@ texture = ExtResource("3_xi3mp")
 show_behind_parent = true
 material = SubResource("ShaderMaterial_e48x0")
 position = Vector2(-7.9999995, 196)
-scale = Vector2(1.4687499, 1.21875)
+scale = Vector2(1.4, 1.4)
 texture = SubResource("GradientTexture2D_0odts")
 
 [node name="CountLabel" type="Label" parent="Ticker" unique_id=1235435124]

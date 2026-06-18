@@ -60,7 +60,9 @@ func enter() -> void:
 		await sm.tutorial_manager.drinks_drunk()
 	
 	sm.end_turn_button.make_pressable()
-	sm.camera_manager.unlock_camera()
+	
+	if GS.tutorial_index != GS.Tutorial.START:
+		sm.camera_manager.unlock_camera()
 	
 	if GS.cur_attack_index == DICE_ROLLS_MINUS_ONE:
 		sm.dice_manager.num_scarlets -= 1
@@ -135,6 +137,9 @@ func _end_pressed() -> void:
 func _end_turn() -> void:
 	sm.end_turn_button.stop_pressable()
 	sm.hand_manager.drinks_drinkable = false
+	
+	if GS.tutorial_index == GS.Tutorial.START:
+		await sm.tutorial_manager.end_turn_pressed()
 	
 	if GS.cur_attack_index == END_KILL_SNAKES:
 		sm.camera_manager.lock_camera()

@@ -10,10 +10,15 @@ func setup() -> void:
 	sm.shop_manager.reroll_clicked.connect(_reroll_pressed)
 
 func enter() -> void:
+	## needs fixing
 	_reroll_cost = 1
 	sm.shop_manager.update_reroll(_reroll_cost)
 	
 	sm.camera_manager.switch_screen(sm.camera_manager.RIGHT, true)
+	
+	if GS.tutorial_index == GS.Tutorial.START:
+		await sm.tutorial_manager.entered_shop()
+	
 	sm.camera_manager.unlock_camera()
 	
 	sm.shop_manager.toggle_open(true)

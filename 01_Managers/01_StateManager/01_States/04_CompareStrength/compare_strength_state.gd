@@ -7,6 +7,9 @@ func setup() -> void:
 	pass
 
 func enter() -> void:
+	if GS.tutorial_index == GS.Tutorial.START:
+		await sm.tutorial_manager.compare_strength()
+	
 	var player_str = GS.get_strength()
 	var enemy_str = sm.attack_manager.get_attack().damage
 	

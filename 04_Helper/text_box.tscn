@@ -103,8 +103,6 @@ metadata/_custom_type_script = "uid://ogt7rvwqqrmu"
 libraries/ = SubResource("AnimationLibrary_ppwx1")
 speed_scale = 4.0
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=2115322998]
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2058789362]
 texture = ExtResource("3_fvj50")
 

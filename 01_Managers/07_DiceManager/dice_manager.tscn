@@ -7,11 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://44n8lq26nevn" path="res://05_Assets/01_Art/03_UI_Sprites/dice roll cup spritesheet 500 by 500.png" id="3_cvl4k"]
 [ext_resource type="Shader" uid="uid://0oonfw65mdnr" path="res://05_Assets/02_Shaders/outline.gdshader" id="3_jkwlg"]
 [ext_resource type="Shader" uid="uid://jn4jbiwqebtr" path="res://05_Assets/02_Shaders/oval.gdshader" id="3_u73lx"]
+[ext_resource type="Texture2D" uid="uid://jpcy57wa8geh" path="res://05_Assets/01_Art/03_UI_Sprites/antidote.png" id="6_q5jfh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q5jfh"]
 shader = ExtResource("2_jkwlg")
 shader_parameter/position = Vector2(0, 0)
-shader_parameter/size = 425.0
+shader_parameter/size = Vector2(950, 950)
 shader_parameter/res = Vector2(1920, 1080)
 
 [sub_resource type="LabelSettings" id="LabelSettings_u73lx"]
@@ -21,12 +22,12 @@ font_color = Color(1, 0.7411765, 0.9254902, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gefl3"]
 shader = ExtResource("3_u73lx")
 
-[sub_resource type="Gradient" id="Gradient_ksian"]
+[sub_resource type="Gradient" id="Gradient_q5jfh"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tyl8d"]
-gradient = SubResource("Gradient_ksian")
+gradient = SubResource("Gradient_q5jfh")
 
 [sub_resource type="LabelSettings" id="LabelSettings_q5jfh"]
 font_size = 48
@@ -154,6 +155,102 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PoisonRes:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PoisonLevel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UseAntidoteButton:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ContinueButton:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cup:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Dice1:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Dice2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Bonus:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ummri"]
 resource_name = "close"
@@ -169,6 +266,102 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0.61960787), Color(0, 0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PoisonRes:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PoisonLevel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UseAntidoteButton:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ContinueButton:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cup:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Dice1:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Dice2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Bonus:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_l6sk2"]
 resource_name = "open"
@@ -183,6 +376,102 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(0.35, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.61960787)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PoisonRes:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PoisonLevel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UseAntidoteButton:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ContinueButton:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cup:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Dice1:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Dice2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Bonus:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jkwlg"]
@@ -212,10 +501,11 @@ offset_bottom = 1080.0
 color = Color(0, 0, 0, 0)
 
 [node name="PoisonRes" type="Label" parent="." unique_id=1512454025]
-offset_left = 763.0
-offset_top = 440.0
-offset_right = 944.0
-offset_bottom = 510.0
+custom_minimum_size = Vector2(200, 0)
+offset_left = 660.0
+offset_top = 444.0
+offset_right = 860.0
+offset_bottom = 514.0
 theme_override_fonts/font = ExtResource("2_l6sk2")
 text = "Total:"
 label_settings = SubResource("LabelSettings_u73lx")
@@ -223,9 +513,9 @@ horizontal_alignment = 1
 
 [node name="Input" type="Label" parent="PoisonRes" unique_id=383974154]
 layout_mode = 0
-offset_left = 4.0
+offset_left = 13.0
 offset_top = 30.0
-offset_right = 170.0
+offset_right = 179.0
 offset_bottom = 190.0
 theme_override_colors/font_color = Color(1, 0.7411765, 0.9254902, 1)
 theme_override_fonts/font = ExtResource("2_l6sk2")
@@ -238,15 +528,16 @@ vertical_alignment = 1
 self_modulate = Color(0.1254902, 0.039215688, 0.12941177, 0.7372549)
 show_behind_parent = true
 material = SubResource("ShaderMaterial_gefl3")
-position = Vector2(87, 78)
+position = Vector2(95.99997, 78)
 scale = Vector2(3.5, 3.5)
 texture = SubResource("GradientTexture2D_tyl8d")
 
 [node name="PoisonLevel" type="Label" parent="." unique_id=1724037662]
-offset_left = 1008.0
-offset_top = 441.0
-offset_right = 1189.0
-offset_bottom = 511.0
+custom_minimum_size = Vector2(200, 0)
+offset_left = 1060.0
+offset_top = 444.0
+offset_right = 1260.0
+offset_bottom = 514.0
 theme_override_fonts/font = ExtResource("2_l6sk2")
 text = "Goal:"
 label_settings = SubResource("LabelSettings_q5jfh")
@@ -254,9 +545,9 @@ horizontal_alignment = 1
 
 [node name="Input" type="Label" parent="PoisonLevel" unique_id=607230635]
 layout_mode = 0
-offset_left = 4.0
+offset_left = 14.0
 offset_top = 30.0
-offset_right = 170.0
+offset_right = 180.0
 offset_bottom = 190.0
 theme_override_colors/font_color = Color(1, 0.7411765, 0.9254902, 1)
 theme_override_fonts/font = ExtResource("2_l6sk2")
@@ -269,16 +560,16 @@ vertical_alignment = 1
 self_modulate = Color(0.1254902, 0.039215688, 0.12941177, 0.7372549)
 show_behind_parent = true
 material = SubResource("ShaderMaterial_gefl3")
-position = Vector2(87, 78)
+position = Vector2(97, 78)
 scale = Vector2(3.5, 3.5)
 texture = SubResource("GradientTexture2D_tyl8d")
 
 [node name="UseAntidoteButton" type="Button" parent="." unique_id=1561089080]
 material = SubResource("ShaderMaterial_u73lx")
-offset_left = 618.0
-offset_top = 689.0
-offset_right = 816.0
-offset_bottom = 730.0
+offset_left = 489.0
+offset_top = 648.0
+offset_right = 687.0
+offset_bottom = 689.0
 theme_override_fonts/font = ExtResource("2_l6sk2")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_q5jfh")
@@ -288,12 +579,18 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_tyl8d")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_luswh")
 text = "Use Antidote"
 
+[node name="Sprite2D" type="Sprite2D" parent="UseAntidoteButton" unique_id=442570172]
+show_behind_parent = true
+position = Vector2(105, 16)
+scale = Vector2(2, 2)
+texture = ExtResource("6_q5jfh")
+
 [node name="ContinueButton" type="Button" parent="." unique_id=1599502528]
 material = SubResource("ShaderMaterial_l6sk2")
-offset_left = 1136.0
-offset_top = 685.0
-offset_right = 1270.0
-offset_bottom = 726.0
+offset_left = 1113.0
+offset_top = 310.0
+offset_right = 1247.0
+offset_bottom = 351.0
 theme_override_fonts/font = ExtResource("2_l6sk2")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8rpom")
@@ -304,22 +601,22 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_twwdu")
 text = "Continue"
 
 [node name="Cup" type="AnimatedSprite2D" parent="." unique_id=885028806]
-position = Vector2(411, 368)
+position = Vector2(1021, 705)
 sprite_frames = SubResource("SpriteFrames_tyl8d")
 
 [node name="Dice1" type="AnimatedSprite2D" parent="." unique_id=135930146]
-position = Vector2(820, 934)
+position = Vector2(820, 888)
 sprite_frames = SubResource("SpriteFrames_gefl3")
 
 [node name="Dice2" type="AnimatedSprite2D" parent="." unique_id=61177975]
-position = Vector2(923, 933)
+position = Vector2(923, 887)
 sprite_frames = SubResource("SpriteFrames_gefl3")
 
 [node name="CupLoc" type="Marker2D" parent="." unique_id=385157325]
-position = Vector2(979, 820)
+position = Vector2(1021, 734)
 
 [node name="LabelLoc" type="Marker2D" parent="." unique_id=2033646791]
-position = Vector2(860, 465)
+position = Vector2(946, 465)
 
 [node name="Bonus" type="Label" parent="." unique_id=1421968943]
 offset_left = 892.0

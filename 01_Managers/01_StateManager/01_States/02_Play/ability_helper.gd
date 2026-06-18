@@ -237,10 +237,9 @@ func draw_cards(num: int, unlock_after: bool = true) -> void:
 		if draw_remaining > 0:
 			await _reshuffle_draw_pile()
 	
-	sm.hand_manager.drinks_drinkable = true
-	
 	if unlock_after:
 		sm.camera_manager.unlock_camera()
+		sm.hand_manager.drinks_drinkable = true
 
 func _reshuffle_draw_pile() -> void:
 	sm.camera_manager.switch_screen(sm.camera_manager.LEFT, true)

@@ -34,6 +34,7 @@ pass out goes to arm wrestle after pass out
 click to skip dice roll and arm wrestle
 rarities need to be a little darker / lower sat
 I dont like the flavour text that makes fun of the snake's design (ex: hydra, hognose)
+change "drink" to venom
 
 
 bugs - (?) means I am unsure if it can still happen:
@@ -43,7 +44,7 @@ send 1 back boss attack soft locks
 / spawning a lot of charm all at once lags, need fake fake charm
 can move screen while refilling
 quetzl has charm before strength in text
-
+reroll cost stays until shop phase
 
 
 

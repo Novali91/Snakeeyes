@@ -2,7 +2,7 @@ shader_type canvas_item;
 
 uniform sampler2D noise;
 uniform vec2 position;
-uniform float size;
+uniform vec2 size;
 uniform vec2 res;
 
 void fragment() {
@@ -18,10 +18,10 @@ void fragment() {
 	vec2 pix_pos = uv * res;
 	pix_pos -= position;
 	
-	pix_pos /= res.y;
+	pix_pos /= res.y / 2.;
 	
-	float circ_mask = length(pix_pos) - size / res.y;
-	circ_mask = smoothstep(0., 0.1, circ_mask);
+	float circ_mask = length(pix_pos / (size / res.y)) - 1.;
+	circ_mask = smoothstep(0., 0.2 * (res.y / (length(size) + 0.01)), circ_mask);
 	
 	COLOR.a *= circ_mask;
 	

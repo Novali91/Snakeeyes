@@ -101,7 +101,7 @@ unique_name_in_owner = true
 position = Vector2(2257, 709)
 
 [node name="Lady" parent="." unique_id=827603467 instance=ExtResource("16_wgfe6")]
-position = Vector2(2880, 564)
+position = Vector2(2895, 564)
 
 [node name="Table" type="Sprite2D" parent="." unique_id=1744368899]
 position = Vector2(2880, 540)

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bfx51hdkobah" path="res://01_Managers/12_TutorialManager/tutorial_manager.gd" id="1_lqt02"]
 [ext_resource type="Shader" uid="uid://c4bb8wrsmi7q7" path="res://05_Assets/02_Shaders/spotlight.gdshader" id="2_xd12r"]
+[ext_resource type="PackedScene" uid="uid://b6sevij1iobuf" path="res://04_Helper/text_box.tscn" id="3_6hyme"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6hyme"]
 
@@ -13,7 +14,7 @@ seamless = true
 shader = ExtResource("2_xd12r")
 shader_parameter/noise = SubResource("NoiseTexture2D_dbo7u")
 shader_parameter/position = Vector2(0, 0)
-shader_parameter/size = 300.0
+shader_parameter/size = Vector2(0, 0)
 shader_parameter/res = Vector2(1920, 1080)
 
 [sub_resource type="Animation" id="Animation_xd12r"]
@@ -43,7 +44,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(0.35, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.5058824)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.627451)]
 }
 
 [sub_resource type="Animation" id="Animation_dbo7u"]
@@ -58,7 +59,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(2.857143, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0.5058824), Color(0, 0, 0, 0)]
+"values": [Color(0, 0, 0, 0.627451), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_atl04"]
@@ -68,7 +69,359 @@ _data = {
 &"fade_out": SubResource("Animation_dbo7u")
 }
 
+[sub_resource type="Animation" id="Animation_atl04"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3j5bt"]
+resource_name = "bell"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(710, 275)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(350, 350)]
+}
+
+[sub_resource type="Animation" id="Animation_g4vss"]
+resource_name = "drink_charm"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(-400, 370), Vector2(-200, 370)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(150, 150), Vector2(150, 150)]
+}
+
+[sub_resource type="Animation" id="Animation_0hge1"]
+resource_name = "drink_strength"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(-350, 370), Vector2(-400, 370)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(1000, 300), Vector2(150, 150)]
+}
+
+[sub_resource type="Animation" id="Animation_sxtos"]
+resource_name = "drinks"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(0, -300), Vector2(-350, 370)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(350, 350), Vector2(1000, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_y7nh6"]
+resource_name = "lives"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(-475, 100), Vector2(0, -300)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(300, 300), Vector2(350, 350)]
+}
+
+[sub_resource type="Animation" id="Animation_6vle2"]
+resource_name = "poison"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(150, 150), Vector2(300, 800)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(-200, 370), Vector2(525, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s7htd"]
+resource_name = "shop_antidote"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(-540, 25), Vector2(9, -50)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(300, 300), Vector2(300, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_3tgsu"]
+resource_name = "shop_drink"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(-550, 250), Vector2(-540, 25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(300, 300), Vector2(300, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_um0nm"]
+resource_name = "shop_snake"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-550, 250)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(300, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_ylhyj"]
+resource_name = "strength"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-600, -100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(400, 600)]
+}
+
+[sub_resource type="Animation" id="Animation_e6vq6"]
+resource_name = "tickers"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(-600, -100), Vector2(-475, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(400, 600), Vector2(300, 300)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g4vss"]
+_data = {
+&"RESET": SubResource("Animation_atl04"),
+&"bell": SubResource("Animation_3j5bt"),
+&"drink_charm": SubResource("Animation_g4vss"),
+&"drink_strength": SubResource("Animation_0hge1"),
+&"drinks": SubResource("Animation_sxtos"),
+&"lives": SubResource("Animation_y7nh6"),
+&"poison": SubResource("Animation_6vle2"),
+&"shop_antidote": SubResource("Animation_s7htd"),
+&"shop_drink": SubResource("Animation_3tgsu"),
+&"shop_snake": SubResource("Animation_um0nm"),
+&"strength": SubResource("Animation_ylhyj"),
+&"tickers": SubResource("Animation_e6vq6")
+}
+
 [node name="TutorialManager" type="CanvasLayer" unique_id=131851166]
+layer = 4
 script = ExtResource("1_lqt02")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=327905003]
@@ -79,6 +432,12 @@ offset_bottom = 40.0
 mouse_filter = 2
 color = Color(0.18, 0.18, 0.18, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1586141198]
+[node name="FadePlayer" type="AnimationPlayer" parent="." unique_id=1586141198]
 libraries/ = SubResource("AnimationLibrary_atl04")
 speed_scale = 4.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1722173741]
+libraries/ = SubResource("AnimationLibrary_g4vss")
+
+[node name="TextBox" parent="." unique_id=215385471 instance=ExtResource("3_6hyme")]
+position = Vector2(996, 543)

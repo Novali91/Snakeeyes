@@ -36,6 +36,8 @@ var poison: int
 
 var roll_is_for_poison: bool
 
+var antidote_pressable: bool = true
+
 var antidote_flash_progress: float = 0.0
 @export var antidote_flash_time: float
 var antidote_flashing: bool = false
@@ -43,6 +45,7 @@ var antidote_flashing: bool = false
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 
 var _tutorial_has_rerolled: bool = false
+var in_tutorial: bool = false
 
 func _ready() -> void:
 	visible = false
@@ -69,6 +72,7 @@ func _process(delta: float) -> void:
 			elif _animation_progress < text_appear_time:
 				_cup.position.x = _cup_loc.position.x + (sin((_animation_progress + cup_shake_offset) * cup_shake_frequency))/(_animation_progress+cup_shake_offset)*cup_shake_wavelength
 			elif _animation_progress < bonus_appear_time:
+				number_rolled.emit(_current_value)
 				_cup.frame = 1
 				_dice1.visible = true
 				_dice2.visible = true
@@ -105,7 +109,7 @@ func _ease_out_0_1(x: float) -> float:
 func roll_the_dice(is_poison: bool) -> void:
 	visible = true
 	_animation_player.play("open")
-	await _animation_player.animation_finished
+	#await _animation_player.animation_finished
 	start_roll(is_poison, is_poison)
 
 func start_roll(lower_cup: bool, is_poison: bool) -> void:
@@ -163,12 +167,12 @@ func _roll() -> void:
 			_bonus.text = "+" + str(num_scarlets)
 		else:
 			_bonus.text = str(num_scarlets)
-	number_rolled.emit(_current_value)
+	
 	_dice1.frame = d1val-1
 	_dice2.frame = d2val-1
 
 func _antidote_pressed() -> void:
-	if GS.get_antidote_num() > 0:
+	if GS.get_antidote_num() > 0 and antidote_pressable:
 		antidote_used.emit()
 		GS.set_antidote_num(GS.get_antidote_num() - 1)
 		_reroll()
@@ -177,6 +181,7 @@ func _reroll() -> void:
 	start_roll(false,roll_is_for_poison)
 
 func _continue_pressed() -> void:
+	if in_tutorial: return
 	number_accepted.emit(_current_value)
 
 func _antidote_hovered() -> void:
@@ -186,6 +191,7 @@ func _antidote_unhovered() -> void:
 	_use_antidote_button.material.set_shader_parameter("alpha", 0.0)
 
 func _continue_hovered() -> void:
+	if in_tutorial: return
 	_continue_button.material.set_shader_parameter("alpha", 1.0)
 
 func _continue_unhovered() -> void:

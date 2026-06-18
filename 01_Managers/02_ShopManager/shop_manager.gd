@@ -37,6 +37,8 @@ var _cur_snakes: Array[Snake] = []
 var _labels: Array[CustomNumber] = []
 var antidote_stock: int = 0
 
+var first_stock_tutorial: bool = true
+
 func _ready() -> void:
 	ability_helper.shop_manager = self
 	_tooltip_manager.child_was_clicked.connect(_snake_clicked)
@@ -134,6 +136,16 @@ func _get_snakes(num: int) -> Array[SnakeResource]:
 				new_snake = GS.common_snakes.pick_random()
 		
 		arr.push_back(new_snake)
+	
+	if GS.tutorial_index == GS.Tutorial.START and first_stock_tutorial:
+		first_stock_tutorial = false
+		arr = [
+			GS.common_snakes[0],
+			GS.common_snakes[1],
+			GS.common_snakes[2],
+			GS.common_snakes[3],
+			GS.rare_snakes[5]
+		]
 	
 	return arr
 

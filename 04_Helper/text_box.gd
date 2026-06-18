@@ -5,7 +5,7 @@ signal clicked_close()
 signal done_typing()
 signal finished_closing()
 
-const _PER_CHARACTER_SPEED: float = 0.06
+const _PER_CHARACTER_SPEED: float = 0.01
 const _WAIT_TIME: float = 0.05
 
 @export var text_array: Array[String]
@@ -23,10 +23,6 @@ var _opening: bool = true
 
 func _ready() -> void:
 	_arrow.visible = false
-	_animation_player.play("open")
-	await _animation_player.animation_finished
-	_opening = false
-	_reveal_text()
 
 func _process(delta: float) -> void:
 	if _opening: return
@@ -59,12 +55,25 @@ func _process(delta: float) -> void:
 	_wait_timer -= delta
 	_typing_timer -= delta
 
-func close() -> void:
+func update() -> void:
+	_text_ind = 0
+	_waiting = false
+	_reveal_text()
+
+func open() -> void:
+	_text_ind = 0
 	_text_label.text = ""
+	_animation_player.play("open")
+	await _animation_player.animation_finished
+	_opening = false
+	_waiting = false
+	_reveal_text()
+
+func close() -> void:
+	_opening = true
 	_animation_player.play("close")
 	await _animation_player.animation_finished
 	finished_closing.emit()
-	queue_free()
 
 func set_text_array(arr: Array[String]) -> void:
 	text_array = arr
