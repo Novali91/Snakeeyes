@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b6sevij1iobuf"]
 
 [ext_resource type="Script" uid="uid://ogt7rvwqqrmu" path="res://04_Helper/text_box.gd" id="1_k3i5s"]
+[ext_resource type="Shader" uid="uid://jn4jbiwqebtr" path="res://05_Assets/02_Shaders/oval.gdshader" id="2_gqwg2"]
 [ext_resource type="Texture2D" uid="uid://cos6eysksfv30" path="res://05_Assets/01_Art/03_UI_Sprites/left_arrow.png" id="2_ppwx1"]
-[ext_resource type="Texture2D" uid="uid://br34g5natnbnl" path="res://05_Assets/01_Art/03_UI_Sprites/speech bubblw.png" id="3_fvj50"]
 [ext_resource type="FontFile" uid="uid://c6xfa0o2h2ssc" path="res://05_Assets/05_Fonts/OldNewspaperTypes.ttf" id="4_gqwg2"]
 
 [sub_resource type="Animation" id="Animation_fvj50"]
@@ -57,6 +57,16 @@ _data = {
 &"open": SubResource("Animation_k3i5s")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lorbo"]
+shader = ExtResource("2_gqwg2")
+
+[sub_resource type="Gradient" id="Gradient_rx5q3"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fkhuf"]
+gradient = SubResource("Gradient_rx5q3")
+
 [sub_resource type="Animation" id="Animation_gqwg2"]
 length = 0.001
 tracks/0/type = "value"
@@ -104,19 +114,17 @@ libraries/ = SubResource("AnimationLibrary_ppwx1")
 speed_scale = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2058789362]
-texture = ExtResource("3_fvj50")
+material = SubResource("ShaderMaterial_lorbo")
+scale = Vector2(10, 5)
+texture = SubResource("GradientTexture2D_fkhuf")
 
-[node name="Text" type="RichTextLabel" parent="Sprite2D" unique_id=800317632]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -93.0
-offset_top = -153.0
-offset_right = -539.0
-offset_bottom = -433.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+[node name="Text" type="RichTextLabel" parent="." unique_id=800317632]
+custom_minimum_size = Vector2(550, 300)
+offset_left = -275.0
+offset_top = -150.0
+offset_right = 275.0
+offset_bottom = 150.0
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("4_gqwg2")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true

@@ -10,7 +10,7 @@ const _WAIT_TIME: float = 0.05
 
 @export var text_array: Array[String]
 
-@onready var _text_label: RichTextLabel = $Sprite2D/Text
+@onready var _text_label: RichTextLabel = $Text
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 @onready var _arrow: Sprite2D = $Arrow
 
@@ -20,9 +20,6 @@ var _text_ind: int = 0
 var _waiting: bool = false
 var _typing_timer: float = 0
 var _opening: bool = true
-
-func _ready() -> void:
-	_arrow.visible = false
 
 func _process(delta: float) -> void:
 	if _opening: return
@@ -61,6 +58,7 @@ func update() -> void:
 	_reveal_text()
 
 func open() -> void:
+	_arrow.visible = false
 	_text_ind = 0
 	_text_label.text = ""
 	_animation_player.play("open")

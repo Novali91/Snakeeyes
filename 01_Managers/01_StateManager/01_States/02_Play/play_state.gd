@@ -47,10 +47,6 @@ func enter() -> void:
 		await get_tree().create_timer(0.5).timeout
 		await sm.tutorial_manager.multi_attack()
 	
-	if GS.tutorial_index == GS.Tutorial.SPECIAL_GOAL:
-		await get_tree().create_timer(0.5).timeout
-		await sm.tutorial_manager.special_attack()
-	
 	
 	
 	sm.hand_manager.drinks_drinkable = true

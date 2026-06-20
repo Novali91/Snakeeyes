@@ -24,8 +24,6 @@ func enter() -> void:
 			GS.tutorial_index = GS.Tutorial.START
 		elif GS.turn_count == 1:
 			GS.tutorial_index = GS.Tutorial.NEXT_TURN
-		elif sm.attack_manager.get_attack().ability_index != 0:
-			GS.tutorial_index = GS.Tutorial.SPECIAL_GOAL
 		elif sm.attack_manager.get_attack().damage.size() > 1:
 			GS.tutorial_index = GS.Tutorial.MULTI_GOAL
 	

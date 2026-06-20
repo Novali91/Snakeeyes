@@ -19,7 +19,6 @@ enum Tutorial {
 	START,
 	NEXT_TURN,
 	MULTI_GOAL,
-	SPECIAL_GOAL
 }
 
 var tutorial_index: int = Tutorial.NONE

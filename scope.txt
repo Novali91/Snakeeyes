@@ -13,7 +13,7 @@ camera move sound (?)
 
 implementation:
 full tutorial with spotlight effect and multiple rounds
-dice roll animation polish
+dice roll polish
 antidote stock display
 shop vibe cleanup
 switch exit to restart

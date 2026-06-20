@@ -20,6 +20,7 @@ func enter() -> void:
 		await sm.tutorial_manager.dice_rolled()
 		sm.dice_manager.antidote_pressable = true
 		await sm.dice_manager.antidote_used
+		print("???")
 		sm.dice_manager.in_tutorial = false
 	
 	var num: int = await sm.dice_manager.number_accepted

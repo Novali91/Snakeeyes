@@ -72,6 +72,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_g77s8")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_orwsp")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_7c65d")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cn0lp")
+action_mode = 0
 text = "End Turn"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=158398868]

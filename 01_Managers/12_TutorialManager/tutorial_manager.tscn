@@ -96,6 +96,62 @@ tracks/1/keys = {
 "values": [Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_kisxc"]
+resource_name = "arrow_collection"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(850, 0), Vector2(-850, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(200, 200), Vector2(200, 200)]
+}
+
+[sub_resource type="Animation" id="Animation_ubbip"]
+resource_name = "arrow_shop"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(850, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(200, 200)]
+}
+
 [sub_resource type="Animation" id="Animation_3j5bt"]
 resource_name = "bell"
 length = 0.001
@@ -122,6 +178,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(350, 350)]
+}
+
+[sub_resource type="Animation" id="Animation_15ad7"]
+resource_name = "boss_hover"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(-850, 0), Vector2(0, -350)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(200, 200), Vector2(350, 350)]
 }
 
 [sub_resource type="Animation" id="Animation_g4vss"]
@@ -236,6 +320,34 @@ tracks/1/keys = {
 "values": [Vector2(300, 300), Vector2(350, 350)]
 }
 
+[sub_resource type="Animation" id="Animation_fvr7w"]
+resource_name = "multi_attack"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-475, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(300, 300)]
+}
+
 [sub_resource type="Animation" id="Animation_6vle2"]
 resource_name = "poison"
 length = 0.25
@@ -318,6 +430,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(0.35, 1),
 "update": 0,
 "values": [Vector2(300, 300), Vector2(300, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_qlspe"]
+resource_name = "shop_exit"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(9, -50), Vector2(9, -400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(300, 300), Vector2(400, 400)]
 }
 
 [sub_resource type="Animation" id="Animation_um0nm"]
@@ -407,14 +547,19 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g4vss"]
 _data = {
 &"RESET": SubResource("Animation_atl04"),
+&"arrow_collection": SubResource("Animation_kisxc"),
+&"arrow_shop": SubResource("Animation_ubbip"),
 &"bell": SubResource("Animation_3j5bt"),
+&"boss_hover": SubResource("Animation_15ad7"),
 &"drink_charm": SubResource("Animation_g4vss"),
 &"drink_strength": SubResource("Animation_0hge1"),
 &"drinks": SubResource("Animation_sxtos"),
 &"lives": SubResource("Animation_y7nh6"),
+&"multi_attack": SubResource("Animation_fvr7w"),
 &"poison": SubResource("Animation_6vle2"),
 &"shop_antidote": SubResource("Animation_s7htd"),
 &"shop_drink": SubResource("Animation_3tgsu"),
+&"shop_exit": SubResource("Animation_qlspe"),
 &"shop_snake": SubResource("Animation_um0nm"),
 &"strength": SubResource("Animation_ylhyj"),
 &"tickers": SubResource("Animation_e6vq6")
@@ -441,3 +586,17 @@ libraries/ = SubResource("AnimationLibrary_g4vss")
 
 [node name="TextBox" parent="." unique_id=215385471 instance=ExtResource("3_6hyme")]
 position = Vector2(996, 543)
+
+[node name="Markers" type="Node2D" parent="." unique_id=233400172]
+
+[node name="TopRight" type="Marker2D" parent="Markers" unique_id=93541396]
+position = Vector2(1440, 370)
+
+[node name="Center" type="Marker2D" parent="Markers" unique_id=1118450105]
+position = Vector2(960, 540)
+
+[node name="TopCenter" type="Marker2D" parent="Markers" unique_id=2039824648]
+position = Vector2(960, 230)
+
+[node name="TopLeft" type="Marker2D" parent="Markers" unique_id=9098558]
+position = Vector2(480, 370)
