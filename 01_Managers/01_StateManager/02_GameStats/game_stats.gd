@@ -21,7 +21,7 @@ enum Tutorial {
 	MULTI_GOAL,
 }
 
-var tutorial_index: int = Tutorial.NONE
+var tutorial_index: int = Tutorial.SKIPPED
 
 var turn_count: int = 0
 

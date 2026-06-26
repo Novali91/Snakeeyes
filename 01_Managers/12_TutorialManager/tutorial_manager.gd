@@ -287,6 +287,8 @@ func start_of_turn_two() -> void:
 func multi_attack() -> void:
 	print("multi_attack")
 	
+	_tb.global_position = $Markers/Center.global_position
+	
 	_ap.play("multi_attack")
 	_open()
 	

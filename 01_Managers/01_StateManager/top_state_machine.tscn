@@ -27,8 +27,11 @@
 [ext_resource type="PackedScene" uid="uid://c6q0pm414jrde" path="res://01_Managers/12_TutorialManager/tutorial_manager.tscn" id="24_dxdvi"]
 [ext_resource type="PackedScene" uid="uid://dcac3rjwq26kc" path="res://01_Managers/09_OverlayManager/overlay_manager.tscn" id="25_gwsv7"]
 [ext_resource type="PackedScene" uid="uid://dre8t8sp8st3f" path="res://01_Managers/11_SoundManager/sound_manager.tscn" id="28_u5576"]
+[ext_resource type="Texture2D" uid="uid://jpcy57wa8geh" path="res://05_Assets/01_Art/03_UI_Sprites/antidote.png" id="30_ahk7q"]
 [ext_resource type="AudioStream" uid="uid://1isvfq1xksxj" path="res://05_Assets/03_SoundEffects/newsounds/drink.wav" id="30_dxdvi"]
 [ext_resource type="AudioStream" uid="uid://xuve1fgqx2i4" path="res://05_Assets/03_SoundEffects/newsounds/fill.wav" id="30_vijnp"]
+[ext_resource type="Texture2D" uid="uid://d2qk48jga025i" path="res://05_Assets/01_Art/05_Drinks/amphisbaena drink.png" id="31_1kutn"]
+[ext_resource type="Texture2D" uid="uid://btq2gfbyox1nf" path="res://05_Assets/01_Art/05_Drinks/asclepius snake drink.png" id="32_ob74p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2a4np"]
 font_size = 175
@@ -218,3 +221,16 @@ stream = SubResource("AudioStreamRandomizer_ahk7q")
 stream = SubResource("AudioStreamRandomizer_vijnp")
 volume_db = -10.0
 pitch_scale = 1.5
+
+[node name="Antidote" type="Sprite2D" parent="." unique_id=162297573]
+position = Vector2(3306, 894)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("30_ahk7q")
+
+[node name="AmphisbaenaDrink" type="Sprite2D" parent="." unique_id=46737859]
+position = Vector2(2710, 883)
+texture = ExtResource("31_1kutn")
+
+[node name="AsclepiusSnakeDrink" type="Sprite2D" parent="." unique_id=425786759]
+position = Vector2(2916, 880)
+texture = ExtResource("32_ob74p")
