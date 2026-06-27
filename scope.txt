@@ -1,17 +1,3 @@
-art:
-need smaller ticker sprites
-win screen
-lose screen
-pause screen
-title screen w title
-new text box
-
-sounds:
-end turn bell
-choose drink sound
-camera move sound (?)
-hover and press on dice buttons
-
 implementation:
 / full tutorial with spotlight effect and multiple rounds
 / dice roll polish
@@ -26,6 +12,15 @@ implementation:
 sound effects
 audio balancing
 
+sounds:
+end turn bell
+choose drink sound
+camera move sound (?)
+hover and press on dice buttons
+player should also get a thump in arm wrestling
+need feedback for speeding up dice / arm wrestling animation
+typing sound
+
 joey ?
 boss incoming special attack / dialogue rework
 homeless drink display - Done?
@@ -33,13 +28,14 @@ min deck size popup on remove
 
 polish ideas:
 buying king cobra on 24 snakes will remove only 2 snakes
-lives look cramped
+Everything gets a specific overlay (eg King Cobra should say pick a snake to kill and gain its strength and charm 1/2 and 2/2)
+Maybe also rework how overlays look in particular
+add variable camera speeds, AD camera is fast, effect camera is slower
 / pass out goes to arm wrestle after pass out
 / click to skip dice roll and arm wrestle
 / rarities need to be a little darker / lower sat
 / change "drink" to venom
-Everything gets a specific overlay (eg King Cobra should say pick a snake to kill and gain its strength and charm 1/2 and 2/2)
-Maybe also rework how overlays look in particular
+/ lives look cramped
 
 
 bugs:
@@ -48,6 +44,16 @@ bugs:
 / can move screen while refilling
 / quetzl has charm before strength in text
 / reroll cost stays until shop phase
+
+
+
+
+
+
+
+########################################### OTHER STUFF ###########################################
+
+
 
 
 
