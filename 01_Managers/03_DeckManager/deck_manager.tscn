@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://q10a3yaatp0q" path="res://05_Assets/01_Art/02_Backgrounds/snake box sprite.png" id="4_ckda5"]
 [ext_resource type="Script" uid="uid://cfqx3dcaojqrs" path="res://03_VisualInputOutput/01_ScoreBar/custom_number.gd" id="5_8adeo"]
 [ext_resource type="FontFile" uid="uid://c6xfa0o2h2ssc" path="res://05_Assets/05_Fonts/OldNewspaperTypes.ttf" id="5_hi3y2"]
+[ext_resource type="PackedScene" uid="uid://cemkqlju26qyg" path="res://03_VisualInputOutput/06_AntidoteCount/antidote_count.tscn" id="7_qsyvk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ckda5"]
 font = ExtResource("5_hi3y2")
@@ -134,3 +135,6 @@ starting_number = 24
 min_digits = 2
 digit_spacing = -20.0
 metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
+
+[node name="AntidoteCount" parent="." unique_id=1943998165 instance=ExtResource("7_qsyvk")]
+position = Vector2(138, 921)

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cemkqlju26qyg"]
 
 [ext_resource type="Script" uid="uid://dk0r4o7wi2pac" path="res://03_VisualInputOutput/06_AntidoteCount/antidote_count.gd" id="1_70ru4"]
-[ext_resource type="Texture2D" uid="uid://jpcy57wa8geh" path="res://05_Assets/01_Art/03_UI_Sprites/antidote.png" id="2_4g85h"]
 [ext_resource type="Shader" uid="uid://bhquntxn4j6eo" path="res://05_Assets/02_Shaders/shadow.gdshader" id="2_h344f"]
-[ext_resource type="FontFile" uid="uid://c6xfa0o2h2ssc" path="res://05_Assets/05_Fonts/OldNewspaperTypes.ttf" id="3_h344f"]
+[ext_resource type="Texture2D" uid="uid://cwll1r6bmapgd" path="res://05_Assets/01_Art/03_UI_Sprites/newAntidote.png" id="3_h344f"]
+[ext_resource type="Script" uid="uid://cfqx3dcaojqrs" path="res://03_VisualInputOutput/01_ScoreBar/custom_number.gd" id="4_0nks8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0nks8"]
 shader = ExtResource("2_h344f")
@@ -21,23 +21,19 @@ script = ExtResource("1_70ru4")
 metadata/_custom_type_script = "uid://dk0r4o7wi2pac"
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1700470908]
-self_modulate = Color(0.14, 0.14, 0.14, 1)
+self_modulate = Color(0.12, 0.076799996, 0.10344, 1)
 material = SubResource("ShaderMaterial_0nks8")
-position = Vector2(-2.5000038, 53.5)
-scale = Vector2(2.015625, 0.890625)
+position = Vector2(-2, 101)
+scale = Vector2(1.9218749, 0.99999976)
 texture = SubResource("GradientTexture2D_qvukw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1408034159]
-texture = ExtResource("2_4g85h")
+position = Vector2(8, -9)
+texture = ExtResource("3_h344f")
 
-[node name="Label" type="Label" parent="." unique_id=1107075246]
-modulate = Color(1, 0.9666667, 0, 1)
-offset_left = -32.0
-offset_top = -14.0
-offset_right = 20.0
-offset_bottom = 30.0
-theme_override_fonts/font = ExtResource("3_h344f")
-theme_override_font_sizes/font_size = 32
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="CustomNumber" type="Node2D" parent="." unique_id=1426358120]
+modulate = Color(1, 0.5803922, 0.9647059, 1)
+position = Vector2(0, -11)
+script = ExtResource("4_0nks8")
+min_digits = 1
+metadata/_custom_type_script = "uid://cfqx3dcaojqrs"

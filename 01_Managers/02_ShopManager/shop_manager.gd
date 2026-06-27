@@ -28,6 +28,8 @@ var antidote_position: Vector2
 
 @onready var reroll_button: Button = $RerollButton
 @onready var antidote: Sprite2D = $Antidote
+@onready var _reroll_cost: CustomNumber = $RerollButton/CustomNumber
+@onready var _reroll_player: AnimationPlayer = $RerollButton/AnimationPlayer
 
 var _actual_parrot: SnakeResource
 
@@ -189,9 +191,11 @@ func _reroll_pressed() -> void:
 	reroll_clicked.emit()
 
 func update_reroll(cost: int) -> void:
-	reroll_button.text = "Reroll (" + str(cost) + ")"
+	_reroll_cost.set_value(cost)
+	_reroll_player.play("reroll")
 
 func _reroll_hovered() -> void:
+	if not can_buy: return
 	_reroll_sign.material.set_shader_parameter("color", Color(1.0, 0.921, 0.41, 1.0))
 
 func _reroll_unhovered() -> void:

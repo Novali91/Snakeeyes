@@ -12,10 +12,10 @@ choose drink sound
 camera move sound (?)
 
 implementation:
-full tutorial with spotlight effect and multiple rounds
-dice roll polish
-antidote stock display
-shop vibe cleanup
+/ full tutorial with spotlight effect and multiple rounds
+/ dice roll polish
+/ antidote stock display
+/ shop vibe cleanup
 switch exit to restart
 boss incoming special attack / dialogue rework
 homeless drink display - Done?

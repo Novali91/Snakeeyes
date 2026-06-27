@@ -69,11 +69,12 @@ func _reroll_pressed() -> void:
 	if GS.get_charm() < _reroll_cost: return
 	
 	GS.set_charm(GS.get_charm() - _reroll_cost)
-	sm.charm_overlay.spend_charm(_reroll_cost, sm.shop_manager.reroll_button.global_position)
+	sm.charm_overlay.spend_charm(_reroll_cost, sm.shop_manager.reroll_button.global_position + Vector2(98, 115))
 	
 	_reroll_cost += 1
 	sm.shop_manager.update_reroll(_reroll_cost)
 	
 	sm.shop_manager.empty_shop()
 	sm.shop_manager.fill_shop()
+	
 	

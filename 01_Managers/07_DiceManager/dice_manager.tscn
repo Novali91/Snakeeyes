@@ -7,7 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://44n8lq26nevn" path="res://05_Assets/01_Art/03_UI_Sprites/dice roll cup spritesheet 500 by 500.png" id="3_cvl4k"]
 [ext_resource type="Shader" uid="uid://0oonfw65mdnr" path="res://05_Assets/02_Shaders/outline.gdshader" id="3_jkwlg"]
 [ext_resource type="Shader" uid="uid://jn4jbiwqebtr" path="res://05_Assets/02_Shaders/oval.gdshader" id="3_u73lx"]
-[ext_resource type="Texture2D" uid="uid://jpcy57wa8geh" path="res://05_Assets/01_Art/03_UI_Sprites/antidote.png" id="6_q5jfh"]
+[ext_resource type="Texture2D" uid="uid://bnoey6jk7qjs1" path="res://05_Assets/01_Art/03_UI_Sprites/useantidotebutton.png" id="5_q5jfh"]
+[ext_resource type="Texture2D" uid="uid://b5dsen1cqsu4x" path="res://05_Assets/01_Art/03_UI_Sprites/continuebutton.png" id="6_gefl3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q5jfh"]
 shader = ExtResource("2_jkwlg")
@@ -22,24 +23,16 @@ font_color = Color(1, 0.7411765, 0.9254902, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gefl3"]
 shader = ExtResource("3_u73lx")
 
-[sub_resource type="Gradient" id="Gradient_q5jfh"]
+[sub_resource type="Gradient" id="Gradient_gefl3"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tyl8d"]
-gradient = SubResource("Gradient_q5jfh")
+gradient = SubResource("Gradient_gefl3")
 
 [sub_resource type="LabelSettings" id="LabelSettings_q5jfh"]
 font_size = 48
 font_color = Color(1, 0.7411765, 0.9254902, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u73lx"]
-shader = ExtResource("3_jkwlg")
-shader_parameter/sprite_alpha = 1.0
-shader_parameter/color = Color(1, 0.58000004, 0.909, 1)
-shader_parameter/alpha = 0.0
-shader_parameter/thickness = 0.002000000095
-shader_parameter/x_over_y = 1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q5jfh"]
 
@@ -51,13 +44,13 @@ shader_parameter/x_over_y = 1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_luswh"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l6sk2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ksian"]
 shader = ExtResource("3_jkwlg")
 shader_parameter/sprite_alpha = 1.0
-shader_parameter/color = Color(1, 0.58000004, 0.85300004, 1)
+shader_parameter/color = Color(1, 0.49, 0.94049996, 1)
 shader_parameter/alpha = 0.0
-shader_parameter/thickness = 0.002000000095
-shader_parameter/x_over_y = 1.0
+shader_parameter/thickness = 0.02800000133
+shader_parameter/x_over_y = 2.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rpom"]
 
@@ -68,6 +61,14 @@ shader_parameter/x_over_y = 1.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sjddo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_twwdu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tyl8d"]
+shader = ExtResource("3_jkwlg")
+shader_parameter/sprite_alpha = 1.0
+shader_parameter/color = Color(1, 0.8923333, 0.62, 1)
+shader_parameter/alpha = 0.0
+shader_parameter/thickness = 0.02800000133
+shader_parameter/x_over_y = 2.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gefl3"]
 atlas = ExtResource("3_cvl4k")
@@ -481,6 +482,156 @@ _data = {
 &"open": SubResource("Animation_l6sk2")
 }
 
+[sub_resource type="Animation" id="Animation_gefl3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UseAntidoteButton/Sprite2D:material:shader_parameter/sprite_alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UseAntidoteButton/Sprite2D:material:shader_parameter/color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.49, 0.94049996, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UseAntidoteButton/Sprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ContinueButton/Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UseAntidoteButton/Sprite2D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ksian"]
+resource_name = "need_antidote"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UseAntidoteButton/Sprite2D:material:shader_parameter/color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0.22000003, 0.22000003, 1), Color(1, 0.49, 0.94049996, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UseAntidoteButton/Sprite2D:material:shader_parameter/sprite_alpha")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UseAntidoteButton/Sprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0.3882353, 0.3882353, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UseAntidoteButton/Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.03490658503988659, 0.03490658503988659]
+}
+
+[sub_resource type="Animation" id="Animation_tyl8d"]
+resource_name = "should_continue"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UseAntidoteButton/Sprite2D:material:shader_parameter/sprite_alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5000000074506]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ContinueButton/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.03490658503988659, -0.03490658503988659, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_luswh"]
+_data = {
+&"RESET": SubResource("Animation_gefl3"),
+&"need_antidote": SubResource("Animation_ksian"),
+&"should_continue": SubResource("Animation_tyl8d")
+}
+
 [node name="DiceManager" type="CanvasLayer" unique_id=377975783]
 script = ExtResource("1_2k3sa")
 animation_time = 5.5
@@ -490,7 +641,6 @@ bonus_appear_time = 3.8
 cup_shake_frequency = 50.0
 cup_shake_wavelength = 15.0
 cup_shake_offset = -0.7
-antidote_flash_time = 0.25
 metadata/_custom_type_script = "uid://bm0r4ar0bjg1l"
 
 [node name="Cover" type="ColorRect" parent="." unique_id=563285309]
@@ -565,11 +715,10 @@ scale = Vector2(3.5, 3.5)
 texture = SubResource("GradientTexture2D_tyl8d")
 
 [node name="UseAntidoteButton" type="Button" parent="." unique_id=1561089080]
-material = SubResource("ShaderMaterial_u73lx")
-offset_left = 489.0
-offset_top = 648.0
-offset_right = 687.0
-offset_bottom = 689.0
+offset_left = 247.0
+offset_top = 675.0
+offset_right = 597.0
+offset_bottom = 825.0
 theme_override_fonts/font = ExtResource("2_l6sk2")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_q5jfh")
@@ -577,20 +726,17 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_gefl3")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ksian")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_tyl8d")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_luswh")
-text = "Use Antidote"
 
 [node name="Sprite2D" type="Sprite2D" parent="UseAntidoteButton" unique_id=442570172]
-show_behind_parent = true
-position = Vector2(105, 16)
-scale = Vector2(2, 2)
-texture = ExtResource("6_q5jfh")
+material = SubResource("ShaderMaterial_ksian")
+position = Vector2(175, 75)
+texture = ExtResource("5_q5jfh")
 
 [node name="ContinueButton" type="Button" parent="." unique_id=1599502528]
-material = SubResource("ShaderMaterial_l6sk2")
-offset_left = 1113.0
-offset_top = 310.0
-offset_right = 1247.0
-offset_bottom = 351.0
+offset_left = 1357.0
+offset_top = 675.0
+offset_right = 1757.0
+offset_bottom = 825.0
 theme_override_fonts/font = ExtResource("2_l6sk2")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8rpom")
@@ -598,7 +744,11 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_w8dio")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_sbq6a")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_sjddo")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_twwdu")
-text = "Continue"
+
+[node name="Sprite2D" type="Sprite2D" parent="ContinueButton" unique_id=366912568]
+material = SubResource("ShaderMaterial_tyl8d")
+position = Vector2(218, 75)
+texture = ExtResource("6_gefl3")
 
 [node name="Cup" type="AnimatedSprite2D" parent="." unique_id=885028806]
 position = Vector2(1021, 705)
@@ -629,3 +779,7 @@ theme_override_font_sizes/font_size = 30
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=652366418]
 libraries/ = SubResource("AnimationLibrary_jkwlg")
 speed_scale = 10.0
+
+[node name="FlashPlayer" type="AnimationPlayer" parent="." unique_id=1559689500]
+libraries/ = SubResource("AnimationLibrary_luswh")
+speed_scale = 4.0

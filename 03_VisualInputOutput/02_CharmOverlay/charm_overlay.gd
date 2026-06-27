@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 			t.spent_dist -= t.vel.length() * delta
 			if t.spent_dist <= 0:
 				_all_tokens.erase(t)
-				t.queue_free()
+				t.die()
 				GS.sound_manager.play_charm()
 				continue
 		
@@ -60,7 +60,7 @@ func _process(delta: float) -> void:
 			var delete_fake = t.vel.dot(dir_to_bundle) < 0 and t.is_fake
 			if t.global_position.distance_to(_bundle.global_position) < 200 and delete_fake:
 				_all_tokens.erase(t)
-				t.queue_free()
+				t.die()
 		
 		else:
 			t.spent_timer -= delta
@@ -109,7 +109,7 @@ func gain_charm(val: int, pos: Vector2) -> void:
 		var new_token: CharmToken = _token_scene.instantiate()
 		new_token.evil_collided.connect(_evil_collision)
 		new_token.evil = is_neg
-		new_token.global_position = pos
+		new_token.global_position = pos + Vector2(randf_range(0, 30), 0).rotated(randf() * TAU)
 		new_token.wait_timer = i * wait_time
 		new_token.after_timer = randf_range(0., 0.05)
 		new_token.is_fake = fake
@@ -155,14 +155,14 @@ func spend_charm(val: int, pos: Vector2) -> void:
 			fake_count += 1
 		
 		spent_token.spent = true
-		spent_token.send_to(pos)
+		spent_token.send_to(pos + Vector2(randf_range(0, 30), 0).rotated(randf() * TAU))
 		spent_token.vel = Vector2.ZERO
 		spent_token.spent_timer = i * wait_time
 
 func clear_charm() -> void:
 	for t: CharmToken in _tokens:
 		_all_tokens.erase(t)
-		t.queue_free()
+		t.die()
 	
 	_tokens = []
 	_current_charm_count = 0
@@ -180,5 +180,5 @@ func _evil_collision(me: CharmToken, other: CharmToken) -> void:
 	_tokens.erase(other)
 	_all_tokens.erase(me)
 	_all_tokens.erase(other)
-	me.queue_free()
-	other.queue_free()
+	me.die()
+	other.die()

@@ -18,6 +18,9 @@ signal closed()
 @onready var _cup: AnimatedSprite2D = $Cup
 @onready var _cup_loc: Marker2D = $CupLoc
 @onready var _label_loc: Marker2D = $LabelLoc
+@onready var _anti_sprite: Sprite2D = $UseAntidoteButton/Sprite2D
+@onready var _cont_sprite: Sprite2D = $ContinueButton/Sprite2D
+@onready var _flash_player: AnimationPlayer = $FlashPlayer
 
 var _animation_progress = -1.0
 @export var animation_time: float
@@ -38,9 +41,12 @@ var roll_is_for_poison: bool
 
 var antidote_pressable: bool = true
 
-var antidote_flash_progress: float = 0.0
-@export var antidote_flash_time: float
-var antidote_flashing: bool = false
+var _has_picked_flash_anim: bool = false
+
+#
+#var antidote_flash_progress: float = 0.0
+#@export var antidote_flash_time: float
+#var antidote_flashing: bool = false
 
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -57,13 +63,13 @@ func _ready() -> void:
 	_continue_button.mouse_exited.connect(_continue_unhovered)
 
 func _process(delta: float) -> void:
-	antidote_flash_progress += delta
-	if antidote_flashing and antidote_flash_progress > antidote_flash_time:
-		antidote_flash_progress = 0.0
-		if _use_antidote_button.modulate == Color.RED:
-			_use_antidote_button.modulate = Color.WHITE
-		else:
-			_use_antidote_button.modulate = Color.RED
+	#antidote_flash_progress += delta
+	#if antidote_flashing and antidote_flash_progress > antidote_flash_time:
+		#antidote_flash_progress = 0.0
+		#if _use_antidote_button.modulate == Color.RED:
+			#_use_antidote_button.modulate = Color.WHITE
+		#else:
+			#_use_antidote_button.modulate = Color.RED
 	if _animation_progress >= 0 and _animation_progress < animation_time:
 		_animation_progress += delta
 		if _animation_progress > cup_lower_time:
@@ -86,15 +92,26 @@ func _process(delta: float) -> void:
 				_p_res_input.text = str(_current_value)
 				_bonus.visible = true
 				_bonus.position.y = _label_loc.position.y + 100 - 30 * _ease_out_0_1((_animation_progress-bonus_appear_time)/(animation_time-bonus_appear_time))
+				_use_antidote_button.visible = true
 				_continue_button.visible = true
-				_use_antidote_button.modulate = Color.WHITE
-				antidote_flashing = false
-				if _current_value >= poison:
-					_use_antidote_button.visible = false
-				else:
-					_use_antidote_button.visible = true
-					antidote_flashing = true
-					_use_antidote_button.modulate = Color.RED
+				if not _has_picked_flash_anim:
+					_has_picked_flash_anim = true
+					if _current_value >= poison:
+						_flash_player.play("RESET")
+						_flash_player.play("should_continue")
+					else:
+						_flash_player.play("RESET")
+						_flash_player.play("need_antidote")
+				
+				#_continue_button.visible = true
+				#_use_antidote_button.modulate = Color.WHITE
+				#antidote_flashing = false
+				#if _current_value >= poison:
+					#_use_antidote_button.visible = false
+				#else:
+					#_use_antidote_button.visible = true
+					#antidote_flashing = true
+					#_use_antidote_button.modulate = Color.RED
 	else:
 		_bonus.visible = false
 	_cup.position.y = _cup_loc.position.y - 1080 + _ease_out_0_1(_animation_progress/cup_lower_time) * 1080
@@ -113,6 +130,7 @@ func roll_the_dice(is_poison: bool) -> void:
 	start_roll(is_poison, is_poison)
 
 func start_roll(lower_cup: bool, is_poison: bool) -> void:
+	_has_picked_flash_anim = false
 	visible = true
 	roll_is_for_poison = is_poison
 	if !roll_is_for_poison:
@@ -185,14 +203,14 @@ func _continue_pressed() -> void:
 	number_accepted.emit(_current_value)
 
 func _antidote_hovered() -> void:
-	_use_antidote_button.material.set_shader_parameter("alpha", 1.0)
+	_anti_sprite.material.set_shader_parameter("alpha", 1.0)
 
 func _antidote_unhovered() -> void:
-	_use_antidote_button.material.set_shader_parameter("alpha", 0.0)
+	_anti_sprite.material.set_shader_parameter("alpha", 0.0)
 
 func _continue_hovered() -> void:
 	if in_tutorial: return
-	_continue_button.material.set_shader_parameter("alpha", 1.0)
+	_cont_sprite.material.set_shader_parameter("alpha", 1.0)
 
 func _continue_unhovered() -> void:
-	_continue_button.material.set_shader_parameter("alpha", 0.0)
+	_cont_sprite.material.set_shader_parameter("alpha", 0.0)
