@@ -40,20 +40,21 @@ script = ExtResource("1_i1iio")
 metadata/_custom_type_script = "uid://cy8c2pgxbb3fl"
 
 [node name="AttackSprite" type="Sprite2D" parent="." unique_id=483182062]
-modulate = Color(0.5803922, 1, 0.92156863, 0)
+modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_888j7")
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_4mqee")
 
 [node name="AttackDescription" type="RichTextLabel" parent="." unique_id=164947998]
 modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_2uxyt")
-offset_left = -110.0
-offset_top = -148.0
-offset_right = 276.0
-offset_bottom = 36.0
+offset_left = -92.0
+offset_top = -105.0
+offset_right = 205.0
+offset_bottom = 34.0
 mouse_filter = 2
-theme_override_colors/default_color = Color(0.003921569, 0.007843138, 0.019607844, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 theme_override_fonts/normal_font = ExtResource("3_8q4pg")
 theme_override_font_sizes/normal_font_size = 20
-text = "DJPAJOEFJ"
 horizontal_alignment = 1

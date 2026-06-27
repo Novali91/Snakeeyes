@@ -40,8 +40,8 @@ func enter() -> void:
 		await get_tree().create_timer(0.5).timeout
 		await sm.tutorial_manager.start_of_turn_two()
 	
-	#var t = create_tween()
-	#t.tween_property(sm.attack_manager, "modulate:a", 1.0, 1.0)
+	var t = create_tween()
+	t.tween_property(sm.attack_manager, "modulate:a", 1.0, 1.0)
 	
 	if GS.tutorial_index == GS.Tutorial.MULTI_GOAL:
 		await get_tree().create_timer(0.5).timeout

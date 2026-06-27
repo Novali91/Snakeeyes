@@ -37,8 +37,10 @@ func hover_tooltip(upcoming_index: int, turn_number: int) -> void:
 	var tween: Tween = create_tween()
 	_cur_tween = tween
 	
-	tween.parallel().tween_property(attack_sprite, "modulate:a", 0.5, 0.5)
-	tween.parallel().tween_property(attack_description, "modulate:a", 0.5, 0.5)
+	tween.parallel().tween_property(attack_sprite, "modulate:a", 0.1, 0.5)
+	tween.parallel().tween_property(attack_description, "modulate:a", 0.1, 0.5)
+	tween.parallel().tween_property(attack_description.material, "shader_parameter/color", Color(1, 1, 1, 0.8), 0.5)
+	tween.parallel().tween_property(attack_sprite.material, "shader_parameter/color", Color(0, 0, 0, 0.7), 0.5)
 	
 	return
 
@@ -51,17 +53,23 @@ func unhover_tooltip() -> void:
 	
 	tween.parallel().tween_property(attack_sprite, "modulate:a", 0.0, 0.5)
 	tween.parallel().tween_property(attack_description, "modulate:a", 0.0, 0.5)
-	
+	tween.parallel().tween_property(attack_description.material, "shader_parameter/color", Color(1, 1, 1, 0.0), 0.5)
+	tween.parallel().tween_property(attack_sprite.material, "shader_parameter/color", Color(0, 0, 0, 0.0), 0.5)
 	return
 
 func start_boss_round(upcoming_index: int, turn_number: int) -> void:
 	activate_boss_attack_tooltip(upcoming_index, turn_number)
 	
+	if _cur_tween != null:
+		_cur_tween.kill()
+	
 	var tween: Tween = create_tween()
 	_cur_tween = tween
 	
-	tween.parallel().tween_property(attack_sprite, "modulate:a", 1.0, 0.5)
-	tween.parallel().tween_property(attack_description, "modulate:a", 1.0, 0.5)
+	tween.parallel().tween_property(attack_sprite, "modulate:a", 0.1, 0.5)
+	tween.parallel().tween_property(attack_description, "modulate:a", 0.1, 0.5)
+	tween.parallel().tween_property(attack_description.material, "shader_parameter/color", Color(1, 1, 1, 1.0), 0.5)
+	tween.parallel().tween_property(attack_sprite.material, "shader_parameter/color", Color(0, 0, 0, 0.7), 0.5)
 	return
 
 ## I imagine attack_manager will call this on the drink being hovered?
@@ -85,7 +93,7 @@ func activate_boss_attack_tooltip(upcoming_index: int, turn_number: int) -> void
 			attack_description.text += " turns..."
 	attack_description.pop_all()
 	
-	attack_description.text += "\n"
+	attack_description.text += "\n\n"
 	attack_description.text += string_to_set
 	attack_sprite.visible = true
 	attack_description.visible = true
@@ -103,7 +111,15 @@ func deactivate_boss_attack_tooltip() -> void:
 	#tween.parallel().tween_property(attack_description, "modulate:a", 0.0, 0.5)
 	
 	attack_description.modulate.a = 0
+	attack_description.material.set_shader_parameter(
+		"color",
+		Color(1, 1, 1, 0)
+	)
 	attack_sprite.modulate.a = 0
+	attack_sprite.material.set_shader_parameter(
+		"color",
+		Color(0, 0, 0, 0)
+	)
 	
 	pass
 
