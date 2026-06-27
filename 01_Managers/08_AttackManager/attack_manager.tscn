@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://btp46ahrlgj6r" path="res://01_Managers/08_AttackManager/01_Attacks/boss_tooltip.tscn" id="2_x7drt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7drt"]
-size = Vector2(400, 300)
+size = Vector2(365, 190)
 
 [node name="AttackManager" type="Node2D" unique_id=1488456757]
 script = ExtResource("1_nxvxw")
@@ -13,7 +13,8 @@ metadata/_custom_type_script = "uid://bmad707hcx53o"
 [node name="BossTooltip" parent="." unique_id=1495842046 instance=ExtResource("2_x7drt")]
 
 [node name="Area" type="Area2D" parent="." unique_id=1341796925]
+position = Vector2(120, -471)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=861439074]
-position = Vector2(83, -56)
+position = Vector2(-12.5, 14.5)
 shape = SubResource("RectangleShape2D_x7drt")

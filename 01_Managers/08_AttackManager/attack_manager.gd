@@ -8,6 +8,7 @@ var _current_attack: BossAttack
 var _next_attack: BossAttack
 
 @onready var boss_tooltip: BossTooltip = $BossTooltip
+var _boss_round: bool = false
 @onready var area: Area2D = $Area
 
 var ATTACK_LIST: Array[BossAttack] = [
@@ -71,9 +72,18 @@ func _ready() -> void:
 	area.mouse_exited.connect(_attack_unhovered)
 
 func next_attack() -> void:
+	
+	if _boss_round:
+		boss_tooltip.deactivate_boss_attack_tooltip()
+	
 	_attack_ind += 1
 	_current_attack = ATTACK_LIST[_attack_ind]
 	_next_attack = ATTACK_LIST[_attack_ind + 1]
+	
+	if _current_attack.ability_index != 0:
+		_boss_round = true
+	else:
+		_boss_round = false
 	#boss_tooltip.cur_string = boss_tooltip.pick_convo_string()
 	#boss_tooltip.convo.text = boss_tooltip.cur_string
 
@@ -87,12 +97,18 @@ func get_attack_goal() -> int:
 	return out
 
 func _attack_hovered() -> void:
+	if _boss_round:
+		return
+	
 	var n = _attack_ind
 	while ATTACK_LIST[n].ability_index == 0: n += 1
 	
 	boss_tooltip.hover_tooltip(ATTACK_LIST[n].ability_index, n - _attack_ind)
 
 func _attack_unhovered() -> void:
+	if _boss_round:
+		return
+	
 	boss_tooltip.unhover_tooltip()
 
 ## Drinking a drink gives all drinks -1 str - HandManager

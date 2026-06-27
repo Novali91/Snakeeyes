@@ -118,7 +118,6 @@ metadata/_edit_lock_ = true
 
 [node name="AttackManager" parent="." unique_id=1488456757 instance=ExtResource("20_n6io1")]
 unique_name_in_owner = true
-visible = false
 position = Vector2(2760, 596)
 
 [node name="AntidoteCount" parent="." unique_id=1943998165 instance=ExtResource("29_wgfe6")]

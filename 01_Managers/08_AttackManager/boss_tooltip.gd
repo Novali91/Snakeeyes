@@ -2,7 +2,7 @@ class_name BossTooltip
 extends Node2D
 
 @onready var attack_description: RichTextLabel = $AttackDescription
-@onready var turn: RichTextLabel = $Turn
+#@onready var turn: RichTextLabel = $Turn
 #@onready var regular_sprite: Sprite2D = $RegularSprite
 #@onready var convo: RichTextLabel = $Convo
 @onready var attack_sprite: Sprite2D = $AttackSprite
@@ -27,8 +27,6 @@ var _cur_tween: Tween
 	#"Conniving I may be, but I fight fair."
 #]
 
-var cur_string: String
-
 func hover_tooltip(upcoming_index: int, turn_number: int) -> void:
 	## Will do some opacity tweening
 	activate_boss_attack_tooltip(upcoming_index, turn_number)
@@ -40,13 +38,11 @@ func hover_tooltip(upcoming_index: int, turn_number: int) -> void:
 	_cur_tween = tween
 	
 	tween.parallel().tween_property(attack_sprite, "modulate:a", 0.5, 0.5)
-	tween.parallel().tween_property(turn, "modulate:a", 0.5, 0.5)
 	tween.parallel().tween_property(attack_description, "modulate:a", 0.5, 0.5)
 	
 	return
 
 func unhover_tooltip() -> void:
-	
 	if _cur_tween != null:
 		_cur_tween.kill()
 	
@@ -54,17 +50,18 @@ func unhover_tooltip() -> void:
 	_cur_tween = tween
 	
 	tween.parallel().tween_property(attack_sprite, "modulate:a", 0.0, 0.5)
-	tween.parallel().tween_property(turn, "modulate:a", 0.0, 0.5)
 	tween.parallel().tween_property(attack_description, "modulate:a", 0.0, 0.5)
 	
 	return
 
 func start_boss_round(upcoming_index: int, turn_number: int) -> void:
-	## Disable the hover/unhover stuff, but that might be better to do in attack_manager?
-	## Or maybe just a boolean in boss tooltip that this turns false and-
-	## -deactivate_boss_attack_tooltip sets to true? - This is probably bad; don't want this script doing logic like that
+	activate_boss_attack_tooltip(upcoming_index, turn_number)
 	
-	## Then, tween opacity of textbox to 1.0 and someehow type in the text
+	var tween: Tween = create_tween()
+	_cur_tween = tween
+	
+	tween.parallel().tween_property(attack_sprite, "modulate:a", 1.0, 0.5)
+	tween.parallel().tween_property(attack_description, "modulate:a", 1.0, 0.5)
 	return
 
 ## I imagine attack_manager will call this on the drink being hovered?
@@ -74,52 +71,41 @@ func activate_boss_attack_tooltip(upcoming_index: int, turn_number: int) -> void
 	#regular_sprite.visible = false
 	#convo.visible = false
 	
+	attack_description.push_bold()
+	attack_description.push_font_size(40)
 	
-	if turn_number > 1:
-		turn.text = "In "
-		turn.push_bold()
-		turn.push_font_size(40)
-		turn.text += str(turn_number)
-		turn.text += " turns..."
-		turn.pop_all()
-	elif turn_number == 1:
-		turn.push_bold()
-		turn.push_font_size(40)
-		turn.text += "Next turn..."
-		turn.pop_all()
-	else:
-		turn.text = "This turn..."
-		turn.push_bold()
-		turn.push_font_size(40)
-		turn.pop_all()
-	attack_description.text = string_to_set
-	turn.visible = true
+	match turn_number:
+		0:
+			attack_description.text = "This turn..."
+		1:
+			attack_description.text = "Next turn..."
+		_:
+			attack_description.text = "In "
+			attack_description.text += str(turn_number)
+			attack_description.text += " turns..."
+	attack_description.pop_all()
+	
+	attack_description.text += "\n"
+	attack_description.text += string_to_set
 	attack_sprite.visible = true
 	attack_description.visible = true
 	pass
 
 ## Whenever the boss attack round ends
 func deactivate_boss_attack_tooltip() -> void:
-	## Probably tween to opacity zero again
-	turn.visible = false
-	attack_description.visible = false
-	attack_sprite.visible = false
+	#if _cur_tween != null:
+		#_cur_tween.kill()
+	#
+	#var tween: Tween = create_tween()
+	#_cur_tween = tween
+	#
+	#tween.parallel().tween_property(attack_sprite, "modulate:a", 0.0, 0.5)
+	#tween.parallel().tween_property(attack_description, "modulate:a", 0.0, 0.5)
 	
-	#convo.text = cur_string
-	#convo.visible = true
-	#regular_sprite.visible = true
+	attack_description.modulate.a = 0
+	attack_sprite.modulate.a = 0
+	
 	pass
-
-#const EXACT_SCORE: int = 1 # X
-#const DRINK_ALL_DRINKS_MINUS_STR: int = 2 # X
-#const SWAP_CHARM_STR: int = 3 # X
-#const DRINK_DRAW_ONE: int = 4 # X
-#const DRINK_SLIDE_BACK: int = 5 # X
-#const END_KILL_SNAKES: int = 6 # X
-#const SWAP_POISON_CHARM: int = 7 # X
-#const DRINK_SNAKE_ONE_POISON: int = 8  # X
-#const DICE_ROLLS_MINUS_ONE: int = 9 # X
-#const WIN_ROUND: int = 10 # X
 
 func get_description(upcoming: int) -> String:
 	var string_to_set: String
