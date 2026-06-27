@@ -74,8 +74,8 @@ func next_attack() -> void:
 	_attack_ind += 1
 	_current_attack = ATTACK_LIST[_attack_ind]
 	_next_attack = ATTACK_LIST[_attack_ind + 1]
-	boss_tooltip.cur_string = boss_tooltip.pick_convo_string()
-	boss_tooltip.convo.text = boss_tooltip.cur_string
+	#boss_tooltip.cur_string = boss_tooltip.pick_convo_string()
+	#boss_tooltip.convo.text = boss_tooltip.cur_string
 
 func get_attack() -> BossAttack:
 	return _current_attack
@@ -90,10 +90,10 @@ func _attack_hovered() -> void:
 	var n = _attack_ind
 	while ATTACK_LIST[n].ability_index == 0: n += 1
 	
-	boss_tooltip.activate_boss_attack_tooltip(ATTACK_LIST[n].ability_index, n - _attack_ind)
+	boss_tooltip.hover_tooltip(ATTACK_LIST[n].ability_index, n - _attack_ind)
 
 func _attack_unhovered() -> void:
-	boss_tooltip.deactivate_boss_attack_tooltip()
+	boss_tooltip.unhover_tooltip()
 
 ## Drinking a drink gives all drinks -1 str - HandManager
 ## Swap charm and strength - Play state
