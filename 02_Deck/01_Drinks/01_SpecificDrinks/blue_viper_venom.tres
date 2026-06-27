@@ -10,6 +10,6 @@ drink_sprite = ExtResource("1_jplr2")
 poison = 1
 charm = 1
 special_ability = 1
-description = "Choose a drink on the table. [br]That drink [color=\"#0e90b0\"]stays on the table[/color] between rounds."
+description = "Choose a venom on the table. [br]That drink [color=\"#0e90b0\"]stays on the table[/color] between rounds."
 flavour_text = "The milksnake thrives as a supportive snake. It's too timid to enjoy the spotlight."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://eg5ukadcklbv" path="res://01_Managers/05_Tooltip_Manager/tooltip.tscn" id="2_kbsba"]
 [ext_resource type="Shader" uid="uid://0oonfw65mdnr" path="res://05_Assets/02_Shaders/outline.gdshader" id="2_mjnwm"]
 [ext_resource type="Texture2D" uid="uid://ceq6pvipkdxui" path="res://05_Assets/01_Art/05_Drinks/basilisk drink.png" id="3_ifok2"]
+[ext_resource type="Texture2D" uid="uid://dn7b5e5m1o0a6" path="res://05_Assets/01_Art/05_Drinks/modified drink ribbon indicator.png" id="6_in05i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_in05i"]
 resource_local_to_scene = true
@@ -114,6 +115,59 @@ _data = {
 &"fade": SubResource("Animation_ifok2")
 }
 
+[sub_resource type="Animation" id="Animation_in05i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DrinkSprite/Ribbon:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_36f52"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DrinkSprite/Ribbon:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6pi6x"]
+resource_name = "instant_in"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DrinkSprite/Ribbon:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6pi6x"]
+_data = {
+&"RESET": SubResource("Animation_in05i"),
+&"fade_in": SubResource("Animation_36f52"),
+&"instant_in": SubResource("Animation_6pi6x")
+}
+
 [node name="Drink" type="Area2D" unique_id=66274034]
 script = ExtResource("1_3sv11")
 metadata/_custom_type_script = "uid://4lo1g706tbqt"
@@ -133,7 +187,15 @@ material = SubResource("ShaderMaterial_ifok2")
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_ifok2")
 
+[node name="Ribbon" type="Sprite2D" parent="DrinkSprite" unique_id=1922366044]
+self_modulate = Color(1, 1, 1, 0)
+texture = ExtResource("6_in05i")
+
 [node name="Tooltip" parent="." unique_id=1158809468 instance=ExtResource("2_kbsba")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1447584224]
 libraries/ = SubResource("AnimationLibrary_4xa7e")
+
+[node name="RibbonPlayer" type="AnimationPlayer" parent="." unique_id=982562831]
+libraries/ = SubResource("AnimationLibrary_6pi6x")
+speed_scale = 5.0

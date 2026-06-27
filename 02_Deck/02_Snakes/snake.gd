@@ -38,8 +38,8 @@ func _ready() -> void:
 			current_drink.drink_name = "[color=#1f5782]" + current_drink.drink_name
 		
 		"L":
-			attached_snake.snake_name = "[wave amp=50.0 freq=5.0 connected=1][rainbow freq=2.0 sat=1.0 val=0.8 speed=0.7]" + attached_snake.snake_name
-			current_drink.drink_name = "[wave amp=50.0 freq=5.0 connected=1][rainbow freq=2.0 sat=1.0 val=0.8 speed=0.7]" + current_drink.drink_name
+			attached_snake.snake_name = "[wave amp=20.0 freq=5.0 connected=1][color=\"#e86f0c\"]" + attached_snake.snake_name
+			current_drink.drink_name = "[wave amp=20.0 freq=5.0 connected=1][color=\"#e86f0c\"]" + current_drink.drink_name
 	
 	if current_drink.special_ability == 26:
 		attached_snake.snake_name = "[rainbow freq=3.0 sat=1.0 val=0.725 speed=0.2]" + attached_snake.snake_name

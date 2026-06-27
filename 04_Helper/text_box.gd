@@ -5,7 +5,7 @@ signal clicked_close()
 signal done_typing()
 signal finished_closing()
 
-const _PER_CHARACTER_SPEED: float = 0.01
+const _PER_CHARACTER_SPEED: float = 0.02
 const _WAIT_TIME: float = 0.05
 
 @export var text_array: Array[String]
@@ -22,7 +22,7 @@ var _typing_timer: float = 0
 var _opening: bool = true
 
 func _process(delta: float) -> void:
-	if _opening: return
+	if _opening or GS.in_settings: return
 	
 	if Input.is_action_just_pressed("click"):
 		if _waiting:

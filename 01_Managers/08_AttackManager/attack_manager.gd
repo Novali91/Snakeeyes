@@ -11,7 +11,7 @@ var _next_attack: BossAttack
 @onready var area: Area2D = $Area
 
 var ATTACK_LIST: Array[BossAttack] = [
-	BossAttack.new([2], 0), # 1
+	BossAttack.new([2, 4, 6], 0), # 1
 	BossAttack.new([2], 0), # 2
 	BossAttack.new([1, 1], 0), # 3
 	BossAttack.new([2], 0), # 4

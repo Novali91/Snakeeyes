@@ -10,6 +10,6 @@ drink_sprite = ExtResource("1_c0j25")
 poison = 1
 charm = 2
 special_ability = 26
-description = "[color=\"#7d1b41\"]Roll The Dice:[/color][br]2 - 6: [color=\"#2225d6\"]Slide In[/color] 1 drink.[br]7 - 12: [color=\"#2225d6\"]Slide In[/color] 4 drinks."
+description = "[color=\"#7d1b41\"]Roll The Dice:[/color][br]2 - 6: [color=\"#2225d6\"]Slide In[/color] 1 venom.[br]7 - 12: [color=\"#2225d6\"]Slide In[/color] 4 venoms."
 flavour_text = "The Rainboa is distinctified by its rainbow sheen, caused by the microscopic structure of their skin."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

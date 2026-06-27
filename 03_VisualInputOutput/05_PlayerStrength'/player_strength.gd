@@ -90,7 +90,7 @@ func get_height(val: int) -> float:
 	
 	return _TICKER_Y_OFFSET + lerp(bot_pos, top_pos, percent)
 
-func set_value(_old_val: int, new_val: int) -> void:
+func set_value(old_val: int, new_val: int) -> void:
 	_count_label.text = GS.format_number(new_val)
 	
 	var clamped = clamp(new_val, 0, 999)
@@ -101,8 +101,18 @@ func set_value(_old_val: int, new_val: int) -> void:
 	_tween = create_tween().set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	_tween.tween_property(_ticker, "position:y", ticker_target, 1)
 	
-	for attack_ticker in _attack_tickers:
-		attack_ticker.get_child(1).toggle_tint(ticker_target <= attack_ticker.position.y + _TICKER_Y_OFFSET)
+	var old_height = get_height(clamp(old_val, 0, 999))
 	
-	if _old_val != new_val && new_val >= 0:
+	for attack_ticker in _attack_tickers:
+		var ticker_height = attack_ticker.position.y + _TICKER_Y_OFFSET
+		
+		if new_val > old_val:
+			if ticker_height >= ticker_target and ticker_height < old_height:
+				attack_ticker.set_cleared()
+		
+		else:
+			if ticker_height < ticker_target and ticker_height >= old_height:
+				attack_ticker.set_uncleared()
+	
+	if new_val > old_val:
 		GS.sound_manager.play_bell(new_val)

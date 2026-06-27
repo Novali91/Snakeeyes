@@ -9,7 +9,7 @@ script = ExtResource("1_6jbnm")
 snake_name = "Python"
 drink_resource = ExtResource("1_mc8j8")
 snake_sprite = ExtResource("3_mc8j8")
-description = "Gain [color=\"#b32295\"]Charm[/color] equal to half of this snake's [color=\"#8f1e0d\"]Strength[/color]."
+description = "Gain [color=\"#b32295\"]Charm[/color] equal to half of this venom's [color=\"#8f1e0d\"]Strength[/color]"
 flavour_text = "To make up for their lack of venom, pythons harbour immense strength, both of body, and of tongue."
 cost = 7
 rarity = "R"

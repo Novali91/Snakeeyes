@@ -53,8 +53,8 @@ var current_state: int
 
 
 func _ready() -> void:
-	win_close.pressed.connect(_quit)
-	lose_close.pressed.connect(_quit)
+	win_close.pressed.connect(_restart)
+	lose_close.pressed.connect(_restart)
 	_set_start_values()
 
 func start_game() -> void:
@@ -103,8 +103,11 @@ func win() -> void:
 	camera_manager.switch_screen(camera_manager.MIDDLE, true)
 	win_screen.visible = true
 
-func _quit() -> void:
-	get_tree().quit()
+func start_boss_round() -> void:
+	GS.sound_manager.play_trap()
+
+func end_boss_round() -> void:
+	GS.sound_manager.play_game()
 
 func _restart() -> void:
-	pass
+	restart.emit()

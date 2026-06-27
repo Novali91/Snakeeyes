@@ -25,6 +25,8 @@ func slide_drink_back(drink: Drink) -> void:
 func give_drink_retain(drink: Drink) -> void:
 	drink.attached_drink.retain = true
 	
+	drink.add_ribbon()
+	
 	drink.instantiate_tooltip()
 	return
 

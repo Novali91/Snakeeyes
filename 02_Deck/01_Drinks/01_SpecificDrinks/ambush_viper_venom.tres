@@ -10,6 +10,6 @@ drink_sprite = ExtResource("1_axjnp")
 poison = 2
 cost = 4
 retain = true
-description = "This drink [color=\"#0e90b0\"]stays on the table[/color] between rounds."
+description = "This venom [color=\"#0e90b0\"]stays on the table[/color] between rounds."
 flavour_text = "Ever lying in wait, the cat snake pounces on its prey at the most opportune moment. Its venom tastes oddly of drool..."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

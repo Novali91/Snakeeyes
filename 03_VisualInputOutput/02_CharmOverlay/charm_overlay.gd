@@ -48,6 +48,7 @@ func _process(delta: float) -> void:
 		
 		elif not t.spent:
 			var dir = t.global_position.direction_to(_bundle.global_position)
+			dir = dir.rotated(randf_range(-0.01, 0.01))
 			t.vel += dir * _ACC * delta
 			
 			var dir_to_bundle = t.global_position.direction_to(_bundle.global_position)

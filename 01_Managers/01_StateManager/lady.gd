@@ -6,14 +6,25 @@ extends Node2D
 
 signal finished()
 
+var _in_wrestle: bool = false
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("click") and not GS.in_settings and _in_wrestle:
+		animation_player.speed_scale = 3
+
 func win_armwrestle() -> void:
+	animation_player.speed_scale = 1
+	_in_wrestle = true
 	animation_player.play("ArmWrestleStart")
 	await animation_player.animation_finished
 	animation_player.play("ArmWrestleWin")
 	await animation_player.animation_finished
 	finished.emit()
+	_in_wrestle = false
 
 func lose_armwrestle(damage: int) -> void:
+	animation_player.speed_scale = 1
+	_in_wrestle = true
 	animation_player.play("ArmWrestleStart")
 	await animation_player.animation_finished
 	for i in damage:
@@ -22,6 +33,7 @@ func lose_armwrestle(damage: int) -> void:
 		await animation_player.animation_finished
 		await get_tree().create_timer(0.5).timeout
 	finished.emit()
+	_in_wrestle = false
 
 func drink_poison() -> void:
 	animation_player.play("Drink")

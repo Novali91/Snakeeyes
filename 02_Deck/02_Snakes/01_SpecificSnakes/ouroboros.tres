@@ -9,7 +9,7 @@ script = ExtResource("1_nxmwd")
 snake_name = "Ouroboros"
 drink_resource = ExtResource("1_6kw3p")
 snake_sprite = ExtResource("3_6kw3p")
-description = "Instead of being consumed, this drink [color=\"#078c60\"]Slides Back[/color]."
+description = "Instead of being consumed, this venom [color=\"#078c60\"]Slides Back[/color]."
 flavour_text = "The eternal symbol of renewal, representations of the Ouroboros existed everywhere."
 cost = 12
 rarity = "L"

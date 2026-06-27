@@ -43,6 +43,8 @@ var antidote_pressable: bool = true
 
 var _has_picked_flash_anim: bool = false
 
+var speed_up: bool = false
+
 #
 #var antidote_flash_progress: float = 0.0
 #@export var antidote_flash_time: float
@@ -63,6 +65,10 @@ func _ready() -> void:
 	_continue_button.mouse_exited.connect(_continue_unhovered)
 
 func _process(delta: float) -> void:
+	if visible and _animation_progress > 0.3 and not speed_up and Input.is_action_just_pressed("click") \
+			 and GS.tutorial_index in [GS.Tutorial.NONE, GS.Tutorial.SKIPPED] and not GS.in_settings:
+		speed_up = true
+	
 	#antidote_flash_progress += delta
 	#if antidote_flashing and antidote_flash_progress > antidote_flash_time:
 		#antidote_flash_progress = 0.0
@@ -71,7 +77,11 @@ func _process(delta: float) -> void:
 		#else:
 			#_use_antidote_button.modulate = Color.RED
 	if _animation_progress >= 0 and _animation_progress < animation_time:
-		_animation_progress += delta
+		if speed_up:
+			_animation_progress += delta * 3
+		else:
+			_animation_progress += delta
+		
 		if _animation_progress > cup_lower_time:
 			if _animation_progress < cup_lower_time + 0.05:
 				GS.sound_manager.play_dice()
@@ -130,6 +140,7 @@ func roll_the_dice(is_poison: bool) -> void:
 	start_roll(is_poison, is_poison)
 
 func start_roll(lower_cup: bool, is_poison: bool) -> void:
+	speed_up = false
 	_has_picked_flash_anim = false
 	visible = true
 	roll_is_for_poison = is_poison

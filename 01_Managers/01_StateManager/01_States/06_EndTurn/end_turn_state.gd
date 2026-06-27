@@ -14,6 +14,9 @@ func exit() -> void:
 		
 		else:
 			GS.tutorial_index = GS.Tutorial.NONE
+	
+	if GS.cur_attack_index != 0:
+		sm.end_boss_round()
 
 func process_tick(_delta: float) -> void:
 	pass

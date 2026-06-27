@@ -10,43 +10,44 @@ sounds:
 end turn bell
 choose drink sound
 camera move sound (?)
+hover and press on dice buttons
 
 implementation:
 / full tutorial with spotlight effect and multiple rounds
 / dice roll polish
 / antidote stock display
 / shop vibe cleanup
-switch exit to restart
+/ switch exit to restart
+/ pause screen with audio slider
+/ player strength bar rework
+/ intro fix up
+/ ribbon for retain
+/ trap beat
+sound effects
+audio balancing
+
+joey ?
 boss incoming special attack / dialogue rework
 homeless drink display - Done?
 min deck size popup on remove
-trap beat
-audio balancing
-pause screen with audio slider
-player strength bar rework
 
 polish ideas:
-affordable snakes look different
 buying king cobra on 24 snakes will remove only 2 snakes
-ribbon for retain
 lives look cramped
-pass out goes to arm wrestle after pass out
-click to skip dice roll and arm wrestle
-rarities need to be a little darker / lower sat
-I dont like the flavour text that makes fun of the snake's design (ex: hydra, hognose)
-change "drink" to venom
+/ pass out goes to arm wrestle after pass out
+/ click to skip dice roll and arm wrestle
+/ rarities need to be a little darker / lower sat
+/ change "drink" to venom
 Everything gets a specific overlay (eg King Cobra should say pick a snake to kill and gain its strength and charm 1/2 and 2/2)
 Maybe also rework how overlays look in particular
 
 
-bugs - (?) means I am unsure if it can still happen:
-ketsa cant get eaten by nidhog (?)
-nidhog disapeared on 5 somehow (?)
-send 1 back boss attack soft locks
+bugs:
+/ send 1 back boss attack soft locks
 / spawning a lot of charm all at once lags, need fake fake charm
-can move screen while refilling
-quetzl has charm before strength in text
-reroll cost stays until shop phase
+/ can move screen while refilling
+/ quetzl has charm before strength in text
+/ reroll cost stays until shop phase
 
 
 

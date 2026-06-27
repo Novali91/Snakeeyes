@@ -9,7 +9,7 @@ script = ExtResource("1_jt7de")
 snake_name = "Gorgon Snake"
 drink_resource = ExtResource("1_j6ju5")
 snake_sprite = ExtResource("3_j6ju5")
-description = "Pick a drink on the table.[br]Double that drink's [color=\"#8f1e0d\"]Strength[/color].[br]This snake's venom [color=\"#0e90b0\"]stays on the table[/color] between rounds."
+description = "Pick a venom on the table.[br]Double that venom's [color=\"#8f1e0d\"]Strength[/color].[br]This snake's venom [color=\"#0e90b0\"]stays on the table[/color]."
 flavour_text = "If you look away for just a moment, their heads might just double."
 cost = 8
 rarity = "R"

@@ -16,12 +16,14 @@ func _ready() -> void:
 	_text_box.clicked_close.connect(_text_closed)
 	_area.mouse_entered.connect(_mouse_entered)
 	_area.mouse_exited.connect(_mouse_exited)
+	
+	_text_box.open()
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		play_clicked.emit()
 	
-	if _clicked or _waiting: return
+	if _clicked or _waiting or GS.in_settings: return
 	
 	if Input.is_action_just_pressed("click"):
 		var dist = get_local_mouse_position().length()

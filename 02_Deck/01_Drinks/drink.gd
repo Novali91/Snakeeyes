@@ -15,6 +15,7 @@ var attached_drink: DrinkResource
 
 @onready var drink_sprite: Sprite2D = $DrinkSprite
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
+@onready var _ribbon_player: AnimationPlayer = $RibbonPlayer
 
 enum {
 	EASE_IN,
@@ -36,7 +37,14 @@ func _ready() -> void:
 	instantiate_tooltip()
 	set_texture()
 	drink_sprite.material.set_shader_parameter("color", GS.RARITY_TO_COLOR[attached_drink.rarity])
+	
+	if attached_drink.retain:
+		_ribbon_player.play("instant_in")
+	
 	pass
+
+func add_ribbon() -> void:
+	_ribbon_player.play("fade_in")
 
 func set_texture() -> void:
 	drink_sprite.texture = attached_drink.drink_sprite

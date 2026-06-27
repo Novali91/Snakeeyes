@@ -13,7 +13,6 @@ enum {
 @onready var camera: Camera2D = $Camera2D
 @onready var poison_effect: ColorRect = $Camera2D/CanvasLayer/PoisonEffect
 @onready var pass_out_effect: ColorRect = $Camera2D/CanvasLayer/PassOutEffect
-@onready var notif: Sprite2D = $Notif
 
 @onready var _arrow_node: Node2D = $Arrows
 
@@ -42,10 +41,12 @@ func _ready() -> void:
 		a.arrow_pressed.connect(_handle_arrow_press)
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("left"):
-		_swipe_left()
-	elif Input.is_action_just_pressed("right"):
-		_swipe_right()
+	if not GS.in_settings:
+		if Input.is_action_just_pressed("left"):
+			_swipe_left()
+		elif Input.is_action_just_pressed("right"):
+			_swipe_right()
+	
 	if(poison_effect_change_progress >= 0 and poison_effect_change_progress < 1):
 		poison_effect_change_progress += _delta * poison_effect_change_speed
 		poison_effect.material.set_shader_parameter("fisheye_intensity",clamp((old_poison + (new_poison - old_poison) * poison_effect_change_progress) - poison_effect_begin_level,0,12) * poison_fish_eye_intensity)
@@ -78,8 +79,6 @@ func switch_screen(screen_ind: int, bypass_lock: bool = false) -> void:
 	
 	_current_ind = screen_ind
 	
-	if screen_ind == RIGHT: notif.visible = false
-	
 	if _current_ind == 1:
 		new_poison = old_poison
 		old_poison = 0
@@ -102,9 +101,6 @@ func lock_camera() -> void:
 
 func unlock_camera() -> void:
 	_camera_locked = false
-
-func make_notif() -> void:
-	notif.visible = true
 
 func _handle_arrow_press(is_left: bool) -> void:
 	if is_left:

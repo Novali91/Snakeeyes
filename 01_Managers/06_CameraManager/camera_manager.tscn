@@ -4,7 +4,6 @@
 [ext_resource type="Shader" uid="uid://bdpwcu8ab33bh" path="res://01_Managers/06_CameraManager/full_screen_effects.gdshader" id="2_x2vs0"]
 [ext_resource type="Shader" uid="uid://5vjet2vo8d7y" path="res://01_Managers/06_CameraManager/pass_out_effect.gdshader" id="3_tmo6x"]
 [ext_resource type="PackedScene" uid="uid://b6l5xioi16nd8" path="res://01_Managers/06_CameraManager/camera_arrow.tscn" id="4_46yof"]
-[ext_resource type="Texture2D" uid="uid://d0nhkp7uns2gg" path="res://05_Assets/01_Art/03_UI_Sprites/idk what this is for.png" id="4_abwj1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tmo6x"]
 shader = ExtResource("2_x2vs0")
@@ -23,34 +22,10 @@ shader_parameter/time_test = 5.0
 
 [sub_resource type="Animation" id="Animation_spbah"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Notif:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_abwj1"]
 resource_name = "default"
 loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Notif:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(3.1681983, 3.1681983, 3.1681983, 1), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_urxhq"]
 _data = {
@@ -97,17 +72,6 @@ offset_right = 4230.0
 offset_bottom = 590.0
 scale = Vector2(-1, 1)
 is_pointing_left = true
-
-[node name="Notif" type="Sprite2D" parent="." unique_id=87971975]
-z_index = 1
-position = Vector2(3722.9998, 531.00006)
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("4_abwj1")
-
-[node name="Notif" type="Sprite2D" parent="Notif" unique_id=1947247028]
-z_index = 1
-position = Vector2(17.6, 0)
-texture = ExtResource("4_abwj1")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=97266164]
 

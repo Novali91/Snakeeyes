@@ -1,20 +1,157 @@
 [gd_scene format=3 uid="uid://bcdtsnxphyppk"]
 
-[ext_resource type="Texture2D" uid="uid://cpaqi063baktn" path="res://05_Assets/01_Art/03_UI_Sprites/boss strength ticker norma.png" id="1_53npp"]
 [ext_resource type="Script" uid="uid://bmjrdd2o4cg8s" path="res://03_VisualInputOutput/05_PlayerStrength'/attack_ticker.gd" id="1_ec3w5"]
 [ext_resource type="Script" uid="uid://cfqx3dcaojqrs" path="res://03_VisualInputOutput/01_ScoreBar/custom_number.gd" id="2_53npp"]
+[ext_resource type="Texture2D" uid="uid://drx1yy34k1rrh" path="res://05_Assets/01_Art/03_UI_Sprites/new reworked super normal boss strength ticker.png" id="2_ec3w5"]
+
+[sub_resource type="Animation" id="Animation_ec3w5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(111, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CustomNumber:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(130, 11)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CustomNumber:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CustomNumber:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.6313726, 0.41960785, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0htoi"]
+resource_name = "clear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(111, 0), Vector2(110.66443, -7.3355713), Vector2(111.08051, 11.080511), Vector2(111, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CustomNumber:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(130, 11), Vector2(129.66443, 3.6644287), Vector2(130.08052, 22.080513), Vector2(130, 11)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.13894267, 0.17776737, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CustomNumber:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.13894267, 0.17776737, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CustomNumber:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.6392157, 1, 0.69803923, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f35s3"]
+_data = {
+&"RESET": SubResource("Animation_ec3w5"),
+&"clear": SubResource("Animation_0htoi")
+}
 
 [node name="AttackTicker" type="Node2D" unique_id=1270897173]
 script = ExtResource("1_ec3w5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=896992753]
-position = Vector2(118, -24)
-texture = ExtResource("1_53npp")
+position = Vector2(111, 0)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_ec3w5")
 
 [node name="CustomNumber" type="Node2D" parent="." unique_id=779192552]
-position = Vector2(118.07291, -14.5)
+modulate = Color(1, 0.6313726, 0.41960785, 1)
+position = Vector2(130, 11)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("2_53npp")
-digits = 3
 digit_spacing = -23.0
 metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1466581884]
+libraries/ = SubResource("AnimationLibrary_f35s3")
+speed_scale = 5.0

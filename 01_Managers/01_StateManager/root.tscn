@@ -2,10 +2,60 @@
 
 [ext_resource type="Script" uid="uid://dh7k7d6o5qqa4" path="res://01_Managers/01_StateManager/root.gd" id="1_a4yqp"]
 [ext_resource type="PackedScene" uid="uid://dmqecy4uccb4k" path="res://01_Managers/10_TitleScreenManager/title_screen_manager.tscn" id="2_n20y2"]
+[ext_resource type="FontFile" uid="uid://c6xfa0o2h2ssc" path="res://05_Assets/05_Fonts/OldNewspaperTypes.ttf" id="3_nvtwa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j66f8"]
+font = ExtResource("3_nvtwa")
+font_size = 46
 
 [node name="Root" type="Node" unique_id=1745907344]
 script = ExtResource("1_a4yqp")
 
 [node name="TitleScreenManager" parent="." unique_id=147652467 instance=ExtResource("2_n20y2")]
 z_index = 2
-position = Vector2(960, 540)
+position = Vector2(2880, 540)
+
+[node name="Settings" type="CanvasLayer" parent="." unique_id=1573284898]
+layer = 100
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Settings" unique_id=1190963868]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.0627451, 0.03137255, 0.09019608, 0.78039217)
+
+[node name="VolSlider" type="HSlider" parent="Settings" unique_id=1450254253]
+offset_left = 710.0
+offset_top = 390.0
+offset_right = 1210.0
+offset_bottom = 440.0
+max_value = 4.0
+step = 0.01
+
+[node name="Label" type="Label" parent="Settings" unique_id=515323295]
+offset_left = 810.0
+offset_top = 231.0
+offset_right = 1110.0
+offset_bottom = 431.0
+text = "Volume:"
+label_settings = SubResource("LabelSettings_j66f8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="Settings" unique_id=1151355043]
+offset_left = 591.0
+offset_top = 577.0
+offset_right = 791.0
+offset_bottom = 677.0
+theme_override_fonts/font = ExtResource("3_nvtwa")
+theme_override_font_sizes/font_size = 32
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="Settings" unique_id=796575012]
+offset_left = 1129.0
+offset_top = 577.0
+offset_right = 1329.0
+offset_bottom = 677.0
+theme_override_fonts/font = ExtResource("3_nvtwa")
+theme_override_font_sizes/font_size = 32
+text = "Quit"

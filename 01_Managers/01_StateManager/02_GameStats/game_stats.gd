@@ -23,6 +23,8 @@ enum Tutorial {
 
 var tutorial_index: int = Tutorial.SKIPPED
 
+var in_settings: bool = false
+
 var turn_count: int = 0
 
 signal poison_set(old_val: int, new_val: int)
@@ -52,8 +54,8 @@ func get_poison() -> int:
 	return _poison
 
 func set_strength(val: int) -> void:
-	_strength = val
 	strength_set.emit(_strength, val)
+	_strength = val
 
 func get_strength() -> int:
 	return _strength

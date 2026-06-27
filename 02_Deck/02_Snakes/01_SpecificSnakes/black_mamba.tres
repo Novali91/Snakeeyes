@@ -9,7 +9,7 @@ script = ExtResource("1_r68uh")
 snake_name = "Black Mamba"
 drink_resource = ExtResource("1_tocy2")
 snake_sprite = ExtResource("3_tocy2")
-description = "Give each drink on the table +2 [color=\"#8f1e0d\"]Strength[/color]."
+description = "Give each venom on the table +2 [color=\"#8f1e0d\"]Strength[/color]."
 flavour_text = "The Black Mamba is the fastest living snake. Its blazingly quick reflexes and deadly venom make it a formidable foe."
 cost = 7
 rarity = "R"

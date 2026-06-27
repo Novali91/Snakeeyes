@@ -9,7 +9,7 @@ script = ExtResource("1_ywhdi")
 snake_name = "Boa Constrictor"
 drink_resource = ExtResource("1_sq8ku")
 snake_sprite = ExtResource("3_sq8ku")
-description = "[color=\"#2225d6\"]Slide In[/color] 2 drinks."
+description = "[color=\"#2225d6\"]Slide In[/color] 2 venoms."
 flavour_text = "The Boa Constrictor is a fearsome snake, often coaxing prey. Despite this, they are a common and friendly pet."
 cost = 4
 rarity = "C"

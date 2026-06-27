@@ -156,7 +156,7 @@ func set_val(val: int, og_val: int, label: Label) -> void:
 	if val == og_val:
 		label.label_settings.font_color = Color("1f1f1fff")
 	elif val > og_val:
-		label.label_settings.font_color = Color(0.28, 1.0, 0.64, 1.0)
+		label.label_settings.font_color = Color(0.116, 0.58, 0.209, 1.0)
 	else:
 		label.label_settings.font_color = Color(1.0, 0.2, 0.2, 1.0)
 	pass
@@ -183,7 +183,7 @@ func set_psn_val(val: int, og_val: int, label: Label) -> void:
 	if val == og_val:
 		label.label_settings.font_color = Color(0, 0, 0)
 	elif val < og_val:
-		label.label_settings.font_color = Color(0.05, 1.0, 0.5)
+		label.label_settings.font_color = Color(0.116, 0.58, 0.209, 1.0)
 	else:
 		label.label_settings.font_color = Color(1.0, 0.3, 0.2)
 	pass

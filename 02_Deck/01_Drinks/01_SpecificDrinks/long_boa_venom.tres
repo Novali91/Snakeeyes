@@ -12,5 +12,5 @@ strength = 1
 charm = 1
 special_ability = 4
 cost = 4
-description = "Slide in 3 drinks."
+description = "Slide in 3 venoms."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"
