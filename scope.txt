@@ -35,6 +35,8 @@ click to skip dice roll and arm wrestle
 rarities need to be a little darker / lower sat
 I dont like the flavour text that makes fun of the snake's design (ex: hydra, hognose)
 change "drink" to venom
+Everything gets a specific overlay (eg King Cobra should say pick a snake to kill and gain its strength and charm 1/2 and 2/2)
+Maybe also rework how overlays look in particular
 
 
 bugs - (?) means I am unsure if it can still happen:
