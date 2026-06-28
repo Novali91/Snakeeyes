@@ -8,7 +8,7 @@ extends Node2D
 func _ready() -> void:
 	GS.score_set.connect(set_score_value)
 	
-	total_turns.set_value(50)
+	total_turns.set_value(36)
 
 func set_score_value(_old_val: int, new_val: int) -> void:
 	for i in 6:
