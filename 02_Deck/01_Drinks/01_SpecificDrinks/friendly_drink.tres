@@ -8,7 +8,7 @@ script = ExtResource("1_ssmvy")
 drink_name = "Pit Viper Venom"
 drink_sprite = ExtResource("1_8a6ts")
 poison = 4
-strength = 2
+strength = 3
 special_ability = 9
 cost = 8
 description = "Reduce the [color=\"#069c10\"]Poison[/color] of each venom on the table by 1."

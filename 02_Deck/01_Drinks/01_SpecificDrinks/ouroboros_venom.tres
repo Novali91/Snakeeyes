@@ -7,8 +7,8 @@
 script = ExtResource("1_tuy4v")
 drink_name = "Ouroboros Venom"
 drink_sprite = ExtResource("1_bhoqk")
-poison = 1
-strength = 3
+poison = 2
+strength = 4
 charm = 2
 special_ability = 17
 description = "Instead of being consumed, this venom [color=\"#078c60\"]Slides Back[/color]."

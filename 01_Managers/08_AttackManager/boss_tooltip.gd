@@ -69,7 +69,7 @@ func start_boss_round(upcoming_index: int, turn_number: int) -> void:
 	tween.parallel().tween_property(attack_sprite, "modulate:a", 0.1, 0.5)
 	tween.parallel().tween_property(attack_description, "modulate:a", 0.1, 0.5)
 	tween.parallel().tween_property(attack_description.material, "shader_parameter/color", Color(1, 1, 1, 1.0), 0.5)
-	tween.parallel().tween_property(attack_sprite.material, "shader_parameter/color", Color(0, 0, 0, 0.7), 0.5)
+	tween.parallel().tween_property(attack_sprite.material, "shader_parameter/color", Color(0, 0, 0, 1.0), 0.5)
 	return
 
 ## I imagine attack_manager will call this on the drink being hovered?
@@ -137,7 +137,7 @@ func get_description(upcoming: int) -> String:
 		5:
 			string_to_set = "When you drink a concoction, ssslide one back..."
 		6:
-			string_to_set = "I will EAT whichever sssnakesss produced the venom that you leave on the table and do not drink..."
+			string_to_set = "I will EAT whichever sssnakesss produced the venom that you leave on the table..."
 		7:
 			string_to_set = "Poison becomess charm, and charm becomes poison...."
 		8:
@@ -146,6 +146,8 @@ func get_description(upcoming: int) -> String:
 			string_to_set = "All diccce will roll one lessss...."
 		10:
 			string_to_set = "If you beat me, you will win... If you do not, we continue until you or I perish..."
+		_:
+			string_to_set = "I like snakesss... not BUGSSS!!!"
 	return string_to_set
 
 

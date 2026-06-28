@@ -7,7 +7,7 @@
 script = ExtResource("2_76ofd")
 drink_name = "Python Venom"
 drink_sprite = ExtResource("1_5w42v")
-poison = 1
+poison = 2
 strength = 4
 special_ability = 22
 cost = 7

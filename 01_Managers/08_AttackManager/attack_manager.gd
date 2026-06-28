@@ -71,6 +71,10 @@ func next_attack() -> void:
 		boss_tooltip.start_boss_round(_current_attack.ability_index, 0)
 	else:
 		_boss_round = false
+		
+		var n = _attack_ind
+		while ATTACK_LIST[n].ability_index == 0: n += 1
+		boss_tooltip.activate_boss_attack_tooltip(ATTACK_LIST[n].ability_index, n - _attack_ind)
 	#boss_tooltip.cur_string = boss_tooltip.pick_convo_string()
 	#boss_tooltip.convo.text = boss_tooltip.cur_string
 
