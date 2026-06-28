@@ -52,6 +52,7 @@ func _check_snake(snake: Snake) -> void:
 		
 		sm.deck_manager.add_snake(snake_copy)
 		sm.shop_manager.purchase_snake(snake)
+		GS.sound_manager.play_confirm()
 		GS.sound_manager.play_jingle(snake.attached_snake.jingle_id)
 
 func _check_antidote() -> void:

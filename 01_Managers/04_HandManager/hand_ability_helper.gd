@@ -13,6 +13,7 @@ func choose_drink() -> Drink:
 	hm.drinks_drinkable = false
 	
 	var drink: Drink = await hm.drink_chosen
+	GS.sound_manager.play_confirm()
 	
 	hm.drinks_drinkable = true
 	return drink

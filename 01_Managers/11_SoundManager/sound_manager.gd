@@ -12,6 +12,10 @@ extends Node2D
 @onready var game: AudioStreamPlayer = $Music/Game
 @onready var menu: AudioStreamPlayer = $Music/Menu
 @onready var trap: AudioStreamPlayer = $Music/Trap
+@onready var end_turn_bell: AudioStreamPlayer = $EndTurnBell
+@onready var typing: AudioStreamPlayer = $Typing
+@onready var camera_swoosh: AudioStreamPlayer = $CameraSwoosh
+@onready var confirm_click: AudioStreamPlayer = $ConfirmClick
 
 var _prev_music: AudioStreamPlayer
 var _cur_music: AudioStreamPlayer
@@ -24,7 +28,6 @@ var _bell_base_pitch: float
 var _transition_progress: float = -1.0
 @export var transition_time: float
 @export var music_vol: float
-const MUTE_DB: float = -100.0 #just some very large negative number
 
 func _ready() -> void:
 	GS.sound_manager = self
@@ -37,11 +40,12 @@ func _process(delta: float) -> void:
 		_transition_progress = clamp(_transition_progress + delta,0.0,transition_time)
 		var prog_proportion = _transition_progress / transition_time
 		if _cur_music != null:
-			_cur_music.volume_db = lerp(MUTE_DB,music_vol,prog_proportion)
+			_cur_music.volume_linear = lerp(0.0,music_vol,prog_proportion)
 		if _prev_music != null:
-			_prev_music.volume_db = lerp(music_vol,MUTE_DB,prog_proportion)
-	if _prev_music != null and _prev_music.volume_db == MUTE_DB:
+			_prev_music.volume_linear = lerp(music_vol,0.0,prog_proportion)
+	if _prev_music != null and _prev_music.volume_linear == 0.0:
 		_prev_music.stop()
+
 func play_clink() -> void:
 	clink.play(0.2)
 	
@@ -56,7 +60,7 @@ func play_bell(level: int) -> void:
 	bell.play()
 
 func play_click() -> void:
-	click.play()
+	click.play(0.16)
 
 func play_dice() -> void:
 	dice.play()
@@ -66,6 +70,18 @@ func play_fall() -> void:
 
 func play_slide() -> void:
 	slide.play()
+
+func play_end_turn() -> void:
+	end_turn_bell.play()
+
+func play_typing() -> void:
+	typing.play()
+
+func play_swoosh() -> void:
+	camera_swoosh.play()
+
+func play_confirm() -> void:
+	confirm_click.play()
 
 func play_jingle(index: int) -> void:
 	jingles[index].play()
@@ -82,6 +98,6 @@ func play_trap() -> void:
 func play_music(track: AudioStreamPlayer) -> void:
 	_transition_progress = 0.0
 	track.play()
-	track.volume_db = MUTE_DB
+	track.volume_linear = 0.0
 	_prev_music = _cur_music
 	_cur_music = track

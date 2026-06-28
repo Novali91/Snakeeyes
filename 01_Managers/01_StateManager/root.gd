@@ -29,6 +29,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("settings"):
+		GS.sound_manager.play_confirm()
+		
 		if GS.in_settings:
 			settings.visible = false
 		
@@ -43,6 +45,8 @@ func _process(delta: float) -> void:
 func _restart() -> void:
 	if _in_menu: return
 	
+	GS.sound_manager.play_confirm()
+	
 	GS.tutorial_index = GS.Tutorial.SKIPPED
 	
 	_sm.queue_free()
@@ -51,6 +55,7 @@ func _restart() -> void:
 	GS.sound_manager.play_game()
 
 func _quit() -> void:
+	GS.sound_manager.play_confirm()
 	get_tree().quit()
 
 func _spawn_sm() -> void:

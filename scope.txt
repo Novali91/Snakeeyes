@@ -15,14 +15,15 @@ sound effects
 audio balancing
 
 sounds:
-end turn bell
-choose drink sound
-camera move sound (?)
-hover and press on dice buttons
-player should also get a thump in arm wrestling
-need feedback for speeding up dice / arm wrestling animation
-typing sound
-main menu and setting hover / click noises
+/ end turn bell
+/ choose drink sound
+/ camera move sound
+/ hover and press on dice buttons
+/ player should also get a thump in arm wrestling
+/ need feedback for speeding up dice / arm wrestling animation
+/ typing sound
+/ main menu and setting hover / click noises
+/ shop hover / click and reroll sound
 
 joey ?
 boss incoming special attack / dialogue rework

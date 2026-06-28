@@ -20,7 +20,8 @@ func _ready() -> void:
 	_text_box.open()
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("skip_intro"):
+		GS.sound_manager.play_confirm()
 		play_clicked.emit()
 	
 	if _clicked or _waiting or GS.in_settings: return
@@ -30,6 +31,7 @@ func _process(_delta: float) -> void:
 		var radius = _collision_shape.shape.radius
 		if dist <= radius:
 			_clicked = true
+			GS.sound_manager.play_confirm()
 			
 			_animation_player.play("fade_out")
 			await _animation_player.animation_finished
@@ -43,6 +45,8 @@ func _text_closed() -> void:
 	_waiting = false
 
 func _mouse_entered() -> void:
+	if _waiting: return
+	GS.sound_manager.play_click()
 	_bubble.material.set_shader_parameter("alpha", 1)
 
 func _mouse_exited() -> void:

@@ -77,6 +77,8 @@ func switch_screen(screen_ind: int, bypass_lock: bool = false) -> void:
 		done_moving.emit()
 		return
 	
+	GS.sound_manager.play_swoosh()
+	
 	_current_ind = screen_ind
 	
 	if _current_ind == 1:
@@ -103,6 +105,9 @@ func unlock_camera() -> void:
 	_camera_locked = false
 
 func _handle_arrow_press(is_left: bool) -> void:
+	if _camera_locked or GS.turn_count == 0 or GS.in_settings: return
+	
+	GS.sound_manager.play_confirm()
 	if is_left:
 		_swipe_left()
 	

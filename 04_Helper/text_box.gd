@@ -5,8 +5,9 @@ signal clicked_close()
 signal done_typing()
 signal finished_closing()
 
-const _PER_CHARACTER_SPEED: float = 0.02
+const _PER_CHARACTER_SPEED: float = 0.03
 const _WAIT_TIME: float = 0.05
+const _SOUND_TIME: float = 0.2
 
 @export var text_array: Array[String]
 
@@ -20,6 +21,8 @@ var _text_ind: int = 0
 var _waiting: bool = false
 var _typing_timer: float = 0
 var _opening: bool = true
+
+var _sound_timer: float = 0
 
 func _process(delta: float) -> void:
 	if _opening or GS.in_settings: return
@@ -48,6 +51,13 @@ func _process(delta: float) -> void:
 		
 		if _text_ind >= text_array.size() - 1:
 			done_typing.emit()
+	
+	if not _waiting:
+		if _sound_timer <= 0:
+			_sound_timer += _SOUND_TIME + randf_range(-0.1, 0.1)
+			GS.sound_manager.play_typing()
+	
+	_sound_timer -= delta
 	
 	_wait_timer -= delta
 	_typing_timer -= delta

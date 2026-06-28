@@ -117,6 +117,7 @@ func purchase_snake(snake: Snake) -> void:
 	_remove_snake(snake)
 
 func purchase_antidote() -> void:
+	GS.sound_manager.play_confirm()
 	antidote_stock -= 1
 	if antidote_stock <= 0:
 		antidote.visible = false
@@ -168,6 +169,7 @@ func _remove_snake(snake: Snake) -> void:
 
 func _hover_open_sign() -> void:
 	if not can_buy: return
+	GS.sound_manager.play_click()
 	_open_sign.material.set_shader_parameter("color", Color(1.0, 0.921, 0.41, 1.0))
 
 func _unhover_open_sign() -> void:
@@ -175,6 +177,7 @@ func _unhover_open_sign() -> void:
 
 func _click_open_sign() -> void:
 	if not can_buy: return
+	GS.sound_manager.play_confirm()
 	exit_shop_clicked.emit()
 
 #func _hover_reroll() -> void:
@@ -188,6 +191,7 @@ func _click_open_sign() -> void:
 
 func _reroll_pressed() -> void:
 	if not can_buy: return
+	GS.sound_manager.play_confirm()
 	reroll_clicked.emit()
 
 func update_reroll(cost: int) -> void:
@@ -196,12 +200,14 @@ func update_reroll(cost: int) -> void:
 
 func _reroll_hovered() -> void:
 	if not can_buy: return
+	GS.sound_manager.play_click()
 	_reroll_sign.material.set_shader_parameter("color", Color(1.0, 0.921, 0.41, 1.0))
 
 func _reroll_unhovered() -> void:
 	_reroll_sign.material.set_shader_parameter("color", Color(1.0, 0.5, 0.65, 1.0))
 
 func _antidote_hovered() -> void:
+	GS.sound_manager.play_click()
 	antidote.material.set_shader_parameter("color", Color(1.0, 0.921, 0.41, 1.0))
 
 func _antidote_unhovered() -> void:

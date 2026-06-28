@@ -208,6 +208,7 @@ func _roll() -> void:
 
 func _antidote_pressed() -> void:
 	if GS.get_antidote_num() > 0 and antidote_pressable:
+		GS.sound_manager.play_confirm()
 		antidote_used.emit()
 		GS.set_antidote_num(GS.get_antidote_num() - 1)
 		_reroll()
@@ -217,9 +218,11 @@ func _reroll() -> void:
 
 func _continue_pressed() -> void:
 	if in_tutorial: return
+	GS.sound_manager.play_confirm()
 	number_accepted.emit(_current_value)
 
 func _antidote_hovered() -> void:
+	GS.sound_manager.play_click()
 	_anti_sprite.material.set_shader_parameter("alpha", 1.0)
 
 func _antidote_unhovered() -> void:
@@ -227,6 +230,7 @@ func _antidote_unhovered() -> void:
 
 func _continue_hovered() -> void:
 	if in_tutorial: return
+	GS.sound_manager.play_click()
 	_cont_sprite.material.set_shader_parameter("alpha", 1.0)
 
 func _continue_unhovered() -> void:

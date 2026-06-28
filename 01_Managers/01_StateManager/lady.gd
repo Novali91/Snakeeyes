@@ -10,6 +10,9 @@ var _in_wrestle: bool = false
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("click") and not GS.in_settings and _in_wrestle and GS.tutorial_index != GS.Tutorial.START:
+		if animation_player.speed_scale == 1:
+			GS.sound_manager.play_swoosh()
+		
 		animation_player.speed_scale = 6
 
 func win_armwrestle() -> void:
@@ -17,6 +20,7 @@ func win_armwrestle() -> void:
 	_in_wrestle = true
 	animation_player.play("ArmWrestleStart")
 	await animation_player.animation_finished
+	thump.play()
 	animation_player.play("ArmWrestleWin")
 	await animation_player.animation_finished
 	finished.emit()

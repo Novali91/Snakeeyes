@@ -24,6 +24,7 @@ func _button_pressed() -> void:
 	if _pressable:
 		pressed.emit()
 		_animation_player.play("press")
+		GS.sound_manager.play_end_turn()
 
 func _button_hover() -> void:
 	if not _pressable: return

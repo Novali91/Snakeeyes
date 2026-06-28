@@ -13,6 +13,8 @@ func _ready() -> void:
 	button_up.connect(_button_pressed)
 
 func _start_hover() -> void:
+	if GS.in_settings or GS.turn_count == 0: return
+	GS.sound_manager.play_click()
 	sprite_2d.material.set_shader_parameter("alpha", 1.0)
 
 func _end_hover() -> void:
