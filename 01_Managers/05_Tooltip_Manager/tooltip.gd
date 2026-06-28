@@ -127,7 +127,7 @@ func instantiate_drink_values(info: DrinkResource, og_info: DrinkResource) -> vo
 			desc_label.text = info.description + " (" + str(GS.get_charm()) + ")." + "\n" + "\n" + "[color=\"#686868\"]" + info.flavour_text
 		22:
 			name_label.text = info.drink_name
-			desc_label.text = info.description + " (" + str(info.strength/2.0) + ")." + "\n" + "\n" + "[color=\"#686868\"]" + info.flavour_text
+			desc_label.text = info.description + " (" + str(int(info.strength/2.0)) + ")." + "\n" + "\n" + "[color=\"#686868\"]" + info.flavour_text
 		_:
 			name_label.text = info.drink_name
 			desc_label.text = info.description + "\n" + "\n" + "[color=\"#686868\"]" + info.flavour_text

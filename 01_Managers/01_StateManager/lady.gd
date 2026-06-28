@@ -9,8 +9,8 @@ signal finished()
 var _in_wrestle: bool = false
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("click") and not GS.in_settings and _in_wrestle:
-		animation_player.speed_scale = 3
+	if Input.is_action_just_pressed("click") and not GS.in_settings and _in_wrestle and GS.tutorial_index != GS.Tutorial.START:
+		animation_player.speed_scale = 6
 
 func win_armwrestle() -> void:
 	animation_player.speed_scale = 1

@@ -13,8 +13,8 @@ func start_of_turn_one() -> void:
 	_tb.global_position = $Markers/Center.global_position
 	
 	_tb.text_array = [
-		"welcome",
-		"this is a simple drinking game"
+		"Sssit down dear...",
+		"We will play a sssimple drinking game."
 	]
 	_tb.open()
 	
@@ -25,7 +25,7 @@ func start_of_turn_one() -> void:
 	_open()
 	
 	_tb.text_array = [
-		"this is your strength meter"
+		"This meter will measure your ssstrength!"
 	]
 	_tb.update()
 	
@@ -35,7 +35,7 @@ func start_of_turn_one() -> void:
 	_ap.play("tickers")
 	
 	_tb.text_array = [
-		"every round I will set a strength goal",
+		"Each round I will drink a venom and set your ssstength goal...",
 	]
 	_tb.update()
 	
@@ -47,8 +47,9 @@ func start_of_turn_one() -> void:
 	_ap.play("lives")
 	
 	_tb.text_array = [
-		"if you fail to meet the goal, you will lose a life",
-		"if you manager to succeed, I will give you a life back"
+		"If you fail to meet or exceed the goal, I will sssubtract one of your lives...",
+		"Don't look ssso mortified... I am not a cruel missstresss...",
+		"If you manager to sssucceed, I will allow you to regain a life."
 	]
 	_tb.update()
 	
@@ -60,7 +61,7 @@ func start_of_turn_one() -> void:
 	_ap.play("drinks")
 	
 	_tb.text_array = [
-		"to gain strength you will drink venoms",
+		"To gain ssstrength you will drink venoms...",
 	]
 	_tb.update()
 	
@@ -70,7 +71,7 @@ func start_of_turn_one() -> void:
 	_ap.play("drink_strength")
 	
 	_tb.text_array = [
-		"some drinks will give you strength to win the round"
+		"Sssome venoms will only increase your ssstrength..."
 	]
 	_tb.update()
 	
@@ -80,7 +81,7 @@ func start_of_turn_one() -> void:
 	_ap.play("drink_charm")
 	
 	_tb.text_array = [
-		"others will give you charm to get more snakes"
+		"Othersss will give you charm for new sssnakes."
 	]
 	_tb.update()
 	
@@ -92,8 +93,9 @@ func start_of_turn_one() -> void:
 	_ap.play("poison")
 	
 	_tb.text_array = [
-		"but ingesting venoms is dangerous, the more you drink-",
-		"the higher the chance you pass out"
+		"But do not be a fool dear...",
+		"Ingesting venomsss is poisonousss...",
+		"The more you drink, the higher the chance you passs out."
 	]
 	_tb.update()
 	
@@ -102,7 +104,7 @@ func start_of_turn_one() -> void:
 	_close()
 	
 	_tb.text_array = [
-		"for now, simply drink all your venoms"
+		"For now, sssimply drink all the venomsss on the table."
 	]
 	_tb.update()
 	
@@ -119,7 +121,7 @@ func drinks_drunk() -> void:
 	_open()
 	
 	_tb.text_array = [
-		"to tell me you are done drinking, ring the bell",
+		"To tell me you are finished ring the bell.",
 	]
 	_tb.open()
 	
@@ -134,7 +136,7 @@ func end_turn_pressed() -> void:
 	_tb.global_position = $Markers/Center.global_position
 	
 	_tb.text_array = [
-		"new we will roll the dice to see if you pass out",
+		"Now to see if you passs out... we will roll the dice...",
 	]
 	_tb.open()
 	
@@ -146,15 +148,17 @@ func end_turn_pressed() -> void:
 func dice_rolled() -> void:
 	print("dice_rolled")
 	
+	await get_tree().create_timer(0.5).timeout
+	
 	_tb.global_position = $Markers/TopRight.global_position
 	
 	_tb.text_array = [
-		"sssnake eyesss...",
+		"Sssnake eyesss...",
 		"...",
-		"since you rolled lower than your poison, normally you would pass out",
-		"and you would lose all your strength and charm",
-		"however I have let you start with an antidote",
-		"antidotes let you reroll the dice"
+		"Since you rolled lower than your poissson, normally you would passss out...",
+		"And you would lose all your ssstrength and charm...",
+		"However... my players start with an antidote...",
+		"Each antidote will let you reroll the dice."
 	]
 	_tb.open()
 	
@@ -167,7 +171,7 @@ func compare_strength() -> void:
 	_tb.global_position = $Markers/Center.global_position
 	
 	_tb.text_array = [
-		"now lets see if you beat the goal I set"
+		"Now lets sssee your strength dear..."
 	]
 	_tb.open()
 	
@@ -177,12 +181,15 @@ func compare_strength() -> void:
 func entered_shop() -> void:
 	print("entered_shop")
 	
+	await get_tree().create_timer(0.75).timeout
+	
 	_tb.global_position = $Markers/Center.global_position
 	
 	_tb.text_array = [
-		"now you can add more snakes to your collection",
-		"when you refill, each snake in your collection produces its poison",
-		"different poisons have different stats and effects",
+		"What a rush!",
+		"...",
+		"Sssee these sssnakesss?",
+		"You may spend your charm to add them to your collection...",
 	]
 	_tb.open()
 	
@@ -192,8 +199,8 @@ func entered_shop() -> void:
 	_open()
 	
 	_tb.text_array = [
-		"some effects will allow you to change the stats of SNAKES",
-		"this will permanently change the stats of all FUTURE venoms that snake produces"
+		"Some venomsss will allow you to change the stats of SNAKES...",
+		"This will permanently change the stats of all FUTURE venomsss that snake producesss."
 	]
 	_tb.update()
 	
@@ -202,8 +209,8 @@ func entered_shop() -> void:
 	_ap.play("shop_drink")
 	
 	_tb.text_array = [
-		"other effects will allow you to change the stats of DRINKS",
-		"this will change the stats of a singular drink until it is consumed"
+		"Other effects will allow you to change the statsss of VENOMS...",
+		"This will change the stats of a venom until it isss consumed."
 	]
 	_tb.update()
 	
@@ -214,7 +221,7 @@ func entered_shop() -> void:
 	_ap.play("shop_antidote")
 	
 	_tb.text_array = [
-		"I will also allow you to buy a single antidote in every shop"
+		"I will also allow you to purchase a sssingle antidote in every shop."
 	]
 	_tb.update()
 	
@@ -225,7 +232,7 @@ func entered_shop() -> void:
 	_ap.play("shop_exit")
 	
 	_tb.text_array = [
-		"when you are done, click here to exit the shop"
+		"When you are done, flip the sssign."
 	]
 	_tb.update()
 	
@@ -240,7 +247,7 @@ func start_of_turn_two() -> void:
 	_tb.global_position = $Markers/Center.global_position
 	
 	_tb.text_array = [
-		"its always a good idea to plan ahead",
+		"A wissse player plansss ahead...",
 	]
 	_tb.open()
 	
@@ -250,7 +257,7 @@ func start_of_turn_two() -> void:
 	_open()
 	
 	_tb.text_array = [
-		"you can check the shop by pressing this arrow",
+		"Move to the right to sssee the ssshop...",
 	]
 	_tb.update()
 	
@@ -259,7 +266,7 @@ func start_of_turn_two() -> void:
 	_ap.play("arrow_collection")
 	
 	_tb.text_array = [
-		"you can check your collection by pressing this arrow",
+		"Move to the left sssee your collection of sssnakesss...",
 	]
 	_tb.update()
 	
@@ -268,7 +275,7 @@ func start_of_turn_two() -> void:
 	_ap.play("boss_hover")
 	
 	_tb.text_array = [
-		"you can hover this to see an upcoming special goal",
+		"If you hover your lives, I will warn you of an upcoming ssspecial goal...",
 	]
 	_tb.update()
 	
@@ -277,7 +284,7 @@ func start_of_turn_two() -> void:
 	_close()
 	
 	_tb.text_array = [
-		"you can also use A / D to switch between screens and SPACE to end the round",
+		"You may also use A / D to ssswitch between ssscreens and SPACE to end the round",
 	]
 	_tb.update()
 	
@@ -293,9 +300,9 @@ func multi_attack() -> void:
 	_open()
 	
 	_tb.text_array = [
-		"this is a multi goal round",
-		"if you pass the highest goal, you will regain a life like normal",
-		"but if you fail, you will lose a life for each goal you did not pass",
+		"Thisss is a multi-goal...",
+		"If you passs the highessst goal, you will regain a life just like normal...",
+		"However... if you fail... you will lose a life for each goal you did not passs.",
 	]
 	_tb.open()
 	

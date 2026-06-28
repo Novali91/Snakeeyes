@@ -16,6 +16,10 @@ func _ready() -> void:
 	
 	sprite.material.set_shader_parameter("color", Color(1.0, 0.37, 0.507, 1.0))
 
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("end_turn") and not GS.in_settings:
+		_button_pressed()
+
 func _button_pressed() -> void:
 	if _pressable:
 		pressed.emit()

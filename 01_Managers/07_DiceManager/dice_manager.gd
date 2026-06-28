@@ -45,6 +45,8 @@ var _has_picked_flash_anim: bool = false
 
 var speed_up: bool = false
 
+var _speed_timer: float = 0
+
 #
 #var antidote_flash_progress: float = 0.0
 #@export var antidote_flash_time: float
@@ -65,9 +67,11 @@ func _ready() -> void:
 	_continue_button.mouse_exited.connect(_continue_unhovered)
 
 func _process(delta: float) -> void:
-	if visible and _animation_progress > 0.3 and not speed_up and Input.is_action_just_pressed("click") \
+	if visible and _speed_timer <= 0.0 and not speed_up and Input.is_action_just_pressed("click") \
 			 and GS.tutorial_index in [GS.Tutorial.NONE, GS.Tutorial.SKIPPED] and not GS.in_settings:
 		speed_up = true
+	
+	_speed_timer -= delta
 	
 	#antidote_flash_progress += delta
 	#if antidote_flashing and antidote_flash_progress > antidote_flash_time:
@@ -141,6 +145,8 @@ func roll_the_dice(is_poison: bool) -> void:
 
 func start_roll(lower_cup: bool, is_poison: bool) -> void:
 	speed_up = false
+	_speed_timer = 0.1
+	
 	_has_picked_flash_anim = false
 	visible = true
 	roll_is_for_poison = is_poison

@@ -43,6 +43,8 @@ func _process(delta: float) -> void:
 func _restart() -> void:
 	if _in_menu: return
 	
+	GS.tutorial_index = GS.Tutorial.SKIPPED
+	
 	_sm.queue_free()
 	_spawn_sm()
 	_sm.start_game()
