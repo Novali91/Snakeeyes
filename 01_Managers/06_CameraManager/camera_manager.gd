@@ -17,7 +17,6 @@ enum {
 @onready var _arrow_node: Node2D = $Arrows
 
 var _current_ind: int = 1
-var _prev_ind: int = 1
 var _camera_locked: bool
 var _camera_tween: Tween
 
@@ -115,13 +114,11 @@ func _handle_arrow_press(is_left: bool) -> void:
 		_swipe_right()
 
 func _swipe_left() -> void:
-	_prev_ind = _current_ind
 	var new_ind = _current_ind - 1
 	if new_ind >= 0:
 		switch_screen(new_ind)
 
 func _swipe_right() -> void:
-	_prev_ind = _current_ind
 	var new_ind = _current_ind + 1
 	if new_ind < 3:
 		switch_screen(new_ind)

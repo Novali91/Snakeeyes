@@ -109,6 +109,7 @@ func set_value(old_val: int, new_val: int) -> void:
 		if new_val > old_val:
 			if ticker_height >= ticker_target and ticker_height < old_height:
 				attack_ticker.set_cleared()
+				GS.sound_manager.play_beat_bell()
 		
 		else:
 			if ticker_height < ticker_target and ticker_height >= old_height:

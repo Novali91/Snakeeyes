@@ -12,57 +12,43 @@ var _boss_round: bool = false
 @onready var area: Area2D = $Area
 
 var ATTACK_LIST: Array[BossAttack] = [
-	BossAttack.new([2, 4, 6], 0), # 1
-	BossAttack.new([2], 0), # 2
-	BossAttack.new([1, 1], 0), # 3
-	BossAttack.new([2], 0), # 4
-	BossAttack.new([4], 1), # 5 meet the score perfectly
-	BossAttack.new([1, 3], 0), # 6
-	BossAttack.new([5], 0), # 7
-	BossAttack.new([1, 1, 1], 0), # 8
-	BossAttack.new([1], 0), # 9
-	BossAttack.new([1, 1, 4], 3), # 10 
-	BossAttack.new([1, 5], 0), # 11
-	BossAttack.new([2, 4], 0), # 12
-	BossAttack.new([2, 1], 0), # 13
-	BossAttack.new([2, 2, 2], 0), # 14
-	BossAttack.new([1, 2, 3], 2), # 15 -strength
-	BossAttack.new([1, 2, 3, 4], 0), # 16
-	BossAttack.new([12], 0), # 17
-	BossAttack.new([1, 3, 5], 0), # 18
-	BossAttack.new([2, 5], 0), # 19
-	BossAttack.new([2, 3, 4, 6], 4), # 20 draw on drinks played, crazy attack numbers
-	BossAttack.new([6, 7], 0), # 21
-	BossAttack.new([2, 2, 2, 2, 2], 0), # 22
-	BossAttack.new([2, 2, 5], 0), # 23
-	BossAttack.new([3, 3, 3, 3], 0), # 24
-	BossAttack.new([3, 4, 5], 5), # 25 slide back
-	BossAttack.new([4, 4, 4], 0), # 26
-	BossAttack.new([2, 8, 8], 0), # 27
-	BossAttack.new([2, 2, 8, 8], 0), # 28
-	BossAttack.new([1, 1, 1, 5, 5], 0), # 29
-	BossAttack.new([7, 7, 7], 0), # 30 index 6 for round behavior, but it crashes
-	BossAttack.new([4, 4, 4, 4], 0), # 31
-	BossAttack.new([2, 2, 12], 0), # 32
-	BossAttack.new([3, 3, 11], 0), # 33
-	BossAttack.new([4, 4, 4, 4, 4], 0), # 34
-	BossAttack.new([5, 5, 5, 5, 5], 4), # 35
-	BossAttack.new([6, 6, 6, 6, 6], 0), # 36
-	BossAttack.new([15, 15, 15], 0), # 37
-	BossAttack.new([60], 0), # 38
-	BossAttack.new([25, 25], 0), # 39
-	BossAttack.new([15, 15, 15, 15], 4), # 40
-	BossAttack.new([20, 20, 20], 0), # 41
-	BossAttack.new([5, 10, 20, 40], 0), # 42
-	BossAttack.new([10, 15, 25, 45], 0), # 43
-	BossAttack.new([40, 40], 0), # 44
-	BossAttack.new([30, 80], 4), # 45
-	BossAttack.new([10, 20, 40, 80], 0), # 46
-	BossAttack.new([10, 20, 40, 80], 0), # 47
-	BossAttack.new([15, 30, 60, 100], 0), # 48
-	BossAttack.new([20, 80, 120], 0), # 49
-	BossAttack.new([5, 20, 40, 80, 999], 10), # 50
-	BossAttack.new([5, 20, 40, 80, 999], 10), # 51!!!
+	BossAttack.new([2], 0), # 1
+	BossAttack.new([3], 0), # 2
+	BossAttack.new([2], 0), # 3
+	BossAttack.new([2, 4, 6], 0), # 4
+	BossAttack.new([0], 0), # 5 
+	BossAttack.new([0], 3), # 6 swap charm and strength
+	BossAttack.new([0], 0), # 7
+	BossAttack.new([0], 0), # 8
+	BossAttack.new([0], 0), # 9
+	BossAttack.new([0], 0), # 10 
+	BossAttack.new([0], 0), # 11
+	BossAttack.new([0], 8), # 12 snakes get +1 poison
+	BossAttack.new([0], 0), # 13
+	BossAttack.new([0], 0), # 14
+	BossAttack.new([0], 0), # 15
+	BossAttack.new([0], 0), # 16
+	BossAttack.new([0], 0), # 17
+	BossAttack.new([0], 2), # 18 -strength
+	BossAttack.new([0], 0), # 19
+	BossAttack.new([0], 0), # 20
+	BossAttack.new([0], 0), # 21
+	BossAttack.new([0], 0), # 22
+	BossAttack.new([0], 0), # 23
+	BossAttack.new([0], 5), # 24 slide back
+	BossAttack.new([0], 0), # 25
+	BossAttack.new([0], 0), # 26
+	BossAttack.new([0], 0), # 27
+	BossAttack.new([0], 0), # 28
+	BossAttack.new([0], 0), # 29
+	BossAttack.new([0], 6), # 30 kill snakes at end (maybe crashes?)
+	BossAttack.new([0], 0), # 31
+	BossAttack.new([0], 0), # 32
+	BossAttack.new([0], 0), # 33
+	BossAttack.new([0], 0), # 34
+	BossAttack.new([0], 4), # 35
+	BossAttack.new([5, 20, 40, 80, 999], 10), # 36
+	BossAttack.new([5, 20, 40, 80, 999], 10), # 37!!!
 ]
 
 func _ready() -> void:

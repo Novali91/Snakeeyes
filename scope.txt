@@ -9,10 +9,10 @@ implementation:
 / intro fix up
 / ribbon for retain
 / trap beat
-design / finish attacks (wait for joey to be done)
+first pass of attack design
 / finish tutorial dialogue
-sound effects
-audio balancing
+/ sound effects
+/ audio balancing
 
 sounds:
 / end turn bell
@@ -39,6 +39,8 @@ antidote has a small tooltip
 finalize tutorial dialogue
 finalize / balance attack design
 remove ENTER intro skip
+more unique sounds (reroll, use antidote, etc)
+win and lose screens and animations are ugly af
 / pass out goes to arm wrestle after pass out
 / click to skip dice roll and arm wrestle
 / rarities need to be a little darker / lower sat

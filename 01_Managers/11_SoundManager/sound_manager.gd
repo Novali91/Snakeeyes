@@ -16,6 +16,7 @@ extends Node2D
 @onready var typing: AudioStreamPlayer = $Typing
 @onready var camera_swoosh: AudioStreamPlayer = $CameraSwoosh
 @onready var confirm_click: AudioStreamPlayer = $ConfirmClick
+@onready var beat_bell: AudioStreamPlayer = $BeatBell
 
 var _prev_music: AudioStreamPlayer
 var _cur_music: AudioStreamPlayer
@@ -82,6 +83,9 @@ func play_swoosh() -> void:
 
 func play_confirm() -> void:
 	confirm_click.play()
+
+func play_beat_bell() -> void:
+	beat_bell.play()
 
 func play_jingle(index: int) -> void:
 	jingles[index].play()
