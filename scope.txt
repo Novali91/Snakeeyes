@@ -26,13 +26,13 @@ sounds:
 / shop hover / click and reroll sound
 
 joey ?
-boss incoming special attack / dialogue rework
-homeless drink display - Done?
+/boss incoming special attack / dialogue rework
+/homeless drink display - Done?
 min deck size popup on remove
 
 polish ideas:
 buying king cobra on 24 snakes will remove only 2 snakes
-Everything gets a specific overlay (eg King Cobra should say pick a snake to kill and gain its strength and charm 1/2 and 2/2)
+/Everything gets a specific overlay (eg King Cobra should say pick a snake to kill and gain its strength and charm 1/2 and 2/2)
 Maybe also rework how overlays look in particular
 add variable camera speeds, AD camera is fast, effect camera is slower
 antidote has a small tooltip
@@ -54,11 +54,10 @@ bugs:
 / can move screen while refilling
 / quetzl has charm before strength in text
 / reroll cost stays until shop phase
-on everything I swear I just lost when the goal was 4 and my str was 6
+on everything I swear I just lost when the goal was 4 and my str was 6 (Erm buddy was it the boss effect...)
 I used nidhogg on a snake that rolls dice and a different snakes tooltip got stuck on screen until the roll was over
 / dice roll is randomly staying sped up
 legendary names are going crazy
-
 
 
 

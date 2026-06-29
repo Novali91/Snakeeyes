@@ -39,11 +39,11 @@ func _check_snake(snake: Snake) -> void:
 		sm.charm_overlay.spend_charm(snake.attached_snake.cost, snake.global_position)
 		
 		if sm.deck_manager.snake_deck.size() >= 24:
-			sm.overlay_manager.toggle_kill(true)
+			sm.overlay_manager.toggle_full_deck(true)
 			
 			await sm.ability_helper.remove_snake(2)
 			
-			sm.overlay_manager.toggle_kill(false)
+			sm.overlay_manager.toggle_full_deck(false)
 		
 		#var snake_copy = sm.shop_manager.create_snake(snake.attached_snake)
 		#await sm.shop_manager.ability_helper.buy_snake(snake_copy)

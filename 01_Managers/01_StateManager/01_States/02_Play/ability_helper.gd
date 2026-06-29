@@ -93,11 +93,14 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			sm.overlay_manager.toggle_dbl_strength_poison(true)
 			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
 			sm.overlay_manager.toggle_dbl_strength_poison(false)
+			sm.deck_manager.tooltip_manager.turn_off_hover()
+			
 			var val: int = await roll_dice()
 			if val < 7:
 				sm.deck_manager.ability_helper.upgrade_snake(snake, snake.current_drink.poison, sm.deck_manager.ability_helper.POISON)
 			else:
 				sm.deck_manager.ability_helper.upgrade_snake(snake, snake.current_drink.strength, sm.deck_manager.ability_helper.STRENGTH)
+			sm.deck_manager.tooltip_manager.turn_on_hover()
 			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 			sm.camera_manager.unlock_camera()
 			pass
@@ -128,7 +131,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			sm.deck_manager.return_to_drawpile(og_drink, cur_drink)
 			pass
 		QUETZALCOATL:
-			draw_cards(3)
+			await draw_cards(3)
 			## UI for picking to slideback here:
 			sm.overlay_manager.toggle_slide_back(true,1)
 			var chosen_drink: Drink = await pick_drink()
@@ -221,6 +224,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 
 func draw_cards(num: int, unlock_after: bool = true) -> void:
 	sm.camera_manager.lock_camera()
+	
 	sm.hand_manager.drinks_drinkable = false
 	
 	var num_drinks = sm.hand_manager.get_num_drinks()
@@ -265,7 +269,7 @@ func remove_snake(start_screen: int) -> void:
 func king_cobra_remove(start_screen: int) -> Vector4i:
 	sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
 	sm.camera_manager.lock_camera()
-	sm.overlay_manager.toggle_kill(true)
+	sm.overlay_manager.toggle_king_kill(true, 1)
 	var snake_stats: Vector4i
 	
 	var snake_one: Snake = await sm.deck_manager.ability_helper.choose_snake()
@@ -273,12 +277,14 @@ func king_cobra_remove(start_screen: int) -> Vector4i:
 	snake_stats.x = snake_one.current_drink.charm
 	sm.deck_manager.remove_snake(snake_one)
 	
+	sm.overlay_manager.toggle_king_kill(false, 1)
+	sm.overlay_manager.toggle_king_kill(true, 2)
 	var snake_two: Snake = await sm.deck_manager.ability_helper.choose_snake()
 	snake_stats.y = snake_two.current_drink.strength
 	snake_stats.z = snake_two.current_drink.charm
 	sm.deck_manager.remove_snake(snake_two)
 	
-	sm.overlay_manager.toggle_kill(false)
+	sm.overlay_manager.toggle_king_kill(false, 2)
 	sm.camera_manager.switch_screen(start_screen, true)
 	sm.camera_manager.unlock_camera()
 	return snake_stats

@@ -21,6 +21,8 @@ class_name DeckManager
 @onready var _markers_node: Node2D = $Markers
 @onready var _current_count: CustomNumber = $CurrentCount
 
+const HOMELESS_ARRAY_SIZE: int = 18
+
 signal snake_chosen(snake: Snake)
 
 ## Draw function: Currently if drawing too much for drawpile, it returns an array of size amt-
@@ -48,7 +50,6 @@ func _ready() -> void:
 	_homeless_drinks = {}
 	_homeless_slots = []
 	_open_homeless_inds = []
-	const HOMELESS_ARRAY_SIZE: int = 24
 	
 	var i = 0
 	for m: Marker2D in _markers_node.get_children():
@@ -58,7 +59,7 @@ func _ready() -> void:
 		i += 1
 	
 	for index: int in range(HOMELESS_ARRAY_SIZE):
-		_homeless_slots.push_back(Vector2((250+index*68), 1020))
+		_homeless_slots.push_back(Vector2((250+index*90), 980))
 		_open_homeless_inds.push_back(index)
 		pass
 	
