@@ -39,14 +39,13 @@ antidote has a small tooltip
 finalize tutorial dialogue
 finalize / balance attack design
 remove ENTER intro skip
-more unique sounds (reroll, use antidote, etc)
+more unique sounds (reroll, use antidote, start, buy antidote)
 win and lose screens and animations are ugly af
 / pass out goes to arm wrestle after pass out
 / click to skip dice roll and arm wrestle
 / rarities need to be a little darker / lower sat
 / change "drink" to venom
 / lives look cramped
-
 
 bugs:
 / send 1 back boss attack soft locks

@@ -38,6 +38,8 @@ func _check_snake(snake: Snake) -> void:
 		GS.set_charm(GS.get_charm() - snake.attached_snake.cost)
 		sm.charm_overlay.spend_charm(snake.attached_snake.cost, snake.global_position)
 		
+		GS.sound_manager.play_confirm()
+		
 		if sm.deck_manager.snake_deck.size() >= 24:
 			sm.overlay_manager.toggle_full_deck(true)
 			
@@ -52,7 +54,6 @@ func _check_snake(snake: Snake) -> void:
 		
 		sm.deck_manager.add_snake(snake_copy)
 		sm.shop_manager.purchase_snake(snake)
-		GS.sound_manager.play_confirm()
 		GS.sound_manager.play_jingle(snake.attached_snake.jingle_id)
 
 func _check_antidote() -> void:
