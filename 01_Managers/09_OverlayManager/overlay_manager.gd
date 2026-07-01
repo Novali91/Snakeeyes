@@ -14,13 +14,17 @@ extends Node2D
 @onready var king_kill_1: ColorRect = $KingKill1
 @onready var king_kill_2: ColorRect = $KingKill2
 @onready var full_deck_kill: ColorRect = $FullDeckKill
+@onready var min_deck_warning: ColorRect = $MinDeckWarning
 
 var _cur_overlay: ColorRect
 
+var min_deck_vis: bool = false
+
 func _physics_process(_delta: float) -> void:
-	if _cur_overlay == null:
-		return
-	_cur_overlay.global_position = get_viewport().get_camera_2d().get_screen_center_position() - Vector2(150, 75)
+	if _cur_overlay != null:
+		_cur_overlay.global_position = get_viewport().get_camera_2d().get_screen_center_position() - Vector2(150, 75)
+	if min_deck_vis != null:
+		min_deck_warning.global_position = get_viewport().get_camera_2d().get_screen_center_position() - Vector2(150, 75)
 	return
 
 func toggle_retain(vis) -> void:
@@ -101,3 +105,11 @@ func toggle_full_deck(vis) -> void:
 		_cur_overlay = full_deck_kill
 	else:
 		_cur_overlay = null
+
+func enable_min_deck_warning() -> void:
+	min_deck_vis = true
+	min_deck_warning.visible = true
+	await get_tree().create_timer(3).timeout
+	min_deck_warning.visible = false
+	min_deck_vis = false
+	

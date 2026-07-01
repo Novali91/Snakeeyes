@@ -16,6 +16,7 @@ func buy_snake(snake: Snake) -> void:
 	match snake.current_drink.special_ability:
 		KING_COBRA:
 			if top_ability_helper.sm.deck_manager.snake_deck.size() <= 5:
+				top_ability_helper.sm.overlay_manager.enable_min_deck_warning()
 				return
 			var stats: Vector4i = await top_ability_helper.king_cobra_remove(2)
 			if snake != null:

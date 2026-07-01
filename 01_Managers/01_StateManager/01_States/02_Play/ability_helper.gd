@@ -78,13 +78,18 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			sm.hand_manager.drinks_drank += 1
 			if sm.deck_manager.snake_deck.size() > 5:
 				sm.deck_manager.remove_snake(snake)
+			else:
+				sm.overlay_manager.enable_min_deck_warning()
 			
 			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 			sm.camera_manager.unlock_camera()
 		CANNIBAL_SNAKE:
 			sm.overlay_manager.toggle_kill(true)
-			remove_snake(sm.camera_manager.MIDDLE)
+			## Bandaid fix but this is last minute
+			var successful: bool = await remove_snake(sm.camera_manager.MIDDLE)
 			sm.overlay_manager.toggle_kill(false)
+			if not successful:
+				sm.overlay_manager.enable_min_deck_warning()
 			pass
 		HYDRA:
 			#draw_cards(2) # Old hydra
@@ -255,16 +260,16 @@ func _reshuffle_draw_pile() -> void:
 	sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 	await get_tree().create_timer(0.5).timeout
 
-func remove_snake(start_screen: int) -> void:
+func remove_snake(start_screen: int) -> bool:
 	if sm.deck_manager.snake_deck.size() <= 5:
-		return
+		return false
 	sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
 	sm.camera_manager.lock_camera()
 	var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
 	sm.deck_manager.remove_snake(snake)
 	sm.camera_manager.switch_screen(start_screen, true)
 	sm.camera_manager.unlock_camera()
-	return
+	return true
 
 func king_cobra_remove(start_screen: int) -> Vector4i:
 	sm.camera_manager.switch_screen(sm.camera_manager.LEFT)

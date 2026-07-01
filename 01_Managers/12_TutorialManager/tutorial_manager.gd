@@ -35,7 +35,7 @@ func start_of_turn_one() -> void:
 	_ap.play("tickers")
 	
 	_tb.text_array = [
-		"Each round I will drink a venom and set your ssstength goal...",
+		"Each round I will drink a venom and set your ssstrength goal...",
 	]
 	_tb.update()
 	
@@ -49,7 +49,7 @@ func start_of_turn_one() -> void:
 	_tb.text_array = [
 		"If you fail to meet or exceed the goal, I will sssubtract one of your lives...",
 		"Don't look ssso mortified... I am not a cruel missstresss...",
-		"If you manager to sssucceed, I will allow you to regain a life."
+		"If you manage to sssucceed, I will allow you to regain a life."
 	]
 	_tb.update()
 	

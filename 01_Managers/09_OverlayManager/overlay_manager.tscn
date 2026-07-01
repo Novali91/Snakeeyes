@@ -331,3 +331,29 @@ text = "Pick a snake to kill to free room for your new snake."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="MinDeckWarning" type="ColorRect" parent="." unique_id=1050552560]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2730.0
+offset_top = 502.5
+offset_right = 3030.0
+offset_bottom = 577.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.7411765, 0, 0, 0.45490196)
+
+[node name="Label" type="Label" parent="MinDeckWarning" unique_id=807007168]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0.9355364, 0.9355364, 0.93553627, 1)
+text = "You can not have less than 5 snakes"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
