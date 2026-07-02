@@ -34,9 +34,9 @@ var antidote_position: Vector2
 @onready var _price_tags: Array[Sprite2D] = [
 	$Cages/Cage2/Pricetag1,
 	$Pricetag2,
-	$Cages/Cage5/Pricetag3,
 	$Cages/Cage4/Pricetag4,
 	$Cages/Pricetag5,
+	$Cages/Cage5/Pricetag3,
 ]
 
 @onready var _ant_price_tag: Sprite2D = $Antidote/Sprite2D
@@ -176,7 +176,7 @@ func _update_price_visuals(_old_charm, new_charm) -> void:
 		var p = _price_tags[i]
 		
 		if _cur_snakes[i] == null:
-			p.self_modulate.a = 0.75
+			p.self_modulate.a = 0.6
 			_labels[i].set_value(0)
 			continue
 		
@@ -185,12 +185,12 @@ func _update_price_visuals(_old_charm, new_charm) -> void:
 		if new_charm >= s.attached_snake.cost:
 			p.self_modulate.a = 1.0
 		else:
-			p.self_modulate.a = 0.75
+			p.self_modulate.a = 0.6
 	
 	if new_charm >= 2:
 		_ant_price_tag.self_modulate.a = 1.0
 	else:
-		_ant_price_tag.self_modulate.a = 0.75
+		_ant_price_tag.self_modulate.a = 0.6
 
 
 func _snake_clicked(snake: DeckItem) -> void:
