@@ -2,14 +2,24 @@
 
 [ext_resource type="Script" uid="uid://dhidk03elcsg1" path="res://03_VisualInputOutput/01_ScoreBar/score_bar.gd" id="1_frerc"]
 [ext_resource type="Texture2D" uid="uid://bgv6r34qfw61j" path="res://05_Assets/01_Art/03_UI_Sprites/scoreboard sprite.png" id="2_01k1c"]
+[ext_resource type="Shader" uid="uid://0oonfw65mdnr" path="res://05_Assets/02_Shaders/outline.gdshader" id="2_5jp7t"]
 [ext_resource type="Script" uid="uid://cfqx3dcaojqrs" path="res://03_VisualInputOutput/01_ScoreBar/custom_number.gd" id="3_44rer"]
 [ext_resource type="Texture2D" uid="uid://dcdtu0k5sbdup" path="res://05_Assets/01_Art/03_UI_Sprites/lives for the scoreboard.png" id="4_bfhbu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o1cvd"]
+shader = ExtResource("2_5jp7t")
+shader_parameter/sprite_alpha = 1.0
+shader_parameter/color = Color(0.76316667, 1, 0.51, 1)
+shader_parameter/alpha = 0.0
+shader_parameter/thickness = 0.010000000475
+shader_parameter/x_over_y = 2.0
 
 [node name="ScoreBar" type="Node2D" unique_id=958898566]
 script = ExtResource("1_frerc")
 metadata/_custom_type_script = "uid://dhidk03elcsg1"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1128272843]
+material = SubResource("ShaderMaterial_o1cvd")
 texture = ExtResource("2_01k1c")
 
 [node name="Turn" type="Node2D" parent="." unique_id=36648135]

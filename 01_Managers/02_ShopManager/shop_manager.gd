@@ -31,6 +31,16 @@ var antidote_position: Vector2
 @onready var _reroll_cost: CustomNumber = $RerollButton/CustomNumber
 @onready var _reroll_player: AnimationPlayer = $RerollButton/AnimationPlayer
 
+@onready var _price_tags: Array[Sprite2D] = [
+	$Cages/Cage2/Pricetag1,
+	$Pricetag2,
+	$Cages/Cage5/Pricetag3,
+	$Cages/Cage4/Pricetag4,
+	$Cages/Pricetag5,
+]
+
+@onready var _ant_price_tag: Sprite2D = $Antidote/Sprite2D
+
 var _actual_parrot: SnakeResource
 
 var _shop_positions: Array[Vector2]
@@ -40,6 +50,9 @@ var _labels: Array[CustomNumber] = []
 var antidote_stock: int = 0
 
 var first_stock_tutorial: bool = true
+
+func _init() -> void:
+	_cur_snakes.resize(SHOP_SIZE)
 
 func _ready() -> void:
 	ability_helper.shop_manager = self
@@ -53,6 +66,8 @@ func _ready() -> void:
 	reroll_button.mouse_exited.connect(_reroll_unhovered)
 	_antidote_button.mouse_entered.connect(_antidote_hovered)
 	_antidote_button.mouse_exited.connect(_antidote_unhovered)
+	
+	GS.charm_set.connect(_update_price_visuals)
 	
 	_reroll_sign.material.set_shader_parameter("color", Color(1.0, 0.5, 0.65, 1.0))
 	
@@ -75,13 +90,16 @@ func empty_shop() -> void:
 
 func fill_shop() -> void:
 	var cur_snake_resources: Array[SnakeResource] = _get_snakes(SHOP_SIZE)
-	for snake: SnakeResource in cur_snake_resources:
-		_cur_snakes.append(create_snake(snake))
+	for i in SHOP_SIZE:
+		var sr = cur_snake_resources[i]
+		_cur_snakes[i] = create_snake(sr)
 	
 	for i in SHOP_SIZE:
 		_cur_snakes[i].position = _shop_positions[i]
 		_labels[i].set_value(_cur_snakes[i].attached_snake.cost)
 		_tooltip_manager.add_item(_cur_snakes[i])
+	
+	_update_price_visuals(0, GS.get_charm())
 
 func toggle_open(open: bool) -> void:
 	can_buy = open
@@ -152,6 +170,29 @@ func _get_snakes(num: int) -> Array[SnakeResource]:
 	
 	return arr
 
+
+func _update_price_visuals(_old_charm, new_charm) -> void:
+	for i in SHOP_SIZE:
+		var p = _price_tags[i]
+		
+		if _cur_snakes[i] == null:
+			p.self_modulate.a = 0.75
+			_labels[i].set_value(0)
+			continue
+		
+		var s = _cur_snakes[i]
+		
+		if new_charm >= s.attached_snake.cost:
+			p.self_modulate.a = 1.0
+		else:
+			p.self_modulate.a = 0.75
+	
+	if new_charm >= 2:
+		_ant_price_tag.self_modulate.a = 1.0
+	else:
+		_ant_price_tag.self_modulate.a = 0.75
+
+
 func _snake_clicked(snake: DeckItem) -> void:
 	if not can_buy: return
 	
@@ -164,7 +205,10 @@ func _antidote_clicked() -> void:
 	antidote_clicked.emit()
 
 func _remove_snake(snake: Snake) -> void:
-	_cur_snakes.erase(snake)
+	if snake == null: return
+	
+	var i = _cur_snakes.find(snake)
+	_cur_snakes[i] = null
 	_tooltip_manager.remove_item(snake, true)
 
 func _hover_open_sign() -> void:

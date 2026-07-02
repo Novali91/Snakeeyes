@@ -173,3 +173,11 @@ func format_number(val: int) -> String:
 		output += str(abs_val)
 	
 	return output
+
+
+
+# secret signal section (dont tell joey...)
+@warning_ignore("unused_signal")
+signal attack_hovered()
+@warning_ignore("unused_signal")
+signal attack_unhovered()

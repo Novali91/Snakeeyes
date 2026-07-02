@@ -95,12 +95,16 @@ func _attack_hovered() -> void:
 	while ATTACK_LIST[n].ability_index == 0: n += 1
 	
 	boss_tooltip.hover_tooltip(ATTACK_LIST[n].ability_index, n - _attack_ind)
+	
+	GS.attack_hovered.emit()
 
 func _attack_unhovered() -> void:
 	if _boss_round:
 		return
 	
 	boss_tooltip.unhover_tooltip()
+	
+	GS.attack_unhovered.emit()
 
 ## Drinking a drink gives all drinks -1 str - HandManager
 ## Swap charm and strength - Play state

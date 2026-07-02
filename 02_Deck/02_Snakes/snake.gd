@@ -38,8 +38,8 @@ func _ready() -> void:
 			current_drink.drink_name = "[color=#1f5782]" + current_drink.drink_name
 		
 		"L":
-			attached_snake.snake_name = "[color=\"#e86f0c\"]" + attached_snake.snake_name
-			current_drink.drink_name = "[color=\"#e86f0c\"]" + current_drink.drink_name
+			attached_snake.snake_name = "[rainbow freq=0.15 sat=0.9 val=1. speed=-10.0]" + attached_snake.snake_name
+			current_drink.drink_name = "[rainbow freq=0.15 sat=0.9 val=1. speed=-10.0]" + current_drink.drink_name
 	
 	if current_drink.special_ability == 26:
 		attached_snake.snake_name = "[rainbow freq=3.0 sat=1.0 val=0.8 speed=0.3]" + attached_snake.snake_name
