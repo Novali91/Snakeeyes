@@ -146,7 +146,6 @@ func _end_turn() -> void:
 		await get_tree().create_timer(1).timeout
 		
 		sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
-		sm.camera_manager.unlock_camera()
-		await get_tree().create_timer(1.5).timeout
+		await get_tree().create_timer(1).timeout
 	
 	sm.hand_manager.end_turn_discard()
