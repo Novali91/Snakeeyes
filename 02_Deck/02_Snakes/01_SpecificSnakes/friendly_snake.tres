@@ -10,7 +10,7 @@ snake_name = "Pit Viper"
 drink_resource = ExtResource("1_c4g1r")
 snake_sprite = ExtResource("3_c4g1r")
 description = "Reduce the [color=\"#069c10\"]Poison[/color] of each venom on the table by 1."
-flavour_text = "The Pit Viper is an incredibly venomous, and yet is widely used for its medicinal properties."
+flavour_text = "The Pit Viper is incredibly venomous, and yet is widely used for its medicinal properties."
 cost = 8
 rarity = "R"
 jingle_id = 16
