@@ -55,7 +55,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 		LONG_TAIL_BOA:
 			draw_cards(3)
 		GARDEN_SNAKE: 
-			sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
+			sm.camera_manager.switch_screen(sm.camera_manager.LEFT, true)
 			sm.camera_manager.lock_camera()
 			sm.overlay_manager.toggle_buff(true)
 			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
@@ -65,24 +65,25 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			sm.camera_manager.unlock_camera()
 			pass
 		CLAIRVOYANT_SNAKE:
-			sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
+			sm.camera_manager.switch_screen(sm.camera_manager.LEFT, true)
 			sm.camera_manager.lock_camera()
 			sm.overlay_manager.toggle_dbl_poison(true)
+			sm.hand_manager.drinks_drinkable = false
 			var snake: Snake = await sm.deck_manager.ability_helper.choose_snake()
 			sm.overlay_manager.toggle_dbl_poison(false)
 			#sm.camera_manager.unlock_camera()
 			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE) # This logic should be updated when camera manager is updated
 			#sm.camera_manager.lock_camera()
 			var clairvoyant_drink: Drink = sm.deck_manager.ability_helper.get_clairvoyant_drink(snake)
-			play_state.play_card(clairvoyant_drink.attached_drink, drink_position, clairvoyant_drink.attached_drink_resource)
-			sm.hand_manager.drinks_drank += 1
 			if sm.deck_manager.snake_deck.size() > 5:
 				sm.deck_manager.remove_snake(snake)
 			else:
 				sm.overlay_manager.enable_min_deck_warning()
-			
-			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 			sm.camera_manager.unlock_camera()
+			await play_state.play_card(clairvoyant_drink.attached_drink, drink_position, clairvoyant_drink.attached_drink_resource)
+			sm.hand_manager.drinks_drank += 1
+			sm.hand_manager.drinks_drinkable = true
+			sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 		CANNIBAL_SNAKE:
 			sm.overlay_manager.toggle_kill(true)
 			## Bandaid fix but this is last minute
@@ -297,6 +298,7 @@ func king_cobra_remove(start_screen: int) -> Vector4i:
 func pick_drink() -> Drink:
 	sm.end_turn_button.stop_pressable()
 	sm.camera_manager.lock_camera()
+	sm.camera_manager.switch_screen(sm.camera_manager.MIDDLE, true)
 	var chosen_drink: Drink = await sm.hand_manager.ability_helper.choose_drink()
 	sm.camera_manager.unlock_camera()
 	sm.end_turn_button.make_pressable()

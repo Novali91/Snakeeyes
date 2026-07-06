@@ -46,6 +46,9 @@ win and lose screens and animations are ugly af
 / rarities need to be a little darker / lower sat
 / change "drink" to venom
 / lives look cramped
+Price tags aren't updated until buying next snake
+Basilisk/Gorgon/King Cobra jingle is kinda quiet
+Parrot/Scarlet/Asclepius/Placeboa/Garden kinda loud
 
 bugs:
 / send 1 back boss attack soft locks
@@ -57,6 +60,7 @@ on everything I swear I just lost when the goal was 4 and my str was 6 (Erm budd
 I used nidhogg on a snake that rolls dice and a different snakes tooltip got stuck on screen until the roll was over
 / dice roll is randomly staying sped up
 legendary names are going crazy
+May be a bug with sliding back drinks or just Ouroboros?
 
 
 

@@ -9,6 +9,7 @@ drink_name = "Ball Python Venom"
 drink_sprite = ExtResource("1_1ot5m")
 poison = 1
 strength = 2
+charm = 1
 special_ability = 15
 description = "Pick a snake in your collection and [color=\"#7d1b41\"]Roll The Dice:[/color][br]2 - 6: Give it +2 [color=\"#8f1e0d\"]Strength[/color].[br]7 - 12: Give it +5 [color=\"#8f1e0d\"]Strength[/color]."
 flavour_text = "Knows ball."

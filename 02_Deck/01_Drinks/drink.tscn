@@ -20,7 +20,7 @@ colors = PackedColorArray(1, 1, 1, 1)
 gradient = SubResource("Gradient_4xa7e")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbsba"]
-size = Vector2(128, 128)
+size = Vector2(119, 114)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ifok2"]
 resource_local_to_scene = true
@@ -180,6 +180,7 @@ scale = Vector2(2.015625, 0.890625)
 texture = SubResource("GradientTexture2D_in05i")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1306363368]
+position = Vector2(-7, 26)
 shape = SubResource("RectangleShape2D_kbsba")
 
 [node name="DrinkSprite" type="Sprite2D" parent="." unique_id=555956909]

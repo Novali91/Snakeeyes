@@ -8,7 +8,7 @@ script = ExtResource("1_t0lm7")
 drink_name = "Basilisk Venom"
 drink_sprite = ExtResource("1_xfeng")
 poison = 1
-strength = 2
+strength = 3
 special_ability = 21
 description = "Pick a snake in your collection.[br]Spend all your [color=\"#b32295\"]Charm[/color] to give it that much [color=\"#8f1e0d\"]Strength[/color]"
 flavour_text = "The cunning basilisk, known for its silver tongue and its lethal gaze."

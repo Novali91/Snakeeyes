@@ -15,29 +15,29 @@ var ATTACK_LIST: Array[BossAttack] = [
 	BossAttack.new([2], 0), # 1
 	BossAttack.new([3], 0), # 2
 	BossAttack.new([2], 0), # 3
-	BossAttack.new([2, 4, 6], 0), # 4
-	BossAttack.new([0], 0), # 5 
-	BossAttack.new([0], 3), # 6 swap charm and strength
-	BossAttack.new([0], 0), # 7
-	BossAttack.new([0], 0), # 8
-	BossAttack.new([0], 0), # 9
-	BossAttack.new([0], 0), # 10 
-	BossAttack.new([0], 0), # 11
-	BossAttack.new([0], 8), # 12 snakes get +1 poison
-	BossAttack.new([0], 0), # 13
-	BossAttack.new([0], 0), # 14
-	BossAttack.new([0], 0), # 15
-	BossAttack.new([0], 0), # 16
-	BossAttack.new([0], 0), # 17
-	BossAttack.new([0], 2), # 18 -strength
-	BossAttack.new([0], 0), # 19
-	BossAttack.new([0], 0), # 20
-	BossAttack.new([0], 0), # 21
-	BossAttack.new([0], 0), # 22
-	BossAttack.new([0], 0), # 23
-	BossAttack.new([0], 5), # 24 slide back
-	BossAttack.new([0], 0), # 25
-	BossAttack.new([0], 0), # 26
+	BossAttack.new([2, 4, 5], 0), # 4
+	BossAttack.new([3], 0), # 5 
+	BossAttack.new([3], 3), # 6 swap charm and strength
+	BossAttack.new([5], 0), # 7
+	BossAttack.new([2, 4, 7], 0), # 8
+	BossAttack.new([6], 0), # 9
+	BossAttack.new([8], 0), # 10 
+	BossAttack.new([10], 0), # 11
+	BossAttack.new([2, 6], 8), # 12 snakes get +1 poison
+	BossAttack.new([3, 6, 10], 0), # 13
+	BossAttack.new([12], 0), # 14
+	BossAttack.new([15], 0), # 15
+	BossAttack.new([18], 0), # 16
+	BossAttack.new([3, 8, 16], 0), # 17
+	BossAttack.new([18], 2), # 18 -strength
+	BossAttack.new([15], 0), # 19
+	BossAttack.new([22], 0), # 20
+	BossAttack.new([25], 0), # 21
+	BossAttack.new([8, 16, 20], 0), # 22
+	BossAttack.new([30], 0), # 23
+	BossAttack.new([22], 5), # 24 slide back
+	BossAttack.new([36], 0), # 25
+	BossAttack.new([40], 0), # 26
 	BossAttack.new([0], 0), # 27
 	BossAttack.new([0], 0), # 28
 	BossAttack.new([0], 0), # 29
@@ -46,9 +46,9 @@ var ATTACK_LIST: Array[BossAttack] = [
 	BossAttack.new([0], 0), # 32
 	BossAttack.new([0], 0), # 33
 	BossAttack.new([0], 0), # 34
-	BossAttack.new([0], 4), # 35
-	BossAttack.new([5, 20, 40, 80, 999], 10), # 36
-	BossAttack.new([5, 20, 40, 80, 999], 10), # 37!!!
+	BossAttack.new([0], 0), # 35
+	BossAttack.new([5, 20, 40, 999], 10), # 36
+	BossAttack.new([5, 20, 40, 999], 10), # 37!!!
 ]
 
 func _ready() -> void:

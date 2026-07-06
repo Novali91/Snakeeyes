@@ -20,11 +20,13 @@ func _ready() -> void:
 	vol_slider.value_changed.connect(_volume_bar_changed)
 	
 	_spawn_sm()
+	_sm.camera_manager.lock_camera()
 	GS.sound_manager.play_menu()
 	await _title_screen_manager.play_clicked
 	_title_screen_manager.queue_free()
 	_in_menu = false
 	GS.sound_manager.play_game()
+	_sm.camera_manager.unlock_camera()
 	_sm.start_game()
 
 func _process(delta: float) -> void:

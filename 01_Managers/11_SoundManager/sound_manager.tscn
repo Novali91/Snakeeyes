@@ -211,7 +211,7 @@ volume_db = -7.0
 
 [node name="RareBasilisk" type="AudioStreamPlayer" parent="Jingles" unique_id=2045939013]
 stream = ExtResource("25_7fogv")
-volume_db = -11.0
+volume_db = -9.0
 
 [node name="RarePitViper" type="AudioStreamPlayer" parent="Jingles" unique_id=1345932204]
 stream = ExtResource("26_3qiuh")

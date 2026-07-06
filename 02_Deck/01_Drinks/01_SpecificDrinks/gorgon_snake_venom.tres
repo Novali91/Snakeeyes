@@ -8,6 +8,7 @@ script = ExtResource("2_hp4eg")
 drink_name = "Gorgon Venom"
 drink_sprite = ExtResource("1_0yox0")
 poison = 2
+strength = 1
 charm = 2
 special_ability = 19
 retain = true

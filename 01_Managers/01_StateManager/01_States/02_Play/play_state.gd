@@ -124,7 +124,7 @@ func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkRes
 		_:
 			pass
 	
-	sm.ability_helper.trigger_ability(drink.special_ability, drink_position, drink, og_drink)
+	await sm.ability_helper.trigger_ability(drink.special_ability, drink_position, drink, og_drink)
 
 func _end_pressed() -> void:
 	await _end_turn()
