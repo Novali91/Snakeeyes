@@ -10,7 +10,7 @@ snake_name = "Ouroboros"
 drink_resource = ExtResource("1_6kw3p")
 snake_sprite = ExtResource("3_6kw3p")
 description = "Instead of being consumed, this venom [color=\"#078c60\"]Slides Back[/color]."
-flavour_text = "The eternal symbol of renewal, representations of the Ouroboros existed everywhere."
+flavour_text = "The eternal symbol of renewal, representations of the Ouroboros have existed everywhere."
 cost = 12
 rarity = "L"
 jingle_id = 25

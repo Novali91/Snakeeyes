@@ -32,7 +32,6 @@
 [ext_resource type="AudioStream" uid="uid://da5hta7kac67p" path="res://05_Assets/03_SoundEffects/jingles/rare_basilisk.wav" id="25_7fogv"]
 [ext_resource type="AudioStream" uid="uid://peovgrjb1tmh" path="res://05_Assets/04_Music/snakememnuloop.wav" id="25_sjc11"]
 [ext_resource type="AudioStream" uid="uid://c3b561bgbgops" path="res://05_Assets/03_SoundEffects/jingles/rare_pitviper.wav" id="26_3qiuh"]
-[ext_resource type="AudioStream" uid="uid://b5neblweebsv6" path="res://05_Assets/04_Music/trapbeat.wav" id="26_vgbr3"]
 [ext_resource type="AudioStream" uid="uid://fy0ql3a2it3d" path="res://05_Assets/03_SoundEffects/jingles/rare_chimera.wav" id="27_j8sid"]
 [ext_resource type="AudioStream" uid="uid://ccfsqkw8sbd86" path="res://05_Assets/03_SoundEffects/jingles/rare_amphis.wav" id="28_tsmvf"]
 [ext_resource type="AudioStream" uid="uid://t8avhs6dois" path="res://05_Assets/03_SoundEffects/jingles/rare_python.wav" id="29_7fgcg"]
@@ -43,6 +42,7 @@
 [ext_resource type="AudioStream" uid="uid://b8l2mbxrme6bc" path="res://05_Assets/03_SoundEffects/jingles/leg_nidhogg.wav" id="34_f40i7"]
 [ext_resource type="AudioStream" uid="uid://b12bdu4rsol2u" path="res://05_Assets/03_SoundEffects/jingles/leg_oro.wav" id="35_tu55i"]
 [ext_resource type="AudioStream" uid="uid://yuoc57h8lfoj" path="res://05_Assets/03_SoundEffects/jingles/leg_quetz.wav" id="36_tgj5y"]
+[ext_resource type="AudioStream" uid="uid://brjs0ojn55maa" path="res://05_Assets/04_Music/trapbeat.ogg" id="43_tu55i"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8gqlx"]
 random_pitch = 1.1863941
@@ -266,4 +266,4 @@ stream = ExtResource("25_sjc11")
 volume_db = 3.0
 
 [node name="Trap" type="AudioStreamPlayer" parent="Music" unique_id=673697668]
-stream = ExtResource("26_vgbr3")
+stream = ExtResource("43_tu55i")

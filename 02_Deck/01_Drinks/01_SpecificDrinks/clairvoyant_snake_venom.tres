@@ -8,8 +8,8 @@ script = ExtResource("2_mdnvf")
 drink_name = "Nidhogg's Malice"
 drink_sprite = ExtResource("1_skaqq")
 poison = 1
-strength = 1
-charm = 2
+strength = 3
+charm = 1
 special_ability = 6
 cost = 10
 description = "Pick a snake in your collection.[br]Immediately drink its venom, then [color=\"#d90000\"]Kill[/color] it."

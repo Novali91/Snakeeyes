@@ -43,6 +43,8 @@ func _text_closed() -> void:
 	_animation_player.play("intro")
 	await _animation_player.animation_finished
 	_waiting = false
+	if (_is_mouse_hovering()):
+		_mouse_entered()
 
 func _mouse_entered() -> void:
 	if _waiting: return
@@ -51,3 +53,6 @@ func _mouse_entered() -> void:
 
 func _mouse_exited() -> void:
 	_bubble.material.set_shader_parameter("alpha", 0)
+
+func _is_mouse_hovering() -> bool:
+	return global_position.distance_to(get_global_mouse_position()) <= _collision_shape.shape.radius

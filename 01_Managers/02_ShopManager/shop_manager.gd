@@ -3,7 +3,7 @@ extends Node2D
 
 const SHOP_SIZE: int = 5
 
-const L_CHANCE_PER_SLOT: float = 0.04
+const L_CHANCE_PER_SLOT: float = 0.05
 const R_CHANCE_PER_SLOT: float = 0.27
 
 signal snake_clicked(snake: Snake)

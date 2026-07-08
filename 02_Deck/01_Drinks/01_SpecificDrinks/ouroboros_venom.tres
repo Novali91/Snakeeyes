@@ -12,5 +12,5 @@ strength = 4
 charm = 2
 special_ability = 17
 description = "Instead of being consumed, this venom [color=\"#078c60\"]Slides Back[/color]."
-flavour_text = "The eternal symbol of renewal, representations of the Ouroboros existed everywhere."
+flavour_text = "The eternal symbol of renewal, representations of the Ouroboros have existed everywhere."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"
