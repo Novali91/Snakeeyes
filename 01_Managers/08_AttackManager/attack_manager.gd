@@ -11,6 +11,8 @@ var _next_attack: BossAttack
 var _boss_round: bool = false
 @onready var area: Area2D = $Area
 
+## Maybe do more 2-hit attacks, especially when it jumps
+## Mayb more dipping attacks to mitigate rng
 var ATTACK_LIST: Array[BossAttack] = [
 	BossAttack.new([2], 0), # 1
 	BossAttack.new([3], 0), # 2
@@ -23,26 +25,26 @@ var ATTACK_LIST: Array[BossAttack] = [
 	BossAttack.new([6], 0), # 9
 	BossAttack.new([8], 0), # 10 
 	BossAttack.new([10], 0), # 11
-	BossAttack.new([2, 6], 8), # 12 snakes get +1 poison
-	BossAttack.new([3, 6, 10], 0), # 13
-	BossAttack.new([12], 0), # 14
+	BossAttack.new([2, 8], 5), # 12 slide back
+	BossAttack.new([2, 12], 0), # 13
+	BossAttack.new([3, 10], 0), # 14
 	BossAttack.new([15], 0), # 15
-	BossAttack.new([18], 0), # 16
-	BossAttack.new([3, 8, 16], 0), # 17
-	BossAttack.new([18], 2), # 18 -strength
-	BossAttack.new([15], 0), # 19
-	BossAttack.new([22], 0), # 20
-	BossAttack.new([25], 0), # 21
+	BossAttack.new([5, 18], 0), # 16
+	BossAttack.new([18], 0), # 17
+	BossAttack.new([15], 2), # 18 -strength
+	BossAttack.new([6, 20], 0), # 19
+	BossAttack.new([23], 0), # 20
+	BossAttack.new([26], 0), # 21
 	BossAttack.new([8, 16, 20], 0), # 22
 	BossAttack.new([30], 0), # 23
-	BossAttack.new([22], 5), # 24 slide back
+	BossAttack.new([2, 16], 8), # 24 snakes +1 psn
 	BossAttack.new([36], 0), # 25
-	BossAttack.new([40], 0), # 26
-	BossAttack.new([0], 0), # 27
-	BossAttack.new([0], 0), # 28
-	BossAttack.new([0], 0), # 29
-	BossAttack.new([0], 6), # 30 kill snakes at end (maybe crashes?)
-	BossAttack.new([0], 0), # 31
+	BossAttack.new([10, 40], 0), # 26
+	BossAttack.new([30], 0), # 27
+	BossAttack.new([10, 45], 0), # 28
+	BossAttack.new([50], 0), # 29
+	BossAttack.new([50], 6), # 30 kill snakes at end (maybe crashes?)
+	BossAttack.new([60], 0), # 31
 	BossAttack.new([0], 0), # 32
 	BossAttack.new([0], 0), # 33
 	BossAttack.new([0], 0), # 34

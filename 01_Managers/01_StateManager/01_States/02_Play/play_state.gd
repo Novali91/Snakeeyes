@@ -107,7 +107,7 @@ func play_card(drink: DrinkResource, drink_position: Vector2, og_drink: DrinkRes
 			sm.ability_helper.draw_cards(1)
 			
 		DRINK_SLIDE_BACK:
-			if sm.hand_manager.drinks.size() > 1:
+			if sm.hand_manager.drinks.size() >= 1:
 				sm.overlay_manager.toggle_slide_back(true, 0)
 				
 				var drink_to_slide: Drink = await sm.ability_helper.pick_drink()

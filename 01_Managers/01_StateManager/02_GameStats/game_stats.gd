@@ -21,7 +21,7 @@ enum Tutorial {
 	MULTI_GOAL,
 }
 
-var tutorial_index: int = Tutorial.SKIPPED
+var tutorial_index: int = Tutorial.NONE
 
 var in_settings: bool = false
 

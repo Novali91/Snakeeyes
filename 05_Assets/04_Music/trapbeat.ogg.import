@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/trapbeat.ogg-bcea5abe0d9ba572f62c414c1959c45f
 [params]
 
 loop=true
-loop_offset=13.3
+loop_offset=13.5
 bpm=0.0
 beat_count=0
 bar_beats=4
