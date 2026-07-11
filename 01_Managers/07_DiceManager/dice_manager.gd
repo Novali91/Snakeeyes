@@ -47,6 +47,8 @@ var speed_up: bool = false
 
 var _speed_timer: float = 0
 
+var _last_roll: int = 0
+
 #
 #var antidote_flash_progress: float = 0.0
 #@export var antidote_flash_time: float
@@ -143,7 +145,7 @@ func roll_the_dice(is_poison: bool) -> void:
 	#await _animation_player.animation_finished
 	start_roll(is_poison, is_poison)
 
-func start_roll(lower_cup: bool, is_poison: bool) -> void:
+func start_roll(lower_cup: bool, is_poison: bool, antidote: bool = false) -> void:
 	speed_up = false
 	_speed_timer = 0.1
 	
@@ -166,7 +168,7 @@ func start_roll(lower_cup: bool, is_poison: bool) -> void:
 	_p_lvl_input.visible = false
 	_continue_button.visible = false
 	_use_antidote_button.visible = false
-	_roll()
+	_roll(antidote)
 
 func close() -> void:
 	_animation_player.play("close")
@@ -174,7 +176,7 @@ func close() -> void:
 	visible = false
 	closed.emit()
 
-func _roll() -> void:
+func _roll(antidote: bool = false) -> void:
 	var d1val = randi_range(1,6)
 	var d2val = randi_range(1,6)
 	
@@ -193,7 +195,14 @@ func _roll() -> void:
 	
 	var value_rolled = d1val + d2val
 	
+	if antidote and value_rolled <= _last_roll:
+		_roll()
+		return
+	
 	_current_value = value_rolled + num_scarlets
+	
+	_last_roll = _current_value
+	
 	_p_res_input.text = str(_current_value - num_scarlets)
 	if num_scarlets == 0:
 		_bonus.text = ""
@@ -214,7 +223,7 @@ func _antidote_pressed() -> void:
 		_reroll()
 
 func _reroll() -> void:
-	start_roll(false,roll_is_for_poison)
+	start_roll(false,roll_is_for_poison, true)
 
 func _continue_pressed() -> void:
 	if in_tutorial: return

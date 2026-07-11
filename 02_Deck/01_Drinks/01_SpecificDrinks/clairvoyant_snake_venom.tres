@@ -12,6 +12,6 @@ strength = 3
 charm = 1
 special_ability = 6
 cost = 10
-description = "Pick a snake in your collection.[br]Immediately drink its venom, then [color=\"#d90000\"]Kill[/color] it."
+description = "Pick a snake in your collection.[br]Immediately drink its venom without gaining its [color=\"#069c10\"]Poison[/color], then [color=\"#d90000\"]Kill[/color] it."
 flavour_text = "Translating to Malice Striker, Nidhogg is known for eating the roots of the World Tree."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

@@ -196,7 +196,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			if val < 7:
 				GS.set_strength(GS.get_strength()-2)
 				GS.set_charm(GS.get_charm()-2)
-				sm.charm_overlay.gain_charm(-2, drink_position)
+				sm.charm_overlay.gain_charm(-1, drink_position)
 			else:
 				GS.set_strength(GS.get_strength()+8)
 				GS.set_charm(GS.get_charm()+4)

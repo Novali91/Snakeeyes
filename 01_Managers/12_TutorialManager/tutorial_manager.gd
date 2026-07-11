@@ -7,7 +7,7 @@ extends CanvasLayer
 
 
 func start_of_turn_one() -> void:
-	print("start_of_turn_one")
+	#print("start_of_turn_one")
 	
 	##
 	_tb.global_position = $Markers/Center.global_position
@@ -113,7 +113,7 @@ func start_of_turn_one() -> void:
 	_tb.close()
 
 func drinks_drunk() -> void:
-	print("drinks_drunk")
+	#print("drinks_drunk")
 	
 	_tb.global_position = $Markers/Center.global_position
 	
@@ -131,7 +131,7 @@ func drinks_drunk() -> void:
 
 
 func end_turn_pressed() -> void:
-	print("end_turn_pressed")
+	#print("end_turn_pressed")
 	
 	_tb.global_position = $Markers/Center.global_position
 	
@@ -146,7 +146,7 @@ func end_turn_pressed() -> void:
 
 
 func dice_rolled() -> void:
-	print("dice_rolled")
+	#print("dice_rolled")
 	
 	await get_tree().create_timer(0.5).timeout
 	
@@ -166,7 +166,7 @@ func dice_rolled() -> void:
 	_tb.close()
 
 func compare_strength() -> void:
-	print("compare_strength")
+	#print("compare_strength")
 	
 	_tb.global_position = $Markers/Center.global_position
 	
@@ -179,7 +179,7 @@ func compare_strength() -> void:
 	_tb.close()
 
 func entered_shop() -> void:
-	print("entered_shop")
+	#print("entered_shop")
 	
 	await get_tree().create_timer(0.75).timeout
 	
@@ -242,7 +242,7 @@ func entered_shop() -> void:
 	_tb.close()
 
 func start_of_turn_two() -> void:
-	print("start_of_turn_two")
+	#print("start_of_turn_two")
 	
 	_tb.global_position = $Markers/Center.global_position
 	
@@ -292,7 +292,7 @@ func start_of_turn_two() -> void:
 	_tb.close()
 
 func multi_attack() -> void:
-	print("multi_attack")
+	#print("multi_attack")
 	
 	_tb.global_position = $Markers/Center.global_position
 	

@@ -9,7 +9,7 @@ script = ExtResource("1_v4kjg")
 snake_name = "Coral Snake"
 drink_resource = ExtResource("1_4anu2")
 snake_sprite = ExtResource("3_4anu2")
-description = "[color=\"#7d1b41\"]Roll The Dice:[/color][br]2 - 6: Lose 2 [color=\"#8f1e0d\"]Strength[/color] and 2 [color=\"#b32295\"]Charm[/color].[br]7 - 12: Gain 8 [color=\"#8f1e0d\"]Strength[/color] and 4 [color=\"#b32295\"]Charm[/color]."
+description = "[color=\"#7d1b41\"]Roll The Dice:[/color][br]2 - 6: Lose 2 [color=\"#8f1e0d\"]Strength[/color] and 1 [color=\"#b32295\"]Charm[/color].[br]7 - 12: Gain 8 [color=\"#8f1e0d\"]Strength[/color] and 4 [color=\"#b32295\"]Charm[/color]."
 flavour_text = "\"Red on yellow, kill a fellow.\""
 cost = 7
 rarity = "R"

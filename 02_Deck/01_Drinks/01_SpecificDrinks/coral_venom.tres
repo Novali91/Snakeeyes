@@ -9,6 +9,6 @@ drink_name = "Coral Venom"
 drink_sprite = ExtResource("1_mbfy7")
 poison = 1
 special_ability = 27
-description = "[color=\"#7d1b41\"]Roll The Dice:[/color][br]2 - 6: Lose 2 [color=\"#8f1e0d\"]Strength[/color] and 2 [color=\"#b32295\"]Charm[/color].[br]7 - 12: Gain 8 [color=\"#8f1e0d\"]Strength[/color] and 4 [color=\"#b32295\"]Charm[/color]."
+description = "[color=\"#7d1b41\"]Roll The Dice:[/color][br]2 - 6: Lose 2 [color=\"#8f1e0d\"]Strength[/color] and 1 [color=\"#b32295\"]Charm[/color].[br]7 - 12: Gain 8 [color=\"#8f1e0d\"]Strength[/color] and 4 [color=\"#b32295\"]Charm[/color]."
 flavour_text = "\"Red on yellow, kill a fellow.\""
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

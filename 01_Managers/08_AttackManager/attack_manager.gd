@@ -30,7 +30,7 @@ var ATTACK_LIST: Array[BossAttack] = [
 	BossAttack.new([3, 10], 0), # 14
 	BossAttack.new([15], 0), # 15
 	BossAttack.new([5, 18], 0), # 16
-	BossAttack.new([18], 0), # 17
+	BossAttack.new([12], 0), # 17
 	BossAttack.new([15], 2), # 18 -strength
 	BossAttack.new([6, 20], 0), # 19
 	BossAttack.new([23], 0), # 20
@@ -43,14 +43,14 @@ var ATTACK_LIST: Array[BossAttack] = [
 	BossAttack.new([30], 0), # 27
 	BossAttack.new([10, 45], 0), # 28
 	BossAttack.new([50], 0), # 29
-	BossAttack.new([50], 6), # 30 kill snakes at end (maybe crashes?)
+	BossAttack.new([15, 50], 6), # 30 kill snakes at end (maybe crashes?)
 	BossAttack.new([60], 0), # 31
-	BossAttack.new([0], 0), # 32
-	BossAttack.new([0], 0), # 33
-	BossAttack.new([0], 0), # 34
-	BossAttack.new([0], 0), # 35
-	BossAttack.new([5, 20, 40, 999], 10), # 36
-	BossAttack.new([5, 20, 40, 999], 10), # 37!!!
+	BossAttack.new([20, 70], 0), # 32
+	BossAttack.new([10, 50], 0), # 33
+	BossAttack.new([80], 0), # 34
+	BossAttack.new([75], 0), # 35
+	BossAttack.new([5, 20, 40, 120], 10), # 36
+	BossAttack.new([5, 20, 40, 120], 10), # 37!!!
 ]
 
 func _ready() -> void:

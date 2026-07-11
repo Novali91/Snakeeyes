@@ -9,6 +9,7 @@ drink_name = "King Cobra Venom"
 drink_sprite = ExtResource("1_xcy0a")
 poison = 1
 strength = 1
+charm = 1
 special_ability = 13
 flavour_text = "The regal King Cobra enjoys a feast before it can rest."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"
