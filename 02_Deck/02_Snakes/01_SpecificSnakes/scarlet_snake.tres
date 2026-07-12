@@ -11,7 +11,7 @@ drink_resource = ExtResource("1_6770r")
 snake_sprite = ExtResource("3_6770r")
 description = "Every time you [color=\"#7d1b41\"]Roll The Dice[/color] this turn, add +1 to the result."
 flavour_text = "\"Red on black, friend of Jack.\""
-cost = 4
+cost = 3
 rarity = "C"
 jingle_id = 8
 poison_color = Color(0.82, 0.32799998, 0.32799998, 1)

@@ -2,6 +2,7 @@ class_name TopRoot
 extends Node
 
 @onready var _title_screen_manager: TitleScreenManager = $TitleScreenManager
+@onready var _difficulty_select_manager: DifficultySelectManager = $DifficultySelectState
 @onready var settings: CanvasLayer = $Settings
 @onready var restart_button: Button = $Settings/RestartButton
 @onready var quit_button: Button = $Settings/QuitButton
@@ -23,7 +24,11 @@ func _ready() -> void:
 	_sm.camera_manager.lock_camera()
 	GS.sound_manager.play_menu()
 	await _title_screen_manager.play_clicked
+	_difficulty_select_manager.activate()
 	_title_screen_manager.queue_free()
+	var difficulty: int = await _difficulty_select_manager.difficulty_selected
+	_sm.attack_manager.set_difficulty(difficulty)
+	_difficulty_select_manager.queue_free()
 	_in_menu = false
 	GS.sound_manager.play_game()
 	_sm.camera_manager.unlock_camera()

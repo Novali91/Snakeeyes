@@ -2,7 +2,8 @@ class_name TitleScreenState
 extends TopState
 
 func setup() -> void:
-	sm.title_screen_manager.play_clicked.connect(_play_clicked)
+	#sm.title_screen_manager.play_clicked.connect(_play_clicked)
+	pass
 
 func enter() -> void:
 	sm.camera_manager.lock_camera()
@@ -13,5 +14,5 @@ func exit() -> void:
 
 func _play_clicked() -> void:
 	sm.title_screen_manager.queue_free()
-	GS.sound_manager.play_game()
+	#GS.sound_manager.play_game()
 	sm.switch_state(sm.States.SETUP_TURN)

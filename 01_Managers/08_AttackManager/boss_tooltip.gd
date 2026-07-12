@@ -70,7 +70,7 @@ func start_boss_round(upcoming_index: int, turn_number: int) -> void:
 	tween.parallel().tween_property(attack_description, "modulate:a", 0.1, 0.5)
 	tween.parallel().tween_property(attack_description.material, "shader_parameter/color", Color(1, 1, 1, 1.0), 0.5)
 	tween.parallel().tween_property(attack_sprite.material, "shader_parameter/color", Color(0, 0, 0, 1.0), 0.5)
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(2.5).timeout
 	_flash_red(10)
 	return
 
