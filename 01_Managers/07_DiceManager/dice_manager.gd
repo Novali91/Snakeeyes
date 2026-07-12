@@ -112,12 +112,12 @@ func _process(delta: float) -> void:
 				_continue_button.visible = true
 				if not _has_picked_flash_anim:
 					_has_picked_flash_anim = true
-					if _current_value >= poison:
-						_flash_player.play("RESET")
-						_flash_player.play("should_continue")
-					else:
+					if _current_value < poison and GS.get_antidote_num() != 0:
 						_flash_player.play("RESET")
 						_flash_player.play("need_antidote")
+					else:
+						_flash_player.play("RESET")
+						_flash_player.play("should_continue")
 				
 				#_continue_button.visible = true
 				#_use_antidote_button.modulate = Color.WHITE

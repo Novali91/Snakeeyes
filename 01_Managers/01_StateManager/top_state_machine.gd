@@ -83,7 +83,10 @@ func switch_state(new_state: int) -> void:
 	_current_state_logic.enter()
 
 func _set_start_values() -> void:
-	GS.set_antidote_num(1)
+	if GS.tutorial_index == GS.Tutorial.SKIPPED:
+		GS.set_antidote_num(1)
+	else:
+		GS.set_antidote_num(2)
 	GS.set_score(3)
 	GS.turn_count = 0
 	score_bar.set_turn_value(0)

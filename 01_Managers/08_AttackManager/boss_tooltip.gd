@@ -70,6 +70,8 @@ func start_boss_round(upcoming_index: int, turn_number: int) -> void:
 	tween.parallel().tween_property(attack_description, "modulate:a", 0.1, 0.5)
 	tween.parallel().tween_property(attack_description.material, "shader_parameter/color", Color(1, 1, 1, 1.0), 0.5)
 	tween.parallel().tween_property(attack_sprite.material, "shader_parameter/color", Color(0, 0, 0, 1.0), 0.5)
+	await get_tree().create_timer(1.5).timeout
+	_flash_red(10)
 	return
 
 ## I imagine attack_manager will call this on the drink being hovered?
@@ -150,7 +152,19 @@ func get_description(upcoming: int) -> String:
 			string_to_set = "I like snakesss... not BUGSSS!!!"
 	return string_to_set
 
-
+func _flash_red(num: int) -> void:
+	for i in range(num):
+		attack_sprite.material.set_shader_parameter(
+		"color",
+		Color(.9, .1, .1, 1)
+		)
+		await get_tree().create_timer(.25).timeout
+		attack_sprite.material.set_shader_parameter(
+		"color",
+		Color(0, 0, 0, 1)
+		)
+		await get_tree().create_timer(.25).timeout
+	return
 ## Each turn it will pick a random one of these, maybe at start of turn?
 #func pick_convo_string() -> String:
 	#if GS.turn_count == 0: return "Hover here to see an upcoming attack..."

@@ -35,7 +35,7 @@ func start_of_turn_one() -> void:
 	_ap.play("tickers")
 	
 	_tb.text_array = [
-		"Each round I will drink a venom and set your ssstrength goal...",
+		"Each round, I will drink a venom and set your ssstrength goal...",
 	]
 	_tb.update()
 	
@@ -61,7 +61,7 @@ func start_of_turn_one() -> void:
 	_ap.play("drinks")
 	
 	_tb.text_array = [
-		"To gain ssstrength you will drink venoms...",
+		"To gain ssstrength, you will drink venoms...",
 	]
 	_tb.update()
 	
@@ -93,7 +93,7 @@ func start_of_turn_one() -> void:
 	_ap.play("poison")
 	
 	_tb.text_array = [
-		"But do not be a fool dear...",
+		"But do not be a fool, dear...",
 		"Ingesting venomsss is poisonousss...",
 		"The more you drink, the higher the chance you passs out."
 	]
@@ -121,7 +121,7 @@ func drinks_drunk() -> void:
 	_open()
 	
 	_tb.text_array = [
-		"To tell me you are finished ring the bell.",
+		"Ring the bell to tell me that you are finished.",
 	]
 	_tb.open()
 	

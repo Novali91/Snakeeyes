@@ -42,20 +42,21 @@ metadata/_custom_type_script = "uid://cy8c2pgxbb3fl"
 [node name="AttackSprite" type="Sprite2D" parent="." unique_id=483182062]
 modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_888j7")
-scale = Vector2(0.7, 0.7)
+position = Vector2(20, -20)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_4mqee")
 
 [node name="AttackDescription" type="RichTextLabel" parent="." unique_id=164947998]
 modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_2uxyt")
-offset_left = -92.0
-offset_top = -114.0
-offset_right = 205.0
-offset_bottom = 47.0
+offset_left = -73.0
+offset_top = -152.0
+offset_right = 235.0
+offset_bottom = 23.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 theme_override_fonts/normal_font = ExtResource("3_8q4pg")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 23
 horizontal_alignment = 1
 vertical_alignment = 1
