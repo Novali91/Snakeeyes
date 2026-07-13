@@ -23,10 +23,8 @@ func _ready() -> void:
 	_normal.input_event.connect(_normal_clicked)
 
 func activate() -> void:
-	_background.visible = true
-	_crystal_ball.visible = true
-	_difficulty_ball.visible = true
 	
+	await get_tree().create_timer(0.2).timeout
 	_ap.play("fade_in")
 	await _ap.animation_finished
 	

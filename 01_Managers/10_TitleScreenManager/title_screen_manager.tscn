@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://beb6750t48cxl" path="res://01_Managers/10_TitleScreenManager/title_screen_manager.gd" id="1_njavn"]
 [ext_resource type="Texture2D" uid="uid://5rq7dg3hbajb" path="res://05_Assets/01_Art/02_Backgrounds/begin game background.png" id="2_ke0wo"]
 [ext_resource type="Shader" uid="uid://0oonfw65mdnr" path="res://05_Assets/02_Shaders/outline.gdshader" id="3_37l6j"]
+[ext_resource type="Texture2D" uid="uid://db17ivlasy5l4" path="res://05_Assets/01_Art/03_UI_Sprites/empty crystal ball.png" id="3_cybs7"]
 [ext_resource type="Texture2D" uid="uid://ced2yvvgoiqf0" path="res://05_Assets/01_Art/03_UI_Sprites/begin game sprite.png" id="4_cybs7"]
 [ext_resource type="PackedScene" uid="uid://b6sevij1iobuf" path="res://04_Helper/text_box.tscn" id="5_37l6j"]
 
@@ -111,6 +112,9 @@ metadata/_custom_type_script = "uid://beb6750t48cxl"
 
 [node name="Background" type="Sprite2D" parent="." unique_id=473197520]
 texture = ExtResource("2_ke0wo")
+
+[node name="CrystalBall" type="Sprite2D" parent="." unique_id=169970224]
+texture = ExtResource("3_cybs7")
 
 [node name="Bubble" type="Sprite2D" parent="." unique_id=357123337]
 material = SubResource("ShaderMaterial_vwu47")
