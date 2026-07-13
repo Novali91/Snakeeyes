@@ -8,9 +8,9 @@ script = ExtResource("1_jghwj")
 drink_name = "Pretzelcoatl"
 drink_sprite = ExtResource("1_yk3xa")
 poison = 1
-strength = 1
+strength = 2
 charm = 2
 special_ability = 18
-description = "[color=\"#2225d6\"]Slide In[/color] 3 venoms.[br]Then [color=\"#078c60\"]Slide Back[/color] 3 venoms.[br]The slid back venoms gain 1 [color=\"#8f1e0d\"]Strength[/color] and [color=\"#b32295\"]Charm[/color], and lose 1 [color=\"#069c10\"]Poison[/color]."
+description = "[color=\"#2225d6\"]Slide In[/color] 4 venoms.[br]Then [color=\"#078c60\"]Slide Back[/color] 3 venoms.[br]The slid back venoms gain 2 [color=\"#8f1e0d\"]Strength[/color], 1 [color=\"#b32295\"]Charm[/color], and lose 1 [color=\"#069c10\"]Poison[/color]."
 flavour_text = "The Aztec God of wind and wisdom, the knowledge he bestows is mighty fleeting."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

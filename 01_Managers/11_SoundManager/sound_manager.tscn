@@ -226,7 +226,7 @@ stream = ExtResource("28_tsmvf")
 
 [node name="RarePython" type="AudioStreamPlayer" parent="Jingles" unique_id=278929979]
 stream = ExtResource("29_7fgcg")
-volume_db = -7.0
+volume_db = -4.0
 
 [node name="RareCoralsnake" type="AudioStreamPlayer" parent="Jingles" unique_id=1933099566]
 stream = ExtResource("30_fe5rw")
@@ -246,7 +246,7 @@ volume_db = -9.0
 
 [node name="LegNidhogg" type="AudioStreamPlayer" parent="Jingles" unique_id=1706596786]
 stream = ExtResource("34_f40i7")
-volume_db = -5.0
+volume_db = -3.0
 
 [node name="LegOuroboros" type="AudioStreamPlayer" parent="Jingles" unique_id=1497059139]
 stream = ExtResource("35_tu55i")

@@ -143,6 +143,9 @@ func instantiate_snake_values(info: SnakeResource, current_drink: DrinkResource)
 		14:
 			name_label.text = info.snake_name
 			desc_label.text = info.description + " (" + str(GS.get_antidote_num()) + ")." + "\n" + "\n" + "[color=\"#686868\"]" + info.flavour_text
+		22:
+			name_label.text = info.snake_name
+			desc_label.text = info.description + " (" + str(int(current_drink.strength/2.0)) + ")." + "\n" + "\n" + "[color=\"#686868\"]" + info.flavour_text
 		_:
 			name_label.text = info.snake_name
 			desc_label.text = info.description + "\n" + "\n" + "[color=\"#686868\"]" + info.flavour_text

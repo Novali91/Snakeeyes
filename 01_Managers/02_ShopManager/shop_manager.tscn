@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://cfqx3dcaojqrs" path="res://03_VisualInputOutput/01_ScoreBar/custom_number.gd" id="13_w34qo"]
 [ext_resource type="Texture2D" uid="uid://co48g34ruwdwd" path="res://05_Assets/01_Art/03_UI_Sprites/reroll shop rope.png" id="14_3r70o"]
 [ext_resource type="FontFile" uid="uid://c6xfa0o2h2ssc" path="res://05_Assets/05_Fonts/OldNewspaperTypes.ttf" id="15_r3vpm"]
+[ext_resource type="Texture2D" uid="uid://bffk4xwkgjgoo" path="res://05_Assets/01_Art/03_UI_Sprites/tooltip icons.png" id="17_mtcna"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mkdgh"]
 shader = ExtResource("4_0hb6a")
@@ -451,6 +452,12 @@ metadata/_custom_type_script = "uid://cfqx3dcaojqrs"
 material = SubResource("ShaderMaterial_3r70o")
 position = Vector2(189, 180)
 texture = ExtResource("14_3r70o")
+
+[node name="RerollCharmSymbolbol" type="Sprite2D" parent="." unique_id=750706954]
+position = Vector2(238, 110)
+rotation = 0.34906584
+texture = ExtResource("17_mtcna")
+hframes = 3
 
 [node name="RerollButton" type="Button" parent="." unique_id=1611665676]
 offset_left = 93.0

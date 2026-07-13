@@ -131,19 +131,19 @@ func get_description(upcoming: int) -> String:
 		1:
 			string_to_set = "You mussst match my ssstrength exxxxactly...."
 		2:
-			string_to_set = "When you drink a concoction, your other concoctionsss on the table will grow weaker..."
+			string_to_set = "When you drink a venom, your other venomsss on the table will grow weaker..."
 		3:
 			string_to_set = "Charm becomesss ssstrength, and ssstrength becomesss charm..."
 		4:
-			string_to_set = "When you drink a concoction, sssslide another one in...."
+			string_to_set = "When you drink a venom, sssslide another one in...."
 		5:
-			string_to_set = "When you drink a concoction, ssslide one back..."
+			string_to_set = "When you drink a venom, ssslide one back..."
 		6:
 			string_to_set = "I will EAT whichever sssnakesss produced the venom that you leave on the table..."
 		7:
 			string_to_set = "Poison becomess charm, and charm becomes poison...."
 		8:
-			string_to_set = "Whenever you drink a concoction, the sssnake that produced it will become ssslightly more venomousss..."
+			string_to_set = "Whenever you drink a venom, the sssnake that produced it will become ssslightly more venomousss..."
 		9:
 			string_to_set = "All diccce will roll one lessss...."
 		10:

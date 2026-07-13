@@ -63,34 +63,34 @@ var HARD_ATTACKS: Array[BossAttack] = [
 	BossAttack.new([5], 0), # 7
 	BossAttack.new([2, 4, 7], 0), # 8
 	BossAttack.new([6], 0), # 9
-	BossAttack.new([8], 0), # 10 
-	BossAttack.new([10], 0), # 11
+	BossAttack.new([9], 0), # 10 
+	BossAttack.new([12], 0), # 11
 	BossAttack.new([2, 8], 5), # 12 slide back
-	BossAttack.new([2, 12], 0), # 13
+	BossAttack.new([2, 15], 0), # 13
 	BossAttack.new([3, 10], 0), # 14
-	BossAttack.new([15], 0), # 15
-	BossAttack.new([5, 18], 0), # 16
-	BossAttack.new([12], 0), # 17
+	BossAttack.new([18], 0), # 15
+	BossAttack.new([5, 22], 0), # 16
+	BossAttack.new([15], 0), # 17
 	BossAttack.new([15], 2), # 18 -strength
-	BossAttack.new([6, 20], 0), # 19
+	BossAttack.new([6, 22], 0), # 19
 	BossAttack.new([25], 0), # 20
-	BossAttack.new([28], 0), # 21
-	BossAttack.new([8, 16, 20], 0), # 22
+	BossAttack.new([30], 0), # 21
+	BossAttack.new([8, 16, 22], 0), # 22
 	BossAttack.new([35], 0), # 23
 	BossAttack.new([2, 16], 8), # 24 snakes +1 psn
 	BossAttack.new([40], 0), # 25
-	BossAttack.new([10, 48], 0), # 26
-	BossAttack.new([30], 0), # 27
-	BossAttack.new([10, 55], 0), # 28
-	BossAttack.new([60], 0), # 29
-	BossAttack.new([15, 70], 6), # 30 kill snakes at end (maybe crashes?)
-	BossAttack.new([60], 0), # 31
-	BossAttack.new([20, 70], 0), # 32
-	BossAttack.new([10, 50], 0), # 33
-	BossAttack.new([80], 0), # 34
-	BossAttack.new([75], 0), # 35
-	BossAttack.new([5, 40, 120, 180], 10), # 36
-	BossAttack.new([5, 40, 120, 180], 10), # 37!!!
+	BossAttack.new([10, 35], 0), # 26
+	BossAttack.new([40], 0), # 27
+	BossAttack.new([10, 50], 0), # 28
+	BossAttack.new([55], 0), # 29
+	BossAttack.new([15, 60], 6), # 30 kill snakes at end (maybe crashes?)
+	BossAttack.new([80], 0), # 31
+	BossAttack.new([20, 90], 0), # 32
+	BossAttack.new([10, 65], 0), # 33
+	BossAttack.new([120], 0), # 34
+	BossAttack.new([180], 0), # 35
+	BossAttack.new([5, 40, 80, 300], 10), # 36
+	BossAttack.new([5, 40, 80, 300], 10), # 37!!!
 ]
 
 ## Maybe do more 2-hit attacks, especially when it jumps

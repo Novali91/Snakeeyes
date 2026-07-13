@@ -137,7 +137,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			sm.deck_manager.return_to_drawpile(og_drink, cur_drink)
 			pass
 		QUETZALCOATL:
-			await draw_cards(3)
+			await draw_cards(4)
 			## UI for picking to slideback here:
 			sm.overlay_manager.toggle_slide_back(true,1)
 			var chosen_drink: Drink = await pick_drink()
@@ -161,7 +161,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			chosen_drink.attached_drink.strength = chosen_drink.attached_drink.strength * 2
 			chosen_drink.instantiate_tooltip()
 		BLACK_MAMBA:
-			sm.hand_manager.ability_helper.change_str_values_in_hand(2)
+			sm.hand_manager.ability_helper.change_str_values_in_hand(3)
 		BASILISK: 
 			sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
 			sm.camera_manager.lock_camera()
@@ -307,7 +307,7 @@ func pick_drink() -> Drink:
 func quetzalcoatl_slide_back(drink: Drink) -> void:
 	var attached: DrinkResource = drink.attached_drink
 	attached.poison -= 1
-	attached.strength += 1
+	attached.strength += 2
 	attached.charm += 1
 	sm.hand_manager.ability_helper.slide_drink_back(drink)
 	sm.deck_manager.return_to_drawpile(drink.attached_drink_resource, drink.attached_drink)
