@@ -161,7 +161,7 @@ func trigger_ability(ind: int, drink_position: Vector2, cur_drink: DrinkResource
 			chosen_drink.attached_drink.strength = chosen_drink.attached_drink.strength * 2
 			chosen_drink.instantiate_tooltip()
 		BLACK_MAMBA:
-			sm.hand_manager.ability_helper.change_str_values_in_hand(3)
+			sm.hand_manager.ability_helper.change_str_values_in_hand(2)
 		BASILISK: 
 			sm.camera_manager.switch_screen(sm.camera_manager.LEFT)
 			sm.camera_manager.lock_camera()

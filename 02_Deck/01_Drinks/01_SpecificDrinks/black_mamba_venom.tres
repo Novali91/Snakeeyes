@@ -10,6 +10,6 @@ drink_sprite = ExtResource("1_cs5qj")
 poison = 1
 charm = 2
 special_ability = 20
-description = "Give each venom on the table +3 [color=\"#8f1e0d\"]Strength[/color]."
+description = "Give each venom on the table +2 [color=\"#8f1e0d\"]Strength[/color]."
 flavour_text = "The Black Mamba is the fastest living snake. Its blazingly quick reflexes and deadly venom make it a formidable foe."
 metadata/_custom_type_script = "uid://cysm36u2jsf44"

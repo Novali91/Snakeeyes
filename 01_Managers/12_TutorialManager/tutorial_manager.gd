@@ -232,7 +232,8 @@ func entered_shop() -> void:
 	_ap.play("shop_exit")
 	
 	_tb.text_array = [
-		"When you are done, flip the sssign."
+		"When you are done, flip the sssign.",
+		"Do note, any unspent charm will go away..."
 	]
 	_tb.update()
 	
@@ -276,6 +277,15 @@ func start_of_turn_two() -> void:
 	
 	_tb.text_array = [
 		"If you hover your lives, I will warn you of an upcoming ssspecial goal...",
+	]
+	_tb.update()
+	
+	await _tb.clicked_close
+	
+	_ap.play("future_strength")
+	
+	_tb.text_array = [
+		"The blue translucent ticker displays next turn's strength goal..."
 	]
 	_tb.update()
 	

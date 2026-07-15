@@ -78,6 +78,7 @@ func _ready() -> void:
 	
 	var _parrot_resource: SnakeResource = load("res://02_Deck/02_Snakes/01_SpecificSnakes/parrot_snake.tres")
 	_actual_parrot = _parrot_resource.duplicate()
+	_actual_parrot.drink_resource = _parrot_resource.drink_resource.duplicate()
 	
 	_shop_positions = []
 	for m: Marker2D in _markers_node.get_children():

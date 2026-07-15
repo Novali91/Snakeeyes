@@ -36,4 +36,5 @@ modulate = Color(1, 0.5803922, 0.9647059, 1)
 position = Vector2(0, -11)
 script = ExtResource("4_0nks8")
 min_digits = 1
+digit_spacing = -20.0
 metadata/_custom_type_script = "uid://cfqx3dcaojqrs"

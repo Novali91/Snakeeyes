@@ -7,7 +7,7 @@
 script = ExtResource("1_kce5o")
 drink_name = "Hydra Venom"
 drink_sprite = ExtResource("1_igc5v")
-poison = 2
+poison = 4
 strength = 3
 charm = 1
 special_ability = 8
